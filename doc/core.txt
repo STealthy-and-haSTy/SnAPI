@@ -1,0 +1,1480 @@
+*core.txt*                      Core Components                     May 10, 2017
+--------------------------------------------------------------------------------
+
+
+sublime Module                                                         *sublime*
+==============
+
+*sublime.set_timeout*(callback, delay)
+  Returns: None
+
+    Runs the callback in the main thread after the given delay (in
+    milliseconds). Callbacks with an equal delay will be run in the order they
+    were added.
+
+
+*sublime.set_timeout_async*(callback, delay)
+  Returns: None
+
+    Runs the callback on an alternate thread after the given delay (in
+    milliseconds).
+
+
+*sublime.error_message*(string)
+  Returns: None
+
+    Displays an error dialog to the user.
+
+
+*sublime.message_dialog*(string)
+  Returns: None
+
+    Displays a message dialog to the user.
+
+
+*sublime.ok_cancel_dialog*(string, <ok_title>)
+  Returns: bool
+
+    Displays an ok / cancel question dialog to the user. If `ok_title` is
+    provided, this may be used as the text on the ok button. Returns `True` if the
+    user presses the ok button.
+
+
+*sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
+    Returns: int
+
+      Displays a yes / no / cancel question dialog to the user. If `yes_title`
+      and/or `no_title` are provided, they will be used as the text on the
+      corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
+      `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
+
+
+*sublime.load_resource*(name)
+  Returns: str
+
+    Loads the given resource. The `name` should be in the format
+    `Packages/Default/Main.sublime-menu`.
+
+
+*sublime.load_binary_resource*(name)
+  Returns: bytes
+
+    Loads the given resource. The name should be in the format
+    `Packages/Default/Main.sublime-menu`.
+
+
+*sublime.find_resources*(pattern)
+  Returns: [str]
+
+    Finds resources whose file name matches the given `pattern`.
+
+
+*sublime.encode_value*(value, <pretty>)
+  Returns: str
+
+    Encode a JSON compatible `value` into a string representation. If `pretty`
+    is set to `True`, the string will include newlines and indentation.
+
+
+*sublime.decode_value*(string)
+  Returns: |value|
+
+    Decodes a JSON string into an object. If the `string` is invalid, a
+    `ValueError` will be thrown.
+
+
+*sublime.expand_variables*(value, variables)
+  Returns: |value|
+
+    Expands any variables in the string `value` using the variables defined in
+    the dictionary `variables`. `value` may also be a `list` or `dict`, in which
+    case the structure will be recursively expanded. Strings should use snippet
+    syntax, for example:
+        `expand_variables("Hello, ${name}", {"name": "Foo"})`
+
+
+*sublime.load_settings*(base_name)
+  Returns: |Settings|
+
+    Loads the named settings. The name should include a file name and extension,
+    but not a path. The packages will be searched for files matching the
+    `base_name`, and the results will be collated into the settings object.
+    Subsequent calls to `load_settings()` with the `base_name` will return the
+    same object, and not load the settings from disk again.
+
+
+*sublime.save_settings*(base_name)
+  Returns: None
+
+    Flushes any in-memory changes to the named settings object to disk.
+
+
+*sublime.windows*()
+  Returns: [|Window|]
+
+    Returns a list of all the open windows.
+
+
+*sublime.active_window*()
+  Returns: |Window|
+
+    Returns the most recently used window.
+
+
+*sublime.packages_path*()
+  Returns: str
+
+    Returns the path where all the user's loose packages are located.
+
+
+*sublime.installed_packages_path*()
+  Returns: str
+
+    Returns the path where all the user's .sublime-package files are located.
+
+
+*sublime.cache_path*()
+  Returns: str
+
+    Returns the path where Sublime Text stores cache files.
+
+
+*sublime.get_clipboard*(<size_limit>)
+  Returns: str
+
+    Returns the contents of the clipboard. `size_limit` is there to protect
+    against unnecessarily large data, defaults to 16,777,216 characters
+
+
+*sublime.set_clipboard*(string)
+  Returns: None
+
+    Sets the contents of the clipboard.
+
+
+*sublime.score_selector*(scope, selector)
+  Returns: int
+
+    Matches the `selector` against the given scope, returning a score. A score
+    of `0` means no match, above `0` means a match. Different selectors may be
+    compared against the same scope: a higher score means the selector is a
+    better match for the scope.
+
+
+*sublime.run_command*(string, <args>)
+  Returns: None
+
+    Runs the named |ApplicationCommand| with the (optional) given `args`.
+
+
+*sublime.log_commands*(flag)
+  Returns: None
+
+    Controls command logging. If enabled, all commands run from key bindings and
+    the menu will be logged to the console.
+
+
+*sublime.log_input*(flag)
+  Returns: None
+
+    Controls input logging. If enabled, all key presses will be logged to the
+    console.
+
+
+*sublime.log_result_regex*(flag)
+  Returns: None
+
+    Controls result regex logging. This is useful for debugging regular
+    expressions used in build systems.
+
+
+*sublime.version*()
+  Returns: str
+
+    Returns the version number
+
+
+*sublime.platform*()
+  Returns: str
+
+    Returns the platform, which may be `"osx"`, `"linux"` or `"windows"`
+
+
+*sublime.arch*()
+  Returns: str
+
+    Returns the CPU architecture, which may be `"x32"` or `"x64"`
+
+
+--------------------------------------------------------------------------------
+
+
+Sheet Class                                                              *Sheet*
+===========
+
+Represents a content container, i.e. a tab, within a window. Sheets may contain
+a |View|, or an image preview.
+
+
+*Sheet.id*()
+  Returns: int
+
+    Returns a number that uniquely identifies this sheet.
+
+
+*Sheet.window*()
+  Returns: |Window| or None
+
+    Returns the window containing the sheet. May be `None` if the sheet has been
+    closed.
+
+
+*Sheet.view*()
+  Returns: |View| or None
+
+    Returns the view contained within the sheet. May be `None` if the sheet is
+    an image preview, or the view has been closed.
+
+
+--------------------------------------------------------------------------------
+
+
+View Class                                                                *View*
+==========
+
+Represents a view into a text buffer. Note that multiple views may refer to the
+same buffer, but they have their own unique selection and geometry.
+
+
+*View.id*()
+  Return: int
+
+    Returns a number that uniquely identifies this view.
+
+
+*View.buffer_id*()
+  Return: int
+
+    Returns a number that uniquely identifies the buffer underlying this view.
+
+
+*View.is_primary*()
+  Return: bool
+
+    If the view is the primary view into a file. Will only be `False` if the
+    user has opened multiple views into a file.
+
+
+*View.file_name*()
+  Return: str
+
+    The full name file the file associated with the buffer, or `None` if it
+    doesn't exist on disk.
+
+
+*View.name*()
+  Return: str
+
+    The name assigned to the buffer, if any
+
+
+*View.set_name*(name)
+  Return: None
+
+    Assigns a name to the buffer
+
+
+*View.is_loading*()
+  Return: bool
+
+    Returns `True` if the buffer is still loading from disk, and not ready for
+    use.
+
+
+*View.is_dirty*()
+  Return: bool
+
+    Returns `True` if there are any unsaved modifications to the buffer.
+
+
+*View.is_read_only*()
+  Return: bool
+
+    Returns `True` if the buffer may not be modified.
+
+
+*View.set_read_only*(value)
+  Return: None
+
+    Sets the read only property on the buffer.
+
+
+*View.is_scratch*()
+  Return: bool
+
+    Returns `True` if the buffer is a scratch buffer. Scratch buffers never
+    report as being dirty.
+
+
+*View.set_scratch*(value)
+  Return: None
+
+    Sets the scratch property on the buffer.
+
+
+*View.settings*()
+  Return: |Settings|
+
+    Returns a reference to the view's settings object. Any changes to this
+    settings object will be private to this view.
+
+
+*View.window*()
+  Return: |Window|
+
+    Returns a reference to the window containing the view.
+
+
+*View.run_command*(string, <args>)
+  Return: None
+
+    Runs the named |TextCommand| with the (optional) given args.
+
+
+*View.size*()
+  Return: int
+
+    Returns the number of character in the file.
+
+
+*View.substr*(region)
+  Return: str
+
+    Returns the contents of the `region` as a string.
+
+
+*View.substr*(point)
+  Return: str
+
+    Returns the character to the right of the `point`.
+
+
+*View.insert*(edit, point, string)
+  Return: int
+
+    Inserts the given `string` in the buffer at the specified `point`. Returns
+    the number of characters inserted: this may be different if tabs are being
+    translated into spaces in the current buffer.
+
+
+*View.erase*(edit, region)
+  Return: None
+
+    Erases the contents of the `region` from the buffer.
+
+
+*View.replace*(edit, region, string)
+  Return: None
+
+    Replaces the contents of the `region` with the given `string`.
+
+
+*View.sel*()
+  Return: |Selection|
+
+    Returns a reference to the selection.
+
+
+*View.line*(point)
+  Return: |Region|
+
+    Returns the line that contains the `point`.
+
+
+*View.line*(region)
+  Return: |Region|
+
+    Returns a modified copy of `region` such that it starts at the beginning of
+    a line, and ends at the end of a line. Note that it may span several lines.
+
+
+*View.full_line*(point)
+  Return: |Region|
+
+    As `line()`, but the region includes the trailing newline character, if any.
+
+
+*View.full_line*(region)
+  Return: |Region|
+
+    As `line()`, but the region includes the trailing newline character, if any.
+
+
+*View.lines*(region)
+  Return: [|Region|]
+
+    Returns a list of lines (in sorted order) intersecting the `region`.
+
+
+*View.split_by_newlines*(region)
+  Return: [|Region|]
+
+    Splits the `region` up such that each region returned exists on exactly one
+    line.
+
+
+*View.word*(point)
+  Return: |Region|
+
+    Returns the word that contains the `point`.
+
+
+*View.word*(region)
+  Return: |Region|
+
+    Returns a modified copy of `region` such that it starts at the beginning of
+    a word, and ends at the end of a word. Note that it may span several words.
+
+
+*View.classify*(point)
+  Returns: int
+
+    Classifies `point`, returning a bitwise OR of zero or more of these flags:
+
+      * `sublime.CLASS_WORD_START`
+      * `sublime.CLASS_WORD_END`
+      * `sublime.CLASS_PUNCTUATION_START`
+      * `sublime.CLASS_PUNCTUATION_END`
+      * `sublime.CLASS_SUB_WORD_START`
+      * `sublime.CLASS_SUB_WORD_END`
+      * `sublime.CLASS_LINE_START`
+      * `sublime.CLASS_LINE_END`
+      * `sublime.CLASS_EMPTY_LINE`
+
+
+*View.find_by_class*(point, forward, classes, <separators>)
+  Returns: |Region|
+
+    Finds the next location after point that matches the given `classes`. If
+    `forward` is `False`, searches backwards instead of forwards. `classes` is a
+    bitwise OR of the `sublime.CLASS_XXX` flags. `separators` may be passed in,
+    to define what characters should be considered to separate words.
+
+
+*View.expand_by_class*(point, classes, <separators>)
+  Returns: |Region|
+
+    Expands `point` to the left and right, until each side lands on a location
+    that matches `classes`. `classes` is a bitwise OR of the `sublime.CLASS_XXX`
+    flags. separators may be passed in, to define what characters should be
+    considered to separate words.
+
+
+*View.expand_by_class*(region, classes, <separators>)
+  Returns: |Region|
+
+    Expands `region` to the left and right, until each side lands on a location
+    that matches `classes`. `classes` is a bitwise OR of the `sublime.CLASS_XXX`
+    flags. `separators` may be passed in, to define what characters should be
+    considered to separate words.
+
+
+*View.find*(pattern, start_point, <flags>)
+  Returns: |Region|
+
+    Returns the first region matching the regex `pattern`, starting from
+    `start_point`, or `None` if it can't be found. The optional `flags`
+    parameter may be `sublime.LITERAL`, `sublime.IGNORECASE`, or the two ORed
+    together.
+
+
+*View.find_all*(pattern, <flags>, <format>, <extractions>)
+  Returns: [|Region|]
+
+    Returns all (non-overlapping) regions matching the regex `pattern`. The
+    optional `flags` parameter may be `sublime.LITERAL`, `sublime.IGNORECASE`,
+    or the two ORed together. If a `format` string is given, then all matches
+    will be formatted with the formatted string and placed into the extractions
+    list.
+
+
+*View.rowcol*(point)
+  Returns: (int, int)
+
+    Calculates the 0-based line and column numbers of the `point`.
+
+
+*View.text_point*(row, col)
+  Returns: int
+
+    Calculates the character offset of the given, 0-based, `row` and `col`. Note
+    that `col` is interpreted as the number of characters to advance past the
+    beginning of the row.
+
+
+*View.set_syntax_file*(syntax_file)
+  Returns: None
+
+    Changes the syntax used by the view. `syntax_file` should be a name along the
+    lines of `Packages/Python/Python.tmLanguage`. To retrieve the current syntax,
+    use `view.settings().get('syntax')`.
+
+
+*View.extract_scope*(point)
+  Returns: |Region|
+
+    Returns the extent of the syntax scope name assigned to the character at the
+    given `point`.
+
+
+*View.scope_name*(point)
+  Returns: str
+
+    Returns the syntax scope name assigned to the character at the given
+    `point`.
+
+
+*View.match_selector*(point, selector)
+  Returns: bool
+
+    Checks the `selector` against the scope at the given `point`, returning a
+    bool if they match.
+
+
+*View.score_selector*(point, selector)
+  Returns: int
+
+    Matches the `selector` against the scope at the given `point`, returning a
+    score. A score of `0` means no match, above `0` means a match. Different
+    selectors may be compared against the same scope: a higher score means the
+    selector is a better match for the scope.
+
+
+*View.find_by_selector*(selector)
+  Returns: [Region]
+
+    Finds all regions in the file matching the given `selector`, returning them
+    as a list.
+
+
+*View.show*(location, <show_surrounds>)
+  Returns: None
+
+    Scroll the view to show the given `location`, which may be a |point|,
+    |Region| or |Selection|.
+
+
+*View.show_at_center*(location)
+  Returns: None
+
+    Scroll the view to center on the `location`, which may be a |point| or
+    |Region|.
+
+
+*View.visible_region*()
+  Returns: |Region|
+
+    Returns the currently visible area of the view.
+
+
+*View.viewport_position*()
+  Returns: |vector|
+
+    Returns the offset of the viewport in layout coordinates.
+
+
+*View.set_viewport_position*(vector, <animate<)
+  Returns: None
+
+    Scrolls the viewport to the given layout position.
+
+
+*View.viewport_extent*()
+  Returns: |vector|
+
+    Returns the width and height of the viewport.
+
+
+*View.layout_extent*()
+  Returns: |vector|
+
+    Returns the width and height of the layout.
+
+
+*View.text_to_layout*(point)
+  Returns: |vector|
+
+    Converts a text position to a layout position
+
+
+*View.layout_to_text*(vector)
+  Returns: |point|
+
+    Converts a layout position to a text position
+
+
+*View.window_to_layout*(vector)
+  Returns: |vector|
+
+    Converts a window position to a layout position
+
+
+*View.window_to_text*(vector)
+  Returns: |point|
+
+    Converts a window position to a text position
+
+
+*View.line_height*()
+  Returns: |dip|
+
+    Returns the light height used in the layout
+
+
+*View.em_width*()
+  Returns: |dip|
+
+    Returns the typical character width used in the layout
+
+
+*View.add_regions*(key, [regions], <scope>, <icon>, <flags>)
+  Returns: None
+
+    Add a set of `regions` to the view. If a set of `regions` already exists
+    with the given key, they will be overwritten. The `scope` is used to source
+    a color to draw the `regions` in, it should be the name of a scope, such as
+    `"comment"` or `"string"`. If the `scope` is empty, the `regions` won't be
+    drawn.
+
+    The optional `icon` name, if given, will draw the named icons in the gutter
+    next to each region. The `icon` will be tinted using the color associated
+    with the scope. Valid icon names are `dot`, `circle`, `bookmark` and
+    `cross`. The icon name may also be a full package relative path, such as
+    `Packages/Theme - Default/dot.png`.
+
+    The optional flags parameter is a bitwise combination of:
+
+    * `sublime.DRAW_EMPTY`: Draw empty regions with a vertical bar. By default,
+      they aren't drawn at all.
+
+    * `sublime.HIDE_ON_MINIMAP`: Don't show the regions on the minimap.
+
+    * `sublime.DRAW_EMPTY_AS_OVERWRITE`: Draw empty regions with a horizontal
+      bar instead of a vertical one.
+
+    * `sublime.DRAW_NO_FILL`: Disable filling the regions, leaving only the
+      outline.
+
+    * `sublime.DRAW_NO_OUTLINE`: Disable drawing the outline of the regions.
+
+    * `sublime.DRAW_SOLID_UNDERLINE`: Draw a solid underline below the regions.
+
+    * `sublime.DRAW_STIPPLED_UNDERLINE`: Draw a stippled underline below the
+      regions.
+
+    * `sublime.DRAW_SQUIGGLY_UNDERLINE`: Draw a squiggly underline below the
+      regions.
+
+    * `sublime.PERSISTENT`: Save the regions in the session.
+
+    * `sublime.HIDDEN`: Don't draw the regions.
+
+    The underline styles are exclusive, either zero or one of them should be
+    given. If using an underline, `sublime.DRAW_NO_FILL` and
+    `sublime.DRAW_NO_OUTLINE` should generally be passed in.
+
+
+*View.get_regions*(key)
+  Returns: [|Region|]
+
+    Return the regions associated with the given `key`, if any
+
+
+*View.erase_regions*(key)
+  Returns: None
+
+    Removed the named regions
+
+
+*View.set_status*(key, value)
+  Returns: None
+
+    Adds the status `key` to the view. The `value` will be displayed in the
+    status bar, in a comma separated list of all status values, ordered by key.
+    Setting the `value` to the empty string will clear the status.
+
+
+*View.get_status*(key)
+  Returns: str
+
+    Returns the previously assigned value associated with the `key`, if any.
+
+
+*View.erase_status*(key)
+  Returns: None
+
+    Clears the named status.
+
+
+*View.command_history*(index, <modifying_only>)
+  Returns: (str, dict, int)
+
+    Returns the command name, command arguments, and repeat count for the given
+    history entry, as stored in the undo / redo stack.
+
+    Index 0 corresponds to the most recent command, -1 the command before that,
+    and so on. Positive values for index indicate to look in the redo stack for
+    commands. If the undo / redo history doesn't extend far enough, then
+    `(None, None, 0)` will be returned.
+
+    Setting `modifying_only` to `True` (the default is `False`) will only return
+    entries that modified the buffer.
+
+
+*View.change_count*()
+  Returns: int
+
+    Returns the current change count. Each time the buffer is modified, the
+    change count is incremented. The change count can be used to determine if
+    the buffer has changed since the last it was inspected.
+
+
+*View.fold*([regions])
+  Returns: bool
+
+    Folds the given `regions`, returning `False` if they were already folded
+
+
+*View.fold*(region)
+  Returns: bool
+
+    Folds the given `region`, returning `False` if it was already folded
+
+
+*View.unfold*(region)
+  Returns: [|Region|]
+
+    Unfolds all text in the `region`, returning the unfolded regions
+
+
+*View.unfold*([regions])
+  Returns: [|Region|]
+
+    Unfolds all text in the `regions`, returning the unfolded regions
+
+
+*View.encoding*()
+  Returns: str
+
+    Returns the encoding currently associated with the file
+
+
+*View.set_encoding*(encoding)
+  Returns: None
+
+    Applies a new encoding to the file. This encoding will be used the next time
+    the file is saved.
+
+
+*View.line_endings*()
+  Returns: str
+
+    Returns the line endings used by the current file.
+
+
+*View.set_line_endings*(line_endings)
+  Returns: None
+
+    Sets the line endings that will be applied when next saving.
+
+
+*View.overwrite_status*()
+  Returns: bool
+
+    Returns the overwrite status, which the user normally toggles via the insert
+    key.
+
+
+*View.set_overwrite_status*(enabled)
+  Returns: None
+
+    Sets the overwrite status.
+
+
+*View.symbols*()
+  Returns: [(|Region|, str)]
+
+    Extract all the symbols defined in the buffer.
+
+
+*View.show_popup_menu*(items, on_done, <flags>)
+  Returns: None
+
+    Shows a pop up menu at the caret, to select an item in a list. `on_done`
+    will be called once, with the index of the selected item. If the pop up menu
+    was cancelled, `on_done` will be called with an argument of -1.
+
+    `items` is a list of strings.
+
+    `flags` it currently unused.
+
+
+*View.show_popup*(content, <flags>, <location>, <max_width>, <max_height>,
+                  <on_navigate>, <on_hide>)
+  Returns: None
+
+    Shows a popup displaying HTML content.
+
+    `flags` is a bitwise combination of the following:
+
+    * `sublime.COOPERATE_WITH_AUTO_COMPLETE`. Causes the popup to display next
+      to the auto complete menu
+
+    * `sublime.HIDE_ON_MOUSE_MOVE`. Causes the popup to hide when the mouse is
+      moved, clicked or scrolled
+
+    * `sublime.HIDE_ON_MOUSE_MOVE_AWAY`. Causes the popup to hide when the mouse
+      is moved (unless towards the popup), or when clicked or scrolled
+
+    The default `location` of `-1` will display the popup at the cursor,
+    otherwise a text point should be passed.
+
+    `max_width` and `max_height` set the maximum dimensions for the popup, after
+    which scroll bars will be displayed.
+
+    `on_navigate` is a callback that should accept a string contents of the
+    `href` attribute on the link the user clicked.
+
+    `on_hide` is called when the popup is hidden.
+
+
+*View.update_popup*(content)
+  Returns: None
+
+    Updates the contents of the currently visible popup.
+
+
+*View.is_popup_visible*()
+  Returns: bool
+
+    Returns if the popup is currently shown.
+
+
+*View.hide_popup*()
+  Returns: None
+
+    Hides the popup.
+
+
+*View.is_auto_complete_visible*()
+  Returns: bool
+
+    Returns if the auto complete menu is currently visible.
+
+
+--------------------------------------------------------------------------------
+
+
+Selection Class                                                      *Selection*
+===============
+
+Maintains a set of Regions, ensuring that none overlap. The regions are kept in
+sorted order.
+
+
+*Selection.clear*()
+  Returns: None
+
+    Removes all regions.
+
+
+*Selection.add*(region)
+  Returns: None
+
+    Adds the given `region`. It will be merged with any intersecting regions
+    already contained within the set.
+
+
+*Selection.add_all*(regions)
+  Returns: None
+
+    Adds all regions in the given `list` or `tuple`.
+
+
+*Selection.subtract*(region)
+  Returns: None
+
+    Subtracts the `region` from all regions in the set.
+
+
+*Selection.contains*(region)
+  Returns: bool
+
+    Returns True iff the given `region` is a subset.
+
+
+--------------------------------------------------------------------------------
+
+
+Region Class                                                            *Region*
+============
+
+Represents an area of the buffer. Empty regions, where a == b are valid.
+
+
+Constructors
+------------
+*Region*(a, b)
+
+    Creates a Region with initial values a and b.
+
+
+Properties
+----------
+
+*Region.a*
+  Type: int
+
+    The first end of the region.
+
+
+*Region.b*
+  Type: int
+
+    The second end of the region. May be less that a, in which case the region
+    is a reversed one.
+
+
+*Region.xpos*
+  Type: int
+
+    The target horizontal position of the region, or `-1` if undefined. Effects
+    behavior when pressing the up or down keys.
+
+
+Methods
+-------
+
+*Region.begin*()
+  Returns: int
+
+    Returns the minimum of a and b.
+
+
+*Region.end*()
+  Returns: int
+
+    Returns the maximum of a and b.
+
+
+*Region.size*()
+  Returns: int
+
+    Returns the number of characters spanned by the region. Always >= 0.
+
+
+*Region.empty*()
+  Returns: bool
+
+    Returns `True` iff `begin()` == `end()`.
+
+
+*Region.cover*(region)
+  Returns: |Region|
+
+    Returns a Region spanning both this and the given regions.
+
+
+*Region.intersection*(region)
+  Returns: |Region|
+
+    Returns the set intersection of the two regions.
+
+
+*Region.intersects*(region)
+  Returns: bool
+
+    Returns `True` iff self == `region` or both include one or more positions in
+    common.
+
+
+*Region.contains*(region)
+  Returns: bool
+
+    Returns `True` iff the given `region` is a subset.
+
+
+*Region.contains*(point)
+  Returns: bool
+
+    Returns `True` iff `begin()` <= `point` <= `end()`.
+
+
+--------------------------------------------------------------------------------
+
+
+Phantom Class                                                          *Phantom*
+=============
+
+Represents an HTML-based decoration to display non-editable content interspersed
+in a View. Used with PhantomSet to actually add the phantoms to the View. Once a
+Phantom has been constructed and added to the View, changes to the attributes
+will have no effect.
+
+
+Constructors
+------------
+
+*Phantom*(region, content, layout, <on_navigate>)
+
+  Creates a phantom attached to a region. The content is HTML to be processed
+  by |minihtml|.
+
+  layout must be one of:
+
+  * `sublime.LAYOUT_INLINE`: Display the phantom in between the `region` and
+    the point following.
+
+  * `sublime.LAYOUT_BELOW`: Display the phantom in space below the current
+    line, left-aligned with the `region`.
+
+  * `sublime.LAYOUT_BLOCK`: Display the phantom in space below the current
+    line, left-aligned with the beginning of the line.
+
+  `on_navigate` is an optional callback that should accept a single string
+  parameter, that is the `href` attribute of the link clicked.
+
+
+--------------------------------------------------------------------------------
+
+
+PhantomSet Class                                                    *PhantomSet*
+================
+
+A collection that manages Phantoms and the process of adding them, updating them
+and removing them from the View.
+
+
+Constructors
+------------
+
+*PhantomSet*(view, <key>)
+
+  Creates a PhantomSet attached to a `view`. `key` is a string to group
+  Phantoms together.
+
+
+Methods
+-------
+
+*PhantomSet.update*(phantoms)
+  Returns: None
+
+    phantoms should be a list of phantoms.
+
+    The `.region` attribute of each existing phantom in the set will be updated.
+    New phantoms will be added to the view and phantoms not in `phantoms` list
+    will be deleted.
+
+
+--------------------------------------------------------------------------------
+
+
+Edit Class                                                                *Edit*
+==========
+
+Edit objects have no functions, they exist to group buffer modifications.
+
+Edit objects are passed to |TextCommand|s, and can not be created by the user.
+Using an invalid Edit object, or an Edit object from a different View, will
+cause the functions that require them to fail.
+
+
+--------------------------------------------------------------------------------
+
+
+Window Class                                                            *Window*
+============
+
+
+*Window.id*()
+  Returns: int
+
+    Returns a number that uniquely identifies this window.
+
+
+*Window.new_file*()
+  Returns: |View|
+
+    Creates a new file. The returned view will be empty, and its `is_loaded()`
+    method will return `True`.
+
+
+*Window.open_file*(file_name, <flags>)
+  Returns: |View|
+
+    Opens the named file, and returns the corresponding view. If the file is
+    already opened, it will be brought to the front. Note that as file loading
+    is asynchronous, operations on the returned view won't be possible until its
+    `is_loading()` method returns `False`.
+
+    The optional `flags` parameter is a bitwise combination of:
+
+    * `sublime.ENCODED_POSITION`: Indicates the file_name should be searched for
+      a `:row` or `:row:col` suffix
+
+    * `sublime.TRANSIENT`: Open the file as a preview only: it won't have a tab
+      assigned it until modified
+
+
+*Window.find_open_file*(file_name)
+  Returns |View|
+
+    Finds the named file in the list of open files, and returns the
+    corresponding View, or `None` if no such file is open.
+
+
+*Window.active_sheet*()
+  Returns: |Sheet|
+
+    Returns the currently focused sheet.
+
+
+*Window.active_view*()
+  Returns: |View|
+
+    Returns the currently edited view.
+
+
+*Window.active_sheet_in_group*(group)
+  Returns: |Sheet|
+
+    Returns the currently focused sheet in the given `group`.
+
+
+*Window.active_view_in_group*(group)
+  Returns: |View|
+
+    Returns the currently edited view in the given `group`.
+
+
+*Window.sheets*()
+  Returns: [|Sheet|]
+
+    Returns all open sheets in the window.
+
+
+*Window.sheets_in_group*(group)
+  Returns: [|Sheet|]
+
+    Returns all open sheets in the given `group`.
+
+
+*Window.views*()
+  Returns: [|View|]
+
+    Returns all open views in the window.
+
+
+*Window.views_in_group*(group)
+  Returns: [|View|]
+
+    Returns all open views in the given `group`.
+
+
+*Window.num_groups*()
+  Returns: int
+
+    Returns the number of view groups in the window.
+
+
+*Window.active_group*()
+  Returns: int
+
+    Returns the index of the currently selected group.
+
+
+*Window.focus_group*(group)
+  Returns: None
+
+    Makes the given `group` active.
+
+
+*Window.focus_sheet*(sheet)
+  Returns: None
+
+    Switches to the given `sheet`.
+
+
+*Window.focus_view*(view)
+  Returns: None
+
+    Switches to the given `view`.
+
+
+*Window.get_sheet_index*(sheet)
+  Returns: (int, int)
+
+    Returns the group, and index within the group of the `sheet`. Returns `-1`
+    if not found.
+
+
+*Window.set_sheet_index*(sheet, group, index)
+  Returns:  None
+
+    Moves the `sheet` to the given `group` and `index`.
+
+
+*Window.get_view_index*(view)
+  Returns: (int, int)
+
+    Returns the group, and index within the group of the `view`. Returns `-1` if
+    not found.
+
+
+*Window.set_view_index*(view, group, index)
+  Returns: None
+
+    Moves the `view` to the given `group` and `index`.
+
+
+*Window.status_message*(string)
+  Returns: None
+
+    Show a message in the status bar.
+
+
+*Window.is_menu_visible*()
+  Returns: bool
+
+    Returns `True` if the menu is visible.
+
+
+*Window.set_menu_visible*(flag)
+  Returns: None
+
+    Controls if the menu is visible.
+
+
+*Window.is_sidebar_visible*()
+  Returns: bool
+
+    Returns `True` if the sidebar will be shown when contents are available.
+
+
+*Window.set_sidebar_visible*(flag)
+  Returns: None
+
+    Sets the sidebar to be shown or hidden when contents are available.
+
+
+*Window.get_tabs_visible*()
+  Returns: bool
+
+    Returns `True` if tabs will be shown for open files.
+
+
+*Window.set_tabs_visible*(flag)
+  Returns: None
+
+    Controls if tabs will be shown for open files.
+
+
+*Window.is_minimap_visible*()
+  Returns: bool
+
+    Returns `True` if the minimap is enabled.
+
+
+*Window.set_minimap_visible*(flag)
+  Returns: None
+
+    Controls the visibility of the minimap.
+
+
+*Window.is_status_bar_visible*()
+  Returns: bool
+
+    Returns `True` if the status bar will be shown.
+
+
+*Window.set_status_bar_visible*(flag)
+  Returns: None
+
+    Controls the visibility of the status bar.
+
+
+*Window.folders*()
+  Returns: [str]
+
+    Returns a list of the currently open folders.
+
+
+*Window.project_file_name*()
+  Returns: str
+
+    Returns name of the currently opened project file, if any.
+
+
+*Window.project_data*()
+  Returns: dict
+
+    Returns the project data associated with the current window. The data is in
+    the same format as the contents of a `.sublime-project` file.
+
+
+*Window.set_project_data*(data)
+  Returns: None
+
+    Updates the project data associated with the current window. If the window
+    is associated with a `.sublime-project` file, the project file will be
+    updated on disk, otherwise the window will store the data internally.
+
+
+*Window.run_command*(string, <args>)
+  Returns: None
+
+    Runs the named |WindowCommand| with the (optional) given `args`. This method
+    is able to run any sort of command, dispatching the command via input focus.
+
+
+
+*Window.show_quick_panel*(items, on_done, <flags>, <selected_index>,
+                          <on_highlighted>)
+  Returns: None
+
+    Shows a quick panel, to select an item in a list. `on_done` will be called
+    once, with the index of the selected item. If the quick panel was cancelled,
+    `on_done` will be called with an argument of -1.
+
+    `items` may be a list of strings, or a list of string lists. In the latter
+    case, each entry in the quick panel will show multiple rows.
+
+    `flags` is a bitwise OR of `sublime.MONOSPACE_FONT` and
+    `sublime.KEEP_OPEN_ON_FOCUS_LOST`
+
+    `on_highlighted`, if given, will be called every time the highlighted item in
+    the quick panel is changed.
+
+
+*Window.show_input_panel*(caption, initial_text, on_done, on_change, on_cancel)
+  Returns: |View|
+
+    Shows the input panel, to collect a line of input from the user. `on_done`
+    and `on_change`, if not `None`, should both be functions that expect a
+    single string argument. `on_cancel` should be a function that expects no
+    arguments. The view used for the input widget is returned.
+
+
+*Window.create_output_panel*(name, <unlisted>)
+  Returns: |View|
+
+    Returns the view associated with the named output panel, creating it if
+    required. The output panel can be shown by running the `show_panel` window
+    command, with the `panel` argument set to the name with an `"output."`
+    prefix.
+
+    The optional `unlisted` parameter is a boolean to control if the output
+    panel should be listed in the panel switcher.
+
+
+*Window.find_output_panel*(name)
+  Returns: |View| or None
+
+    Returns the view associated with the named output panel, or `None` if the
+    output panel does not exist.
+
+
+*Window.destroy_output_panel*(name)
+  Returns: None
+
+    Destroys the named output panel, hiding it if currently open.
+
+
+*Window.active_panel*()
+  Returns: str or None
+
+    Returns the name of the currently open panel, or `None` if no panel is open.
+    Will return built-in panel names (e.g. `"console"`, `"find"`, etc) in
+    addition to output panels.
+
+
+*Window.panels*()
+  Returns: [str]
+
+    Returns a list of the names of all panels that have not been marked as
+    unlisted. Includes certain built-in panels in addition to output panels.
+
+
+*Window.lookup_symbol_in_index*(symbol)
+  Returns: [|location|]
+
+    Returns all locations where the symbol is defined across files in the
+    current project.
+
+
+*Window.lookup_symbol_in_open_files*(symbol)
+  Returns: [|location|]
+
+    Returns all locations where the symbol is defined across open files.
+
+
+*Window.extract_variables*()
+  Returns: dict
+
+    Returns a dictionary of strings populated with contextual keys:
+
+    `packages`, `platform`, `file`, `file_path`, `file_name`, `file_base_name`,
+    `file_extension`, `folder`, `project`, `project_path`, `project_name`,
+    `project_base_name`, `project_extension`. This dict is suitable for passing
+    to `sublime.expand_variables()`.
+
+
+--------------------------------------------------------------------------------
+
+
+Settings Class                                                        *Settings*
+==============
+
+
+*Settings.get*(name, <default>)
+  Returns: |value|
+
+    Returns the named setting, or `default` if it's not defined. If not passed,
+    `default` will have a value of `None`.
+
+
+*Settings.set*(name, value)
+  Returns: None
+
+    Sets the named setting. Only primitive types, lists, and dicts are accepted.
+
+
+*Settings.erase*(name)
+  Returns: None
+
+    Removes the named setting. Does not remove it from any parent Settings.
+
+
+*Settings.has*(name)
+  Returns: bool
+
+    Returns `True` iff the named option exists in this set of Settings or one of
+    its parents.
+
+
+*Settings.add_on_change*(key, on_change)
+  Returns: None
+
+    Register a callback to be run whenever a setting in this object is
+    changed.
+
+
+*Settings.clear_on_change*(key)
+  Returns: None
+
+    Remove all callbacks registered with the given `key`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

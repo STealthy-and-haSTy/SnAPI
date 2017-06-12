@@ -1,0 +1,95 @@
+*general.txt*                 General Information                   May 10, 2017
+--------------------------------------------------------------------------------
+
+
+Example Plugins                                                *example.plugins*
+===============
+
+Several pre-made plugins come with Sublime Text, you can find them in the
+Default package:
+
+  |Packages/Default/delete_word.py|
+      Deletes a word to the left or right of the cursor
+  |Packages/Default/duplicate_line.py|
+      Duplicates the current line
+  |Packages/Default/exec.py|
+      Uses phantoms to display errors inline
+  |Packages/Default/font.py|
+      Shows how to work with settings
+  |Packages/Default/goto_line.py|
+      Prompts the user for input, then updates the selection
+  |Packages/Default/mark.py|
+      Uses `add_regions()` to add an icon to the gutter
+  |Packages/Default/show_scope_name.py|
+      Uses a popup to show the scope names at the caret
+  |Packages/Default/trim_trailing_whitespace.py|
+      Modifies a buffer just before its saved
+
+
+--------------------------------------------------------------------------------
+
+
+Plugin Lifecycle                                              *plugin.lifecycle*
+================
+
+At importing time, plugins may not call any API functions, with the exception of
+`sublime.version()`, `sublime.platform()`, `sublime.architecture()` and
+`sublime.channel()`.
+
+If a plugin defines a module level function `plugin_loaded()`, this will be
+called when the API is ready to use. Plugins may also define
+`plugin_unloaded()`, to get notified just before the plugin is unloaded.
+
+
+--------------------------------------------------------------------------------
+
+
+Threading                                                            *threading*
+=========
+
+All API functions are thread-safe, however keep in mind that from the
+perspective of code running in an alternate thread, application state will be
+changing while the code is running.
+
+
+--------------------------------------------------------------------------------
+
+
+Units and Coordinates                                    *units.and.coordinates*
+=====================
+
+API functions that accept or return coordinates or dimensions do so using
+device-independent pixel (dip) values. While in some cases these will be
+equivalent to device pixels, this is often not the case. Per the CSS
+specification, |minihtml| treats the `px` unit as device-independent.
+
+
+--------------------------------------------------------------------------------
+
+
+Types                                                                    *types*
+=====
+
+This documentation generally refers to simply Python data types. Some type names
+are classes documented herein, however there are also a few custom type names
+that refer to construct with specific semantics:
+
+ * *location*: a tuple of `(str, str, (int, int))` that contains information about
+   a location of a symbol. The first string is the absolute file path, the
+   second is the file path relative to the project, the third element is a
+   two-element tuple of the row and column.
+
+ * *point*: an `int` that represents the offset from the beginning of the editor
+   buffer. The `View` methods `text_point()` and `rowcol()` allow converting to
+   and from this format.
+
+ * *value*: any of the Python data types `bool`, `int`, `float`, `str`, `list`
+   or `dict`.
+
+ * *dip*: a `float` that represents a device-independent pixel.
+
+ * *vector*: a tuple of `(dip, dip)` representing `x` and `y` coordinates.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

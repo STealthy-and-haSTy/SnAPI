@@ -1,0 +1,20 @@
+*index.txt*             Sublime Text 3 API Documentation            May 10, 2017
+--------------------------------------------------------------------------------
+
+
+General Information        Core Components      Plugin Extension Points
+-------------------        ---------------      -----------------------
+ |example.plugins|         |sublime| module     |sublime_plugin| Module
+ |plugin.lifecycle|        |Sheet| Class        |EventListener| Class
+ |threading|               |View| Class         |ViewEventListener| Class
+ |units.and.coordinates|   |Selection| Class    |ApplicationCommand| Class
+ |types|                   |Region| Class       |WindowCommand| Class
+                           |Phantom| Class      |TextCommand| Class
+                           |PhantomSet| Class
+                           |Edit| Class
+                           |Window| Class
+                           |Settings| Class
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

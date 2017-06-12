@@ -1,0 +1,602 @@
+*extensions.txt*            Plugin Extension Points                 May 10, 2017
+--------------------------------------------------------------------------------
+
+
+Sublime_plugin Module                                           *Sublime_plugin*
+=====================
+
+
+--------------------------------------------------------------------------------
+
+
+EventListener Class                                              *EventListener*
+===================
+
+Note that many of these events are triggered by the buffer underlying the view,
+and thus the method is only called once, with the first view as the parameter.
+
+
+*EventListener.on_new*(view)
+  Returns: None
+
+    Called when a new buffer is created.
+
+
+*EventListener.on_new_async*(view)
+  Returns: None
+
+    Called when a new buffer is created. Runs in a separate thread, and does not
+    block the application.
+
+
+*EventListener.on_clone*(view)
+  Returns: None
+
+    Called when a view is cloned from an existing one.
+
+
+*EventListener.on_clone_async*(view)
+  Returns: None
+
+    Called when a view is cloned from an existing one. Runs in a separate
+    thread, and does not block the application.
+
+
+*EventListener.on_load*(view)
+  Returns: None
+
+    Called when the file is finished loading.
+
+
+*EventListener.on_load_async*(view)
+  Returns: None
+
+    Called when the file is finished loading. Runs in a separate thread, and
+    does not block the application.
+
+
+*EventListener.on_pre_close*(view)
+  Returns: None
+
+    Called when a view is about to be closed. The view will still be in the
+    window at this point.
+
+
+*EventListener.on_close*(view)
+  Returns: None
+
+    Called when a view is closed (note, there may still be other views into the
+    same buffer).
+
+
+*EventListener.on_pre_save*(view)
+  Returns: None
+
+    Called just before a view is saved.
+
+
+*EventListener.on_pre_save_async*(view)
+  Returns: None
+
+    Called just before a view is saved. Runs in a separate thread, and does not
+    block the application.
+
+
+*EventListener.on_post_save*(view)
+  Returns: None
+
+    Called after a view has been saved.
+
+
+*EventListener.on_post_save_async*(view)
+  Returns: None
+
+    Called after a view has been saved. Runs in a separate thread, and does not
+    block the application.
+
+
+*EventListener.on_modified*(view)
+  Returns: None
+
+    Called after changes have been made to a view.
+
+
+*EventListener.on_modified_async*(view)
+  Returns: None
+
+    Called after changes have been made to a view. Runs in a separate thread,
+    and does not block the application.
+
+
+*EventListener.on_selection_modified*(view)
+  Returns: None
+
+    Called after the selection has been modified in a view.
+
+
+*EventListener.on_selection_modified_async*(view)
+  Returns: None
+
+    Called after the selection has been modified in a view. Runs in a separate
+    thread, and does not block the application.
+
+
+*EventListener.on_activated*(view)
+  Returns: None
+
+    Called when a view gains input focus.
+
+
+*EventListener.on_activated_async*(view)
+  Returns: None
+
+    Called when a view gains input focus. Runs in a separate thread, and does
+    not block the application.
+
+
+*EventListener.on_deactivated*(view)
+  Returns: None
+
+    Called when a view loses input focus.
+
+
+*EventListener.on_deactivated_async*(view)
+  Returns: None
+
+    Called when a view loses input focus. Runs in a separate thread, and does
+    not block the application.
+
+
+*EventListener.on_hover*(view, point, hover_zone)
+  Returns: None
+
+    Called when the user's mouse hovers over a view for a short period.
+
+    `point` is the closest point in the view to the mouse location. The mouse
+    may not actually be located adjacent based on the value of `hover_zone`:
+
+    * `sublime.HOVER_TEXT`: When the mouse is hovered over text.
+
+    * `sublime.HOVER_GUTTER`: When the mouse is hovered over the gutter.
+
+    * `sublime.HOVER_MARGIN`: When the mouse is hovered in whitespace to the
+      right of a line.
+
+
+*EventListener.on_query_context*(view, key, operator, operand, match_all)
+  Returns: bool or None
+
+    Called when determining to trigger a key binding with the given context
+    `key`. If the plugin knows how to respond to the context, it should return
+    either `True` of `False`. If the context is unknown, it should return
+    `None`.
+
+    `operator` is one of:
+
+    * `sublime.OP_EQUAL`: Is the value of the context equal to the operand?
+
+    * `sublime.OP_NOT_EQUAL`: Is the value of the context not equal to the
+      operand?
+
+    * `sublime.OP_REGEX_MATCH`: Does the value of the context match the regex
+      given in operand?
+
+    * `sublime.OP_NOT_REGEX_MATCH`: Does the value of the context not match the
+      regex given in operand?
+
+    * `sublime.OP_REGEX_CONTAINS`: Does the value of the context contain a
+      substring matching the regex given in operand?
+
+    * `sublime.OP_NOT_REGEX_CONTAINS`: Does the value of the context not contain
+      a substring matching the regex given in operand?
+
+    `match_all` should be used if the context relates to the selections: does
+    every selection have to match (`match_all == True`), or is at least one
+    matching enough (`match_all == False`)?
+
+
+*EventListener.on_query_completions*(view, prefix, locations)
+  Returns: list, tuple or None
+
+    Called whenever completions are to be presented to the user. The `prefix` is
+    a unicode string of the text to complete.
+
+    `locations` is a list of |point|s. Since this method is called for all
+    completions in every view no matter the syntax,
+    `view.match_selector(point, relevant_scope)` should be called to determine
+    if the point is relevant.
+
+    The return value must be one of the following formats:
+
+    * `None`: no completions are provided
+
+        `return None`
+
+    * A list of 2-element lists/tuples. The first element is a unicode string of
+      the completion trigger, the second is the unicode replacement text.
+
+        `return [["me1", "method1()"], ["me2", "method2()"]]`
+
+      The trigger may contain a tab character (`\t`) followed by a hint to
+      display in the right-hand side of the completion box.
+
+        `return [`
+        `    ["me1\tmethod", "method1()"],`
+        `    ["me2\tmethod", "method2()"]`
+        `]`
+
+      The replacement text may contain dollar-numeric fields such as a snippet
+      does, e.g. `$0`, `$1`.
+
+        `return [`
+        `    ["fn", "def ${1:name}($2) { $0 }"],`
+        `    ["for", "for ($1; $2; $3) { $0 }"]`
+        `]`
+
+    * A 2-element tuple with the first element being the list format documented
+      above, and the second element being bit flags from the following list:
+
+        * `sublime.INHIBIT_WORD_COMPLETIONS`: prevent Sublime Text from showing
+          completions based on the contents of the view
+
+        * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`: prevent Sublime Text from
+          showing completions based on `.sublime-completions` files
+
+        `return (`
+        `    [`
+        `        ["me1", "method1()"],`
+        `        ["me2", "method2()"]`
+        `    ],`
+        `    sublime.INHIBIT_WORD_COMPLETIONS | `
+        `    sublime.INHIBIT_EXPLICIT_COMPLETIONS)`
+        `)`
+
+
+*EventListener.on_text_command*(view, command_name, args)
+  Returns: (str, dict)
+
+    Called when a text command is issued. The listener may return a
+    `(command, arguments)` tuple to rewrite the command, or `None` to run the
+    command unmodified.
+
+
+*EventListener.on_window_command*(window, command_name, args)
+  Returns: (str, dict)
+
+    Called when a window command is issued. The listener may return a
+    `(command, arguments)` tuple to rewrite the command, or `None` to run the
+    command unmodified.
+
+
+*EventListener.on_post_text_command*(view, command_name, args)
+  Returns: None
+
+    Called after a text command has been executed.
+
+
+*EventListener.on_post_window_command*(window, command_name, args)
+  Returns: None
+
+    Called after a window command has been executed.
+
+
+--------------------------------------------------------------------------------
+
+
+ViewEventListener Class                                      *ViewEventListener*
+=======================
+
+A class that provides similar event handling to |EventListener|, but bound to a
+specific view. Provides class method-based filtering to control what views
+objects are created for.
+
+The view is passed as a single parameter to the constructor. The default
+implementation makes the view available via `self.view`.
+
+
+Class Methods
+-------------
+*ViewEventListener.is_applicable*(settings)
+  Returns: bool
+
+    A `@classmethod` that receives a |Settings| object and should return a
+    bool indicating if this class applies to a view with those settings
+
+
+*ViewEventListener.applies_to_primary_view_only*()
+  Returns: bool
+
+    A `@classmethod` that should return a bool indicating if this class
+    applies only to the primary view for a file. A view is considered primary
+    if it is the only, or first, view into a file.
+
+
+Methods
+-------
+
+*ViewEventListener.on_modified*()
+  Returns: None
+
+    Called after changes have been made to the view.
+
+
+*ViewEventListener.on_modified_async*()
+  Returns: None
+
+    Called after changes have been made to the view. Runs in a separate thread,
+    and does not block the application.
+
+
+*ViewEventListener.on_selection_modified*()
+  Returns: None
+
+    Called after the selection has been modified in the view.
+
+
+*ViewEventListener.on_selection_modified_async*()
+  Returns: None
+
+    Called after the selection has been modified in the view. Runs in a separate
+    thread, and does not block the application.
+
+
+*ViewEventListener.on_activated*()
+  Returns: None
+
+    Called when a view gains input focus.
+
+
+*ViewEventListener.on_activated_async*()
+  Returns: None
+
+    Called when the view gains input focus. Runs in a separate thread, and does
+    not block the application.
+
+
+*ViewEventListener.on_deactivated*()
+  Returns: None
+
+    Called when the view loses input focus.
+
+
+*ViewEventListener.on_deactivated_async*()
+  Returns: None
+
+    Called when the view loses input focus. Runs in a separate thread, and does
+    not block the application.
+
+
+*ViewEventListener.on_hover*(point, hover_zone)
+  Returns: None
+
+    Called when the user's mouse hovers over the view for a short period.
+
+    point is the closest point in the view to the mouse location. The mouse may
+    not actually be located adjacent based on the value of `hover_zone`:
+
+    * `sublime.HOVER_TEXT`: When the mouse is hovered over text.
+
+    * `sublime.HOVER_GUTTER`: When the mouse is hovered over the gutter.
+
+    * `sublime.HOVER_MARGIN`: When the mouse is hovered in whitespace to the
+      right of a line.
+
+
+*ViewEventListener.on_query_context*(key, operator, operand, match_all)
+  Returns: bool or None
+
+    Called when determining to trigger a key binding with the given context
+    `key`. If the plugin knows how to respond to the context, it should return
+    either `True` of `False`. If the context is unknown, it should return
+    `None`.
+
+    operator is one of:
+
+    * `sublime.OP_EQUAL`: Is the value of the context equal to the operand?
+
+    * `sublime.OP_NOT_EQUAL`: Is the value of the context not equal to the
+      operand?
+
+    * `sublime.OP_REGEX_MATCH`: Does the value of the context match the regex
+      given in operand?
+
+    * `sublime.OP_NOT_REGEX_MATCH`: Does the value of the context not match the
+      regex given in operand?
+
+    * `sublime.OP_REGEX_CONTAINS`: Does the value of the context contain a
+      substring matching the regex given in operand?
+
+    * `sublime.OP_NOT_REGEX_CONTAINS`: Does the value of the context not contain
+      a substring matching the regex given in operand?
+
+    `match_all` should be used if the context relates to the selections: does
+    every selection have to match (`match_all == True`), or is at least one
+    matching enough (`match_all == False`)?
+
+
+*ViewEventListener.on_query_completions*(prefix, locations)
+  Returns: list, tuple or None
+
+    Called whenever completions are to be presented to the user. The `prefix` is
+    a unicode string of the text to complete.
+
+    `locations` is a list of |point|s. Since this method is called for all
+    completions no matter the syntax,
+    `self.view.match_selector(point, relevant_scope)` should be called to
+    determine if the point is relevant.
+
+    The return value must be one of the following formats:
+
+    * `None`: no completions are provided
+
+      `return None`
+
+    * A list of 2-element lists/tuples. The first element is a unicode string of
+      the completion trigger, the second is the unicode replacement text.
+
+      `return [["me1", "method1()"], ["me2", "method2()"]]`
+
+      The trigger may contain a tab character (`\t`) followed by a hint to display
+      in the right-hand side of the completion box.
+
+      `return [`
+      `    ["me1\tmethod", "method1()"],`
+      `    ["me2\tmethod", "method2()"]`
+      `]`
+
+      The replacement text may contain dollar-numeric fields such as a snippet
+      does, e.g. `$0`, `$1`.
+
+      `return [`
+      `    ["fn", "def ${1:name}($2) { $0 }"],`
+      `    ["for", "for ($1; $2; $3) { $0 }"]`
+      `]`
+
+    * A 2-element tuple with the first element being the list format documented
+      above, and the second element being bit flags from the following list:
+
+      * `sublime.INHIBIT_WORD_COMPLETIONS`: prevent Sublime Text from showing
+        completions based on the contents of the view
+
+      * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`: prevent Sublime Text from
+        showing completions based on `.sublime-completions` files
+
+        `return (`
+        `    [`
+        `        ["me1", "method1()"],`
+        `        ["me2", "method2()"]`
+        `    ],`
+        `    sublime.INHIBIT_WORD_COMPLETIONS | `
+        `    sublime.INHIBIT_EXPLICIT_COMPLETIONS`
+        `)`
+
+
+--------------------------------------------------------------------------------
+
+
+ApplicationCommand Class                                    *ApplicationCommand*
+========================
+
+*ApplicationCommand.run*(<args>)
+  Returns: None
+
+    Called when the command is run.
+
+
+*ApplicationCommand.is_enabled*(<args>)
+  Returns: bool
+
+    Returns `True` if the command is able to be run at this time. The default
+    implementation simply always returns `True`.
+
+
+*ApplicationCommand.is_visible*(<args>)
+  Returns: bool
+
+    Returns `True` if the command should be shown in the menu at this time. The
+    default implementation always returns `True`.
+
+
+*ApplicationCommand.is_checked*(<args>)
+  Returns: bool
+
+    Returns `True` if a checkbox should be shown next to the menu item. The
+    `.sublime-menu` file must have the checkbox attribute set to `true` for this
+    to be used.
+
+
+*ApplicationCommand.description*(<args>)
+  Returns: str
+
+    Returns a description of the command with the given arguments. Used in the
+    menu, if no caption is provided. Return `None` to get the default
+    description.
+
+
+--------------------------------------------------------------------------------
+
+
+WindowCommand Class                                              *WindowCommand*
+===================
+
+WindowCommands are instantiated once per window. The Window object may be
+retrieved via `self.window`
+
+
+*WindowCommand.run*(<args>)
+  Returns: None
+
+    Called when the command is run.
+
+
+*WindowCommand.is_enabled*(<args>)
+  Returns: bool
+
+    Returns `True` if the command is able to be run at this time. The default
+    implementation simply always returns `True`.
+
+
+*WindowCommand.is_visible*(<args>)
+  Returns: bool
+
+    Returns `True` if the command should be shown in the menu at this time. The
+    default implementation always returns `True`.
+
+
+*WindowCommand.description*(<args>)
+  Returns: str
+
+    Returns a description of the command with the given arguments. Used in the
+    menu, if no caption is provided. Return `None` to get the default
+    description.
+
+
+--------------------------------------------------------------------------------
+
+
+TextCommand Class                                                  *TextCommand*
+=================
+
+TextCommands are instantiated once per view. The View object may be retrieved
+via `self.view`
+
+
+*TextCommand.run*(edit, <args>)
+  Returns: None
+
+    Called when the command is run.
+
+
+*TextCommand.is_enabled*(<args>)
+  Returns: bool
+
+    Returns `True` if the command is able to be run at this time. The default
+    implementation simply always returns `True`.
+
+
+*TextCommand.is_visible*(<args>)
+  Returns: bool
+
+    Returns `True` if the command should be shown in the menu at this time. The
+    default implementation always returns `True`.
+
+
+*TextCommand.description*(<args>)
+  Returns: str
+
+    Returns a description of the command with the given arguments. Used in the
+    menus, and for Undo / Redo descriptions. Return `None` to get the default
+    description.
+
+
+*TextCommand.want_event*()
+  Returns: bool
+
+    Return `True` to receive an `event` argument when the command is triggered
+    by a mouse action. The event information allows commands to determine which
+    portion of the view was clicked on. The default implementation returns
+    `False`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
