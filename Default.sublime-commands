@@ -1,0 +1,3 @@
+[
+    { "caption": "SnAPI: Sublime API Help", "command": "hyper_help", "args": {"package": "SnAPI", "topic": "index.txt"} },
+]
