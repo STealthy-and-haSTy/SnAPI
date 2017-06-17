@@ -1,6 +1,5 @@
 {
     "__description": "Sublime Text 3 API Documentation",
-    "__root": "doc/",
     "__toc": [
         {
             "topic": "index.txt",
