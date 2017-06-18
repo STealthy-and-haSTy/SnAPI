@@ -105,8 +105,6 @@ the command palette to get more information.
 
 ## License ##
 
-Note that the license below
-
 Note that the license below *DOES NOT* include any of the help files, which are
 taken from the official API reference for Sublime Text at
 http://www.sublimetext.com/docs/3/api_reference.html and are Copyright ©
