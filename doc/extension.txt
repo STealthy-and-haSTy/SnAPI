@@ -1,15 +1,14 @@
-*extensions.txt*            Plugin Extension Points                 May 10, 2017
---------------------------------------------------------------------------------
+%hyperhelp title="Plugin Extension Points" date="2017-12-23"
 
 
-Sublime_plugin Module                                           *Sublime_plugin*
+*|sublime_plugin	Module|*
 =====================
 
 
 --------------------------------------------------------------------------------
 
 
-EventListener Class                                              *EventListener*
+*|EventListener|* Class
 ===================
 
 Note that many of these events are triggered by the buffer underlying the view,
@@ -283,7 +282,7 @@ and thus the method is only called once, with the first view as the parameter.
 --------------------------------------------------------------------------------
 
 
-ViewEventListener Class                                      *ViewEventListener*
+*|ViewEventListener|* Class
 =======================
 
 A class that provides similar event handling to |EventListener|, but bound to a
@@ -474,7 +473,7 @@ Methods
 --------------------------------------------------------------------------------
 
 
-ApplicationCommand Class                                    *ApplicationCommand*
+*|ApplicationCommand|* Class
 ========================
 
 *ApplicationCommand.run*(<args>)
@@ -516,7 +515,7 @@ ApplicationCommand Class                                    *ApplicationCommand*
 --------------------------------------------------------------------------------
 
 
-WindowCommand Class                                              *WindowCommand*
+*|WindowCommand|* Class
 ===================
 
 WindowCommands are instantiated once per window. The Window object may be
@@ -554,7 +553,7 @@ retrieved via `self.window`
 --------------------------------------------------------------------------------
 
 
-TextCommand Class                                                  *TextCommand*
+*|TextCommand|* Class
 =================
 
 TextCommands are instantiated once per view. The View object may be retrieved

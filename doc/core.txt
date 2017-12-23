@@ -1,8 +1,7 @@
-*core.txt*                      Core Components                     May 10, 2017
---------------------------------------------------------------------------------
+%hyperhelp title="Core Components" date="2017-12-23"
 
 
-sublime Module                                                         *sublime*
+*|sublime|* Module
 ==============
 
 *sublime.set_timeout*(callback, delay)
@@ -36,8 +35,8 @@ sublime Module                                                         *sublime*
   Returns: bool
 
     Displays an ok / cancel question dialog to the user. If `ok_title` is
-    provided, this may be used as the text on the ok button. Returns `True` if the
-    user presses the ok button.
+    provided, this may be used as the text on the ok button. Returns `True` if
+    the user presses the ok button.
 
 
 *sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
@@ -209,7 +208,7 @@ sublime Module                                                         *sublime*
 --------------------------------------------------------------------------------
 
 
-Sheet Class                                                              *Sheet*
+*|Sheet|* Class
 ===========
 
 Represents a content container, i.e. a tab, within a window. Sheets may contain
@@ -239,7 +238,7 @@ a |View|, or an image preview.
 --------------------------------------------------------------------------------
 
 
-View Class                                                                *View*
+*|View|* Class
 ==========
 
 Represents a view into a text buffer. Note that multiple views may refer to the
@@ -875,7 +874,7 @@ same buffer, but they have their own unique selection and geometry.
 --------------------------------------------------------------------------------
 
 
-Selection Class                                                      *Selection*
+*|Selection|* Class
 ===============
 
 Maintains a set of Regions, ensuring that none overlap. The regions are kept in
@@ -916,7 +915,7 @@ sorted order.
 --------------------------------------------------------------------------------
 
 
-Region Class                                                            *Region*
+*|Region|* Class
 ============
 
 Represents an area of the buffer. Empty regions, where a == b are valid.
@@ -1013,7 +1012,7 @@ Methods
 --------------------------------------------------------------------------------
 
 
-Phantom Class                                                          *Phantom*
+*|Phantom|* Class
 =============
 
 Represents an HTML-based decoration to display non-editable content interspersed
@@ -1048,7 +1047,7 @@ Constructors
 --------------------------------------------------------------------------------
 
 
-PhantomSet Class                                                    *PhantomSet*
+*|PhantomSet|* Class
 ================
 
 A collection that manages Phantoms and the process of adding them, updating them
@@ -1080,7 +1079,7 @@ Methods
 --------------------------------------------------------------------------------
 
 
-Edit Class                                                                *Edit*
+*|Edit|* Class
 ==========
 
 Edit objects have no functions, they exist to group buffer modifications.
@@ -1093,7 +1092,7 @@ cause the functions that require them to fail.
 --------------------------------------------------------------------------------
 
 
-Window Class                                                            *Window*
+*|Window|* Class
 ============
 
 
@@ -1433,7 +1432,7 @@ Window Class                                                            *Window*
 --------------------------------------------------------------------------------
 
 
-Settings Class                                                        *Settings*
+*|Settings|* Class
 ==============
 
 

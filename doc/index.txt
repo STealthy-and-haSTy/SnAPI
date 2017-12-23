@@ -1,5 +1,4 @@
-*index.txt*             Sublime Text 3 API Documentation            May 10, 2017
---------------------------------------------------------------------------------
+%hyperhelp title="Sublime Text 3 API Documentation" date="2017-12-23"
 
 
 General Information        Core Components      Plugin Extension Points

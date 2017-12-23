@@ -1,6 +1,797 @@
 {
-    "__description": "Sublime Text 3 API Documentation",
-    "__toc": [
+    "description": "Sublime Text 3 API Documentation",
+
+    "help_files": {
+        "index.txt": [
+            "Sublime Text 3 API Documentation",
+        ],
+        "general.txt": [
+            "General Information",
+
+            {
+                "topic": "example plugins"
+            },
+            {
+                "topic": "plugin lifecycle"
+            },
+            {
+                "topic": "threading"
+            },
+            {
+                "topic": "units and coordinates"
+            },
+            {
+                "topic": "types"
+            },
+            {
+                "topic": "location"
+            },
+            {
+                "topic": "point"
+            },
+            {
+                "topic": "value"
+            },
+            {
+                "topic": "dip"
+            },
+            {
+                "topic": "vector"
+            }
+        ],
+        "core.txt": [
+            "Core Components",
+
+            {
+                "topic": "sublime"
+            },
+            {
+                "topic": "sublime.set_timeout"
+            },
+            {
+                "topic": "sublime.set_timeout_async"
+            },
+            {
+                "topic": "sublime.error_message"
+            },
+            {
+                "topic": "sublime.message_dialog"
+            },
+            {
+                "topic": "sublime.ok_cancel_dialog"
+            },
+            {
+                "topic": "sublime.yes_no_cancel_dialog"
+            },
+            {
+                "topic": "sublime.load_resource"
+            },
+            {
+                "topic": "sublime.load_binary_resource"
+            },
+            {
+                "topic": "sublime.find_resources"
+            },
+            {
+                "topic": "sublime.encode_value"
+            },
+            {
+                "topic": "sublime.decode_value"
+            },
+            {
+                "topic": "sublime.expand_variables"
+            },
+            {
+                "topic": "sublime.load_settings"
+            },
+            {
+                "topic": "sublime.save_settings"
+            },
+            {
+                "topic": "sublime.windows"
+            },
+            {
+                "topic": "sublime.active_window"
+            },
+            {
+                "topic": "sublime.packages_path"
+            },
+            {
+                "topic": "sublime.installed_packages_path"
+            },
+            {
+                "topic": "sublime.cache_path"
+            },
+            {
+                "topic": "sublime.get_clipboard"
+            },
+            {
+                "topic": "sublime.set_clipboard"
+            },
+            {
+                "topic": "sublime.score_selector"
+            },
+            {
+                "topic": "sublime.run_command"
+            },
+            {
+                "topic": "sublime.log_commands"
+            },
+            {
+                "topic": "sublime.log_input"
+            },
+            {
+                "topic": "sublime.log_result_regex"
+            },
+            {
+                "topic": "sublime.version"
+            },
+            {
+                "topic": "sublime.platform"
+            },
+            {
+                "topic": "sublime.arch"
+            },
+            {
+                "topic": "Sheet"
+            },
+            {
+                "topic": "Sheet.id"
+            },
+            {
+                "topic": "Sheet.window"
+            },
+            {
+                "topic": "Sheet.view"
+            },
+            {
+                "topic": "View"
+            },
+            {
+                "topic": "View.id"
+            },
+            {
+                "topic": "View.buffer_id"
+            },
+            {
+                "topic": "View.is_primary"
+            },
+            {
+                "topic": "View.file_name"
+            },
+            {
+                "topic": "View.name"
+            },
+            {
+                "topic": "View.set_name"
+            },
+            {
+                "topic": "View.is_loading"
+            },
+            {
+                "topic": "View.is_dirty"
+            },
+            {
+                "topic": "View.is_read_only"
+            },
+            {
+                "topic": "View.set_read_only"
+            },
+            {
+                "topic": "View.is_scratch"
+            },
+            {
+                "topic": "View.set_scratch"
+            },
+            {
+                "topic": "View.settings"
+            },
+            {
+                "topic": "View.window"
+            },
+            {
+                "topic": "View.run_command"
+            },
+            {
+                "topic": "View.size"
+            },
+            {
+                "topic": "View.substr"
+            },
+            {
+                "topic": "View.insert"
+            },
+            {
+                "topic": "View.erase"
+            },
+            {
+                "topic": "View.replace"
+            },
+            {
+                "topic": "View.sel"
+            },
+            {
+                "topic": "View.line"
+            },
+            {
+                "topic": "View.full_line"
+            },
+            {
+                "topic": "View.lines"
+            },
+            {
+                "topic": "View.split_by_newlines"
+            },
+            {
+                "topic": "View.word"
+            },
+            {
+                "topic": "View.classify"
+            },
+            {
+                "topic": "View.find_by_class"
+            },
+            {
+                "topic": "View.expand_by_class"
+            },
+            {
+                "topic": "View.find"
+            },
+            {
+                "topic": "View.find_all"
+            },
+            {
+                "topic": "View.rowcol"
+            },
+            {
+                "topic": "View.text_point"
+            },
+            {
+                "topic": "View.set_syntax_file"
+            },
+            {
+                "topic": "View.extract_scope"
+            },
+            {
+                "topic": "View.scope_name"
+            },
+            {
+                "topic": "View.match_selector"
+            },
+            {
+                "topic": "View.score_selector"
+            },
+            {
+                "topic": "View.find_by_selector"
+            },
+            {
+                "topic": "View.show"
+            },
+            {
+                "topic": "View.show_at_center"
+            },
+            {
+                "topic": "View.visible_region"
+            },
+            {
+                "topic": "View.viewport_position"
+            },
+            {
+                "topic": "View.set_viewport_position"
+            },
+            {
+                "topic": "View.viewport_extent"
+            },
+            {
+                "topic": "View.layout_extent"
+            },
+            {
+                "topic": "View.text_to_layout"
+            },
+            {
+                "topic": "View.layout_to_text"
+            },
+            {
+                "topic": "View.window_to_layout"
+            },
+            {
+                "topic": "View.window_to_text"
+            },
+            {
+                "topic": "View.line_height"
+            },
+            {
+                "topic": "View.em_width"
+            },
+            {
+                "topic": "View.add_regions"
+            },
+            {
+                "topic": "View.get_regions"
+            },
+            {
+                "topic": "View.erase_regions"
+            },
+            {
+                "topic": "View.set_status"
+            },
+            {
+                "topic": "View.get_status"
+            },
+            {
+                "topic": "View.erase_status"
+            },
+            {
+                "topic": "View.command_history"
+            },
+            {
+                "topic": "View.change_count"
+            },
+            {
+                "topic": "View.fold"
+            },
+            {
+                "topic": "View.unfold"
+            },
+            {
+                "topic": "View.encoding"
+            },
+            {
+                "topic": "View.set_encoding"
+            },
+            {
+                "topic": "View.line_endings"
+            },
+            {
+                "topic": "View.set_line_endings"
+            },
+            {
+                "topic": "View.overwrite_status"
+            },
+            {
+                "topic": "View.set_overwrite_status"
+            },
+            {
+                "topic": "View.symbols"
+            },
+            {
+                "topic": "View.show_popup_menu"
+            },
+            {
+                "topic": "View.show_popup"
+            },
+            {
+                "topic": "View.update_popup"
+            },
+            {
+                "topic": "View.is_popup_visible"
+            },
+            {
+                "topic": "View.hide_popup"
+            },
+            {
+                "topic": "View.is_auto_complete_visible"
+            },
+            {
+                "topic": "Selection"
+            },
+            {
+                "topic": "Selection.clear"
+            },
+            {
+                "topic": "Selection.add"
+            },
+            {
+                "topic": "Selection.add_all"
+            },
+            {
+                "topic": "Selection.subtract"
+            },
+            {
+                "topic": "Selection.contains"
+            },
+            {
+                "topic": "Region"
+            },
+            {
+                "topic": "Region.a"
+            },
+            {
+                "topic": "Region.b"
+            },
+            {
+                "topic": "Region.xpos"
+            },
+            {
+                "topic": "Region.begin"
+            },
+            {
+                "topic": "Region.end"
+            },
+            {
+                "topic": "Region.size"
+            },
+            {
+                "topic": "Region.empty"
+            },
+            {
+                "topic": "Region.cover"
+            },
+            {
+                "topic": "Region.intersection"
+            },
+            {
+                "topic": "Region.intersects"
+            },
+            {
+                "topic": "Region.contains"
+            },
+            {
+                "topic": "Phantom"
+            },
+            {
+                "topic": "PhantomSet"
+            },
+            {
+                "topic": "PhantomSet.update"
+            },
+            {
+                "topic": "Edit"
+            },
+            {
+                "topic": "Window"
+            },
+            {
+                "topic": "Window.id"
+            },
+            {
+                "topic": "Window.new_file"
+            },
+            {
+                "topic": "Window.open_file"
+            },
+            {
+                "topic": "Window.find_open_file"
+            },
+            {
+                "topic": "Window.active_sheet"
+            },
+            {
+                "topic": "Window.active_view"
+            },
+            {
+                "topic": "Window.active_sheet_in_group"
+            },
+            {
+                "topic": "Window.active_view_in_group"
+            },
+            {
+                "topic": "Window.sheets"
+            },
+            {
+                "topic": "Window.sheets_in_group"
+            },
+            {
+                "topic": "Window.views"
+            },
+            {
+                "topic": "Window.views_in_group"
+            },
+            {
+                "topic": "Window.num_groups"
+            },
+            {
+                "topic": "Window.active_group"
+            },
+            {
+                "topic": "Window.focus_group"
+            },
+            {
+                "topic": "Window.focus_sheet"
+            },
+            {
+                "topic": "Window.focus_view"
+            },
+            {
+                "topic": "Window.get_sheet_index"
+            },
+            {
+                "topic": "Window.set_sheet_index"
+            },
+            {
+                "topic": "Window.get_view_index"
+            },
+            {
+                "topic": "Window.set_view_index"
+            },
+            {
+                "topic": "Window.status_message"
+            },
+            {
+                "topic": "Window.is_menu_visible"
+            },
+            {
+                "topic": "Window.set_menu_visible"
+            },
+            {
+                "topic": "Window.is_sidebar_visible"
+            },
+            {
+                "topic": "Window.set_sidebar_visible"
+            },
+            {
+                "topic": "Window.get_tabs_visible"
+            },
+            {
+                "topic": "Window.set_tabs_visible"
+            },
+            {
+                "topic": "Window.is_minimap_visible"
+            },
+            {
+                "topic": "Window.set_minimap_visible"
+            },
+            {
+                "topic": "Window.is_status_bar_visible"
+            },
+            {
+                "topic": "Window.set_status_bar_visible"
+            },
+            {
+                "topic": "Window.folders"
+            },
+            {
+                "topic": "Window.project_file_name"
+            },
+            {
+                "topic": "Window.project_data"
+            },
+            {
+                "topic": "Window.set_project_data"
+            },
+            {
+                "topic": "Window.run_command"
+            },
+            {
+                "topic": "Window.show_quick_panel"
+            },
+            {
+                "topic": "Window.show_input_panel"
+            },
+            {
+                "topic": "Window.create_output_panel"
+            },
+            {
+                "topic": "Window.find_output_panel"
+            },
+            {
+                "topic": "Window.destroy_output_panel"
+            },
+            {
+                "topic": "Window.active_panel"
+            },
+            {
+                "topic": "Window.panels"
+            },
+            {
+                "topic": "Window.lookup_symbol_in_index"
+            },
+            {
+                "topic": "Window.lookup_symbol_in_open_files"
+            },
+            {
+                "topic": "Window.extract_variables"
+            },
+            {
+                "topic": "Settings"
+            },
+            {
+                "topic": "Settings.get"
+            },
+            {
+                "topic": "Settings.set"
+            },
+            {
+                "topic": "Settings.erase"
+            },
+            {
+                "topic": "Settings.has"
+            },
+            {
+                "topic": "Settings.add_on_change"
+            },
+            {
+                "topic": "Settings.clear_on_change"
+            },
+        ],
+        "extension.txt": [
+            "Plugin Extension Points",
+
+            {
+                "topic": "sublime_plugin module",
+                "aliases": ["sublime_plugin"]
+            },
+            {
+                "topic": "EventListener"
+            },
+            {
+                "topic": "EventListener.on_new"
+            },
+            {
+                "topic": "EventListener.on_new_async"
+            },
+            {
+                "topic": "EventListener.on_clone"
+            },
+            {
+                "topic": "EventListener.on_clone_async"
+            },
+            {
+                "topic": "EventListener.on_load"
+            },
+            {
+                "topic": "EventListener.on_load_async"
+            },
+            {
+                "topic": "EventListener.on_pre_close"
+            },
+            {
+                "topic": "EventListener.on_close"
+            },
+            {
+                "topic": "EventListener.on_pre_save"
+            },
+            {
+                "topic": "EventListener.on_pre_save_async"
+            },
+            {
+                "topic": "EventListener.on_post_save"
+            },
+            {
+                "topic": "EventListener.on_post_save_async"
+            },
+            {
+                "topic": "EventListener.on_modified"
+            },
+            {
+                "topic": "EventListener.on_modified_async"
+            },
+            {
+                "topic": "EventListener.on_selection_modified"
+            },
+            {
+                "topic": "EventListener.on_selection_modified_async"
+            },
+            {
+                "topic": "EventListener.on_activated"
+            },
+            {
+                "topic": "EventListener.on_activated_async"
+            },
+            {
+                "topic": "EventListener.on_deactivated"
+            },
+            {
+                "topic": "EventListener.on_deactivated_async"
+            },
+            {
+                "topic": "EventListener.on_hover"
+            },
+            {
+                "topic": "EventListener.on_query_context"
+            },
+            {
+                "topic": "EventListener.on_query_completions"
+            },
+            {
+                "topic": "EventListener.on_text_command"
+            },
+            {
+                "topic": "EventListener.on_window_command"
+            },
+            {
+                "topic": "EventListener.on_post_text_command"
+            },
+            {
+                "topic": "EventListener.on_post_window_command"
+            },
+            {
+                "topic": "ViewEventListener"
+            },
+            {
+                "topic": "ViewEventListener.is_applicable"
+            },
+            {
+                "topic": "ViewEventListener.applies_to_primary_view_only"
+            },
+            {
+                "topic": "ViewEventListener.on_modified"
+            },
+            {
+                "topic": "ViewEventListener.on_modified_async"
+            },
+            {
+                "topic": "ViewEventListener.on_selection_modified"
+            },
+            {
+                "topic": "ViewEventListener.on_selection_modified_async"
+            },
+            {
+                "topic": "ViewEventListener.on_activated"
+            },
+            {
+                "topic": "ViewEventListener.on_activated_async"
+            },
+            {
+                "topic": "ViewEventListener.on_deactivated"
+            },
+            {
+                "topic": "ViewEventListener.on_deactivated_async"
+            },
+            {
+                "topic": "ViewEventListener.on_hover"
+            },
+            {
+                "topic": "ViewEventListener.on_query_context"
+            },
+            {
+                "topic": "ViewEventListener.on_query_completions"
+            },
+            {
+                "topic": "ApplicationCommand"
+            },
+            {
+                "topic": "ApplicationCommand.run"
+            },
+            {
+                "topic": "ApplicationCommand.is_enabled"
+            },
+            {
+                "topic": "ApplicationCommand.is_visible"
+            },
+            {
+                "topic": "ApplicationCommand.is_checked"
+            },
+            {
+                "topic": "ApplicationCommand.description"
+            },
+            {
+                "topic": "WindowCommand"
+            },
+            {
+                "topic": "WindowCommand.run"
+            },
+            {
+                "topic": "WindowCommand.is_enabled"
+            },
+            {
+                "topic": "WindowCommand.is_visible"
+            },
+            {
+                "topic": "WindowCommand.description"
+            },
+            {
+                "topic": "TextCommand"
+            },
+            {
+                "topic": "TextCommand.run"
+            },
+            {
+                "topic": "TextCommand.is_enabled"
+            },
+            {
+                "topic": "TextCommand.is_visible"
+            },
+            {
+                "topic": "TextCommand.description"
+            },
+            {
+                "topic": "TextCommand.want_event"
+            }
+        ],
+    },
+
+    "help_contents": [
         {
             "topic": "index.txt",
             "caption": "Sublime Text 3 API Documentation"
@@ -10,11 +801,11 @@
             "caption": "General Information",
             "children": [
                 {
-                    "topic": "example.plugins",
+                    "topic": "example plugins",
                     "caption": "Example Plugins"
                 },
                 {
-                    "topic": "plugin.lifecycle",
+                    "topic": "plugin lifecycle",
                     "caption": "Plugin Lifecycle"
                 },
                 {
@@ -22,7 +813,7 @@
                     "caption": "Threading"
                 },
                 {
-                    "topic": "units.and.coordinates",
+                    "topic": "units and coordinates",
                     "caption": "Units and Coordinates"
                 },
                 {
@@ -82,8 +873,8 @@
             "caption": "Plugin Extension Points",
             "children": [
                 {
-                    "topic": "Sublime_plugin",
-                    "caption": "Sublime_plugin Module"
+                    "topic": "sublime_plugin",
+                    "caption": "sublime_plugin Module"
                 },
                 {
                     "topic": "EventListener",
@@ -109,296 +900,89 @@
         }
     ],
 
-    "index.txt": true,
-    "general.txt": [
-        "general.txt",
-        "example.plugins",
-        "plugin.lifecycle",
-        "threading",
-        "units.and.coordinates",
-        "types",
-        "location",
-        "point",
-        "value",
-        "dip",
-        "vector"
-    ],
-    "core.txt": [
-        "core.txt",
-        "sublime",
-        "sublime.set_timeout",
-        "sublime.set_timeout_async",
-        "sublime.error_message",
-        "sublime.message_dialog",
-        "sublime.ok_cancel_dialog",
-        "sublime.yes_no_cancel_dialog",
-        "sublime.load_resource",
-        "sublime.load_binary_resource",
-        "sublime.find_resources",
-        "sublime.encode_value",
-        "sublime.decode_value",
-        "sublime.expand_variables",
-        "sublime.load_settings",
-        "sublime.save_settings",
-        "sublime.windows",
-        "sublime.active_window",
-        "sublime.packages_path",
-        "sublime.installed_packages_path",
-        "sublime.cache_path",
-        "sublime.get_clipboard",
-        "sublime.set_clipboard",
-        "sublime.score_selector",
-        "sublime.run_command",
-        "sublime.log_commands",
-        "sublime.log_input",
-        "sublime.log_result_regex",
-        "sublime.version",
-        "sublime.platform",
-        "sublime.arch",
-        "Sheet",
-        "Sheet.id",
-        "Sheet.window",
-        "Sheet.view",
-        "View",
-        "View.id",
-        "View.buffer_id",
-        "View.is_primary",
-        "View.file_name",
-        "View.name",
-        "View.set_name",
-        "View.is_loading",
-        "View.is_dirty",
-        "View.is_read_only",
-        "View.set_read_only",
-        "View.is_scratch",
-        "View.set_scratch",
-        "View.settings",
-        "View.window",
-        "View.run_command",
-        "View.size",
-        "View.substr",
-        "View.substr",
-        "View.insert",
-        "View.erase",
-        "View.replace",
-        "View.sel",
-        "View.line",
-        "View.line",
-        "View.full_line",
-        "View.full_line",
-        "View.lines",
-        "View.split_by_newlines",
-        "View.word",
-        "View.word",
-        "View.classify",
-        "View.find_by_class",
-        "View.expand_by_class",
-        "View.expand_by_class",
-        "View.find",
-        "View.find_all",
-        "View.rowcol",
-        "View.text_point",
-        "View.set_syntax_file",
-        "View.extract_scope",
-        "View.scope_name",
-        "View.match_selector",
-        "View.score_selector",
-        "View.find_by_selector",
-        "View.show",
-        "View.show_at_center",
-        "View.visible_region",
-        "View.viewport_position",
-        "View.set_viewport_position",
-        "View.viewport_extent",
-        "View.layout_extent",
-        "View.text_to_layout",
-        "View.layout_to_text",
-        "View.window_to_layout",
-        "View.window_to_text",
-        "View.line_height",
-        "View.em_width",
-        "View.add_regions",
-        "View.get_regions",
-        "View.erase_regions",
-        "View.set_status",
-        "View.get_status",
-        "View.erase_status",
-        "View.command_history",
-        "View.change_count",
-        "View.fold",
-        "View.fold",
-        "View.unfold",
-        "View.unfold",
-        "View.encoding",
-        "View.set_encoding",
-        "View.line_endings",
-        "View.set_line_endings",
-        "View.overwrite_status",
-        "View.set_overwrite_status",
-        "View.symbols",
-        "View.show_popup_menu",
-        "View.show_popup",
-        "View.update_popup",
-        "View.is_popup_visible",
-        "View.hide_popup",
-        "View.is_auto_complete_visible",
-        "Selection",
-        "Selection.clear",
-        "Selection.add",
-        "Selection.add_all",
-        "Selection.subtract",
-        "Selection.contains",
-        "Region",
-        "Region",
-        "Region.a",
-        "Region.b",
-        "Region.xpos",
-        "Region.begin",
-        "Region.end",
-        "Region.size",
-        "Region.empty",
-        "Region.cover",
-        "Region.intersection",
-        "Region.intersects",
-        "Region.contains",
-        "Region.contains",
-        "Phantom",
-        "Phantom",
-        "PhantomSet",
-        "PhantomSet",
-        "PhantomSet.update",
-        "Edit",
-        "Window",
-        "Window.id",
-        "Window.new_file",
-        "Window.open_file",
-        "Window.find_open_file",
-        "Window.active_sheet",
-        "Window.active_view",
-        "Window.active_sheet_in_group",
-        "Window.active_view_in_group",
-        "Window.sheets",
-        "Window.sheets_in_group",
-        "Window.views",
-        "Window.views_in_group",
-        "Window.num_groups",
-        "Window.active_group",
-        "Window.focus_group",
-        "Window.focus_sheet",
-        "Window.focus_view",
-        "Window.get_sheet_index",
-        "Window.set_sheet_index",
-        "Window.get_view_index",
-        "Window.set_view_index",
-        "Window.status_message",
-        "Window.is_menu_visible",
-        "Window.set_menu_visible",
-        "Window.is_sidebar_visible",
-        "Window.set_sidebar_visible",
-        "Window.get_tabs_visible",
-        "Window.set_tabs_visible",
-        "Window.is_minimap_visible",
-        "Window.set_minimap_visible",
-        "Window.is_status_bar_visible",
-        "Window.set_status_bar_visible",
-        "Window.folders",
-        "Window.project_file_name",
-        "Window.project_data",
-        "Window.set_project_data",
-        "Window.run_command",
-        "Window.show_quick_panel",
-        "Window.show_input_panel",
-        "Window.create_output_panel",
-        "Window.find_output_panel",
-        "Window.destroy_output_panel",
-        "Window.active_panel",
-        "Window.panels",
-        "Window.lookup_symbol_in_index",
-        "Window.lookup_symbol_in_open_files",
-        "Window.extract_variables",
-        "Settings",
-        "Settings.get",
-        "Settings.set",
-        "Settings.erase",
-        "Settings.has",
-        "Settings.add_on_change",
-        "Settings.clear_on_change"
-    ],
-    "extension.txt": [
-        "extension.txt",
-        "Sublime_plugin",
-        "EventListener",
-        "EventListener.on_new",
-        "EventListener.on_new_async",
-        "EventListener.on_clone",
-        "EventListener.on_clone_async",
-        "EventListener.on_load",
-        "EventListener.on_load_async",
-        "EventListener.on_pre_close",
-        "EventListener.on_close",
-        "EventListener.on_pre_save",
-        "EventListener.on_pre_save_async",
-        "EventListener.on_post_save",
-        "EventListener.on_post_save_async",
-        "EventListener.on_modified",
-        "EventListener.on_modified_async",
-        "EventListener.on_selection_modified",
-        "EventListener.on_selection_modified_async",
-        "EventListener.on_activated",
-        "EventListener.on_activated_async",
-        "EventListener.on_deactivated",
-        "EventListener.on_deactivated_async",
-        "EventListener.on_hover",
-        "EventListener.on_query_context",
-        "EventListener.on_query_completions",
-        "EventListener.on_text_command",
-        "EventListener.on_window_command",
-        "EventListener.on_post_text_command",
-        "EventListener.on_post_window_command",
-        "ViewEventListener",
-        "ViewEventListener.is_applicable",
-        "ViewEventListener.applies_to_primary_view_only",
-        "ViewEventListener.on_modified",
-        "ViewEventListener.on_modified_async",
-        "ViewEventListener.on_selection_modified",
-        "ViewEventListener.on_selection_modified_async",
-        "ViewEventListener.on_activated",
-        "ViewEventListener.on_activated_async",
-        "ViewEventListener.on_deactivated",
-        "ViewEventListener.on_deactivated_async",
-        "ViewEventListener.on_hover",
-        "ViewEventListener.on_query_context",
-        "ViewEventListener.on_query_completions",
-        "ApplicationCommand",
-        "ApplicationCommand.run",
-        "ApplicationCommand.is_enabled",
-        "ApplicationCommand.is_visible",
-        "ApplicationCommand.is_checked",
-        "ApplicationCommand.description",
-        "WindowCommand",
-        "WindowCommand.run",
-        "WindowCommand.is_enabled",
-        "WindowCommand.is_visible",
-        "WindowCommand.description",
-        "TextCommand",
-        "TextCommand.run",
-        "TextCommand.is_enabled",
-        "TextCommand.is_visible",
-        "TextCommand.description",
-        "TextCommand.want_event",
-    ],
+    "externals":
+    {
+        "http://www.sublimetext.com/docs/3/api_reference.html": [
+            "Sublime Text API Reference",
 
-    "Packages/Default/delete_word.py": true,
-    "Packages/Default/duplicate_line.py": true,
-    "Packages/Default/exec.py": true,
-    "Packages/Default/font.py": true,
-    "Packages/Default/goto_line.py": true,
-    "Packages/Default/mark.py": true,
-    "Packages/Default/show_scope_name.py": true,
-    "Packages/Default/trim_trailing_whitespace.py": true,
+            {
+                "topic": "api_reference.html"
+            }
+        ],
 
-    "http://www.sublimetext.com/docs/3/api_reference.html": [
-      "api_reference.html"
-    ],
-    "http://www.sublimetext.com/docs/3/minihtml.html": "minihtml"
+        "http://www.sublimetext.com/docs/3/minihtml.html": [
+            "minihtml Refence",
+
+            {
+                "topic": "minihtml"
+            }
+        ],
+
+        "Packages/Default/delete_word.py": [
+            "Packages/Default/delete_word.py",
+
+            {
+                "topic": "Packages/Default/delete_word.py"
+            }
+        ],
+
+        "Packages/Default/duplicate_line.py": [
+            "Packages/Default/duplicate_line.py",
+
+            {
+                "topic": "Packages/Default/duplicate_line.py"
+            }
+        ],
+
+        "Packages/Default/exec.py": [
+            "Packages/Default/exec.py",
+
+            {
+                "topic": "Packages/Default/exec.py"
+            }
+        ],
+
+        "Packages/Default/font.py": [
+            "Packages/Default/font.py",
+
+            {
+                "topic": "Packages/Default/font.py"
+            }
+        ],
+
+        "Packages/Default/goto_line.py": [
+            "Packages/Default/goto_line.py",
+
+            {
+                "topic": "Packages/Default/goto_line.py"
+            }
+        ],
+
+        "Packages/Default/mark.py": [
+            "Packages/Default/mark.py",
+
+            {
+                "topic": "Packages/Default/mark.py"
+            }
+        ],
+
+        "Packages/Default/show_scope_name.py": [
+            "Packages/Default/show_scope_name.py",
+
+            {
+                "topic": "Packages/Default/show_scope_name.py"
+            }
+        ],
+
+        "Packages/Default/trim_trailing_whitespace.py": [
+            "Packages/Default/trim_trailing_whitespace.py",
+
+            {
+                "topic": "Packages/Default/trim_trailing_whitespace.py"
+            }
+        ],
+
+
+
+    }
 }

@@ -1,8 +1,7 @@
-*general.txt*                 General Information                   May 10, 2017
---------------------------------------------------------------------------------
+%hyperhelp title="General Information" date="2017-12-23"
 
 
-Example Plugins                                                *example.plugins*
+*|Example	Plugins|*
 ===============
 
 Several pre-made plugins come with Sublime Text, you can find them in the
@@ -29,7 +28,7 @@ Default package:
 --------------------------------------------------------------------------------
 
 
-Plugin Lifecycle                                              *plugin.lifecycle*
+*|Plugin	Lifecycle|*
 ================
 
 At importing time, plugins may not call any API functions, with the exception of
@@ -44,7 +43,7 @@ called when the API is ready to use. Plugins may also define
 --------------------------------------------------------------------------------
 
 
-Threading                                                            *threading*
+*|Threading|*
 =========
 
 All API functions are thread-safe, however keep in mind that from the
@@ -55,7 +54,7 @@ changing while the code is running.
 --------------------------------------------------------------------------------
 
 
-Units and Coordinates                                    *units.and.coordinates*
+*|Units	and	Coordinates|*
 =====================
 
 API functions that accept or return coordinates or dimensions do so using
@@ -67,7 +66,7 @@ specification, |minihtml| treats the `px` unit as device-independent.
 --------------------------------------------------------------------------------
 
 
-Types                                                                    *types*
+*|Types|*
 =====
 
 This documentation generally refers to simply Python data types. Some type names
