@@ -1,0 +1,101 @@
+%hyperhelp title="sublime.Region Class" date="2017-12-23"
+
+
+*|Region|* Class
+============
+
+Represents an area of the buffer. Empty regions, where a == b are valid.
+
+This class is contained in the |sublime| module.
+
+
+Constructors
+------------
+*Region*(a, b)
+
+    Creates a Region with initial values a and b.
+
+
+Properties
+----------
+
+*region.a*
+  Type: int
+
+    The first end of the region.
+
+
+*region.b*
+  Type: int
+
+    The second end of the region. May be less that a, in which case the region
+    is a reversed one.
+
+
+*region.xpos*
+  Type: int
+
+    The target horizontal position of the region, or `-1` if undefined. Effects
+    behavior when pressing the up or down keys.
+
+
+Methods
+-------
+
+*region.begin*()
+  Returns: int
+
+    Returns the minimum of a and b.
+
+
+*region.end*()
+  Returns: int
+
+    Returns the maximum of a and b.
+
+
+*region.size*()
+  Returns: int
+
+    Returns the number of characters spanned by the region. Always >= 0.
+
+
+*region.empty*()
+  Returns: bool
+
+    Returns `True` iff `begin()` == `end()`.
+
+
+*region.cover*(region)
+  Returns: |Region|
+
+    Returns a Region spanning both this and the given regions.
+
+
+*region.intersection*(region)
+  Returns: |Region|
+
+    Returns the set intersection of the two regions.
+
+
+*region.intersects*(region)
+  Returns: bool
+
+    Returns `True` iff self == `region` or both include one or more positions in
+    common.
+
+
+*region.contains*(region)
+  Returns: bool
+
+    Returns `True` iff the given `region` is a subset.
+
+
+*region.contains*(point)
+  Returns: bool
+
+    Returns `True` iff `begin()` <= `point` <= `end()`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

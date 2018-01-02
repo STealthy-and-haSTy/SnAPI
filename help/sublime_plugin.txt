@@ -1,0 +1,17 @@
+%hyperhelp title="sublime_plugin Modole" date="2017-12-23"
+
+
+*|sublime_plugin	Module|*
+=====================
+
+This module has no direct methods; it contains the following classes:
+
+   |EventListener|
+   |ViewEventListener|
+   |ApplicationCommand|
+   |WindowCommand|
+   |TextCommand|
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

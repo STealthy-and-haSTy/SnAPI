@@ -1,0 +1,36 @@
+%hyperhelp title="sublime.PhantomSet Class" date="2017-12-23"
+
+
+*|PhantomSet|* Class
+================
+
+A collection that manages Phantoms and the process of adding them, updating them
+and removing them from the View.
+
+This class is contained in the |sublime| module.
+
+
+Constructors
+------------
+
+*PhantomSet*(view, <key>)
+
+  Creates a PhantomSet attached to a `view`. `key` is a string to group
+  Phantoms together.
+
+
+Methods
+-------
+
+*PhantomSet.update*(phantoms)
+  Returns: None
+
+    phantoms should be a list of phantoms.
+
+    The `.region` attribute of each existing phantom in the set will be updated.
+    New phantoms will be added to the view and phantoms not in `phantoms` list
+    will be deleted.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

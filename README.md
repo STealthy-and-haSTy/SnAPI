@@ -24,7 +24,7 @@ in active development and as such everything is subject to change.
 
 -------------------------------------------------------------------------------
 
-
+<!--
 ## Installation ##
 
 SnAPI relies on the [hyperhelp](https://github.com/OdatNurd/hyperhelp)
@@ -63,6 +63,7 @@ Manual installation is not recommended for most users, as in this case you are
 responsible for manually keeping everything up to date. You should only use
 manual installation if you have a very compelling reason to do so and are
 familiar enough with the process to know how to do it properly.
+-->
 
 <!--
 If you do a manual install of the package, you must also manually install the
@@ -71,7 +72,7 @@ use the `Package Control: Satisfy Dependencies` command to have Package Control
 install hyperhelp for you.
 -->
 
-
+<!--
 -------------------------------------------------------------------------------
 
 
@@ -101,7 +102,7 @@ the command palette to get more information.
 
 
 -------------------------------------------------------------------------------
-
+-->
 
 ## License ##
 
@@ -110,7 +111,7 @@ taken from the official API reference for Sublime Text at
 http://www.sublimetext.com/docs/3/api_reference.html and are Copyright ©
 Sublime HQ Pty Ltd.
 
-All other content in this package are licensed under the MIT License.
+All other content in this package are licensed under the MIT License:
 
 Copyright 2017 Terence Martin
 

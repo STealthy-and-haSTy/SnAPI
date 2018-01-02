@@ -1,0 +1,17 @@
+%hyperhelp title="sublime.Edit Class" date="2017-12-23"
+
+
+*|Edit|* Class
+==========
+
+Edit objects have no functions, they exist to group buffer modifications.
+
+Edit objects are passed to |TextCommand|s, and can not be created by the user.
+Using an invalid Edit object, or an Edit object from a different View, will
+cause the functions that require them to fail.
+
+This class is contained in the |sublime| module.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

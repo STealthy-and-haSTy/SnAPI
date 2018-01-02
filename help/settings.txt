@@ -1,0 +1,53 @@
+%hyperhelp title="sublime.Settings Class" date="2017-12-23"
+
+
+*|Settings|* Class
+==============
+
+Represents settings as set in a file |view| or stored in a `sublime-settings`
+file. This class acts like a `dict`, but is not iterable.
+
+This class is contained in the |sublime| module.
+
+
+*settings.get*(name, <default>)
+  Returns: |value|
+
+    Returns the named setting, or `default` if it's not defined. If not passed,
+    `default` will have a value of `None`.
+
+
+*settings.set*(name, value)
+  Returns: None
+
+    Sets the named setting. Only primitive types, lists, and dicts are accepted.
+
+
+*settings.erase*(name)
+  Returns: None
+
+    Removes the named setting. Does not remove it from any parent Settings.
+
+
+*settings.has*(name)
+  Returns: bool
+
+    Returns `True` iff the named option exists in this set of Settings or one of
+    its parents.
+
+
+*settings.add_on_change*(key, on_change)
+  Returns: None
+
+    Register a callback to be run whenever a setting in this object is
+    changed.
+
+
+*settings.clear_on_change*(key)
+  Returns: None
+
+    Remove all callbacks registered with the given `key`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

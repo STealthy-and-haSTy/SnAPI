@@ -3,10 +3,10 @@
 
 General Information        Core Components      Plugin Extension Points
 -------------------        ---------------      -----------------------
- |example.plugins|         |sublime| module     |sublime_plugin| Module
- |plugin.lifecycle|        |Sheet| Class        |EventListener| Class
+ |example	plugins|         |sublime| module     |sublime_plugin| Module
+ |plugin	lifecycle|        |Sheet| Class        |EventListener| Class
  |threading|               |View| Class         |ViewEventListener| Class
- |units.and.coordinates|   |Selection| Class    |ApplicationCommand| Class
+ |units	and	coordinates|   |Selection| Class    |ApplicationCommand| Class
  |types|                   |Region| Class       |WindowCommand| Class
                            |Phantom| Class      |TextCommand| Class
                            |PhantomSet| Class

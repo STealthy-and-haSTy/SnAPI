@@ -1,0 +1,49 @@
+%hyperhelp title="sublime_plugin.ApplicationCommand Class" date="2017-12-23"
+
+
+*|ApplicationCommand|* Class
+========================
+
+ApplicationCommands are instantiated only once.
+
+This class is contained in the |sublime_plugin| module.
+
+
+*ApplicationCommand.run*(<args>)
+  Returns: None
+
+    Called when the command is run.
+
+
+*ApplicationCommand.is_enabled*(<args>)
+  Returns: bool
+
+    Returns `True` if the command is able to be run at this time. The default
+    implementation simply always returns `True`.
+
+
+*ApplicationCommand.is_visible*(<args>)
+  Returns: bool
+
+    Returns `True` if the command should be shown in the menu at this time. The
+    default implementation always returns `True`.
+
+
+*ApplicationCommand.is_checked*(<args>)
+  Returns: bool
+
+    Returns `True` if a checkbox should be shown next to the menu item. The
+    `.sublime-menu` file must have the checkbox attribute set to `true` for this
+    to be used.
+
+
+*ApplicationCommand.description*(<args>)
+  Returns: str
+
+    Returns a description of the command with the given arguments. Used in the
+    menu, if no caption is provided. Return `None` to get the default
+    description.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

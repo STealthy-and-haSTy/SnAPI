@@ -1,0 +1,6 @@
+[
+    // Open the help index on SnAPI, to browse the API
+    {
+        "keys": ["super+shift+h"], "command": "snapi_lookup"
+    }
+]

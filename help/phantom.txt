@@ -1,0 +1,39 @@
+%hyperhelp title="sublime.Phantom Class" date="2017-12-23"
+
+
+*|Phantom|* Class
+=============
+
+Represents an HTML-based decoration to display non-editable content interspersed
+in a View. Used with PhantomSet to actually add the phantoms to the View. Once a
+Phantom has been constructed and added to the View, changes to the attributes
+will have no effect.
+
+This class is contained in the |sublime| module.
+
+
+Constructors
+------------
+
+*Phantom*(region, content, layout, <on_navigate>)
+
+  Creates a phantom attached to a region. The content is HTML to be processed
+  by |minihtml|.
+
+  layout must be one of:
+
+  * `sublime.LAYOUT_INLINE`: Display the phantom in between the `region` and
+    the point following.
+
+  * `sublime.LAYOUT_BELOW`: Display the phantom in space below the current
+    line, left-aligned with the `region`.
+
+  * `sublime.LAYOUT_BLOCK`: Display the phantom in space below the current
+    line, left-aligned with the beginning of the line.
+
+  `on_navigate` is an optional callback that should accept a single string
+  parameter, that is the `href` attribute of the link clicked.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

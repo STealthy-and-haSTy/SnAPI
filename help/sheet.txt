@@ -1,0 +1,34 @@
+%hyperhelp title="sublime.Sheet Class" date="2017-12-23"
+
+
+*|Sheet|* Class
+===========
+
+Represents a content container, i.e. a tab, within a window. Sheets may contain
+a |View|, or an image preview.
+
+This class is contained in the |sublime| module.
+
+
+*sheet.id*()
+  Returns: int
+
+    Returns a number that uniquely identifies this sheet.
+
+
+*sheet.window*()
+  Returns: |Window| or None
+
+    Returns the window containing the sheet. May be `None` if the sheet has been
+    closed.
+
+
+*sheet.view*()
+  Returns: |View| or None
+
+    Returns the view contained within the sheet. May be `None` if the sheet is
+    an image preview, or the view has been closed.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

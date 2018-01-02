@@ -1,0 +1,346 @@
+%hyperhelp title="sublime.Window Class" date="2017-12-23"
+
+
+*|Window|* Class
+============
+
+Represents a Sublime Text window.
+
+This class is contained in the |sublime| module.
+
+
+*window.id*()
+  Returns: int
+
+    Returns a number that uniquely identifies this window.
+
+
+*window.new_file*()
+  Returns: |View|
+
+    Creates a new file. The returned view will be empty, and its `is_loaded()`
+    method will return `True`.
+
+
+*window.open_file*(file_name, <flags>)
+  Returns: |View|
+
+    Opens the named file, and returns the corresponding view. If the file is
+    already opened, it will be brought to the front. Note that as file loading
+    is asynchronous, operations on the returned view won't be possible until its
+    `is_loading()` method returns `False`.
+
+    The optional `flags` parameter is a bitwise combination of:
+
+    * `sublime.ENCODED_POSITION`: Indicates the file_name should be searched for
+      a `:row` or `:row:col` suffix
+
+    * `sublime.TRANSIENT`: Open the file as a preview only: it won't have a tab
+      assigned it until modified
+
+
+*window.find_open_file*(file_name)
+  Returns |View|
+
+    Finds the named file in the list of open files, and returns the
+    corresponding View, or `None` if no such file is open.
+
+
+*window.active_sheet*()
+  Returns: |Sheet|
+
+    Returns the currently focused sheet.
+
+
+*window.active_view*()
+  Returns: |View|
+
+    Returns the currently edited view.
+
+
+*window.active_sheet_in_group*(group)
+  Returns: |Sheet|
+
+    Returns the currently focused sheet in the given `group`.
+
+
+*window.active_view_in_group*(group)
+  Returns: |View|
+
+    Returns the currently edited view in the given `group`.
+
+
+*window.sheets*()
+  Returns: [|Sheet|]
+
+    Returns all open sheets in the window.
+
+
+*window.sheets_in_group*(group)
+  Returns: [|Sheet|]
+
+    Returns all open sheets in the given `group`.
+
+
+*window.views*()
+  Returns: [|View|]
+
+    Returns all open views in the window.
+
+
+*window.views_in_group*(group)
+  Returns: [|View|]
+
+    Returns all open views in the given `group`.
+
+
+*window.num_groups*()
+  Returns: int
+
+    Returns the number of view groups in the window.
+
+
+*window.active_group*()
+  Returns: int
+
+    Returns the index of the currently selected group.
+
+
+*window.focus_group*(group)
+  Returns: None
+
+    Makes the given `group` active.
+
+
+*window.focus_sheet*(sheet)
+  Returns: None
+
+    Switches to the given `sheet`.
+
+
+*window.focus_view*(view)
+  Returns: None
+
+    Switches to the given `view`.
+
+
+*window.get_sheet_index*(sheet)
+  Returns: (int, int)
+
+    Returns the group, and index within the group of the `sheet`. Returns `-1`
+    if not found.
+
+
+*window.set_sheet_index*(sheet, group, index)
+  Returns:  None
+
+    Moves the `sheet` to the given `group` and `index`.
+
+
+*window.get_view_index*(view)
+  Returns: (int, int)
+
+    Returns the group, and index within the group of the `view`. Returns `-1` if
+    not found.
+
+
+*window.set_view_index*(view, group, index)
+  Returns: None
+
+    Moves the `view` to the given `group` and `index`.
+
+
+*window.status_message*(string)
+  Returns: None
+
+    Show a message in the status bar.
+
+
+*window.is_menu_visible*()
+  Returns: bool
+
+    Returns `True` if the menu is visible.
+
+
+*window.set_menu_visible*(flag)
+  Returns: None
+
+    Controls if the menu is visible.
+
+
+*window.is_sidebar_visible*()
+  Returns: bool
+
+    Returns `True` if the sidebar will be shown when contents are available.
+
+
+*window.set_sidebar_visible*(flag)
+  Returns: None
+
+    Sets the sidebar to be shown or hidden when contents are available.
+
+
+*window.get_tabs_visible*()
+  Returns: bool
+
+    Returns `True` if tabs will be shown for open files.
+
+
+*window.set_tabs_visible*(flag)
+  Returns: None
+
+    Controls if tabs will be shown for open files.
+
+
+*window.is_minimap_visible*()
+  Returns: bool
+
+    Returns `True` if the minimap is enabled.
+
+
+*window.set_minimap_visible*(flag)
+  Returns: None
+
+    Controls the visibility of the minimap.
+
+
+*window.is_status_bar_visible*()
+  Returns: bool
+
+    Returns `True` if the status bar will be shown.
+
+
+*window.set_status_bar_visible*(flag)
+  Returns: None
+
+    Controls the visibility of the status bar.
+
+
+*window.folders*()
+  Returns: [str]
+
+    Returns a list of the currently open folders.
+
+
+*window.project_file_name*()
+  Returns: str
+
+    Returns name of the currently opened project file, if any.
+
+
+*window.project_data*()
+  Returns: dict
+
+    Returns the project data associated with the current window. The data is in
+    the same format as the contents of a `.sublime-project` file.
+
+
+*window.set_project_data*(data)
+  Returns: None
+
+    Updates the project data associated with the current window. If the window
+    is associated with a `.sublime-project` file, the project file will be
+    updated on disk, otherwise the window will store the data internally.
+
+
+*window.run_command*(string, <args>)
+  Returns: None
+
+    Runs the named |WindowCommand| with the (optional) given `args`. This method
+    is able to run any sort of command, dispatching the command via input focus.
+
+
+
+*window.show_quick_panel*(items, on_done, <flags>, <selected_index>,
+                          <on_highlighted>)
+  Returns: None
+
+    Shows a quick panel, to select an item in a list. `on_done` will be called
+    once, with the index of the selected item. If the quick panel was cancelled,
+    `on_done` will be called with an argument of -1.
+
+    `items` may be a list of strings, or a list of string lists. In the latter
+    case, each entry in the quick panel will show multiple rows.
+
+    `flags` is a bitwise OR of `sublime.MONOSPACE_FONT` and
+    `sublime.KEEP_OPEN_ON_FOCUS_LOST`
+
+    `on_highlighted`, if given, will be called every time the highlighted item in
+    the quick panel is changed.
+
+
+*window.show_input_panel*(caption, initial_text, on_done, on_change, on_cancel)
+  Returns: |View|
+
+    Shows the input panel, to collect a line of input from the user. `on_done`
+    and `on_change`, if not `None`, should both be functions that expect a
+    single string argument. `on_cancel` should be a function that expects no
+    arguments. The view used for the input widget is returned.
+
+
+*window.create_output_panel*(name, <unlisted>)
+  Returns: |View|
+
+    Returns the view associated with the named output panel, creating it if
+    required. The output panel can be shown by running the `show_panel` window
+    command, with the `panel` argument set to the name with an `"output."`
+    prefix.
+
+    The optional `unlisted` parameter is a boolean to control if the output
+    panel should be listed in the panel switcher.
+
+
+*window.find_output_panel*(name)
+  Returns: |View| or None
+
+    Returns the view associated with the named output panel, or `None` if the
+    output panel does not exist.
+
+
+*window.destroy_output_panel*(name)
+  Returns: None
+
+    Destroys the named output panel, hiding it if currently open.
+
+
+*window.active_panel*()
+  Returns: str or None
+
+    Returns the name of the currently open panel, or `None` if no panel is open.
+    Will return built-in panel names (e.g. `"console"`, `"find"`, etc) in
+    addition to output panels.
+
+
+*window.panels*()
+  Returns: [str]
+
+    Returns a list of the names of all panels that have not been marked as
+    unlisted. Includes certain built-in panels in addition to output panels.
+
+
+*window.lookup_symbol_in_index*(symbol)
+  Returns: [|location|]
+
+    Returns all locations where the symbol is defined across files in the
+    current project.
+
+
+*window.lookup_symbol_in_open_files*(symbol)
+  Returns: [|location|]
+
+    Returns all locations where the symbol is defined across open files.
+
+
+*window.extract_variables*()
+  Returns: dict
+
+    Returns a dictionary of strings populated with contextual keys:
+
+    `packages`, `platform`, `file`, `file_path`, `file_name`, `file_base_name`,
+    `file_extension`, `folder`, `project`, `project_path`, `project_name`,
+    `project_base_name`, `project_extension`. This dict is suitable for passing
+    to `sublime.expand_variables()`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

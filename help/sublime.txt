@@ -1,0 +1,223 @@
+%hyperhelp title="sublime Module" date="2017-12-23"
+
+
+*|sublime|* Module
+==============
+
+In addition to the following module functions, the `sublime` module contains the
+following classes:
+
+    |Sheet|
+    |View|
+    |Selection|
+    |Region|
+    |Phantom|
+    |PhantomSet|
+    |Edit|
+    |Window|
+    |Settings|
+
+
+*sublime.set_timeout*(callback, delay)
+  Returns: None
+
+    Runs the callback in the main thread after the given delay (in
+    milliseconds). Callbacks with an equal delay will be run in the order they
+    were added.
+
+
+*sublime.set_timeout_async*(callback, delay)
+  Returns: None
+
+    Runs the callback on an alternate thread after the given delay (in
+    milliseconds).
+
+
+*sublime.error_message*(string)
+  Returns: None
+
+    Displays an error dialog to the user.
+
+
+*sublime.message_dialog*(string)
+  Returns: None
+
+    Displays a message dialog to the user.
+
+
+*sublime.ok_cancel_dialog*(string, <ok_title>)
+  Returns: bool
+
+    Displays an ok / cancel question dialog to the user. If `ok_title` is
+    provided, this may be used as the text on the ok button. Returns `True` if
+    the user presses the ok button.
+
+
+*sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
+    Returns: int
+
+      Displays a yes / no / cancel question dialog to the user. If `yes_title`
+      and/or `no_title` are provided, they will be used as the text on the
+      corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
+      `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
+
+
+*sublime.load_resource*(name)
+  Returns: str
+
+    Loads the given resource. The `name` should be in the format
+    `Packages/Default/Main.sublime-menu`.
+
+
+*sublime.load_binary_resource*(name)
+  Returns: bytes
+
+    Loads the given resource. The name should be in the format
+    `Packages/Default/Main.sublime-menu`.
+
+
+*sublime.find_resources*(pattern)
+  Returns: [str]
+
+    Finds resources whose file name matches the given `pattern`.
+
+
+*sublime.encode_value*(value, <pretty>)
+  Returns: str
+
+    Encode a JSON compatible `value` into a string representation. If `pretty`
+    is set to `True`, the string will include newlines and indentation.
+
+
+*sublime.decode_value*(string)
+  Returns: |value|
+
+    Decodes a JSON string into an object. If the `string` is invalid, a
+    `ValueError` will be thrown.
+
+
+*sublime.expand_variables*(value, variables)
+  Returns: |value|
+
+    Expands any variables in the string `value` using the variables defined in
+    the dictionary `variables`. `value` may also be a `list` or `dict`, in which
+    case the structure will be recursively expanded. Strings should use snippet
+    syntax, for example:
+        `expand_variables("Hello, ${name}", {"name": "Foo"})`
+
+
+*sublime.load_settings*(base_name)
+  Returns: |Settings|
+
+    Loads the named settings. The name should include a file name and extension,
+    but not a path. The packages will be searched for files matching the
+    `base_name`, and the results will be collated into the settings object.
+    Subsequent calls to `load_settings()` with the `base_name` will return the
+    same object, and not load the settings from disk again.
+
+
+*sublime.save_settings*(base_name)
+  Returns: None
+
+    Flushes any in-memory changes to the named settings object to disk.
+
+
+*sublime.windows*()
+  Returns: [|Window|]
+
+    Returns a list of all the open windows.
+
+
+*sublime.active_window*()
+  Returns: |Window|
+
+    Returns the most recently used window.
+
+
+*sublime.packages_path*()
+  Returns: str
+
+    Returns the path where all the user's loose packages are located.
+
+
+*sublime.installed_packages_path*()
+  Returns: str
+
+    Returns the path where all the user's .sublime-package files are located.
+
+
+*sublime.cache_path*()
+  Returns: str
+
+    Returns the path where Sublime Text stores cache files.
+
+
+*sublime.get_clipboard*(<size_limit>)
+  Returns: str
+
+    Returns the contents of the clipboard. `size_limit` is there to protect
+    against unnecessarily large data, defaults to 16,777,216 characters
+
+
+*sublime.set_clipboard*(string)
+  Returns: None
+
+    Sets the contents of the clipboard.
+
+
+*sublime.score_selector*(scope, selector)
+  Returns: int
+
+    Matches the `selector` against the given scope, returning a score. A score
+    of `0` means no match, above `0` means a match. Different selectors may be
+    compared against the same scope: a higher score means the selector is a
+    better match for the scope.
+
+
+*sublime.run_command*(string, <args>)
+  Returns: None
+
+    Runs the named |ApplicationCommand| with the (optional) given `args`.
+
+
+*sublime.log_commands*(flag)
+  Returns: None
+
+    Controls command logging. If enabled, all commands run from key bindings and
+    the menu will be logged to the console.
+
+
+*sublime.log_input*(flag)
+  Returns: None
+
+    Controls input logging. If enabled, all key presses will be logged to the
+    console.
+
+
+*sublime.log_result_regex*(flag)
+  Returns: None
+
+    Controls result regex logging. This is useful for debugging regular
+    expressions used in build systems.
+
+
+*sublime.version*()
+  Returns: str
+
+    Returns the version number
+
+
+*sublime.platform*()
+  Returns: str
+
+    Returns the platform, which may be `"osx"`, `"linux"` or `"windows"`
+
+
+*sublime.arch*()
+  Returns: str
+
+    Returns the CPU architecture, which may be `"x32"` or `"x64"`
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

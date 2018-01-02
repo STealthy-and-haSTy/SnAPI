@@ -1,0 +1,51 @@
+%hyperhelp title="sublime_plugin.TextCommand Class" date="2017-12-23"
+
+
+*|TextCommand|* Class
+=================
+
+TextCommands are instantiated once per view. The View object may be retrieved
+via `self.view`
+
+This class is contained in the |sublime_plugin| module.
+
+
+*TextCommand.run*(edit, <args>)
+  Returns: None
+
+    Called when the command is run.
+
+
+*TextCommand.is_enabled*(<args>)
+  Returns: bool
+
+    Returns `True` if the command is able to be run at this time. The default
+    implementation simply always returns `True`.
+
+
+*TextCommand.is_visible*(<args>)
+  Returns: bool
+
+    Returns `True` if the command should be shown in the menu at this time. The
+    default implementation always returns `True`.
+
+
+*TextCommand.description*(<args>)
+  Returns: str
+
+    Returns a description of the command with the given arguments. Used in the
+    menus, and for Undo / Redo descriptions. Return `None` to get the default
+    description.
+
+
+*TextCommand.want_event*()
+  Returns: bool
+
+    Return `True` to receive an `event` argument when the command is triggered
+    by a mouse action. The event information allows commands to determine which
+    portion of the view was clicked on. The default implementation returns
+    `False`.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

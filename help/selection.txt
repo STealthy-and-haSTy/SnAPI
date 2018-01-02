@@ -1,0 +1,45 @@
+%hyperhelp title="sublime.Selection Class" date="2017-12-23"
+
+
+*|Selection|* Class
+===============
+
+Maintains a set of Regions, ensuring that none overlap. The regions are kept in
+sorted order.
+
+This class is contained in the |sublime| module.
+
+
+*selection.clear*()
+  Returns: None
+
+    Removes all regions.
+
+
+*selection.add*(region)
+  Returns: None
+
+    Adds the given `region`. It will be merged with any intersecting regions
+    already contained within the set.
+
+
+*selection.add_all*(regions)
+  Returns: None
+
+    Adds all regions in the given `list` or `tuple`.
+
+
+*selection.subtract*(region)
+  Returns: None
+
+    Subtracts the `region` from all regions in the set.
+
+
+*selection.contains*(region)
+  Returns: bool
+
+    Returns True iff the given `region` is a subset.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
