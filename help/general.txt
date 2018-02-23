@@ -1,7 +1,7 @@
-%hyperhelp title="General Information" date="2017-12-23"
+%hyperhelp title="General Information" date="2018-02-22"
 
 
-*|Example	Plugins|*
+*|Example Plugins|*
 ===============
 
 Several pre-made plugins come with Sublime Text, you can find them in the
@@ -28,7 +28,7 @@ Default package:
 --------------------------------------------------------------------------------
 
 
-*|Plugin	Lifecycle|*
+*|Plugin Lifecycle|*
 ================
 
 At importing time, plugins may not call any API functions, with the exception of
@@ -54,7 +54,7 @@ changing while the code is running.
 --------------------------------------------------------------------------------
 
 
-*|Units	and	Coordinates|*
+*|Units and Coordinates|*
 =====================
 
 API functions that accept or return coordinates or dimensions do so using

@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin Modole" date="2017-12-23"
+%hyperhelp title="sublime_plugin Module" date="2018-02-22"
 
 
-*|sublime_plugin	Module|*
+*|sublime_plugin Module|*
 =====================
 
 This module has no direct methods; it contains the following classes:
