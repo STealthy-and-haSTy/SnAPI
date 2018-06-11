@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Window Class" date="2017-12-23"
+%hyperhelp title="sublime.Window Class" date="2018-06-10"
 
 
 *|Window|* Class
@@ -27,13 +27,13 @@ This class is contained in the |sublime| module.
 
     Opens the named file, and returns the corresponding view. If the file is
     already opened, it will be brought to the front. Note that as file loading
-    is asynchronous, operations on the returned view won't be possible until its
-    `is_loading()` method returns `False`.
+    is asynchronous, operations on the returned view won't be possible until
+    its `is_loading()` method returns `False`.
 
     The optional `flags` parameter is a bitwise combination of:
 
-    * `sublime.ENCODED_POSITION`: Indicates the file_name should be searched for
-      a `:row` or `:row:col` suffix
+    * `sublime.ENCODED_POSITION`: Indicates the file_name should be searched
+      for   a `:row` or `:row:col` suffix
 
     * `sublime.TRANSIENT`: Open the file as a preview only: it won't have a tab
       assigned it until modified
@@ -140,8 +140,8 @@ This class is contained in the |sublime| module.
 *window.get_view_index*(view)
   Returns: (int, int)
 
-    Returns the group, and index within the group of the `view`. Returns `-1` if
-    not found.
+    Returns the group, and index within the group of the `view`. Returns `-1`
+    if not found.
 
 
 *window.set_view_index*(view, group, index)
@@ -246,9 +246,9 @@ This class is contained in the |sublime| module.
 *window.run_command*(string, <args>)
   Returns: None
 
-    Runs the named |WindowCommand| with the (optional) given `args`. This method
-    is able to run any sort of command, dispatching the command via input focus.
-
+    Runs the named |WindowCommand| with the (optional) given `args`. This
+    method is able to run any sort of command, dispatching the command via
+    input focus.
 
 
 *window.show_quick_panel*(items, on_done, <flags>, <selected_index>,
@@ -256,8 +256,8 @@ This class is contained in the |sublime| module.
   Returns: None
 
     Shows a quick panel, to select an item in a list. `on_done` will be called
-    once, with the index of the selected item. If the quick panel was cancelled,
-    `on_done` will be called with an argument of -1.
+    once, with the index of the selected item. If the quick panel was
+    cancelled, `on_done` will be called with an argument of -1.
 
     `items` may be a list of strings, or a list of string lists. In the latter
     case, each entry in the quick panel will show multiple rows.
@@ -265,8 +265,8 @@ This class is contained in the |sublime| module.
     `flags` is a bitwise OR of `sublime.MONOSPACE_FONT` and
     `sublime.KEEP_OPEN_ON_FOCUS_LOST`
 
-    `on_highlighted`, if given, will be called every time the highlighted item in
-    the quick panel is changed.
+    `on_highlighted`, if given, will be called every time the highlighted item
+    in the quick panel is changed.
 
 
 *window.show_input_panel*(caption, initial_text, on_done, on_change, on_cancel)
@@ -306,8 +306,8 @@ This class is contained in the |sublime| module.
 *window.active_panel*()
   Returns: str or None
 
-    Returns the name of the currently open panel, or `None` if no panel is open.
-    Will return built-in panel names (e.g. `"console"`, `"find"`, etc) in
+    Returns the name of the currently open panel, or `None` if no panel is
+    open. Will return built-in panel names (e.g. `"console"`, `"find"`, etc) in
     addition to output panels.
 
 

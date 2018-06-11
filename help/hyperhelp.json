@@ -47,6 +47,10 @@
             {
                 "topic": "vector",
                 "caption": "Type: vector"
+            },
+            {
+                "topic": "CommandInputHandler",
+                "caption": "Type: CommandInputHandler"
             }
         ],
         "sublime.txt": [
@@ -180,6 +184,10 @@
             { "topic": "view.is_popup_visible" },
             { "topic": "view.hide_popup" },
             { "topic": "view.is_auto_complete_visible" },
+            { "topic": "view.text_to_window" },
+            { "topic": "view.layout_to_window" },
+            { "topic": "view.style" },
+            { "topic": "view.style_for_scope" }
         ],
         "selection.txt": [
             "sublime.Selection Class",
@@ -358,7 +366,7 @@
             { "topic": "EventListener.on_text_command" },
             { "topic": "EventListener.on_window_command" },
             { "topic": "EventListener.on_post_text_command" },
-            { "topic": "EventListener.on_post_window_command" },
+            { "topic": "EventListener.on_post_window_command" }
         ],
         "vieweventlistener.txt": [
             "sublime_plugin.ViewEventListener Class",
@@ -380,6 +388,16 @@
             { "topic": "ViewEventListener.on_hover" },
             { "topic": "ViewEventListener.on_query_context" },
             { "topic": "ViewEventListener.on_query_completions" },
+            { "topic": "ViewEventListener.on_load" },
+            { "topic": "ViewEventListener.on_load_async" },
+            { "topic": "ViewEventListener.on_pre_close" },
+            { "topic": "ViewEventListener.on_close" },
+            { "topic": "ViewEventListener.on_pre_save" },
+            { "topic": "ViewEventListener.on_pre_save_async" },
+            { "topic": "ViewEventListener.on_post_save" },
+            { "topic": "ViewEventListener.on_post_save_async" },
+            { "topic": "ViewEventListener.on_text_command" },
+            { "topic": "ViewEventListener.on_post_text_command" }
         ],
         "applicationcommand.txt": [
             "sublime_plugin.ApplicationCommand Class",
@@ -393,9 +411,11 @@
             { "topic": "ApplicationCommand.is_visible" },
             { "topic": "ApplicationCommand.is_checked" },
             { "topic": "ApplicationCommand.description" },
+            { "topic": "ApplicationCommand.input" }
         ],
         "windowcommand.txt": [
             "sublime_plugin.WindowCommand Class",
+
             {
                 "topic": "WindowCommand",
                 "caption": "sublime_plugin.WindowCommand Class"
@@ -404,9 +424,11 @@
             { "topic": "WindowCommand.is_enabled" },
             { "topic": "WindowCommand.is_visible" },
             { "topic": "WindowCommand.description" },
+            { "topic": "WindowCommand.input" }
         ],
         "textcommand.txt": [
             "sublime_plugin.TextCommand Class",
+
             {
                 "topic": "TextCommand",
                 "caption": "sublime_plugin.TextCommand Class"
@@ -415,8 +437,44 @@
             { "topic": "TextCommand.is_enabled" },
             { "topic": "TextCommand.is_visible" },
             { "topic": "TextCommand.description" },
-            { "topic": "TextCommand.want_event" }
+            { "topic": "TextCommand.want_event" },
+            { "topic": "TextCommand.input" }
         ],
+        "textinputhandler.txt": [
+            "sublime_plugin.TextInputHandler Class",
+
+            {
+                "topic": "TextInputHandler",
+                "caption": "sublime_plugin.TextInputHandler Class"
+            },
+            { "topic": "TextInputHandler.name" },
+            { "topic": "TextInputHandler.placeholder" },
+            { "topic": "TextInputHandler.initial_text" },
+            { "topic": "TextInputHandler.preview" },
+            { "topic": "TextInputHandler.validate" },
+            { "topic": "TextInputHandler.cancel" },
+            { "topic": "TextInputHandler.confirm" },
+            { "topic": "TextInputHandler.next_input" },
+            { "topic": "TextInputHandler.description" }
+        ],
+        "listinputhandler.txt": [
+            "sublime_plugin.ListInputHandler Class",
+
+            {
+                "topic": "ListInputHandler",
+                "caption": "sublime_plugin.ListInputHandler Class"
+            },
+            { "topic": "ListInputHandler.name" },
+            { "topic": "ListInputHandler.list_items" },
+            { "topic": "ListInputHandler.placeholder" },
+            { "topic": "ListInputHandler.initial_text" },
+            { "topic": "ListInputHandler.preview" },
+            { "topic": "ListInputHandler.validate" },
+            { "topic": "ListInputHandler.cancel" },
+            { "topic": "ListInputHandler.confirm" },
+            { "topic": "ListInputHandler.next_input" },
+            { "topic": "ListInputHandler.description" }
+        ]
     },
 
     "help_contents": [
@@ -526,6 +584,14 @@
                     "topic": "TextCommand",
                     "caption": "TextCommand Class"
                 },
+                {
+                    "topic": "TextInputHandler",
+                    "caption": "TextInputHandler Class"
+                },
+                {
+                    "topic": "ListInputHandler",
+                    "caption": "ListInputHandler Class"
+                }
             ]
         }
     ],
@@ -612,7 +678,12 @@
             }
         ],
 
+        "Packages/Default/arithmetic.py": [
+            "Packages/Default/arithmetic.py",
 
-
+            {
+                "topic": "arithmetic.py"
+            }
+        ]
     }
 }

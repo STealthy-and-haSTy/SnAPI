@@ -1,4 +1,4 @@
-%hyperhelp title="General Information" date="2018-02-22"
+%hyperhelp title="General Information" date="2018-06-10"
 
 
 *|Example Plugins|*
@@ -23,6 +23,8 @@ Default package:
       Uses a popup to show the scope names at the caret
   |Packages/Default/trim_trailing_whitespace.py|
       Modifies a buffer just before its saved
+  |Packages/Default/arithmetic.py|
+      Accepts an input from the user when run via the Command Palette
 
 
 --------------------------------------------------------------------------------
@@ -31,8 +33,8 @@ Default package:
 *|Plugin Lifecycle|*
 ================
 
-At importing time, plugins may not call any API functions, with the exception of
-`sublime.version()`, `sublime.platform()`, `sublime.architecture()` and
+At importing time, plugins may not call any API functions, with the exception
+of `sublime.version()`, `sublime.platform()`, `sublime.architecture()` and
 `sublime.channel()`.
 
 If a plugin defines a module level function `plugin_loaded()`, this will be
@@ -69,13 +71,13 @@ specification, |minihtml| treats the `px` unit as device-independent.
 *|Types|*
 =====
 
-This documentation generally refers to simply Python data types. Some type names
-are classes documented herein, however there are also a few custom type names
-that refer to construct with specific semantics:
+This documentation generally refers to simply Python data types. Some type
+names are classes documented herein, however there are also a few custom type
+names that refer to construct with specific semantics:
 
- * *location*: a tuple of `(str, str, (int, int))` that contains information about
-   a location of a symbol. The first string is the absolute file path, the
-   second is the file path relative to the project, the third element is a
+ * *location*: a tuple of `(str, str, (int, int))` that contains information
+   about a location of a symbol. The first string is the absolute file path,
+   the second is the file path relative to the project, the third element is a
    two-element tuple of the row and column.
 
  * *point*: an `int` that represents the offset from the beginning of the editor
@@ -88,6 +90,9 @@ that refer to construct with specific semantics:
  * *dip*: a `float` that represents a device-independent pixel.
 
  * *vector*: a tuple of `(dip, dip)` representing `x` and `y` coordinates.
+
+ * *CommandInputHandler*: a subclass of either |TextInputHandler| or
+   |ListInputHandler|.
 
 
 --------------------------------------------------------------------------------

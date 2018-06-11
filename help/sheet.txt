@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Sheet Class" date="2017-12-23"
+%hyperhelp title="sublime.Sheet Class" date="2018-06-10"
 
 
 *|Sheet|* Class
@@ -19,8 +19,8 @@ This class is contained in the |sublime| module.
 *sheet.window*()
   Returns: |Window| or None
 
-    Returns the window containing the sheet. May be `None` if the sheet has been
-    closed.
+    Returns the window containing the sheet. May be `None` if the sheet has
+    been closed.
 
 
 *sheet.view*()

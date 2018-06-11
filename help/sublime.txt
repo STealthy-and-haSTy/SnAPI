@@ -1,11 +1,11 @@
-%hyperhelp title="sublime Module" date="2017-12-23"
+%hyperhelp title="sublime Module" date="2018-06-10"
 
 
 *|sublime|* Module
 ==============
 
-In addition to the following module functions, the `sublime` module contains the
-following classes:
+In addition to the following module functions, the `sublime` module contains
+the following classes:
 
     |Sheet|
     |View|
@@ -21,7 +21,7 @@ following classes:
 *sublime.set_timeout*(callback, delay)
   Returns: None
 
-    Runs the callback in the main thread after the given delay (in
+    Runs the callback in the main thread after the given `delay` (in
     milliseconds). Callbacks with an equal delay will be run in the order they
     were added.
 
@@ -29,7 +29,7 @@ following classes:
 *sublime.set_timeout_async*(callback, delay)
   Returns: None
 
-    Runs the callback on an alternate thread after the given delay (in
+    Runs the callback on an alternate thread after the given `delay` (in
     milliseconds).
 
 
@@ -56,10 +56,10 @@ following classes:
 *sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
     Returns: int
 
-      Displays a yes / no / cancel question dialog to the user. If `yes_title`
-      and/or `no_title` are provided, they will be used as the text on the
-      corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
-      `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
+    Displays a yes / no / cancel question dialog to the user. If `yes_title`
+    and/or `no_title` are provided, they will be used as the text on the
+    corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
+    `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
 
 
 *sublime.load_resource*(name)
@@ -100,18 +100,18 @@ following classes:
   Returns: |value|
 
     Expands any variables in the string `value` using the variables defined in
-    the dictionary `variables`. `value` may also be a `list` or `dict`, in which
-    case the structure will be recursively expanded. Strings should use snippet
-    syntax, for example:
+    the dictionary `variables`. `value` may also be a `list` or `dict`, in
+    which case the structure will be recursively expanded. Strings should use
+    snippet syntax, for example:
         `expand_variables("Hello, ${name}", {"name": "Foo"})`
 
 
 *sublime.load_settings*(base_name)
   Returns: |Settings|
 
-    Loads the named settings. The name should include a file name and extension,
-    but not a path. The packages will be searched for files matching the
-    `base_name`, and the results will be collated into the settings object.
+    Loads the named settings. The name should include a file name and
+    extension, but not a path. The packages will be searched for files matching
+    the `base_name`, and the results will be collated into the settings object.
     Subsequent calls to `load_settings()` with the `base_name` will return the
     same object, and not load the settings from disk again.
 
@@ -143,7 +143,8 @@ following classes:
 *sublime.installed_packages_path*()
   Returns: str
 
-    Returns the path where all the user's .sublime-package files are located.
+    Returns the path where all the user's `.sublime-package`` files are
+    located.
 
 
 *sublime.cache_path*()
@@ -183,8 +184,8 @@ following classes:
 *sublime.log_commands*(flag)
   Returns: None
 
-    Controls command logging. If enabled, all commands run from key bindings and
-    the menu will be logged to the console.
+    Controls command logging. If enabled, all commands run from key bindings
+    and the menu will be logged to the console.
 
 
 *sublime.log_input*(flag)

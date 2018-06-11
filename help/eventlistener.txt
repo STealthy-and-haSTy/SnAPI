@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.EventListener Class" date="2017-12-24"
+%hyperhelp title="sublime_plugin.EventListener Class" date="2018-06-10"
 
 
 *|EventListener|* Class
@@ -19,8 +19,8 @@ This class is contained in the |sublime_plugin| module.
 *EventListener.on_new_async*(view)
   Returns: None
 
-    Called when a new buffer is created. Runs in a separate thread, and does not
-    block the application.
+    Called when a new buffer is created. Runs in a separate thread, and does
+    not block the application.
 
 
 *EventListener.on_clone*(view)
@@ -192,13 +192,12 @@ This class is contained in the |sublime_plugin| module.
 *EventListener.on_query_completions*(view, prefix, locations)
   Returns: list, tuple or None
 
-    Called whenever completions are to be presented to the user. The `prefix` is
-    a unicode string of the text to complete.
+    Called whenever completions are to be presented to the user. The `prefix`
+    is a unicode string of the text to complete.
 
     `locations` is a list of |point|s. Since this method is called for all
-    completions in every view no matter the syntax,
-    `view.match_selector(point, relevant_scope)` should be called to determine
-    if the point is relevant.
+    completions in every view no matter the syntax, `view.match_selector(point,
+    relevant_scope)` should be called to determine if the point is relevant.
 
     The return value must be one of the following formats:
 
@@ -206,8 +205,8 @@ This class is contained in the |sublime_plugin| module.
 
         `return None`
 
-    * A list of 2-element lists/tuples. The first element is a unicode string of
-      the completion trigger, the second is the unicode replacement text.
+    * A list of 2-element lists/tuples. The first element is a unicode string
+      of the completion trigger, the second is the unicode replacement text.
 
         `return [["me1", "method1()"], ["me2", "method2()"]]`
 
@@ -220,6 +219,7 @@ This class is contained in the |sublime_plugin| module.
             ["me2\tmethod", "method2()"]
         ]
         ```
+
       The replacement text may contain dollar-numeric fields such as a snippet
       does, e.g. `$0`, `$1`.
 
@@ -254,9 +254,9 @@ This class is contained in the |sublime_plugin| module.
 *EventListener.on_text_command*(view, command_name, args)
   Returns: (str, dict)
 
-    Called when a text command is issued. The listener may return a
-    `(command, arguments)` tuple to rewrite the command, or `None` to run the
-    command unmodified.
+    Called when a text command is issued. The listener may return a `(command,
+    arguments)` tuple to rewrite the command, or `None` to run the command
+    unmodified.
 
 
 *EventListener.on_window_command*(window, command_name, args)

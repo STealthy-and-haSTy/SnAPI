@@ -1,0 +1,79 @@
+%hyperhelp title="sublime_plugin.TextInputHandler Class" date="2018-06-10"
+
+
+*|TextInputHandler|* Class
+======================
+
+TextInputHandlers can be used to accept textual input in the Command Palette.
+Return a subclass of this from the `input()`` method of a command.
+
+This class is contained in the |sublime_plugin| module.
+
+
+*TextInputHandler.name*()
+  Returns: str
+
+    The command argument name this input handler is editing. Defaults to
+    `foo_bar`` for an input handler named `FooBarInputHandler`
+
+
+*TextInputHandler.placeholder*()
+  Returns: str
+
+    Placeholder text is shown in the text entry box before the user has entered
+    anything. Empty by default.
+
+
+*TextInputHandler.initial_text*()
+  Returns: str
+
+    Initial text shown in the text entry box. Empty by default.
+
+
+*TextInputHandler.preview*(text)
+  Returns: str or sublime.Html(str)
+
+    Called whenever the user changes the text in the entry box. The returned
+    value (either plain text or HTML) will be shown in the preview area of the
+    Command Palette.
+
+
+*TextInputHandler.validate*(text)
+  Returns: bool
+
+    Called whenever the user presses enter in the text entry box. Return False
+    to disallow the current value.
+
+
+*TextInputHandler.cancel*()
+  Returns: None
+
+    Called when the input handler is canceled, either by the user pressing
+    backspace or escape.
+
+
+*TextInputHandler.confirm*(text)
+  Returns: None
+
+    Called when the input is accepted, after the user has pressed enter and the
+    text has been validated.
+
+
+*TextInputHandler.next_input*(<args>)
+  Returns: |CommandInputHandler| or None
+
+    Returns the next input after the user has completed this one. May return
+    `None`` to indicate no more input is required, or
+    `sublime_plugin.BackInputHandler()`` to indicate that the input handler
+    should be popped off the stack instead.
+
+
+*TextInputHandler.description*(text)
+  Returns: str
+
+    The text to show in the Command Palette when this input handler is not at
+    the top of the input handler stack. Defaults to the text the user entered.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

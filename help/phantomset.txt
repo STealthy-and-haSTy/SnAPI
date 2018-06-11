@@ -1,11 +1,11 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2017-12-23"
+%hyperhelp title="sublime.PhantomSet Class" date="2018-06-10"
 
 
 *|PhantomSet|* Class
 ================
 
-A collection that manages Phantoms and the process of adding them, updating them
-and removing them from the View.
+A collection that manages |Phantom|s and the process of adding them, updating
+them and removing them from the View.
 
 This class is contained in the |sublime| module.
 
@@ -25,11 +25,11 @@ Methods
 *PhantomSet.update*(phantoms)
   Returns: None
 
-    phantoms should be a list of phantoms.
+    `phantoms` should be a list of phantoms.
 
-    The `.region` attribute of each existing phantom in the set will be updated.
-    New phantoms will be added to the view and phantoms not in `phantoms` list
-    will be deleted.
+    The `.region` attribute of each existing phantom in the set will be
+    updated. New phantoms will be added to the view and phantoms not in
+    `phantoms` list will be deleted.
 
 
 --------------------------------------------------------------------------------

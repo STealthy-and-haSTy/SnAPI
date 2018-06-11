@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2017-12-23"
+%hyperhelp title="sublime.View Class" date="2018-06-10"
 
 
 *|View|* Class
@@ -165,13 +165,15 @@ This class is contained in the |sublime| module.
 *view.full_line*(point)
   Return: |Region|
 
-    As `line()`, but the region includes the trailing newline character, if any.
+    As `line()`, but the region includes the trailing newline character, if
+    any.
 
 
 *view.full_line*(region)
   Return: |Region|
 
-    As `line()`, but the region includes the trailing newline character, if any.
+    As `line()`, but the region includes the trailing newline character, if
+    any.
 
 
 *view.lines*(region)
@@ -220,27 +222,27 @@ This class is contained in the |sublime| module.
   Returns: |Region|
 
     Finds the next location after point that matches the given `classes`. If
-    `forward` is `False`, searches backwards instead of forwards. `classes` is a
-    bitwise OR of the `sublime.CLASS_XXX` flags. `separators` may be passed in,
-    to define what characters should be considered to separate words.
+    `forward` is `False`, searches backwards instead of forwards. `classes` is
+    a bitwise OR of the `sublime.CLASS_XXX` flags. `separators` may be passed
+    in, to define what characters should be considered to separate words.
 
 
 *view.expand_by_class*(point, classes, <separators>)
   Returns: |Region|
 
     Expands `point` to the left and right, until each side lands on a location
-    that matches `classes`. `classes` is a bitwise OR of the `sublime.CLASS_XXX`
-    flags. separators may be passed in, to define what characters should be
-    considered to separate words.
+    that matches `classes`. `classes` is a bitwise OR of the
+    `sublime.CLASS_XXX` flags. separators may be passed in, to define what
+    characters should be considered to separate words.
 
 
 *view.expand_by_class*(region, classes, <separators>)
   Returns: |Region|
 
     Expands `region` to the left and right, until each side lands on a location
-    that matches `classes`. `classes` is a bitwise OR of the `sublime.CLASS_XXX`
-    flags. `separators` may be passed in, to define what characters should be
-    considered to separate words.
+    that matches `classes`. `classes` is a bitwise OR of the
+    `sublime.CLASS_XXX` flags. `separators` may be passed in, to define what
+    characters should be considered to separate words.
 
 
 *view.find*(pattern, start_point, <flags>)
@@ -271,24 +273,24 @@ This class is contained in the |sublime| module.
 *view.text_point*(row, col)
   Returns: int
 
-    Calculates the character offset of the given, 0-based, `row` and `col`. Note
-    that `col` is interpreted as the number of characters to advance past the
-    beginning of the row.
+    Calculates the character offset of the given, 0-based, `row` and `col`.
+    Note that `col` is interpreted as the number of characters to advance past
+    the beginning of the row.
 
 
 *view.set_syntax_file*(syntax_file)
   Returns: None
 
-    Changes the syntax used by the view. `syntax_file` should be a name along the
-    lines of `Packages/Python/Python.tmLanguage`. To retrieve the current syntax,
-    use `view.settings().get('syntax')`.
+    Changes the syntax used by the view. `syntax_file` should be a name along
+    the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
+    syntax, use `view.settings().get('syntax')`.
 
 
 *view.extract_scope*(point)
   Returns: |Region|
 
-    Returns the extent of the syntax scope name assigned to the character at the
-    given `point`.
+    Returns the extent of the syntax scope name assigned to the character at
+    the given `point`.
 
 
 *view.scope_name*(point)
@@ -347,7 +349,7 @@ This class is contained in the |sublime| module.
     Returns the offset of the viewport in layout coordinates.
 
 
-*view.set_viewport_position*(vector, <animate<)
+*view.set_viewport_position*(vector, <animate>)
   Returns: None
 
     Scrolls the viewport to the given layout position.
@@ -368,13 +370,25 @@ This class is contained in the |sublime| module.
 *view.text_to_layout*(point)
   Returns: |vector|
 
-    Converts a text position to a layout position
+    Converts a text point to a layout position
+
+
+*view.text_to_window*(point)
+  Returns: |vector|
+
+    Converts a text point to a window position
 
 
 *view.layout_to_text*(vector)
   Returns: |point|
 
-    Converts a layout position to a text position
+    Converts a layout position to a text point
+
+
+*view.layout_to_window*(vector)
+  Returns: |vector|
+
+    Converts a layout position to a window position
 
 
 *view.window_to_layout*(vector)
@@ -386,7 +400,7 @@ This class is contained in the |sublime| module.
 *view.window_to_text*(vector)
   Returns: |point|
 
-    Converts a window position to a text position
+    Converts a window position to a text point
 
 
 *view.line_height*()
@@ -491,8 +505,8 @@ This class is contained in the |sublime| module.
     commands. If the undo / redo history doesn't extend far enough, then
     `(None, None, 0)` will be returned.
 
-    Setting `modifying_only` to `True` (the default is `False`) will only return
-    entries that modified the buffer.
+    Setting `modifying_only` to `True` (the default is `False`) will only
+    return entries that modified the buffer.
 
 
 *view.change_count*()
@@ -536,8 +550,8 @@ This class is contained in the |sublime| module.
 *view.set_encoding*(encoding)
   Returns: None
 
-    Applies a new encoding to the file. This encoding will be used the next time
-    the file is saved.
+    Applies a new encoding to the file. This encoding will be used the next
+    time the file is saved.
 
 
 *view.line_endings*()
@@ -555,8 +569,8 @@ This class is contained in the |sublime| module.
 *view.overwrite_status*()
   Returns: bool
 
-    Returns the overwrite status, which the user normally toggles via the insert
-    key.
+    Returns the overwrite status, which the user normally toggles via the
+    insert key.
 
 
 *view.set_overwrite_status*(enabled)
@@ -575,8 +589,8 @@ This class is contained in the |sublime| module.
   Returns: None
 
     Shows a pop up menu at the caret, to select an item in a list. `on_done`
-    will be called once, with the index of the selected item. If the pop up menu
-    was cancelled, `on_done` will be called with an argument of -1.
+    will be called once, with the index of the selected item. If the pop up
+    menu was cancelled, `on_done` will be called with an argument of -1.
 
     `items` is a list of strings.
 
@@ -597,14 +611,14 @@ This class is contained in the |sublime| module.
     * `sublime.HIDE_ON_MOUSE_MOVE`. Causes the popup to hide when the mouse is
       moved, clicked or scrolled
 
-    * `sublime.HIDE_ON_MOUSE_MOVE_AWAY`. Causes the popup to hide when the mouse
-      is moved (unless towards the popup), or when clicked or scrolled
+    * `sublime.HIDE_ON_MOUSE_MOVE_AWAY`. Causes the popup to hide when the
+      mouse   is moved (unless towards the popup), or when clicked or scrolled
 
     The default `location` of `-1` will display the popup at the cursor,
     otherwise a text point should be passed.
 
-    `max_width` and `max_height` set the maximum dimensions for the popup, after
-    which scroll bars will be displayed.
+    `max_width` and `max_height` set the maximum dimensions for the popup,
+    after which scroll bars will be displayed.
 
     `on_navigate` is a callback that should accept a string contents of the
     `href` attribute on the link the user clicked.
@@ -634,6 +648,25 @@ This class is contained in the |sublime| module.
   Returns: bool
 
     Returns if the auto complete menu is currently visible.
+
+
+*view.style*()
+  Returns: dict
+
+    Returns a `dict`` of the global style settings for the view. All colors are
+    normalized to the six character hex form with a leading hash, e.g.
+    `#ff0000`.
+
+
+*view.style_for_scope*(scope_name)
+  Returns: dict
+
+        Accepts a string scope name and returns a `dict` of style information,
+        include the keys `foreground`, `bold`, `italic`, `source_line`,
+        `source_column` and `source_file`. If the scope has a `background`
+        color set, the key background will be present. The foreground and
+        background colors are normalized to the six character hex form with a
+        leading hash, e.g. `#ff0000`.
 
 
 --------------------------------------------------------------------------------

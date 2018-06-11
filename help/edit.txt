@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Edit Class" date="2017-12-23"
+%hyperhelp title="sublime.Edit Class" date="2018-06-10"
 
 
 *|Edit|* Class

@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Settings Class" date="2017-12-23"
+%hyperhelp title="sublime.Settings Class" date="2018-06-10"
 
 
 *|Settings|* Class
@@ -20,7 +20,8 @@ This class is contained in the |sublime| module.
 *settings.set*(name, value)
   Returns: None
 
-    Sets the named setting. Only primitive types, lists, and dicts are accepted.
+    Sets the named setting. Only primitive types, lists, and dicts are
+    accepted.
 
 
 *settings.erase*(name)
@@ -32,15 +33,14 @@ This class is contained in the |sublime| module.
 *settings.has*(name)
   Returns: bool
 
-    Returns `True` iff the named option exists in this set of Settings or one of
+    Returns `True` if the named option exists in this set of Settings or one of
     its parents.
 
 
 *settings.add_on_change*(key, on_change)
   Returns: None
 
-    Register a callback to be run whenever a setting in this object is
-    changed.
+    Register a callback to be run whenever a setting in this object is changed.
 
 
 *settings.clear_on_change*(key)

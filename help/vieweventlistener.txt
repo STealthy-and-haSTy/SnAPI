@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2017-12-24"
+%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2018-06-10"
 
 
 *|ViewEventListener|* Class
@@ -34,6 +34,59 @@ Class Methods
 Methods
 -------
 
+*ViewEventListener.on_load*()
+  Returns: None
+
+    Called when the file is finished loading.
+
+
+*ViewEventListener.on_load_async*()
+  Returns: None
+
+    Called when the file is finished loading. Runs in a separate thread, and
+    does not block the application.
+
+
+*ViewEventListener.on_pre_close*()
+  Returns: None
+
+    Called when a view is about to be closed. The view will still be in the
+    window at this point.
+
+
+*ViewEventListener.on_close*()
+  Returns: None
+
+    Called when a view is closed (note, there may still be other views into the
+    same buffer).
+
+
+*ViewEventListener.on_pre_save*()
+  Returns: None
+
+    Called just before a view is saved.
+
+
+*ViewEventListener.on_pre_save_async*()
+  Returns: None
+
+    Called just before a view is saved. Runs in a separate thread, and does not
+    block the application.
+
+
+*ViewEventListener.on_post_save*()
+  Returns: None
+
+    Called after a view has been saved.
+
+
+*ViewEventListener.on_post_save_async*()
+  Returns: None
+
+    Called after a view has been saved. Runs in a separate thread, and does not
+    block the application.
+
+
 *ViewEventListener.on_modified*()
   Returns: None
 
@@ -56,8 +109,8 @@ Methods
 *ViewEventListener.on_selection_modified_async*()
   Returns: None
 
-    Called after the selection has been modified in the view. Runs in a separate
-    thread, and does not block the application.
+    Called after the selection has been modified in the view. Runs in a
+    separate thread, and does not block the application.
 
 
 *ViewEventListener.on_activated*()
@@ -126,8 +179,8 @@ Methods
     * `sublime.OP_REGEX_CONTAINS`: Does the value of the context contain a
       substring matching the regex given in operand?
 
-    * `sublime.OP_NOT_REGEX_CONTAINS`: Does the value of the context not contain
-      a substring matching the regex given in operand?
+    * `sublime.OP_NOT_REGEX_CONTAINS`: Does the value of the context not
+      contain a substring matching the regex given in operand?
 
     `match_all` should be used if the context relates to the selections: does
     every selection have to match (`match_all == True`), or is at least one
@@ -196,6 +249,21 @@ Methods
             sublime.INHIBIT_EXPLICIT_COMPLETIONS
         )
         ```
+
+
+*ViewEventListener.on_text_command*(command_name, args)
+  Returns: (str, dict)
+
+    Called when a text command is issued. The listener may return a `(command,
+    arguments)` tuple to rewrite the command, or `None` to run the command
+    unmodified.
+
+
+*ViewEventListener.on_post_text_command*(command_name, args)
+  Returns: None
+
+    Called after a text command has been executed.
+
 
 --------------------------------------------------------------------------------
 API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.WindowCommand Class" date="2017-12-23"
+%hyperhelp title="sublime_plugin.WindowCommand Class" date="2018-06-10"
 
 
 *|WindowCommand|* Class
@@ -36,6 +36,13 @@ This class is contained in the |sublime_plugin| module.
     Returns a description of the command with the given arguments. Used in the
     menu, if no caption is provided. Return `None` to get the default
     description.
+
+
+*WindowCommand.input*(<args>)
+  Returns: |CommandInputHandler| or None
+
+    If this returns something other than None, the user will be prompted for an
+    input before the command is run in the Command Palette.
 
 
 --------------------------------------------------------------------------------
