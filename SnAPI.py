@@ -24,19 +24,19 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
                     sublime.CLASS_WORD_START | sublime.CLASS_WORD_END)
             topic = self.view.substr(extract)
 
-            pkg_info = help_index_list().get("SnAPI")
+            pkg_info = help_index_list().get("SublimeAPI")
             if lookup_help_topic(pkg_info, topic):
                 return sublime.run_command("hyperhelp_topic", {
-                    "package": "SnAPI",
+                    "package": "SublimeAPI",
                     "topic": topic
                 })
 
-        sublime.run_command("hyperhelp_index", {"package": "SnAPI"})
+        sublime.run_command("hyperhelp_index", {"package": "SublimeAPI"})
         if topic is not None:
             self.view.window().run_command("insert", {"characters": topic})
 
     def is_enabled(self):
-        return "SnAPI" in help_index_list()
+        return "SublimeAPI" in help_index_list()
 
 
 ###----------------------------------------------------------------------------
