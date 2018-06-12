@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2018-06-10"
+%hyperhelp title="sublime Module" date="2018-06-11"
 
 
 *|sublime|* Module
@@ -143,7 +143,7 @@ the following classes:
 *sublime.installed_packages_path*()
   Returns: str
 
-    Returns the path where all the user's `.sublime-package`` files are
+    Returns the path where all the user's `.sublime-package` files are
     located.
 
 

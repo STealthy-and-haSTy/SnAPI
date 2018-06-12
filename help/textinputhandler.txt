@@ -1,11 +1,11 @@
-%hyperhelp title="sublime_plugin.TextInputHandler Class" date="2018-06-10"
+%hyperhelp title="sublime_plugin.TextInputHandler Class" date="2018-06-11"
 
 
 *|TextInputHandler|* Class
 ======================
 
 TextInputHandlers can be used to accept textual input in the Command Palette.
-Return a subclass of this from the `input()`` method of a command.
+Return a subclass of this from the `input()` method of a command.
 
 This class is contained in the |sublime_plugin| module.
 
@@ -14,7 +14,7 @@ This class is contained in the |sublime_plugin| module.
   Returns: str
 
     The command argument name this input handler is editing. Defaults to
-    `foo_bar`` for an input handler named `FooBarInputHandler`
+    `foo_bar` for an input handler named `FooBarInputHandler`
 
 
 *TextInputHandler.placeholder*()
@@ -63,8 +63,8 @@ This class is contained in the |sublime_plugin| module.
   Returns: |CommandInputHandler| or None
 
     Returns the next input after the user has completed this one. May return
-    `None`` to indicate no more input is required, or
-    `sublime_plugin.BackInputHandler()`` to indicate that the input handler
+    `None` to indicate no more input is required, or
+    `sublime_plugin.BackInputHandler()` to indicate that the input handler
     should be popped off the stack instead.
 
 
