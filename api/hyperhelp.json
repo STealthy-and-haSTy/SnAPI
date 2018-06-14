@@ -1,6 +1,8 @@
 {
+    "package": "SublimeAPI",
     "description": "Sublime Text 3 API Documentation",
     "default_caption": "{topic}()",
+    "doc_root": "api/",
     "help_files": {
         "index.txt": [
             "Sublime Text 3 API Documentation",
