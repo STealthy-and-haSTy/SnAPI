@@ -1,0 +1,65 @@
+{
+    "package": "SublimeBuild",
+    "description": "Sublime Text 3 Build Systems",
+    "default_caption": "{topic}()",
+    "doc_root": "build/",
+    "help_files": {
+        "index.txt": [
+            "Sublime Text 3 Build Systems",
+        ],
+
+        "basic.txt": [
+            "Basic Example",
+
+            {
+                "topic": "basic.txt",
+                "caption": "Basic Example",
+                "aliases": ["basic example"]
+            },
+        ],
+
+        "usage.txt": [
+            "Usage",
+
+            {
+                "topic": "usage",
+                "caption": "Usage",
+            },
+            {
+                "topic": "running a build",
+                "caption": "Running a Build"
+            },
+            {
+                "topic": "selecting a build System",
+                "caption": "Selecting a Build System"
+            },
+            {
+                "topic": "navigating results",
+                "caption": "Navigating results"
+            },
+            {
+                "topic": "cancelling a build",
+                "caption": "Cancelling a build",
+                "aliases": ["canceling a build"]
+            },
+        ],
+    },
+
+    "help_contents": [
+        {
+            "topic": "index.txt",
+            "caption": "Sublime Text 3 Build Systems"
+        },
+    ],
+
+    "externals":
+    {
+        "https://www.sublimetext.com/docs/3/build_systems.html": [
+            "Sublime Text Build System ",
+
+            {
+                "topic": "build_systems.html"
+            }
+        ],
+    }
+}

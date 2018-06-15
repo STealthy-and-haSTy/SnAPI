@@ -1,0 +1,20 @@
+%hyperhelp title="Basic Example" date="2018-06-14"
+
+
+The following is a basic example of a build system. This build system will
+execute the currently-open Python file.
+
+    ```
+    {
+        "cmd": ["python", "$file"],
+        "selector": "source.python",
+        "file_regex": "^\\s*File \"(...*?)\", line ([0-9]*)"
+    }
+    ```
+
+The |Usage| and |Options| sections will discuss how to use and customize a
+build system.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|

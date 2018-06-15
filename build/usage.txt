@@ -1,0 +1,92 @@
+%hyperhelp title="Usage" date="2018-06-14"
+
+
+*|Usage|*
+=====
+
+Build systems include the following functionality:
+
+  * Automatic selection of a build system based on file type
+  * Remembering the last used build system
+  * Navigation of build system results
+  * Ability to cancel a build
+
+
+*|Running a Build|*
+---------------
+
+A build can be run by one of the following methods:
+
++-----------------------------------------------+-----------------+
+|                   Keyboard                    |      Menu       |
++---------------+---------------+---------------+-----------------+
+| Windows/Linux |      Mac      |      All      | `Tools ▶ Build` |
+|    <Ctrl+B>   |    <Cmd+B>    |     <F7>      |                 |
++---------------+---------------+---------------+-----------------+
+
+Output will be shown in an output panel displayed at the bottom of the Sublime
+Text window.
+
+
+*|Selecting a Build System|*
+------------------------
+
+By default, Sublime Text uses automatic selection of build systems. When a user
+invokes a build, the current file's syntax and filename will be used to pick
+the appropriate build system.
+
+If more than one build system matches the current file type, the user will be
+prompted to pick the build system they wish to use. Once a build system has
+been selected, Sublime Text will remember it until the user changes their
+selection.
+
+To manually choose a build system, use:
+
++------------------------+
+|          Menu          |
++------------------------+
+| `Tools ▶ Build System` |
++------------------------+
+
+To change the build system, within the viable options, use one of the following
+methods:
+
++--------------------------------+-----------------------+-----------------+
+|            Keyboard            |         Menu          | Command Palette |
++----------------+---------------+-----------------------+-----------------+
+| Windows/Linux  |      Mac      | `Tools ▶ Build With:` |  `Build With:`  |
+| <Ctrl+Shift+B> | <Shift+Cmd+B> |                       |                 |
++----------------+---------------+-----------------------+-----------------+
+
+
+*|Navigating Results|*
+------------------
+
+Build systems allow navigation of files specified in the build output.
+Typically this is used to jump to the location of errors. Navigation can be
+performed via:
+
++-----------------+--------------+---------------------------------------------+
+|     Command     |   Keyboard   |                    Menu                     |
++-----------------+--------------+---------------------------------------------+
+|   Next Result   |     <F4>     |   `Tools  ▶ Build Results  ▶ Next Result`   |
++-----------------+--------------+---------------------------------------------+
+| Previous Result |  <Shift+F4>  | `Tools  ▶ Build Results  ▶ Previous Result` |
++-----------------+--------------+---------------------------------------------+
+
+
+*|Cancelling a Build|*
+------------------
+
+An in-process build can be cancelled via:
+
++-------------------------------+--------------------------+-------------------+
+|           Keyboard            |           Menu           |  Command Palette  |
++---------------+---------------+--------------------------+-------------------+
+| Windows/Linux |      Mac      |  `Tools ▶ Cancel Build`  |  `Build: Cancel`  |
+| <Ctrl+Break>  |   <Ctrl+C>    |                          |                   |
++---------------+---------------+--------------------------+-------------------+
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
