@@ -16,8 +16,17 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
     entries.
     """
     def run(self, edit):
+        # Jump directly to the build system documentation in builds.
+        if self.is_build():
+            return sublime.run_command("hyperhelp_topic", {
+                "package": "SublimeBuild",
+                "topic": "index.txt"
+            })
+
+        # In plugin files, try to zero in on the topic under the cursor or in
+        # the selection.
         topic = None
-        if self.view.match_selector(0, "source.python"):
+        if self.is_plugin():
             extract = self.view.sel()[0]
             if extract.empty():
                 extract = self.view.expand_by_class(extract,
@@ -31,12 +40,27 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
                     "topic": topic
                 })
 
+        # Open the API help by default, optionally also using the topic
+        # selected above.
         sublime.run_command("hyperhelp_index", {"package": "SublimeAPI"})
         if topic is not None:
             self.view.window().run_command("insert", {"characters": topic})
 
+    def is_plugin(self):
+        return self.view.match_selector(0, "source.python")
+
+    def is_build(self):
+        name = self.view.name()
+        if self.view.file_name() is not None:
+            name = self.view.file_name()
+
+        return name.endswith(".sublime-build")
+
     def is_enabled(self):
-        return "SublimeAPI" in help_index_list()
+        return all(key in help_index_list() for key in (
+            "SublimeAPI",
+            "SublimeBuild"
+        ))
 
 
 ###----------------------------------------------------------------------------
