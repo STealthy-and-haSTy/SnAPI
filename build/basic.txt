@@ -1,10 +1,10 @@
-%hyperhelp title="Basic Example" date="2018-06-14"
+%hyperhelp title="Basic Example" date="2018-06-18"
 
 
 The following is a basic example of a build system. This build system will
 execute the currently-open Python file.
 
-    ```
+    ```json
     {
         "cmd": ["python", "$file"],
         "selector": "source.python",

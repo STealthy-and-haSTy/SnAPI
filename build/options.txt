@@ -1,0 +1,111 @@
+%hyperhelp title="Options" date="2018-06-18"
+
+
+All build systems may use the following top-level keys in the `.sublime-build`
+file.
+
+    *selector*
+
+        The base scope name of the syntax that this build system should be
+        enabled for.
+
+        Example: `"source.python"`.
+
+
+    *file_patterns*
+
+        A list of file name patterns the build system should be enabled for.
+
+        Example: `["*.py"]`.
+
+
+    *keyfiles*
+
+        A list of file names, if present in one of the opened folders, that
+        will cause the build system to be enabled.
+
+        Example: `["Makefile"]`.
+
+
+    *variants*
+
+        A list of subsidiary build systems that will inherit the options from
+        the top-level build system. Each variant needs to specify a `name` key,
+        and may override or add options to the top-level build system.
+
+        Example:
+        ```json
+        [
+            {
+                "name": "Debug Symbols",
+                "cmd": ["my_command", "-D", "$file"]
+            }
+        ]
+        ```
+
+
+    *cancel*
+
+        A string command name, or an object of string options. If a string is
+        specified, the command specified will be used to cancel the build. If a
+        object of strings, the primary `target` will be called, with these
+        options added on. This only needs to be specified when using a custom
+        `target`.
+
+        Example: `"cancel_my_build" or {"kill": true}`.
+
+
+    *target*
+
+        The command to run when the build system is invoked. The default value
+        of `exec` allows use of the additional options specified in
+        |exec Target Options|. If a value other than exec is specified, none of
+        the options in `exec Target Options` will do anything.
+
+        See the |Advanced Example| for a complete example.
+
+        Example: `"my_build"`
+
+
+    *windows*
+
+        An object of options to use when the build system is being executed on
+        a Windows machine.
+
+        Example:
+        ```json
+        {
+            "cmd": ["my_command.exe", "/D", "$file"]
+        }
+        ```
+
+
+    *osx*
+
+        An object of options to use when the build system is being executed on
+        a Mac machine.
+
+        Example:
+        ```json
+        {
+            "cmd": ["/Applications/MyProgram.app/Contents/MacOS/my_command", "-d", "$file"]
+        }
+        ```
+
+
+
+    *linux*
+
+        An object of options to use when the build system is being executed on
+        a Linux machine.
+
+        Example:
+        ```json
+        {
+            "cmd": ["/usr/local/bin/my_command", "-d", "$file"]
+        }
+        ```
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|

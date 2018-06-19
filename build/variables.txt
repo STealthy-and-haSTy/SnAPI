@@ -1,0 +1,66 @@
+%hyperhelp title="Variables" date="2018-06-18"
+
+
+The following variables will be expanded within any string specified in the
+`"cmd"`, `"shell_cmd"` or `"working_dir"` options.
+
+If a literal `$` needs to be specified in one of these options, it must be
+escaped with a `\`. Since JSON uses backslashes for escaping also, `$` will
+need to be written as `\\$`.
+
+Please note that this substitution will occur for any `target`. If a custom
+target is used, it may implement variable expansion for additional options by
+using `sublime.expand_variables()` with the result from
+`self.window.extract_variables()`.
+
+    *$packages*
+        The path to the `Packages/` folder
+
+
+    *$platform*
+        A string containing the platform Sublime Text is running on: `windows`,
+        `osx` or `linux`.
+
+
+    *$file*
+        The full path, including folder, to the file in the active view.
+
+
+    *$file_path*
+        The path to the folder that contains the file in the active view.
+
+
+    *$file_name*
+        The file name (sans folder path) of the file in the active view.
+
+
+    *$file_base_name*
+        The file name, excluding the extension, of the file in the active view.
+
+
+    *$file_extension*
+        The extension of the file name of the file in the active view.
+
+
+    *$folder*
+        The full path to the first folder open in the side bar.
+
+
+    *$project*
+        The full path to the current project file.
+
+    *$project_path*
+        The path to the folder containing the current project file.
+
+    *$project_name*
+        The file name (sans folder path) of the current project file.
+
+    *$project_base_name*
+        The file name, excluding the extension, of the current project file.
+
+    *$project_extension*
+        The extension of the current project file.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
