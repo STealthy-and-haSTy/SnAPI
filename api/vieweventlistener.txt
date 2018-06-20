@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2018-06-10"
+%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2018-06-20"
 
 
 *|ViewEventListener|* Class
@@ -202,17 +202,21 @@ Methods
 
     * `None`: no completions are provided
 
-      `return None`
+      ```python
+      return None
+      ```
 
     * A list of 2-element lists/tuples. The first element is a unicode string of
       the completion trigger, the second is the unicode replacement text.
 
-      `return [["me1", "method1()"], ["me2", "method2()"]]`
+      ```python
+      return [["me1", "method1()"], ["me2", "method2()"]]
+      ```
 
       The trigger may contain a tab character (`\t`) followed by a hint to display
       in the right-hand side of the completion box.
 
-      ```
+      ```python
       return [
           ["me1\tmethod", "method1()"],
           ["me2\tmethod", "method2()"]
@@ -222,7 +226,7 @@ Methods
       The replacement text may contain dollar-numeric fields such as a snippet
       does, e.g. `$0`, `$1`.
 
-      ```
+      ```python
       return [
           ["fn", "def ${1:name}($2) { $0 }"],
           ["for", "for ($1; $2; $3) { $0 }"]
@@ -238,8 +242,7 @@ Methods
       * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`: prevent Sublime Text from
         showing completions based on `.sublime-completions` files
 
-
-        ```
+        ```python
         return (
             [
                 ["me1", "method1()"],
