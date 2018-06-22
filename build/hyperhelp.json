@@ -184,6 +184,12 @@
             "topic": "index.txt",
             "caption": "Sublime Text 3 Build Systems"
         },
+        "basic example",
+        "usage",
+        "exec target options",
+        "custom options",
+        "variables",
+        "advanced example"
     ],
 
     "externals":
