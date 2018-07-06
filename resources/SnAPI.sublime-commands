@@ -1,4 +1,4 @@
 [
-    { "caption": "SnAPI: View Sublime API",   "command": "hyperhelp_topic", "args": {"package": "SnAPI", "topic": "index.txt" } },
-    { "caption": "SnAPI: Search Sublime API", "command": "hyperhelp_index", "args": {"package": "SnAPI" } },
+    { "caption": "SnAPI: View Sublime API",   "command": "hyperhelp_topic", "args": {"package": "SublimeAPI", "topic": "index.txt" } },
+    { "caption": "SnAPI: Search Sublime API", "command": "hyperhelp_index", "args": {"package": "SublimeAPI" } },
 ]
