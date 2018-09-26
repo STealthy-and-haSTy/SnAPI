@@ -1,7 +1,30 @@
 import sublime
 import sublime_plugin
 
+import os
+
 from hyperhelp.core import help_index_list, lookup_help_topic
+
+
+###----------------------------------------------------------------------------
+
+
+_scope_map = {
+    # Default scope.
+    "source.python": "SublimeAPI",
+
+    # Enhanced scopes provided by PackageDev; Sublime packages use source.json
+    # which is not unique enough.
+    "source.json.sublime.build": "SublimeBuild",
+    "source.json.sublime.color-scheme": "SublimeColorScheme"
+}
+
+_extension_map = {
+    ".py": "SublimeAPI",
+
+    ".sublime-build": "SublimeBuild",
+    ".sublime-color-scheme": "SublimeColorScheme"
+}
 
 
 ###----------------------------------------------------------------------------
@@ -48,20 +71,18 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
             self.view.window().run_command("insert", {"characters": topic})
 
     def pkg_for_file(self):
-        # Use scope because unsaved plugins don't have a sensible name.
-        # For now, all python files are considered plugins.
-        if self.view.match_selector(0, "source.python"):
-            return "SublimeAPI"
+        # Use scope if possible to try and catch unsaved files.
+        for scope, pkg in _scope_map.items():
+            if self.view.match_selector(0, scope):
+                return pkg
 
-        name = self.view.name()
-        if self.view.file_name() is not None:
-            name = self.view.file_name()
+        # Fall back to using the extension on the file.
+        name = self.view.name() or self.view.file_name() or ""
+        ext = os.path.splitext(name)[1]
 
-        if name.endswith(".sublime-build"):
-            return "SublimeBuild"
-
-        if name.endswith(".sublime-color-scheme"):
-            return "SublimeColorScheme"
+        for extension, pkg in _extension_map.items():
+            if ext == extension:
+                return pkg
 
         # Unrecognized file type
         return None
