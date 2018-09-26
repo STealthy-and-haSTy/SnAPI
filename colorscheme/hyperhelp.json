@@ -44,7 +44,7 @@
             {
                 "topic": "global.txt",
                 "caption": "Global Settings",
-                "aliases": ["global settings"]
+                "aliases": ["global settings", "globals"]
             },
 
             { "topic": "background" },
@@ -134,7 +134,7 @@
             {
                 "topic": "rules.txt",
                 "caption": "Rules",
-                "aliases": ["scope rules"]
+                "aliases": ["scope rules", "rules"]
             },
             {
                 "topic": "matching",
@@ -146,7 +146,8 @@
             },
             {
                 "topic": "style rules",
-                "caption": "Rules: Style Rules"
+                "caption": "Rules: Style Rules",
+                "aliases": ["name", "scope", "font_style"]
             },
             {
                 "topic": "hashed syntax highlighting",
