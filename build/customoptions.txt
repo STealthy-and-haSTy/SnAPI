@@ -1,0 +1,27 @@
+%hyperhelp title="Custom Options" date="2018-06-18"
+
+
+When implementing a command to act as a build system target, the command's
+keyword arguments are available via options in the `.sublime-build` file.
+However, certain parameter names will not work since they conflict with built-
+in build system functionality.
+
+The following names will not be passed as arguments to commands. This also
+applies to other situations, such as options specified in the `cancel`, `linux`,
+`osx` and `windows` options.
+
+  * `cancel`
+  * `file_patterns`
+  * `keyfile`
+  * `keyfiles`
+  * `linux`
+  * `osx`
+  * `save_untitled_files`
+  * `selector`
+  * `target`
+  * `variants`
+  * `windows`
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|

@@ -1,0 +1,116 @@
+%hyperhelp title="exec Target Options" date="2018-06-18"
+
+
+The default `target` of `exec` is used by the majority of build systems. It
+provides the following options to control what program to execute, and how to
+display the results.
+
+    *cmd*
+
+        A list of strings specifying the executable to run, plus any arguments
+        to pass to it. Shell constructs such as piping and redirection are not
+        supported – see |shell_cmd|. May use |variables|.
+
+        Example: `["my_command", "-d", "$file"]`
+
+
+    *shell_cmd*
+
+        A string specifying a shell command to execute. Unlike the |cmd|
+        option, this does allow piping and redirection. Will use `bash` on Mac
+        and Linux machine, and `cmd.exe` on Windows. May use |variables|.
+
+        Example: `"my_command \"$file\" | other_command"`
+
+
+    *working_dir*
+
+        A string specifying the directory to execute the |cmd| or |shell_cmd|
+        within. May use |variables|.
+
+        Example: `"$file_path"`
+
+
+    *file_regex*
+
+        A string containing a regular expression to run on the build output to
+        match file information. The matched file information is used to enable
+        result navigation. The regex should capture 2, 3 or 4 groups.
+
+        The capture groups should be:
+
+            1. filename
+            2. line number
+            3. column number
+            4. message
+
+        Example: `"^\s*(\\S[^:]*)\\((\\d+):(\\d+)\\): ([^\\n]+)"`
+
+
+    *line_regex*
+
+        A string containing a regular expression to run on the build output to
+        match line information. The matched file information is used to enable
+        result navigation. The regex should capture 1, 2 or 3 groups.
+
+        The groups should capture:
+
+        1. line number
+        2. column number
+        3. error message
+
+        This regular expression is only necessary when some results contain
+        strictly a line number, line and column numbers, or line and column
+        numbers with a message. When such a match is made, the |file_regex|
+        option will be used to search backwards to find the appropriate file
+        name.
+
+        Example: `"^\s*line (\\d+) col (\\d+): ([^\\n]+)"`
+
+
+    *encoding*
+
+        A string specifying the encoding of the build system output. Uses
+        |Python codec names|. Defaults to `"utf-8"`.
+
+        Example: `"iso-8859-1"`
+
+
+    *env*
+
+        An object containing environment variable values to use when running
+        the |cmd| or |shell_cmd|.
+
+        Example:
+        ```json
+        {
+            "PYTHONIOENCODING": "utf-8"
+        }
+        ```
+
+
+    *quiet*
+
+        A boolean that reduces the amount of output about the build system
+        invocation.
+
+        Example: `true`
+
+
+    *word_wrap*
+
+        A boolean that turns on word wrapping in the build system output panel.
+
+        Example: `true`
+
+
+    *syntax*
+
+        A string specifying the syntax file to use to highlight the build
+        system output panel.
+
+        Example: `"Packages/JavaScript/JSON.sublime-syntax"`
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|

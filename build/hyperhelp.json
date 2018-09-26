@@ -1,0 +1,214 @@
+{
+    "package": "SublimeBuild",
+    "description": "Sublime Text 3 Build Systems",
+    "default_caption": "Build option: {topic}",
+    "doc_root": "build/",
+    "help_files": {
+        "index.txt": [
+            "Sublime Text 3 Build Systems",
+        ],
+
+        "basic.txt": [
+            "Basic Example",
+
+            {
+                "topic": "basic.txt",
+                "caption": "Basic Example",
+                "aliases": ["basic example"]
+            },
+        ],
+
+        "usage.txt": [
+            "Usage",
+
+            {
+                "topic": "usage",
+                "caption": "Usage",
+            },
+            {
+                "topic": "running a build",
+                "caption": "Running a Build"
+            },
+            {
+                "topic": "selecting a build System",
+                "caption": "Selecting a Build System"
+            },
+            {
+                "topic": "navigating results",
+                "caption": "Navigating results"
+            },
+            {
+                "topic": "cancelling a build",
+                "caption": "Cancelling a build",
+                "aliases": ["canceling a build"]
+            },
+        ],
+
+        "options.txt": [
+            "Options",
+
+            {
+                "topic": "options.txt",
+                "caption": "Options",
+                "aliases": ["options"]
+            },
+            { "topic": "cancel" },
+            { "topic": "file_patterns" },
+            { "topic": "keyfiles" },
+            { "topic": "linux" },
+            { "topic": "osx" },
+            { "topic": "selector" },
+            { "topic": "target" },
+            { "topic": "variants" },
+            { "topic": "windows" },
+        ],
+        "execoptions.txt": [
+            "exec Target Options",
+
+            {
+                "topic": "execoptions.txt",
+                "caption": "exec Target Options",
+                "aliases": ["exec target options"]
+            },
+
+            { "topic": "cmd" },
+            { "topic": "encoding" },
+            { "topic": "env" },
+            { "topic": "file_regex" },
+            { "topic": "line_regex" },
+            { "topic": "quiet" },
+            { "topic": "shell_cmd" },
+            { "topic": "syntax" },
+            { "topic": "word_wrap" },
+            { "topic": "working_dir" },
+        ],
+        "customoptions.txt": [
+            "Custion Options",
+
+            {
+                "topic": "customoptions.txt",
+                "caption": "Custom Options",
+                "aliases": ["custom options"]
+            }
+        ],
+        "variables.txt": [
+            "Variables",
+
+            {
+                "topic": "variables.txt",
+                "caption": "variables",
+                "aliases": ["variables"]
+            },
+
+            {
+                "topic": "$packages",
+                "caption": "packages",
+                "aliases": ["packages"]
+            },
+            {
+                "topic": "$platform",
+                "caption": "platform",
+                "aliases": ["platform"]
+            },
+            {
+                "topic": "$file",
+                "caption": "file",
+                "aliases": ["file"]
+            },
+            {
+                "topic": "$file_path",
+                "caption": "file_path",
+                "aliases": ["file_path"]
+            },
+            {
+                "topic": "$file_name",
+                "caption": "file_name",
+                "aliases": ["file_name"]
+            },
+            {
+                "topic": "$file_base_name",
+                "caption": "file_base_name",
+                "aliases": ["file_base_name"]
+            },
+            {
+                "topic": "$file_extension",
+                "caption": "file_extension",
+                "aliases": ["file_extension"]
+            },
+            {
+                "topic": "$folder",
+                "caption": "folder",
+                "aliases": ["folder"]
+            },
+            {
+                "topic": "$project",
+                "caption": "project",
+                "aliases": ["project"]
+            },
+            {
+                "topic": "$project_path",
+                "caption": "project_path",
+                "aliases": ["project_path"]
+            },
+            {
+                "topic": "$project_name",
+                "caption": "project_name",
+                "aliases": ["project_name"]
+            },
+            {
+                "topic": "$project_base_name",
+                "caption": "project_base_name",
+                "aliases": ["project_base_name"]
+            },
+            {
+                "topic": "$project_extension",
+                "caption": "project_extension",
+                "aliases": ["project_extension"]
+            },
+        ],
+        "advanced.txt": [
+            "Advanced Example",
+
+            {
+                "topic": "advanced.txt",
+                "caption": "Advanced Example",
+                "aliases": ["advanced example"]
+            },
+
+
+        ],
+    },
+
+    "help_contents": [
+        {
+            "topic": "index.txt",
+            "caption": "Sublime Text 3 Build Systems"
+        },
+        "basic example",
+        "usage",
+        "exec target options",
+        "custom options",
+        "variables",
+        "advanced example"
+    ],
+
+    "externals":
+    {
+        "https://www.sublimetext.com/docs/3/build_systems.html": [
+            "Sublime Text Build System",
+
+            {
+                "topic": "build_systems.html"
+            }
+        ],
+
+        "https://docs.python.org/3.3/library/codecs.html#id3": [
+            "Python Codec Names",
+
+            {
+                "topic": "codecs.html",
+                "aliases": ["python codec names"]
+            }
+        ]
+    }
+}
