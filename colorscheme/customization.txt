@@ -1,0 +1,45 @@
+%hyperhelp title="Customization" date="2018-09-25"
+
+
+Color schemes based on the `.sublime-color-scheme` format are specified by
+filename only, not a package-based file path. This allows users to customize a
+color scheme by overriding variables or globals, and adding rules.
+
+To create a user-specific customization of a color scheme, create a new file
+with the same filename as the color scheme, but save it in the `Packages/User/`
+directory.
+
+For example, to customize the default Monokai color scheme, create a file named
+`Packages/User/Monokai.sublime-color-scheme`. The following settings will
+change the background color to be a fully-desaturated grey, the yellow to be
+more vibrant, and will add a new rule change Python docstrings to be colored
+the same as strings.
+
+```json
+{
+    "variables":
+    {
+        "yellow": "hsl(54, 100%, 50%)",
+    },
+    "globals":
+    {
+        "background": "hsl(70, 0%, 15%)",
+    },
+    "rules":
+    [
+        {
+            "name": "Python docstrings",
+            "scope": "comment.block.documentation.python",
+            "foreground": "var(yellow)"
+        },
+    ]
+}
+```
+
+The contents of the `variables` and `globals` objects are merged, with the
+user's copy overwriting keys with the same name. For the `rules` list, the
+user's rules are appended.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|

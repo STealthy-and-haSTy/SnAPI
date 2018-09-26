@@ -1,0 +1,50 @@
+%hyperhelp title="Variables" date="2018-09-25"
+
+
+Reusable color definitions may be created in the `variables` key. The names may
+be any string utilizing the characters `a-z`, `A-Z`, `0-9`, `_` and `-`. The
+values may be any valid color format.
+
+Variables may be referenced in the global settings and rules, via the syntax
+`var(example_var_name)`. The following example shows basic variable usage:
+
+```json
+{
+    "name": "Example Color Scheme",
+    "variables":
+    {
+        "green": "hsla(153, 80%, 40%, 1)",
+        "black": "#111",
+        "white": "rgb(242, 242, 242)"
+    },
+    "globals":
+    {
+        "background": "var(black)",
+        "foreground": "var(white)",
+        "caret": "color(var(white) alpha(0.8))"
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "color(var(black) blend(#fff 50%))"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "var(green)",
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "#7F00FF",
+            "font_style": "italic",
+        }
+    ]
+}
+```
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|

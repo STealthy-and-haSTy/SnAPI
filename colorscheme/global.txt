@@ -1,0 +1,236 @@
+%hyperhelp title="Global Settings" date="2018-09-25"
+
+The following global settings go in the object with the `globals` key.
+
+
+    *background*
+
+        The default background color
+
+    *foreground*
+
+        The default color for text
+
+    *caret*
+
+        The color of the caret
+
+    *line_highlight*
+
+        The background color of the line containing the caret. Only used when
+        the `highlight_line` setting is enabled.
+
+
+*|Accents|*
+-------
+
+    *misspelling*
+
+        The color to use for the squiggly underline drawn under misspelled
+        words.
+
+    *fold_marker*
+
+        The color to use for the marker that indicates content has been folded.
+
+    *minimap_border*
+
+        The color of the border drawn around the viewport area of the minimap
+        when the setting `draw_minimap_border` is enabled. Note that the
+        viewport is normally only visible on hover, unless the
+        `always_show_minimap_viewport` setting is enabled.
+
+    *accent*
+
+        A color made available for use by the theme. The Default theme uses
+        this to highlight modified tabs when the `highlight_modified_tabs`
+        setting is enabled.
+
+
+*|CSS|*
+----
+
+CSS is applied to |minihtml| content created via the popups and phantoms
+functionality that is exposed through the API. Supported CSS properties are
+discussed in the |minihtml CSS reference|.
+
+Plugins that use minihtml are encouraged to set a unique `id` attribute on the
+`<body>` tag of generated HTML to allow color schemes to override default plugin
+styles.
+
+    *popup_css*
+
+        CSS passed to popups.
+
+    *phantom_css*
+
+        CSS passed to phantoms. If not specified, uses `popup_css`.
+
+
+*|Gutters|*
+-------
+
+    *gutter*
+
+        The background color of the gutter
+
+    *gutter_foreground*
+
+        The color of line numbers in the gutter
+
+
+*|Selections|*
+----------
+
+    *selection*
+
+        The background color of selected text
+
+    *selection_foreground*
+
+        A color that will override the scope-based text color of the selection
+
+    *selection_border*
+
+        The color for the border of the selection
+
+    *selection_border_width*
+
+        The width of the selection border, from `0` to `4`.
+
+    *inactive_selection*
+
+        The background color of a selection in a view that is not currently
+        focused
+
+    *inactive_selection_foreground*
+
+        A color that will override the scope-based text color of the selection
+        in a view that is not currently focused
+
+    *selection_corner_style*
+
+        The style of corners to use on selections. Options include: `round`
+        (the default), `cut` or `square`.
+
+    *selection_corner_radius*
+
+        The radius to use when the `selection_corner_style` is `round` or
+        `cut`.
+
+
+*|Find|*
+----
+
+    *highlight*
+
+        The border color for "other" matches when the Highlight matches option
+        is selected in the Find panel. Also used to highlight matches in Find
+        in Files results.
+
+    *find_highlight*
+
+        The background color of text matched by the Find panel
+
+    *find_highlight_foreground*
+
+        A color that will override the scope-based text color of text matched
+        by the Find panel
+
+
+*|Guides|*
+------
+
+Guides are controlled globally by the `draw_indent_guides` setting.
+
+    *guide*
+
+        The color used to draw indent guides. Only used if the option
+        `"draw_normal"` is present in the setting `indent_guide_options`.
+
+    *active_guide*
+
+        The color used to draw the indent guides for the indentation levels
+        containing the caret. Only used if the option `"draw_active"` is
+        present in the setting `indent_guide_options`.
+
+    *stack_guide*
+
+        The color used to draw the indent guides for the parent indentation
+        levels of the indentation level containing the caret. Only used if the
+        option `"draw_active"` is present in the setting
+        `indent_guide_options`.
+
+
+*|Brackets|*
+--------
+
+Bracket matching is controlled globally by the `match_brackets` setting.
+
+    *brackets_options*
+
+        How brackets are highlighted when the caret is next to one. Accepts a
+        space-separated list from the following:
+
+        * `underline`
+        * `stippled_underline`
+        * `squiggly_underline`
+        * `foreground`
+        * `bold`
+        * `italic`
+
+    *brackets_foreground*
+
+        The color to use when drawing the style specified by `brackets_options`.
+
+    *bracket_contents_options*
+
+        How brackets are highlighted when the caret is positioned in between a
+        pair of brackets. Accepts a space-separated list from the following:
+
+          * `underline`
+          * `stippled_underline`
+          * `squiggly_underline`
+          * `foreground`
+
+    *bracket_contents_foreground*
+
+        The color to use when drawing the style specified by
+        `brackets_contents_options`.
+
+
+*|Tags|*
+----
+
+Tag matching is controlled globally by the `match_tags` setting.
+
+    *tags_options*
+
+        How tags are highlighted when the caret is inside of one. Accepts a
+        space- separated list from the following:
+
+          * `underline`
+          * `stippled_underline`
+          * `squiggly_underline`
+          * `foreground`
+
+    *tags_foreground*
+
+        The color to use when drawing the style specified by `tags_options`.
+
+
+*|Shadows|*
+-------
+
+    *shadow*
+
+        The color of the shadow used to show when a text area can be
+        horizontally scrolled
+
+    *shadow_width*
+
+        The width of the shadow in device-independent pixels
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|

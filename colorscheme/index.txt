@@ -1,0 +1,39 @@
+%hyperhelp title="Sublime Text 3 Color Schemes" date="2018-09-25"
+
+
+The highlighting of source code and prose in Sublime Text is controlled
+by a color scheme. A color scheme assigns colors and font styles to
+scopes, which are assigned to the text by the syntax. The rest of the
+look of the user interface is controlled by the theme. The theme
+controls such elements as buttons select lists, the sidebar and tabs.
+
+Sublime Text color schemes are implemented using .sublime-color-scheme
+files, containing JSON. Sublime Text also supports a subset of features
+using the TextMate .tmTheme format.
+
+
+  * |Example|
+  * |Colors|
+  * |Variables|
+  * |Global Settings|
+    * |Accents|
+    * |CSS|
+    * |Gutters|
+    * |Selections|
+    * |Find|
+    * |Guides|
+    * |Brackets|
+    * |Tags|
+    * |Shadows|
+  * |Scope Rules|
+    * |Matching|
+    * |Naming|
+    * |Style Rules|
+    * |Hashed Syntax Highlighting|
+    * |Examples|
+  * |Customization|
+  * |Appendix: CSS Colors|
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
