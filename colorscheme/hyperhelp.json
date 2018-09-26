@@ -260,5 +260,22 @@
                 "topic": "minihtml css reference"
             }
         ],
+
+        "https://www.sublimetext.com/docs/3/scope_naming.html": [
+            "official Scope Naming guidelines",
+
+            {
+                "topic": "official Scope Naming guidelines"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/3/scope_naming.html#color_schemes": [
+            "Usage in Color Schemes",
+
+            {
+                "topic": "Usage in Color Schemes"
+            }
+        ]
+
     }
 }
