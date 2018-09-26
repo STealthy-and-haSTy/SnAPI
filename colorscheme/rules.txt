@@ -1,0 +1,106 @@
+%hyperhelp title="Scope Rules" date="2018-09-25"
+
+
+Color schemes interact with the text in a file via scopes. Scopes are set to
+code or prose tokens via the syntax. Scopes are dotted strings, specified from
+least-to-most specific. For example, the `if` keyword in PHP could be specified
+via the scope name `keyword.control.php`.
+
+
+*|Matching|*
+--------
+
+Color schemes apply colors and font styles to the scopes by matching the dotted
+labels, starting with the first. Prefix matching is the standard way to have a
+color scheme apply to multiple syntaxes.
+
+Instead of matching `keyword.control.php`, most color schemes will instead
+assign a color to `keyword`. Matching the first one or two labels in a scope is
+most common. Including the final label, the syntax name, is uncommon unless a
+syntax- specific override is desired.
+
+
+*|Naming|*
+------
+
+Author of syntaxes can assign whatever scopes they want to a given token. This
+combined with the fact that there are hundreds of community-maintained syntaxes
+means that is can be hard to know what scopes to target.
+
+The |official Scope Naming guidelines| were established to help syntax and
+color scheme authors use a common set, for better interoperability. The
+|Usage in Color Schemes| section provides a baseline set of scopes that color
+scheme authors should strive to handle.
+
+
+*|Style Rules|*
+-----------
+
+Each scope style rule consists of an object containing a `scope` key, along
+with one or more of the following optional keys:
+
+  * `name` – the (arbitrary) name for the scope rule
+  * `foreground` – the text color
+  * `background` – the background color
+  * `selection_foreground` – the text color when selected
+  * `font_style` – zero or more of `bold`, `italic`, separated by spaces
+
+
+*|Hashed Syntax Highlighting|*
+--------------------------
+
+The `foreground` key supports a special mode called Hashed Syntax Highlighting,
+where each token matching the scope specified will receive a unique color from
+one, or more, gradients. Some editors refer to this style of highlighting as
+"Semantic Highlighting".
+
+To use Hashed Syntax Highlighting, the `foreground` key must have a value that
+is a list of two or more colors. Sublime Text will create 256 different colors
+that are linear interpolations (lerp) between the colors provided. The
+interpolation is done in HSL space.
+
+As Sublime Text highlights the tokens in a file, it will create a hashed value
+of the token, and use that to pick one of the 256 linear interpolations. Every
+instance of a given token will use the same color. For instance, each instance
+of `first_name` would have the same color, but every instance of `name` would
+have a different color.
+
+For Hashed Syntax Highlighting to be most obvious, the hue difference between
+the start and end points should be as far apart as possible. Here is an example
+of using blues, purples and pinks for variable names:
+
+```json
+{
+    "scope": "source - punctuation - keyword",
+    "foreground": ["hsl(200, 60%, 70%)", "hsl(330, 60%, 70%)"]
+}
+```
+
+
+*|Examples|*
+--------
+
+The following scope style rule will color all strings as green:
+
+```json
+{
+    "name": "Strings",
+    "scope": "string",
+    "foreground": "#00FF00"
+}
+```
+
+To style all numbers as bold, italic red, use:
+
+```json
+{
+    "name": "Numbers",
+    "scope": "constant.numeric",
+    "foreground": "#FF0000",
+    "font_style": "bold italic"
+}
+```
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|

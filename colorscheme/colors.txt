@@ -1,0 +1,64 @@
+%hyperhelp title="Colors" date="2018-09-25"
+
+Colors in color schemes may be specified using one of seven formats:
+
+  * `Hex RGB:` A # followed by six hex characters, with the first two
+     specifying the red channel, second two the green channel and the final two
+     the blue channel. Red is written as `#FF0000`. An abbreviated form is
+     available when each of the three pairs use the same value for both
+     characters. Red is written as `#F00`.
+
+  * `Hex RGBA:` Same as `Hex RGBA`, but with an extra pair of hex characters
+     at the end to specify the alpha channel. Red with 67% opacity is written
+     as `#FF0000AA`. The abbreviated form would be `#F00A`.
+
+  * `RGB functional notation:` A function named `rgb` that accepts three
+     integers in the range 0 to 255. The first integer specifies the red
+     channel, the second the green channel and the third the blue channel.
+     Red is written as `rgb(255, 0, 0)`.
+
+  * `RGBA functional notation:` Identical to the `RGB` function format, except
+     the name of the function is `rgba` and a fourth parameter is added
+     accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with
+     50% opacity is written as `rgba(255, 0, 0, 0.5)`.
+
+  * `HSL functional notation:` A function named `hsl` that accepts three
+     values. The first is an integer in the range 0 to 360 specifying the hue.
+     The second is a percentage specifying the saturation. The third is a
+     percentage specifying the lightness. Red is written as
+     `hsl(0, 100%, 100%)`.
+
+  * `HSLA functional notation:` Identical to the `HSL` function format, except
+    the name of the function is `hsla` and a fourth parameter is added
+    accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with
+    50% opacity is written as `hsla(0, 100%, 100%, 0.5)`.
+
+  * `Named:` |CSS color names|. Please note that while some share names with
+     X11 named colors used in `.tmTheme` files, the actual colors tend to
+     differ.
+
+Additionally, colors may be specified as a |variable|, and then referenced via
+the syntax `var(example_var_name)`. Variable references are particularly useful
+when combined with CSS Color Module Level 4 |color-mod function| and the
+supported `blend()`, `blenda()` and `alpha()` adjusters.
+
+  * `blend() adjuster:` Blends a color into the base. To blend equal parts grey
+    and a base color referenced via variable, in RGB space:
+    `color(var(base_green) blend(#888 50%))`. If colors should be blended in
+    HSL space, use the following form:
+    `color(var(base_green) blend(#888 50% hsl))`. The resulting alpha value is
+    always the alpha channel of the base color.
+
+  * `blenda() adjuster:` Functions the same way as the `blend()` adjuster, but
+    blends the alpha channel of the two colors instead of just using the alpha
+    channel from the base. An example of the blending a partially transparent
+    grey into a green: `color(var(base_green) blenda(#8888 50% hsl))`
+
+  * `alpha() adjuster:` Changes the alpha channel of the base color to the
+    value specified, from `0.0` to `1.0`. Setting the alpha channel to 90%:
+    `color(var(base_green) alpha(0.9))`. A shorthand name of `a()` is also
+    available for this adjuster.
+
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|

@@ -1,0 +1,264 @@
+{
+    "package": "SublimeColorScheme",
+    "description": "Sublime Text 3 Color Schemes",
+    "default_caption": "Global option: {topic}",
+    "doc_root": "colorscheme/",
+    "help_files": {
+        "index.txt": [
+            "Sublime Text 3 Color Schemes",
+        ],
+
+        "example.txt": [
+            "Example",
+
+            {
+                "topic": "example.txt",
+                "caption": "Example",
+                "aliases": ["example"]
+            },
+        ],
+
+        "colors.txt": [
+            "Colors",
+
+            {
+                "topic": "colors.txt",
+                "caption": "Colors",
+                "aliases": ["colors"]
+            },
+        ],
+
+        "variables.txt": [
+            "Variables",
+
+            {
+                "topic": "variables.txt",
+                "caption": "Variables",
+                "aliases": ["variable", "variables"]
+            },
+        ],
+
+        "global.txt": [
+            "Global Settings",
+
+            {
+                "topic": "global.txt",
+                "caption": "Global Settings",
+                "aliases": ["global settings", "globals"]
+            },
+
+            { "topic": "background" },
+            { "topic": "foreground" },
+            { "topic": "caret" },
+            { "topic": "line_highlight" },
+
+            {
+                "topic": "accents",
+                "caption": "Global Settings: Accents"
+            },
+            { "topic": "misspelling" },
+            { "topic": "fold_marker" },
+            { "topic": "minimap_border" },
+            { "topic": "accent" },
+
+            {
+                "topic": "css",
+                "caption": "Global Settings: CSS"
+            },
+            { "topic": "popup_css" },
+            { "topic": "phantom_css" },
+
+            {
+                "topic": "gutters",
+                "caption": "Global Settings: Gutters"
+            },
+            { "topic": "gutter" },
+            { "topic": "gutter_foreground" },
+
+            {
+                "topic": "selections",
+                "caption": "Global Settings: Selections"
+            },
+            { "topic": "selection" },
+            { "topic": "selection_foreground" },
+            { "topic": "selection_border" },
+            { "topic": "selection_border_width" },
+            { "topic": "inactive_selection" },
+            { "topic": "inactive_selection_foreground" },
+            { "topic": "selection_corner_style" },
+            { "topic": "selection_corner_radius" },
+
+            {
+                "topic": "find",
+                "caption": "Global Settings: Find"
+            },
+            { "topic": "highlight" },
+            { "topic": "find_highlight" },
+            { "topic": "find_highlight_foreground" },
+
+            {
+                "topic": "guides",
+                "caption": "Global Settings: Guides"
+            },
+            { "topic": "guide" },
+            { "topic": "active_guide" },
+            { "topic": "stack_guide" },
+
+            {
+                "topic": "brackets",
+                "caption": "Global Settings: Brackets"
+            },
+            { "topic": "brackets_options" },
+            { "topic": "brackets_foreground" },
+            { "topic": "bracket_contents_options" },
+            { "topic": "bracket_contents_foreground" },
+
+            {
+                "topic": "tags",
+                "caption": "Global Settings: Tags"
+            },
+            { "topic": "tags_options" },
+            { "topic": "tags_foreground" },
+
+            {
+                "topic": "shadows",
+                "caption": "Global Settings: Shadows"
+            },
+            { "topic": "shadow" },
+            { "topic": "shadow_width" },
+        ],
+
+        "rules.txt": [
+            "Rules",
+
+            {
+                "topic": "rules.txt",
+                "caption": "Rules",
+                "aliases": ["scope rules", "rules"]
+            },
+            {
+                "topic": "matching",
+                "caption": "Rules: Matching"
+            },
+            {
+                "topic": "naming",
+                "caption": "Rules: Naming"
+            },
+            {
+                "topic": "style rules",
+                "caption": "Rules: Style Rules",
+                "aliases": ["name", "scope", "font_style"]
+            },
+            {
+                "topic": "hashed syntax highlighting",
+                "caption": "Rules: Hashed Syntax Highlighting"
+            },
+            {
+                "topic": "examples",
+                "caption": "Rules: Examples"
+            },
+
+        ],
+
+        "customization.txt": [
+            "Customization",
+
+            {
+                "topic": "customization.txt",
+                "caption": "Customization",
+                "aliases": ["customization"]
+            },
+
+        ],
+    },
+
+    "help_contents": [
+        {
+            "topic": "index.txt",
+            "caption": "Sublime Text 3 Color Schemes"
+        },
+        {
+            "topic": "example.txt",
+            "caption": "Example Color Scheme"
+        },
+
+        "colors",
+
+        {
+            "topic": "global.txt",
+            "caption": "Global Settings",
+            "children":
+            [
+                "global settings",
+                "accents",
+                "css",
+                "gutters",
+                "selections",
+                "find",
+                "guides",
+                "brackets",
+                "tags",
+                "shadows"
+            ]
+        },
+
+        {
+            "topic": "rules.txt",
+            "caption": "Rules",
+            "children": [
+                "scope rules",
+                "matching",
+                "naming",
+                "style rules",
+                "hashed syntax highlighting",
+                "examples"
+            ]
+        },
+
+        "customization"
+    ],
+
+    "externals":
+    {
+        "https://www.sublimetext.com/docs/3/color_schemes.html": [
+            "Sublime Text Color Schemes",
+
+            {
+                "topic": "color_schemes.html"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/3/color_schemes.html#css_colors": [
+            "Appendix: CSS Colors",
+
+            {
+                "topic": "appendix: css colors",
+                "aliases": ["css color names"]
+            }
+        ],
+
+        "https://drafts.csswg.org/css-color-4/#modifying-colors": [
+            "CSS Color Module Level 4 color-mod function",
+
+            {
+                "topic": "color-mod function"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/3/minihtml.html": [
+            "minihtml Reference",
+
+            {
+                "topic": "minihtml"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/3/minihtml.html#css": [
+            "minihtml CSS Reference",
+
+            {
+                "topic": "minihtml css reference"
+            }
+        ],
+    }
+}

@@ -1,0 +1,40 @@
+%hyperhelp title="Example" date="2018-09-25"
+
+
+The following is an example of the format of a `.sublime-color-scheme` file. A
+complete color scheme will have many more rules to cover the standard scope
+names.
+
+```json
+{
+    "name": "Example Color Scheme",
+    "globals":
+    {
+        "background": "rgb(34, 34, 34)",
+        "foreground": "#EEEEEE",
+        "caret": "white"
+    },
+    "rules":
+    [
+        {
+            "name": "Comment",
+            "scope": "comment",
+            "foreground": "#888888"
+        },
+        {
+            "name": "String",
+            "scope": "string",
+            "foreground": "hsla(50, 100%, 50%, 1)",
+        },
+        {
+            "name": "Number",
+            "scope": "constant.numeric",
+            "foreground": "#7F00FF",
+            "font_style": "italic",
+        }
+    ]
+}
+```
+
+--------------------------------------------------------------------------------
+API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
