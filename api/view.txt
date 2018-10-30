@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2018-06-11"
+%hyperhelp title="sublime.View Class" date="2018-10-30"
 
 
 *|View|* Class
@@ -67,7 +67,7 @@ This class is contained in the |sublime| module.
     Returns `True` if the buffer may not be modified.
 
 
-*view.set_read_only*(value)
+*view.set_read_only*(read_only)
   Return: None
 
     Sets the read only property on the buffer.
@@ -80,7 +80,7 @@ This class is contained in the |sublime| module.
     report as being dirty.
 
 
-*view.set_scratch*(value)
+*view.set_scratch*(scratch)
   Return: None
 
     Sets the scratch property on the buffer.
@@ -99,7 +99,7 @@ This class is contained in the |sublime| module.
     Returns a reference to the window containing the view.
 
 
-*view.run_command*(string, <args>)
+*view.run_command*(cmd, <args>)
   Return: None
 
     Runs the named |TextCommand| with the (optional) given args.
@@ -123,7 +123,7 @@ This class is contained in the |sublime| module.
     Returns the character to the right of the `point`.
 
 
-*view.insert*(edit, point, string)
+*view.insert*(edit, point, text)
   Return: int
 
     Inserts the given `string` in the buffer at the specified `point`. Returns
@@ -137,7 +137,7 @@ This class is contained in the |sublime| module.
     Erases the contents of the `region` from the buffer.
 
 
-*view.replace*(edit, region, string)
+*view.replace*(edit, region, text)
   Return: None
 
     Replaces the contents of the `region` with the given `string`.
@@ -547,7 +547,7 @@ This class is contained in the |sublime| module.
     Returns the encoding currently associated with the file
 
 
-*view.set_encoding*(encoding)
+*view.set_encoding*(encoding_name)
   Returns: None
 
     Applies a new encoding to the file. This encoding will be used the next
@@ -560,7 +560,7 @@ This class is contained in the |sublime| module.
     Returns the line endings used by the current file.
 
 
-*view.set_line_endings*(line_endings)
+*view.set_line_endings*(line_ending_name)
   Returns: None
 
     Sets the line endings that will be applied when next saving.
@@ -585,12 +585,12 @@ This class is contained in the |sublime| module.
     Extract all the symbols defined in the buffer.
 
 
-*view.show_popup_menu*(items, on_done, <flags>)
+*view.show_popup_menu*(items, on_select, <flags>)
   Returns: None
 
-    Shows a pop up menu at the caret, to select an item in a list. `on_done`
+    Shows a pop up menu at the caret, to select an item in a list. `on_select`
     will be called once, with the index of the selected item. If the pop up
-    menu was cancelled, `on_done` will be called with an argument of -1.
+    menu was cancelled, `on_select` will be called with an argument of -1.
 
     `items` is a list of strings.
 

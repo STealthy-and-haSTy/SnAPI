@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2018-06-10"
+%hyperhelp title="sublime.Region Class" date="2018-10-30"
 
 
 *|Region|* Class
@@ -11,9 +11,10 @@ This class is contained in the |sublime| module.
 
 Constructors
 ------------
-*Region*(a, b)
+*Region*(a, <b=a>)
 
-    Creates a Region with initial values a and b.
+    Creates a Region with initial values `a` and `b`. If `b` is not specified,
+    it defaults to `a`.
 
 
 Properties

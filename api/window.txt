@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Window Class" date="2018-06-10"
+%hyperhelp title="sublime.Window Class" date="2018-10-30"
 
 
 *|Window|* Class
@@ -150,7 +150,7 @@ This class is contained in the |sublime| module.
     Moves the `view` to the given `group` and `index`.
 
 
-*window.status_message*(string)
+*window.status_message*(msg)
   Returns: None
 
     Show a message in the status bar.
@@ -243,7 +243,7 @@ This class is contained in the |sublime| module.
     updated on disk, otherwise the window will store the data internally.
 
 
-*window.run_command*(string, <args>)
+*window.run_command*(cmd, <args>)
   Returns: None
 
     Runs the named |WindowCommand| with the (optional) given `args`. This
@@ -251,13 +251,13 @@ This class is contained in the |sublime| module.
     input focus.
 
 
-*window.show_quick_panel*(items, on_done, <flags>, <selected_index>,
-                          <on_highlighted>)
+*window.show_quick_panel*(items, on_select, <flags>, <selected_index>,
+                          <on_highlight>)
   Returns: None
 
-    Shows a quick panel, to select an item in a list. `on_done` will be called
-    once, with the index of the selected item. If the quick panel was
-    cancelled, `on_done` will be called with an argument of -1.
+    Shows a quick panel, to select an item in a list. `on_select` will be
+    called once, with the index of the selected item. If the quick panel was
+    cancelled, `on_select` will be called with an argument of -1.
 
     `items` may be a list of strings, or a list of string lists. In the latter
     case, each entry in the quick panel will show multiple rows.
@@ -265,7 +265,7 @@ This class is contained in the |sublime| module.
     `flags` is a bitwise OR of `sublime.MONOSPACE_FONT` and
     `sublime.KEEP_OPEN_ON_FOCUS_LOST`
 
-    `on_highlighted`, if given, will be called every time the highlighted item
+    `on_highlight`, if given, will be called every time the highlighted item
     in the quick panel is changed.
 
 

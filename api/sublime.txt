@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2018-06-11"
+%hyperhelp title="sublime Module" date="2018-10-30"
 
 
 *|sublime|* Module
@@ -18,7 +18,7 @@ the following classes:
     |Settings|
 
 
-*sublime.set_timeout*(callback, delay)
+*sublime.set_timeout*(callback, delay=0)
   Returns: None
 
     Runs the callback in the main thread after the given `delay` (in
@@ -26,14 +26,14 @@ the following classes:
     were added.
 
 
-*sublime.set_timeout_async*(callback, delay)
+*sublime.set_timeout_async*(callback, delay=0)
   Returns: None
 
     Runs the callback on an alternate thread after the given `delay` (in
     milliseconds).
 
 
-*sublime.error_message*(string)
+*sublime.error_message*(msg)
   Returns: None
 
     Displays an error dialog to the user.
@@ -45,7 +45,7 @@ the following classes:
     Displays a message dialog to the user.
 
 
-*sublime.ok_cancel_dialog*(string, <ok_title>)
+*sublime.ok_cancel_dialog*(msg, <ok_title="">)
   Returns: bool
 
     Displays an ok / cancel question dialog to the user. If `ok_title` is
@@ -53,7 +53,7 @@ the following classes:
     the user presses the ok button.
 
 
-*sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
+*sublime.yes_no_cancel_dialog*(msg, <yes_title="">, <no_title="">)
     Returns: int
 
     Displays a yes / no / cancel question dialog to the user. If `yes_title`
@@ -89,7 +89,7 @@ the following classes:
     is set to `True`, the string will include newlines and indentation.
 
 
-*sublime.decode_value*(string)
+*sublime.decode_value*(data)
   Returns: |value|
 
     Decodes a JSON string into an object. If the `string` is invalid, a
@@ -160,13 +160,13 @@ the following classes:
     against unnecessarily large data, defaults to 16,777,216 characters
 
 
-*sublime.set_clipboard*(string)
+*sublime.set_clipboard*(text)
   Returns: None
 
     Sets the contents of the clipboard.
 
 
-*sublime.score_selector*(scope, selector)
+*sublime.score_selector*(scope_name, selector)
   Returns: int
 
     Matches the `selector` against the given scope, returning a score. A score
@@ -175,7 +175,7 @@ the following classes:
     better match for the scope.
 
 
-*sublime.run_command*(string, <args>)
+*sublime.run_command*(cmd, <args>)
   Returns: None
 
     Runs the named |ApplicationCommand| with the (optional) given `args`.
