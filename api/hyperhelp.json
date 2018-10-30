@@ -675,11 +675,11 @@
             }
         ],
 
-        "Packages/Default/trim_trailing_whitespace.py": [
-            "Packages/Default/trim_trailing_whitespace.py",
+        "Packages/Default/trim_trailing_white_space.py": [
+            "Packages/Default/trim_trailing_white_space.py",
 
             {
-                "topic": "trim_trailing_whitespace.py"
+                "topic": "trim_trailing_white_space.py"
             }
         ],
 

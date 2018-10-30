@@ -21,7 +21,7 @@ Default package:
       Uses `add_regions()` to add an icon to the gutter
   |Packages/Default/show_scope_name.py|
       Uses a popup to show the scope names at the caret
-  |Packages/Default/trim_trailing_whitespace.py|
+  |Packages/Default/trim_trailing_white_space.py|
       Modifies a buffer just before its saved
   |Packages/Default/arithmetic.py|
       Accepts an input from the user when run via the Command Palette
