@@ -1,4 +1,4 @@
-%hyperhelp title="General Information" date="2018-06-10"
+%hyperhelp title="General Information" date="2018-10-30"
 
 
 *|Example Plugins|*
@@ -34,7 +34,7 @@ Default package:
 ================
 
 At importing time, plugins may not call any API functions, with the exception
-of `sublime.version()`, `sublime.platform()`, `sublime.architecture()` and
+of `sublime.version()`, `sublime.platform()`, `sublime.arch()` and
 `sublime.channel()`.
 
 If a plugin defines a module level function `plugin_loaded()`, this will be

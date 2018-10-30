@@ -54,7 +54,7 @@ the following classes:
 
 
 *sublime.yes_no_cancel_dialog*(msg, <yes_title="">, <no_title="">)
-    Returns: int
+  Returns: int
 
     Displays a yes / no / cancel question dialog to the user. If `yes_title`
     and/or `no_title` are provided, they will be used as the text on the
