@@ -62,6 +62,13 @@ the following classes:
     `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
 
 
+*sublime.status_message*()  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: None
+
+    Show a message in the status bar. This is an old API that has been
+    replaced by |:window.status_message:window.status_message()|.
+
+
 *sublime.load_resource*(name)
   Returns: str
 
@@ -147,6 +154,23 @@ the following classes:
     located.
 
 
+*sublime.executable_path*()  `[UNDOCUMENTED]`
+  Returns: str
+
+    Returns the full path to the Sublime Text executable, including the name
+    of the executable itself.
+
+
+*sublime.executable_hash*()  `[UNDOCUMENTED]`
+  Returns: tuple
+
+    Returns a 3-tuple that provides the current `version`, `platform`,
+    `architecture` and a hash value.
+
+    Example:
+        `('3180', 'linux_x64', '6b76a7235661436c212bc5342d190146')`
+
+
 *sublime.cache_path*()
   Returns: str
 
@@ -202,6 +226,25 @@ the following classes:
     expressions used in build systems.
 
 
+*sublime.log_indexing*(flag)  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: None
+
+    Controls logging of indexing operations. If enabled, relevant information
+    related to indexing will be logged to the console.
+
+    This method is deprecated in favor of the `Help > Indexing Status` menu
+    item, which displays all indexing logs for the current invocation of
+    Sublime Text and also includes more information.
+
+
+*sublime.log_build_systems*(flag)  `[UNDOCUMENTED]`
+  Returns: None
+
+    Controls logging of build system selection. If enabled, information on how
+    Sublime is selecting the appropriate build system for the current situation
+    is logged to the console.
+
+
 *sublime.version*()
   Returns: str
 
@@ -218,6 +261,13 @@ the following classes:
   Returns: str
 
     Returns the CPU architecture, which may be `"x32"` or `"x64"`
+
+
+*sublime.channel*()  `[UNDOCUMENTED]`
+  Returns: str
+
+    Returns the channel that the current version of Sublime is from, which may
+    be `"dev"` or `"stable"`.
 
 
 --------------------------------------------------------------------------------
