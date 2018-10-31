@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2018-10-30"
+%hyperhelp title="sublime.Region Class" date="2018-10-31"
 
 
 *|Region|* Class
@@ -11,7 +11,8 @@ This class is contained in the |sublime| module.
 
 Constructors
 ------------
-*Region*(a, <b=a>)
+
+*Region*(a, <b=a>, <xpos=-1>)
 
     Creates a Region with initial values `a` and `b`. If `b` is not specified,
     it defaults to `a`.
@@ -42,6 +43,38 @@ Properties
 
 Methods
 -------
+
+*region.__str__*()  `[UNDOCUMENTED]`
+  Returns: string
+
+    Returns an "informal", nicely printable string representation of the
+    region.
+
+
+*region.__repr__*()  `[UNDOCUMENTED]`
+  Returns: string
+
+    Returns an "official" string representation of the region.
+
+
+*region.__len__*()  `[UNDOCUMENTED]`
+  Returns: int
+
+    Returns the number of characters spanned by the region. Always >= 0.
+
+
+*region.__eq__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if `rhs` is also a `Region` and, if so, if it spans the same
+    region that this region spans.
+
+
+*region.__lt__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if this region starts before or ends before the region in `rhs`.
+
 
 *region.begin*()
   Returns: int

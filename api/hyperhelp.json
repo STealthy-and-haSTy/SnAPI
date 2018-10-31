@@ -232,6 +232,13 @@
                 "caption": "region.xpos",
                 "aliases": ["xpos"]
             },
+
+            { "topic": "region.__str__", "aliases": ["__str__"] },
+            { "topic": "region.__repr__", "aliases": ["__repr__"] },
+            { "topic": "region.__len__" },
+            { "topic": "region.__eq__" },
+            { "topic": "region.__lt__" },
+
             { "topic": "region.begin", "aliases": ["begin"] },
             { "topic": "region.end", "aliases": ["end"] },
             { "topic": "region.size" },
