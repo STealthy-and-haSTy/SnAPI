@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Phantom Class" date="2018-06-10"
+%hyperhelp title="sublime.Phantom Class" date="2018-10-31"
 
 
 *|Phantom|* Class
@@ -33,6 +33,17 @@ Constructors
 
   `on_navigate` is an optional callback that should accept a single string
   parameter, that is the `href` attribute of the link clicked.
+
+
+Methods
+-------
+
+*phantom.__eq__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if the `Phantom` in `rhs` is identical to this one; that is that
+    it was created with the same `region`, `content`, `layout` and
+    `on_navigate` arguments.
 
 
 --------------------------------------------------------------------------------

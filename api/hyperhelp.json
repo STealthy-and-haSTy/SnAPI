@@ -264,7 +264,8 @@
             {
                 "topic": "Phantom",
                 "caption": "sublime.Phantom Class"
-            }
+            },
+            { "topic": "phantom.__eq__" }
         ],
         "phantomset.txt": [
             "sublime.PhantomSet Class",
