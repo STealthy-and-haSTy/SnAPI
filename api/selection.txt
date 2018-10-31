@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Selection Class" date="2018-06-10"
+%hyperhelp title="sublime.Selection Class" date="2018-10-31"
 
 
 *|Selection|* Class
@@ -8,6 +8,47 @@ Maintains a set of Regions, ensuring that none overlap. The regions are kept in
 sorted order.
 
 This class is contained in the |sublime| module.
+
+
+*selection.__len__*()  `[UNDOCUMENTED]`
+  Returns: int
+
+    Returns the number of selection `Regions` that exist in this selection
+    object. Always >= 0.
+
+
+*selection.__getitem__*(index)  `[UNDOCUMENTED]`
+  Returns: |Region|
+
+    Returns the `Region` that represents the selection at the given index.
+
+
+*selection.__delitem__*(index)  `[UNDOCUMENTED]`
+  Returns: None
+
+    Removes the selection `Region` at the given index, removing the caret that
+    is associated with that selection.
+
+
+*selection.__eq__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if this list of selection regions is identical the list of
+    selection regions provided in `rhs`.
+
+
+*selection.__lt__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if this list of selections is lexically ordered prior to the
+    list of selection regions in `rhs`.
+
+
+*selection.__bool__*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Returns `True` if the |:view.id:view.id()| of this selection is not 0 or `False`
+    otherwise.
 
 
 *selection.clear*()
@@ -39,6 +80,13 @@ This class is contained in the |sublime| module.
   Returns: bool
 
     Returns True if the given `region` is a subset.
+
+
+*selection.is_valid*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Returns a boolean indicating if this selection object is valid or not. A
+    selection becomes invalid if it is no longer attached to a buffer.
 
 
 --------------------------------------------------------------------------------

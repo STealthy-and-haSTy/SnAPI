@@ -204,11 +204,21 @@
                 "topic": "Selection",
                 "caption": "sublime.Selection Class"
             },
+
+            { "topic": "selection.__len__" },
+            { "topic": "selection.__getitem__", "aliases": ["__getitem__"] },
+            { "topic": "selection.__delitem__", "aliases": ["__delitem__"] },
+            { "topic": "selection.__eq__" },
+            { "topic": "selection.__lt__" },
+            { "topic": "selection.__bool__", "aliases": ["__bool__"] },
+
             { "topic": "selection.clear", "aliases": ["clear"] },
             { "topic": "selection.add", "aliases": ["add"] },
             { "topic": "selection.add_all", "aliases": ["add_all"] },
             { "topic": "selection.subtract", "aliases": ["subtract"] },
-            { "topic": "selection.contains" }
+            { "topic": "selection.contains" },
+            { "topic": "selection.is_valid", "aliases": ["is_valid"] }
+
         ],
         "region.txt": [
             "sublime.Region Class",
