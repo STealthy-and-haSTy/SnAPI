@@ -15,20 +15,31 @@ This class is contained in the |sublime| module.
     Returns a number that uniquely identifies this window.
 
 
-*window.new_file*()
+*window.new_file*(<flags>, <syntax>)
   Returns: |View|
 
     Creates a new file. The returned view will be empty, and its `is_loaded()`
     method will return `True`.
 
+    The optional `flags` parameter may be `sublime.TRANSIENT` to create the new
+    view as a transient view.
 
-*window.open_file*(file_name, <flags>)
+    The optional `syntax` argument applies a syntax to the newly created view;
+    it takes an argument as per the `syntax` setting.
+
+      NOTE: The `flags` and `syntax` arguments are `[UNDOCUMENTED]`.
+
+
+*window.open_file*(file_name, <flags>, <group=-1>)
   Returns: |View|
 
     Opens the named file, and returns the corresponding view. If the file is
     already opened, it will be brought to the front. Note that as file loading
     is asynchronous, operations on the returned view won't be possible until
     its `is_loading()` method returns `False`.
+
+    The file will be opened into the provided `group`, which will be the
+    currently active group if `group` is -1.
 
     The optional `flags` parameter is a bitwise combination of:
 
@@ -37,6 +48,12 @@ This class is contained in the |sublime| module.
 
     * `sublime.TRANSIENT`: Open the file as a preview only: it won't have a tab
       assigned it until modified
+
+    * `sublime.FORCE_GROUP`: Don't select the file if it's opened in a
+      different group.
+
+      NOTE: The `group` argument and the `FORCE_GROUP` value for `flags` are
+           `[UNDOCUMENTED]`.
 
 
 *window.find_open_file*(file_name)
@@ -68,6 +85,18 @@ This class is contained in the |sublime| module.
   Returns: |View|
 
     Returns the currently edited view in the given `group`.
+
+
+*window.transient_sheet_in_group*(group)  `[UNDOCUMENTED]`
+    Returns: ????
+
+        ????
+
+
+*window.transient_view_in_group*(group)  `[UNDOCUMENTED]`
+    Returns: ????
+
+        ????
 
 
 *window.sheets*()
@@ -150,6 +179,26 @@ This class is contained in the |sublime| module.
     Moves the `view` to the given `group` and `index`.
 
 
+*window.layout*()  `[UNDOCUMENTED]`
+  Returns: dict
+
+    Returns a dictionary with keys `rows`, `colls` and `cells` which describes
+    the current layout of the window.
+
+
+*window.get_layout*()  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: dict
+
+    Returns the window layout. This is deprecated, use |:window.layout:layout()| instead.
+
+
+*window.set_layout*(layout)  `[UNDOCUMENTED]`
+  Returns: None
+
+    Alter the layout of the window based on the passed in `layout` dictionary,
+    which should be in the same form as returned from |:window.layout:layout()|.
+
+
 *window.status_message*(msg)
   Returns: None
 
@@ -214,6 +263,20 @@ This class is contained in the |sublime| module.
   Returns: None
 
     Controls the visibility of the status bar.
+
+
+*window.settings*()  `[UNDOCUMENTED]`
+  Returns: |Settings|
+
+    Returns a per-window settings object. The contents of these settings are
+    persisted in the session.
+
+
+*window.template_settings*()  `[UNDOCUMENTED]`
+  Returns: |Settings|
+
+    Returns a per-windows settings object. The contents of these settings are
+    persisted in the session, and duplicated into new windows.
 
 
 *window.folders*()
@@ -290,6 +353,13 @@ This class is contained in the |sublime| module.
     panel should be listed in the panel switcher.
 
 
+*window.get_output_panel*(name)  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: |View|
+
+    Returns the view associaTed with the named output panel. This method is
+    deprecated; use |:window.create_output_panel:create_output_panel()| instead.
+
+
 *window.find_output_panel*(name)
   Returns: |View| or None
 
@@ -329,6 +399,19 @@ This class is contained in the |sublime| module.
   Returns: [|location|]
 
     Returns all locations where the symbol is defined across open files.
+
+
+*window.lookup_references_in_index*(symbol)  `[UNDOCUMENTED]`
+  Returns: [|location|]
+
+    Returns all locations where the symbol is referenced across files in the
+    current project.
+
+
+*window.lookup_references_in_open_files*(symbol)  `[UNDOCUMENTED]`
+  Returns: [|location|]
+
+    Returns all locations where the symbol is referenced across open files.
 
 
 *window.extract_variables*()
