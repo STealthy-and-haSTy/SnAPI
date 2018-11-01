@@ -1,4 +1,4 @@
-%hyperhelp title="General Information" date="2018-06-10"
+%hyperhelp title="General Information" date="2018-10-31"
 
 
 *|Example Plugins|*
@@ -21,7 +21,7 @@ Default package:
       Uses `add_regions()` to add an icon to the gutter
   |Packages/Default/show_scope_name.py|
       Uses a popup to show the scope names at the caret
-  |Packages/Default/trim_trailing_whitespace.py|
+  |Packages/Default/trim_trailing_white_space.py|
       Modifies a buffer just before its saved
   |Packages/Default/arithmetic.py|
       Accepts an input from the user when run via the Command Palette
@@ -34,7 +34,7 @@ Default package:
 ================
 
 At importing time, plugins may not call any API functions, with the exception
-of `sublime.version()`, `sublime.platform()`, `sublime.architecture()` and
+of `sublime.version()`, `sublime.platform()`, `sublime.arch()` and
 `sublime.channel()`.
 
 If a plugin defines a module level function `plugin_loaded()`, this will be
@@ -93,6 +93,27 @@ names that refer to construct with specific semantics:
 
  * *CommandInputHandler*: a subclass of either |TextInputHandler| or
    |ListInputHandler|.
+
+ * *symbolref*: a tuple of `((int, int), string)` that contains information on
+   indexed symbols in a |view|. The string contains the text of the indexed
+   symbol and the tuple provides the location of that symbol in the file.
+
+   This type is `[UNDOCUMENTED]`.
+
+
+* *resultref*: a tuple of `(string, int, int, <string>)` that contains
+  information about the result of a regular expression match as a result of
+  using the `result_file_regex` and `result_line_regex` settings in a |view|.
+
+  The first string is the absolute file path of the file containing the match
+  and the integers represent the row and column of the match in that file.
+
+  The second string is optional and provides the text that matched the regex
+  capture for the fourth capture in `result_file_regex` or the third capture in
+  `result_line_regex`. This value is only a part of the result when you use
+  |:view.find_all_results_with_text:view.find_all_results_with_text()|.
+
+  This type is `[UNDOCUMENTED]`.
 
 
 --------------------------------------------------------------------------------

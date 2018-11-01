@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2018-06-11"
+%hyperhelp title="sublime Module" date="2018-10-30"
 
 
 *|sublime|* Module
@@ -18,7 +18,7 @@ the following classes:
     |Settings|
 
 
-*sublime.set_timeout*(callback, delay)
+*sublime.set_timeout*(callback, delay=0)
   Returns: None
 
     Runs the callback in the main thread after the given `delay` (in
@@ -26,14 +26,14 @@ the following classes:
     were added.
 
 
-*sublime.set_timeout_async*(callback, delay)
+*sublime.set_timeout_async*(callback, delay=0)
   Returns: None
 
     Runs the callback on an alternate thread after the given `delay` (in
     milliseconds).
 
 
-*sublime.error_message*(string)
+*sublime.error_message*(msg)
   Returns: None
 
     Displays an error dialog to the user.
@@ -45,7 +45,7 @@ the following classes:
     Displays a message dialog to the user.
 
 
-*sublime.ok_cancel_dialog*(string, <ok_title>)
+*sublime.ok_cancel_dialog*(msg, <ok_title="">)
   Returns: bool
 
     Displays an ok / cancel question dialog to the user. If `ok_title` is
@@ -53,13 +53,20 @@ the following classes:
     the user presses the ok button.
 
 
-*sublime.yes_no_cancel_dialog*(string, <yes_title>, <no_title>)
-    Returns: int
+*sublime.yes_no_cancel_dialog*(msg, <yes_title="">, <no_title="">)
+  Returns: int
 
     Displays a yes / no / cancel question dialog to the user. If `yes_title`
     and/or `no_title` are provided, they will be used as the text on the
     corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
     `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
+
+
+*sublime.status_message*()  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: None
+
+    Show a message in the status bar. This is an old API that has been
+    replaced by |:window.status_message:window.status_message()|.
 
 
 *sublime.load_resource*(name)
@@ -89,7 +96,7 @@ the following classes:
     is set to `True`, the string will include newlines and indentation.
 
 
-*sublime.decode_value*(string)
+*sublime.decode_value*(data)
   Returns: |value|
 
     Decodes a JSON string into an object. If the `string` is invalid, a
@@ -147,6 +154,23 @@ the following classes:
     located.
 
 
+*sublime.executable_path*()  `[UNDOCUMENTED]`
+  Returns: str
+
+    Returns the full path to the Sublime Text executable, including the name
+    of the executable itself.
+
+
+*sublime.executable_hash*()  `[UNDOCUMENTED]`
+  Returns: tuple
+
+    Returns a 3-tuple that provides the current `version`, `platform`,
+    `architecture` and a hash value.
+
+    Example:
+        `('3180', 'linux_x64', '6b76a7235661436c212bc5342d190146')`
+
+
 *sublime.cache_path*()
   Returns: str
 
@@ -160,13 +184,13 @@ the following classes:
     against unnecessarily large data, defaults to 16,777,216 characters
 
 
-*sublime.set_clipboard*(string)
+*sublime.set_clipboard*(text)
   Returns: None
 
     Sets the contents of the clipboard.
 
 
-*sublime.score_selector*(scope, selector)
+*sublime.score_selector*(scope_name, selector)
   Returns: int
 
     Matches the `selector` against the given scope, returning a score. A score
@@ -175,7 +199,7 @@ the following classes:
     better match for the scope.
 
 
-*sublime.run_command*(string, <args>)
+*sublime.run_command*(cmd, <args>)
   Returns: None
 
     Runs the named |ApplicationCommand| with the (optional) given `args`.
@@ -202,6 +226,25 @@ the following classes:
     expressions used in build systems.
 
 
+*sublime.log_indexing*(flag)  `[UNDOCUMENTED]`  `[DEPRECATED]`
+  Returns: None
+
+    Controls logging of indexing operations. If enabled, relevant information
+    related to indexing will be logged to the console.
+
+    This method is deprecated in favor of the `Help > Indexing Status` menu
+    item, which displays all indexing logs for the current invocation of
+    Sublime Text and also includes more information.
+
+
+*sublime.log_build_systems*(flag)  `[UNDOCUMENTED]`
+  Returns: None
+
+    Controls logging of build system selection. If enabled, information on how
+    Sublime is selecting the appropriate build system for the current situation
+    is logged to the console.
+
+
 *sublime.version*()
   Returns: str
 
@@ -218,6 +261,13 @@ the following classes:
   Returns: str
 
     Returns the CPU architecture, which may be `"x32"` or `"x64"`
+
+
+*sublime.channel*()  `[UNDOCUMENTED]`
+  Returns: str
+
+    Returns the channel that the current version of Sublime is from, which may
+    be `"dev"` or `"stable"`.
 
 
 --------------------------------------------------------------------------------

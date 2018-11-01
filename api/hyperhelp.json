@@ -53,6 +53,14 @@
             {
                 "topic": "CommandInputHandler",
                 "caption": "Type: CommandInputHandler"
+            },
+            {
+                "topic": "symbolref",
+                "caption": "Type: symbolref"
+            },
+            {
+                "topic": "resultref",
+                "caption": "Type: resultref"
             }
         ],
         "sublime.txt": [
@@ -69,6 +77,7 @@
             { "topic": "sublime.message_dialog", "aliases": ["message_dialog"] },
             { "topic": "sublime.ok_cancel_dialog", "aliases": ["ok_cancel_dialog"] },
             { "topic": "sublime.yes_no_cancel_dialog", "aliases": ["yes_no_cancel_dialog"] },
+            { "topic": "sublime.status_message" },
             { "topic": "sublime.load_resource", "aliases": ["load_resource"] },
             { "topic": "sublime.load_binary_resource", "aliases": ["load_binary_resource"] },
             { "topic": "sublime.find_resources", "aliases": ["find_resources"] },
@@ -81,6 +90,8 @@
             { "topic": "sublime.active_window", "aliases": ["active_window"] },
             { "topic": "sublime.packages_path", "aliases": ["packages_path"] },
             { "topic": "sublime.installed_packages_path", "aliases": ["installed_packages_path"] },
+            { "topic": "sublime.executable_path", "aliases": ["executable_path"] },
+            { "topic": "sublime.executable_hash", "aliases": ["executable_hash"] },
             { "topic": "sublime.cache_path", "aliases": ["cache_path"] },
             { "topic": "sublime.get_clipboard", "aliases": ["get_clipboard"] },
             { "topic": "sublime.set_clipboard", "aliases": ["set_clipboard"] },
@@ -89,9 +100,12 @@
             { "topic": "sublime.log_commands", "aliases": ["log_commands"] },
             { "topic": "sublime.log_input", "aliases": ["log_input"] },
             { "topic": "sublime.log_result_regex", "aliases": ["log_result_regex"] },
+            { "topic": "sublime.log_indexing", "aliases": ["log_indexing"] },
+            { "topic": "sublime.log_build_systems", "aliases": ["log_build_systems"] },
             { "topic": "sublime.version", "aliases": ["version"] },
             { "topic": "sublime.platform", "aliases": ["platform"] },
-            { "topic": "sublime.arch", "aliases": ["arch"] }
+            { "topic": "sublime.arch", "aliases": ["arch"] },
+            { "topic": "sublime.channel", "aliases": ["channel"] }
         ],
         "sheet.txt": [
             "sublime.Sheet Class",
@@ -111,13 +125,23 @@
                 "topic": "View",
                 "caption": "sublime.View Class"
             },
+
+            { "topic": "view.__len__" },
+            { "topic": "view.__eq__" },
+            { "topic": "view.__bool__" },
+
+
             { "topic": "view.id" },
+            { "topic": "view.is_valid" },
             { "topic": "view.buffer_id", "aliases": ["buffer_id"] },
             { "topic": "view.is_primary", "aliases": ["is_primary"] },
             { "topic": "view.file_name", "aliases": ["file_name"] },
+            { "topic": "view.retarget", "aliases": ["retarget"] },
+            { "topic": "view.meta_info", "aliases": ["meta_info"] },
             { "topic": "view.name", "aliases": ["name"] },
             { "topic": "view.set_name", "aliases": ["set_name"] },
             { "topic": "view.is_loading", "aliases": ["is_loading"] },
+            { "topic": "view.close", "aliases": ["close"] },
             { "topic": "view.is_dirty", "aliases": ["is_dirty"] },
             { "topic": "view.is_read_only", "aliases": ["is_read_only"] },
             { "topic": "view.set_read_only", "aliases": ["set_read_only"] },
@@ -132,6 +156,7 @@
             { "topic": "view.erase" },
             { "topic": "view.replace", "aliases": ["replace"] },
             { "topic": "view.sel", "aliases": ["sel"] },
+            { "topic": "view.has_non_empty_selection_region", "aliases": ["has_non_empty_selection_region"] },
             { "topic": "view.line", "aliases": ["line"] },
             { "topic": "view.full_line", "aliases": ["full_line"] },
             { "topic": "view.lines", "aliases": ["lines"] },
@@ -144,6 +169,7 @@
             { "topic": "view.find_all", "aliases": ["find_all"] },
             { "topic": "view.rowcol", "aliases": ["rowcol"] },
             { "topic": "view.text_point", "aliases": ["text_point"] },
+            { "topic": "view.assign_syntax", "aliases": ["assign_syntax"] },
             { "topic": "view.set_syntax_file", "aliases": ["set_syntax_file"] },
             { "topic": "view.extract_scope", "aliases": ["extract_scope"] },
             { "topic": "view.scope_name", "aliases": ["scope_name"] },
@@ -165,14 +191,28 @@
             { "topic": "view.em_width", "aliases": ["em_width"] },
             { "topic": "view.add_regions", "aliases": ["add_regions"] },
             { "topic": "view.get_regions", "aliases": ["get_regions"] },
+            { "topic": "view.add_phantom", "aliases": ["add_phantom"] },
+            { "topic": "view.erase_phantoms", "aliases": ["erase_phantoms"] },
+            { "topic": "view.erase_phantom_by_id", "aliases": ["erase_phantom_by_id"] },
+            { "topic": "view.query_phantom", "aliases": ["query_phantom"] },
+            { "topic": "view.query_phantoms", "aliases": ["query_phantoms"] },
             { "topic": "view.erase_regions", "aliases": ["erase_regions"] },
             { "topic": "view.set_status", "aliases": ["set_status"] },
             { "topic": "view.get_status", "aliases": ["get_status"] },
             { "topic": "view.erase_status", "aliases": ["erase_status"] },
             { "topic": "view.command_history", "aliases": ["command_history"] },
+            { "topic": "view.indexed_symbol", "aliases": ["indexed_symbol"] },
+            { "topic": "view.indexed_references", "aliases": ["indexed_references"] },
+            { "topic": "view.extract_completions", "aliases": ["extract_completions"] },
+            { "topic": "view.find_all_results", "aliases": ["find_all_results"] },
+            { "topic": "view.find_all_results_with_text", "aliases": ["find_all_results_with_text"] },
             { "topic": "view.change_count", "aliases": ["change_count"] },
             { "topic": "view.fold", "aliases": ["fold"] },
             { "topic": "view.unfold", "aliases": ["unfold"] },
+            { "topic": "view.is_folded", "aliases": ["is_folded"] },
+            { "topic": "view.folded_regions", "aliases": ["folded_regions"] },
+            { "topic": "view.indented_region", "aliases": ["indented_region"] },
+            { "topic": "view.indentation_level", "aliases": ["indentation_level"] },
             { "topic": "view.encoding", "aliases": ["encoding"] },
             { "topic": "view.set_encoding", "aliases": ["set_encoding"] },
             { "topic": "view.line_endings", "aliases": ["line_endings"] },
@@ -198,11 +238,21 @@
                 "topic": "Selection",
                 "caption": "sublime.Selection Class"
             },
+
+            { "topic": "selection.__len__" },
+            { "topic": "selection.__getitem__", "aliases": ["__getitem__"] },
+            { "topic": "selection.__delitem__", "aliases": ["__delitem__"] },
+            { "topic": "selection.__eq__" },
+            { "topic": "selection.__lt__" },
+            { "topic": "selection.__bool__", "aliases": ["__bool__"] },
+
             { "topic": "selection.clear", "aliases": ["clear"] },
             { "topic": "selection.add", "aliases": ["add"] },
             { "topic": "selection.add_all", "aliases": ["add_all"] },
             { "topic": "selection.subtract", "aliases": ["subtract"] },
-            { "topic": "selection.contains" }
+            { "topic": "selection.contains" },
+            { "topic": "selection.is_valid" }
+
         ],
         "region.txt": [
             "sublime.Region Class",
@@ -226,6 +276,13 @@
                 "caption": "region.xpos",
                 "aliases": ["xpos"]
             },
+
+            { "topic": "region.__str__", "aliases": ["__str__"] },
+            { "topic": "region.__repr__", "aliases": ["__repr__"] },
+            { "topic": "region.__len__" },
+            { "topic": "region.__eq__" },
+            { "topic": "region.__lt__" },
+
             { "topic": "region.begin", "aliases": ["begin"] },
             { "topic": "region.end", "aliases": ["end"] },
             { "topic": "region.size" },
@@ -241,7 +298,8 @@
             {
                 "topic": "Phantom",
                 "caption": "sublime.Phantom Class"
-            }
+            },
+            { "topic": "phantom.__eq__" }
         ],
         "phantomset.txt": [
             "sublime.PhantomSet Class",
@@ -275,6 +333,8 @@
             { "topic": "window.active_view", "aliases": ["active_view"] },
             { "topic": "window.active_sheet_in_group", "aliases": ["active_sheet_in_group"] },
             { "topic": "window.active_view_in_group", "aliases": ["active_view_in_group"] },
+            { "topic": "window.transient_sheet_in_group", "aliases": ["transient_sheet_in_group"] },
+            { "topic": "window.transient_view_in_group", "aliases": ["transient_view_in_group"] },
             { "topic": "window.sheets", "aliases": ["sheets"] },
             { "topic": "window.sheets_in_group", "aliases": ["sheets_in_group"] },
             { "topic": "window.views", "aliases": ["views"] },
@@ -288,7 +348,10 @@
             { "topic": "window.set_sheet_index", "aliases": ["set_sheet_index"] },
             { "topic": "window.get_view_index", "aliases": ["get_view_index"] },
             { "topic": "window.set_view_index", "aliases": ["set_view_index"] },
-            { "topic": "window.status_message", "aliases": ["status_message"] },
+            { "topic": "window.layout", "aliases": ["layout"] },
+            { "topic": "window.get_layout", "aliases": ["get_layout"] },
+            { "topic": "window.set_layout", "aliases": ["set_layout"] },
+            { "topic": "window.status_message" },
             { "topic": "window.is_menu_visible", "aliases": ["is_menu_visible"] },
             { "topic": "window.set_menu_visible", "aliases": ["set_menu_visible"] },
             { "topic": "window.is_sidebar_visible", "aliases": ["is_sidebar_visible"] },
@@ -299,6 +362,8 @@
             { "topic": "window.set_minimap_visible", "aliases": ["set_minimap_visible"] },
             { "topic": "window.is_status_bar_visible", "aliases": ["is_status_bar_visible"] },
             { "topic": "window.set_status_bar_visible", "aliases": ["set_status_bar_visible"] },
+            { "topic": "window.settings" },
+            { "topic": "window.template_settings", "aliases": ["template_settings"] },
             { "topic": "window.folders", "aliases": ["folders"] },
             { "topic": "window.project_file_name", "aliases": ["project_file_name"] },
             { "topic": "window.project_data", "aliases": ["project_data"] },
@@ -307,12 +372,15 @@
             { "topic": "window.show_quick_panel", "aliases": ["show_quick_panel"] },
             { "topic": "window.show_input_panel", "aliases": ["show_input_panel"] },
             { "topic": "window.create_output_panel", "aliases": ["create_output_panel"] },
+            { "topic": "window.get_output_panel", "aliases": ["get_output_panel"] },
             { "topic": "window.find_output_panel", "aliases": ["find_output_panel"] },
             { "topic": "window.destroy_output_panel", "aliases": ["destroy_output_panel"] },
             { "topic": "window.active_panel", "aliases": ["active_panel"] },
             { "topic": "window.panels", "aliases": ["panels"] },
             { "topic": "window.lookup_symbol_in_index", "aliases": ["lookup_symbol_in_index"] },
             { "topic": "window.lookup_symbol_in_open_files", "aliases": ["lookup_symbol_in_open_files"] },
+            { "topic": "window.lookup_references_in_index", "aliases": ["lookup_references_in_index"] },
+            { "topic": "window.lookup_references_in_open_files", "aliases": ["lookup_references_in_open_files"] },
             { "topic": "window.extract_variables", "aliases": ["extract_variables"] }
         ],
         "settings.txt": [
@@ -675,11 +743,11 @@
             }
         ],
 
-        "Packages/Default/trim_trailing_whitespace.py": [
-            "Packages/Default/trim_trailing_whitespace.py",
+        "Packages/Default/trim_trailing_white_space.py": [
+            "Packages/Default/trim_trailing_white_space.py",
 
             {
-                "topic": "trim_trailing_whitespace.py"
+                "topic": "trim_trailing_white_space.py"
             }
         ],
 
