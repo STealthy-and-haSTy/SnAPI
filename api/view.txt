@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2018-10-30"
+%hyperhelp title="sublime.View Class" date="2018-10-31"
 
 
 *|View|* Class
@@ -10,121 +10,171 @@ same buffer, but they have their own unique selection and geometry.
 This class is contained in the |sublime| module.
 
 
+*view.__len__*()  `[UNDOCUMENTED]`
+  Returns: int
+
+    Returns the number of character in the file.
+
+
+*view.__eq__*(rhs)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Determines if `rhs` is a `view` that is associated with the same |:view.id:view.id()|
+    or not (i.e. that it represents the same view).
+
+
+*view.__bool__*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Returns `True` if the |:view.id:view.id()| of this view is not 0 or `False`
+    otherwise.
+
+
 *view.id*()
-  Return: int
+  Returns: int
 
     Returns a number that uniquely identifies this view.
 
 
 *view.buffer_id*()
-  Return: int
+  Returns: int
 
     Returns a number that uniquely identifies the buffer underlying this view.
 
 
+*view.is_valid*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Returns a boolean indicating if this view object is valid or not. A view
+    becomes invalid if it is no longer attached to a buffer.
+
+
 *view.is_primary*()
-  Return: bool
+  Returns: bool
 
     If the view is the primary view into a file. Will only be `False` if the
     user has opened multiple views into a file.
 
 
 *view.file_name*()
-  Return: str
+  Returns: str
 
     The full name file the file associated with the buffer, or `None` if it
     doesn't exist on disk.
 
 
+*view.retarget*(new_file_name)  `[UNDOCUMENTED]`
+  Returns: None
+
+    Changes the file name associated with the view to the one passed in. All
+    future save operations will be done using this file name.
+
+
+*view.meta_info*(key, point)  `[UNDOCUMENTED]`
+  Returns: value
+
+    Obtain the metadata information (i.e. information stored in `tmPreferences`
+    files) for the provided `key`. For metadata that is scoped, the scope at the
+    `point` provided is used to determine which meta information to return.
+
+
 *view.name*()
-  Return: str
+  Returns: str
 
     The name assigned to the buffer, if any
 
 
 *view.set_name*(name)
-  Return: None
+  Returns: None
 
     Assigns a name to the buffer
 
 
 *view.is_loading*()
-  Return: bool
+  Returns: bool
 
     Returns `True` if the buffer is still loading from disk, and not ready for
     use.
 
 
+*view.close*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Attempts to close the current view, possibly prompting the user if they wish
+    to throw away unsaved changes. A `bool` is returned that indicates if the
+    view was actually closed or not.
+
+
 *view.is_dirty*()
-  Return: bool
+  Returns: bool
 
     Returns `True` if there are any unsaved modifications to the buffer.
 
 
 *view.is_read_only*()
-  Return: bool
+  Returns: bool
 
     Returns `True` if the buffer may not be modified.
 
 
 *view.set_read_only*(read_only)
-  Return: None
+  Returns: None
 
     Sets the read only property on the buffer.
 
 
 *view.is_scratch*()
-  Return: bool
+  Returns: bool
 
     Returns `True` if the buffer is a scratch buffer. Scratch buffers never
     report as being dirty.
 
 
 *view.set_scratch*(scratch)
-  Return: None
+  Returns: None
 
     Sets the scratch property on the buffer.
 
 
 *view.settings*()
-  Return: |Settings|
+  Returns: |Settings|
 
     Returns a reference to the view's settings object. Any changes to this
     settings object will be private to this view.
 
 
 *view.window*()
-  Return: |Window|
+  Returns: |Window|
 
     Returns a reference to the window containing the view.
 
 
 *view.run_command*(cmd, <args>)
-  Return: None
+  Returns: None
 
     Runs the named |TextCommand| with the (optional) given args.
 
 
 *view.size*()
-  Return: int
+  Returns: int
 
     Returns the number of character in the file.
 
 
 *view.substr*(region)
-  Return: str
+  Returns: str
 
     Returns the contents of the `region` as a string.
 
 
 *view.substr*(point)
-  Return: str
+  Returns: str
 
     Returns the character to the right of the `point`.
 
 
 *view.insert*(edit, point, text)
-  Return: int
+  Returns: int
 
     Inserts the given `string` in the buffer at the specified `point`. Returns
     the number of characters inserted: this may be different if tabs are being
@@ -132,71 +182,78 @@ This class is contained in the |sublime| module.
 
 
 *view.erase*(edit, region)
-  Return: None
+  Returns: None
 
     Erases the contents of the `region` from the buffer.
 
 
 *view.replace*(edit, region, text)
-  Return: None
+  Returns: None
 
     Replaces the contents of the `region` with the given `string`.
 
 
 *view.sel*()
-  Return: |Selection|
+  Returns: |Selection|
 
     Returns a reference to the selection.
 
 
+*view.has_non_empty_selection_region*()  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Returns `True` if the `view` contains at least one `selection` with a
+    length larger than `0`.
+
+
 *view.line*(point)
-  Return: |Region|
+  Returns: |Region|
 
     Returns the line that contains the `point`.
 
 
 *view.line*(region)
-  Return: |Region|
+  Returns: |Region|
 
     Returns a modified copy of `region` such that it starts at the beginning of
     a line, and ends at the end of a line. Note that it may span several lines.
 
 
 *view.full_line*(point)
-  Return: |Region|
+  Returns: |Region|
 
     As `line()`, but the region includes the trailing newline character, if
     any.
 
 
 *view.full_line*(region)
-  Return: |Region|
+  Returns: |Region|
 
     As `line()`, but the region includes the trailing newline character, if
     any.
 
 
 *view.lines*(region)
-  Return: [|Region|]
+  Returns: [|Region|]
 
     Returns a list of lines (in sorted order) intersecting the `region`.
 
 
 *view.split_by_newlines*(region)
-  Return: [|Region|]
+  Returns: [|Region|]
 
     Splits the `region` up such that each region returned exists on exactly one
     line.
 
 
 *view.word*(point)
-  Return: |Region|
+  Returns: |Region|
 
     Returns the word that contains the `point`.
 
 
 *view.word*(region)
-  Return: |Region|
+  Returns: |Region|
 
     Returns a modified copy of `region` such that it starts at the beginning of
     a word, and ends at the end of a word. Note that it may span several words.
@@ -278,12 +335,22 @@ This class is contained in the |sublime| module.
     the beginning of the row.
 
 
-*view.set_syntax_file*(syntax_file)
+*view.assign_syntax*(syntax_file)  `[UNDOCUMENTED]`
   Returns: None
 
     Changes the syntax used by the view. `syntax_file` should be a name along
     the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
     syntax, use `view.settings().get('syntax')`.
+
+
+*view.set_syntax_file*(syntax_file)  `[DEPRECATED]`
+  Returns: None
+
+    Changes the syntax used by the view. `syntax_file` should be a name along
+    the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
+    syntax, use `view.settings().get('syntax')`.
+
+    This function is deprecated; you should use |:view.set_syntax_file:set_syntax_file| instead.
 
 
 *view.extract_scope*(point)
@@ -468,6 +535,41 @@ This class is contained in the |sublime| module.
     Return the regions associated with the given `key`, if any
 
 
+*view.add_phantom*(key)  `[UNDOCUMENTED]`
+  Returns: ???
+
+    This API endpoint is used internally by |PhantomSet| to manage |:phantom:phantoms|
+    in the current view. You should use that class rather than this method.
+
+
+*view.erase_phantoms*(key)  `[UNDOCUMENTED]`
+  Returns: ???
+
+    This API endpoint is used internally by |PhantomSet| to manage |:phantom:phantoms|
+    in the current view. You should use that class rather than this method.
+
+
+*view.erase_phantom_by_id*(id)  `[UNDOCUMENTED]`
+  Returns: ???
+
+    This API endpoint is used internally by |PhantomSet| to manage |:phantom:phantoms|
+    in the current view. You should use that class rather than this method.
+
+
+*view.query_phantom*(id)  `[UNDOCUMENTED]`
+  Returns: ???
+
+    This API endpoint is used internally by |PhantomSet| to manage |:phantom:phantoms|
+    in the current view. You should use that class rather than this method.
+
+
+*view.query_phantoms*(ids)  `[UNDOCUMENTED]`
+  Returns: ???
+
+    This API endpoint is used internally by |PhantomSet| to manage |:phantom:phantoms|
+    in the current view. You should use that class rather than this method.
+
+
 *view.erase_regions*(key)
   Returns: None
 
@@ -509,6 +611,58 @@ This class is contained in the |sublime| module.
     return entries that modified the buffer.
 
 
+*view.indexed_symbol*()  `[UNDOCUMENTED]`
+  Returns: [|symbolref|]
+
+    Returns a list of all of the indexed symbols in the current view, along
+    with the location where the symbol is defined in the view.
+
+    As the name suggests, this lists only `indexed` symbols; that is, symbols
+    for which `showInIndexedSymbolList` is set to `1` in a `tmPreferences`
+    meta file.
+
+
+*view.indexed_references*()  `[UNDOCUMENTED]`
+  Returns: [|symbolref|]
+
+    Returns a list of all of the places where an indexed symbol is referenced
+    in the current view, along with the location where the reference to the
+    symbol occurs. The same symbol may appear in the list more than once if it
+    is referenced more than once.
+
+    As the name suggests, this lists only references to `indexed` symbols; that
+    is, symbols for which `showInIndexedSymbolList` is set to `1` in a
+    `tmPreferences` meta file.
+
+
+*view.extract_completions*(prefix, <tp=-1>)  `[UNDOCUMENTED]`
+  Returns: [str]
+
+    Return a list of all completions from the current view that match the given
+    `prefix` string.
+
+
+*view.find_all_results*()  `[UNDOCUMENTED]`
+  Returns: [|resultref|]
+
+    Return a list of all matches found as a result of applying the
+    `result_file_regex` and `line_file_regex` settings to the view. These
+    settings correspond to the |SublimeBuild::file_regex| and |SublimeBuild::line_regex| settings in a
+    |SublimeBuild:index.txt:sublime-build| file.
+
+    The list of returned items contains the absolute filename of the filename
+    portion of the match as well as the row and column portions, if they
+    matched.
+
+
+*view.find_all_results_with_text*()  `[UNDOCUMENTED]`
+  Returns: [|resultref|]
+
+    This operates as |::find_all_results| with the exception that the returned
+    list of results also includes the "message" portion of the result match
+    (e.g. the error message associated with an error in a build system).
+
+
 *view.change_count*()
   Returns: int
 
@@ -539,6 +693,39 @@ This class is contained in the |sublime| module.
   Returns: [|Region|]
 
     Unfolds all text in the `regions`, returning the unfolded regions
+
+
+*view.is_folded*(region)  `[UNDOCUMENTED]`
+  Returns: bool
+
+    Determines if the `region` provided is currently folded or not. The region
+    must be entirely folded in order for `True` to be returned.
+
+
+*view.folded_regions*()  `[UNDOCUMENTED]`
+  Returns: [|Region|]
+
+    Returns a list of `regions` that are currently folded. The list may be
+    empty if no text is currently folded.
+
+
+*view.indented_region*(point)  `[UNDOCUMENTED]`
+  Returns: |Region|
+
+    Returns a `region` that encompasses all lines surrounding the line
+    containing the given `point` where the |:view.indentation_level:indentation level| is greater than
+    or equal to the indent at the `point`.
+
+    If the level of indent at the given `point` is `0`, the returned region is
+    a 0-length region that specifies the start of the line containing the
+    point.
+
+
+*view.indentation_level*(point)  `[UNDOCUMENTED]`
+  Returns: int
+
+    Returns the level of indentation at the provided point. This is `0` at the
+    margin, `1` for one level of indentation, etc.
 
 
 *view.encoding*()

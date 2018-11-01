@@ -53,6 +53,14 @@
             {
                 "topic": "CommandInputHandler",
                 "caption": "Type: CommandInputHandler"
+            },
+            {
+                "topic": "symbolref",
+                "caption": "Type: symbolref"
+            },
+            {
+                "topic": "resultref",
+                "caption": "Type: resultref"
             }
         ],
         "sublime.txt": [
@@ -117,13 +125,23 @@
                 "topic": "View",
                 "caption": "sublime.View Class"
             },
+
+            { "topic": "view.__len__" },
+            { "topic": "view.__eq__" },
+            { "topic": "view.__bool__" },
+
+
             { "topic": "view.id" },
+            { "topic": "view.is_valid" },
             { "topic": "view.buffer_id", "aliases": ["buffer_id"] },
             { "topic": "view.is_primary", "aliases": ["is_primary"] },
             { "topic": "view.file_name", "aliases": ["file_name"] },
+            { "topic": "view.retarget", "aliases": ["retarget"] },
+            { "topic": "view.meta_info", "aliases": ["meta_info"] },
             { "topic": "view.name", "aliases": ["name"] },
             { "topic": "view.set_name", "aliases": ["set_name"] },
             { "topic": "view.is_loading", "aliases": ["is_loading"] },
+            { "topic": "view.close", "aliases": ["close"] },
             { "topic": "view.is_dirty", "aliases": ["is_dirty"] },
             { "topic": "view.is_read_only", "aliases": ["is_read_only"] },
             { "topic": "view.set_read_only", "aliases": ["set_read_only"] },
@@ -138,6 +156,7 @@
             { "topic": "view.erase" },
             { "topic": "view.replace", "aliases": ["replace"] },
             { "topic": "view.sel", "aliases": ["sel"] },
+            { "topic": "view.has_non_empty_selection_region", "aliases": ["has_non_empty_selection_region"] },
             { "topic": "view.line", "aliases": ["line"] },
             { "topic": "view.full_line", "aliases": ["full_line"] },
             { "topic": "view.lines", "aliases": ["lines"] },
@@ -150,6 +169,7 @@
             { "topic": "view.find_all", "aliases": ["find_all"] },
             { "topic": "view.rowcol", "aliases": ["rowcol"] },
             { "topic": "view.text_point", "aliases": ["text_point"] },
+            { "topic": "view.assign_syntax", "aliases": ["assign_syntax"] },
             { "topic": "view.set_syntax_file", "aliases": ["set_syntax_file"] },
             { "topic": "view.extract_scope", "aliases": ["extract_scope"] },
             { "topic": "view.scope_name", "aliases": ["scope_name"] },
@@ -171,14 +191,28 @@
             { "topic": "view.em_width", "aliases": ["em_width"] },
             { "topic": "view.add_regions", "aliases": ["add_regions"] },
             { "topic": "view.get_regions", "aliases": ["get_regions"] },
+            { "topic": "view.add_phantom", "aliases": ["add_phantom"] },
+            { "topic": "view.erase_phantoms", "aliases": ["erase_phantoms"] },
+            { "topic": "view.erase_phantom_by_id", "aliases": ["erase_phantom_by_id"] },
+            { "topic": "view.query_phantom", "aliases": ["query_phantom"] },
+            { "topic": "view.query_phantoms", "aliases": ["query_phantoms"] },
             { "topic": "view.erase_regions", "aliases": ["erase_regions"] },
             { "topic": "view.set_status", "aliases": ["set_status"] },
             { "topic": "view.get_status", "aliases": ["get_status"] },
             { "topic": "view.erase_status", "aliases": ["erase_status"] },
             { "topic": "view.command_history", "aliases": ["command_history"] },
+            { "topic": "view.indexed_symbol", "aliases": ["indexed_symbol"] },
+            { "topic": "view.indexed_references", "aliases": ["indexed_references"] },
+            { "topic": "view.extract_completions", "aliases": ["extract_completions"] },
+            { "topic": "view.find_all_results", "aliases": ["find_all_results"] },
+            { "topic": "view.find_all_results_with_text", "aliases": ["find_all_results_with_text"] },
             { "topic": "view.change_count", "aliases": ["change_count"] },
             { "topic": "view.fold", "aliases": ["fold"] },
             { "topic": "view.unfold", "aliases": ["unfold"] },
+            { "topic": "view.is_folded", "aliases": ["is_folded"] },
+            { "topic": "view.folded_regions", "aliases": ["folded_regions"] },
+            { "topic": "view.indented_region", "aliases": ["indented_region"] },
+            { "topic": "view.indentation_level", "aliases": ["indentation_level"] },
             { "topic": "view.encoding", "aliases": ["encoding"] },
             { "topic": "view.set_encoding", "aliases": ["set_encoding"] },
             { "topic": "view.line_endings", "aliases": ["line_endings"] },
@@ -217,7 +251,7 @@
             { "topic": "selection.add_all", "aliases": ["add_all"] },
             { "topic": "selection.subtract", "aliases": ["subtract"] },
             { "topic": "selection.contains" },
-            { "topic": "selection.is_valid", "aliases": ["is_valid"] }
+            { "topic": "selection.is_valid" }
 
         ],
         "region.txt": [
