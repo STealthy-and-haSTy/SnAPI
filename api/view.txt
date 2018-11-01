@@ -1,7 +1,7 @@
 %hyperhelp title="sublime.View Class" date="2018-10-31"
 
 
-*|View|* Class
+*|view:View Class|*
 ==========
 
 Represents a view into a text buffer. Note that multiple views may refer to the

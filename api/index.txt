@@ -1,7 +1,7 @@
-%hyperhelp title="Sublime Text 3 API Documentation" date="2018-06-10"
+%hyperhelp title="Sublime Text 3 API Documentation" date="2018-10-31"
 
 
-General Information        Core Components      Plugin Extension Points
+*|_none:General Information|*        *|_none:Core Components|*      *|_none:Plugin Extension Points|*
 -------------------        ---------------      -----------------------
  |Example Plugins|         |sublime| module     |sublime_plugin| Module
  |Plugin Lifecycle|        |Sheet| Class        |EventListener| Class

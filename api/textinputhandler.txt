@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.TextInputHandler Class" date="2018-06-11"
+%hyperhelp title="sublime_plugin.TextInputHandler Class" date="2018-10-31"
 
 
-*|TextInputHandler|* Class
+*|textinputhandler:TextInputHandler Class|*
 ======================
 
 TextInputHandlers can be used to accept textual input in the Command Palette.

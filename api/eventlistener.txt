@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.EventListener Class" date="2018-06-20"
+%hyperhelp title="sublime_plugin.EventListener Class" date="2018-10-31"
 
 
-*|EventListener|* Class
+*|eventlistener:EventListener Class|*
 ===================
 
 Note that many of these events are triggered by the buffer underlying the view,
@@ -195,7 +195,7 @@ This class is contained in the |sublime_plugin| module.
     Called whenever completions are to be presented to the user. The `prefix`
     is a unicode string of the text to complete.
 
-    `locations` is a list of |point|s. Since this method is called for all
+    `locations` is a list of |:point:points|. Since this method is called for all
     completions in every view no matter the syntax, `view.match_selector(point,
     relevant_scope)` should be called to determine if the point is relevant.
 

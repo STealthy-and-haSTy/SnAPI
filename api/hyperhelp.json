@@ -401,9 +401,8 @@
             "sublime_plugin Module",
 
             {
-                "topic": "sublime_plugin module",
+                "topic": "sublime_plugin",
                 "caption": "sublime_plugin Module",
-                "aliases": ["sublime_plugin"]
             }
         ],
         "eventlistener.txt": [

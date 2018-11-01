@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2018-06-11"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2018-10-31"
 
 
-*|ListInputHandler|* Class
+*|listinputhandler:ListInputHandler Class|*
 ======================
 
 ListInputHandlers can be used to accept a choice input from a list items in the

@@ -1,7 +1,7 @@
 %hyperhelp title="sublime.Phantom Class" date="2018-10-31"
 
 
-*|Phantom|* Class
+*|phantom:Phantom Class|*
 =============
 
 Represents an HTML-based decoration to display non-editable content
@@ -12,7 +12,7 @@ the attributes will have no effect.
 This class is contained in the |sublime| module.
 
 
-Constructors
+*|_none:Constructors|*
 ------------
 
 *Phantom*(region, content, layout, <on_navigate>)
@@ -35,7 +35,7 @@ Constructors
   parameter, that is the `href` attribute of the link clicked.
 
 
-Methods
+*|_none:Methods|*
 -------
 
 *phantom.__eq__*(rhs)  `[UNDOCUMENTED]`

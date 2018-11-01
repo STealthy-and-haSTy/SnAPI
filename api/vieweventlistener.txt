@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2018-06-20"
+%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2018-10-31"
 
 
-*|ViewEventListener|* Class
+*|vieweventlistener:ViewEventListener Class|*
 =======================
 
 A class that provides similar event handling to |EventListener|, but bound to a
@@ -14,7 +14,7 @@ implementation makes the view available via `self.view`.
 This class is contained in the |sublime_plugin| module.
 
 
-Class Methods
+*|_none:Class Methods|*
 -------------
 *ViewEventListener.is_applicable*(settings)
   Returns: bool
@@ -31,7 +31,7 @@ Class Methods
     if it is the only, or first, view into a file.
 
 
-Methods
+*|_none:Methods|*
 -------
 
 *ViewEventListener.on_load*()
@@ -193,7 +193,7 @@ Methods
     Called whenever completions are to be presented to the user. The `prefix` is
     a unicode string of the text to complete.
 
-    `locations` is a list of |point|s. Since this method is called for all
+    `locations` is a list of |:point:points|. Since this method is called for all
     completions no matter the syntax,
     `self.view.match_selector(point, relevant_scope)` should be called to
     determine if the point is relevant.

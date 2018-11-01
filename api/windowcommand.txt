@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.WindowCommand Class" date="2018-06-10"
+%hyperhelp title="sublime_plugin.WindowCommand Class" date="2018-10-31"
 
 
-*|WindowCommand|* Class
+*|windowcommand:WindowCommand Class|*
 ===================
 
 WindowCommands are instantiated once per window. The Window object may be
