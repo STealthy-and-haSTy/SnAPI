@@ -262,6 +262,10 @@
                 "caption": "sublime.Region Class"
             },
             {
+                "topic": "region_constructor",
+                "caption": "Region Class Constructor"
+            },
+            {
                 "topic": "region.a",
                 "caption": "region.a",
                 "aliases": ["a"]
@@ -299,6 +303,10 @@
                 "topic": "Phantom",
                 "caption": "sublime.Phantom Class"
             },
+            {
+                "topic": "phantom_constructor",
+                "caption": "Phantom Class Constructor"
+            },
             { "topic": "phantom.__eq__" }
         ],
         "phantomset.txt": [
@@ -307,6 +315,10 @@
             {
                 "topic": "PhantomSet",
                 "caption": "sublime.PhantomSet Class"
+            },
+            {
+                "topic": "phantomset_constructor",
+                "caption": "PhantomSet Class Constructor"
             },
             { "topic": "PhantomSet.update", "aliases": ["update"] }
         ],

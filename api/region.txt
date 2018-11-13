@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2018-10-31"
+%hyperhelp title="sublime.Region Class" date="2018-11-13"
 
 
 *|region:Region Class|*
@@ -12,7 +12,7 @@ This class is contained in the |sublime| module.
 *|_none:Constructors|*
 ------------
 
-*Region*(a, <b=a>, <xpos=-1>)
+*region_constructor:Region*(a, <b=a>, <xpos=-1>)
 
     Creates a Region with initial values `a` and `b`. If `b` is not specified,
     it defaults to `a`.
@@ -125,7 +125,7 @@ This class is contained in the |sublime| module.
     Returns `True` if the given `region` is a subset.
 
 
-*region.contains*(point)
+*_none:region.contains*(point)
   Returns: bool
 
     Returns `True` if `begin()` <= `point` <= `end()`.

@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Phantom Class" date="2018-10-31"
+%hyperhelp title="sublime.Phantom Class" date="2018-11-13"
 
 
 *|phantom:Phantom Class|*
@@ -15,7 +15,7 @@ This class is contained in the |sublime| module.
 *|_none:Constructors|*
 ------------
 
-*Phantom*(region, content, layout, <on_navigate>)
+*phantom_constructor:Phantom*(region, content, layout, <on_navigate>)
 
   Creates a phantom attached to a region. The content is HTML to be processed
   by |minihtml|.

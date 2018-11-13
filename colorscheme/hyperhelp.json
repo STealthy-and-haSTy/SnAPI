@@ -129,7 +129,7 @@
         ],
 
         "rules.txt": [
-            "Rules",
+            "Scope Rules",
 
             {
                 "topic": "rules.txt",
@@ -232,7 +232,7 @@
             "Appendix: CSS Colors",
 
             {
-                "topic": "appendix: css colors",
+                "topic": "appendix",
                 "aliases": ["css color names"]
             }
         ],

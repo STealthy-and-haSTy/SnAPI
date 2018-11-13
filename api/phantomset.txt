@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2018-10-31"
+%hyperhelp title="sublime.PhantomSet Class" date="2018-11-13"
 
 
 *|phantomset:PhantomSet Class|*
@@ -13,7 +13,7 @@ This class is contained in the |sublime| module.
 *|_none:Constructors|*
 ------------
 
-*PhantomSet*(view, <key>)
+*phantomset_constructor:PhantomSet*(view, <key>)
 
   Creates a PhantomSet attached to a `view`. `key` is a string to group
   Phantoms together.

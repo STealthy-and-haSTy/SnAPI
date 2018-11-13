@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Color Schemes" date="2018-09-25"
+%hyperhelp title="Sublime Text 3 Color Schemes" date="2018-11-13"
 
 
 The highlighting of source code and prose in Sublime Text is controlled
@@ -32,7 +32,7 @@ using the TextMate .tmTheme format.
     * |Hashed Syntax Highlighting|
     * |Examples|
   * |Customization|
-  * |Appendix: CSS Colors|
+  * |:appendix:Appendix: CSS Colors|
 
 
 --------------------------------------------------------------------------------

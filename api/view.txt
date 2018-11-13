@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2018-10-31"
+%hyperhelp title="sublime.View Class" date="2018-11-13"
 
 
 *|view:View Class|*
@@ -167,7 +167,7 @@ This class is contained in the |sublime| module.
     Returns the contents of the `region` as a string.
 
 
-*view.substr*(point)
+*_none:view.substr*(point)
   Returns: str
 
     Returns the character to the right of the `point`.
@@ -212,7 +212,7 @@ This class is contained in the |sublime| module.
     Returns the line that contains the `point`.
 
 
-*view.line*(region)
+*_none:view.line*(region)
   Returns: |Region|
 
     Returns a modified copy of `region` such that it starts at the beginning of
@@ -226,7 +226,7 @@ This class is contained in the |sublime| module.
     any.
 
 
-*view.full_line*(region)
+*_none:view.full_line*(region)
   Returns: |Region|
 
     As `line()`, but the region includes the trailing newline character, if
@@ -252,7 +252,7 @@ This class is contained in the |sublime| module.
     Returns the word that contains the `point`.
 
 
-*view.word*(region)
+*_none:view.word*(region)
   Returns: |Region|
 
     Returns a modified copy of `region` such that it starts at the beginning of
@@ -293,7 +293,7 @@ This class is contained in the |sublime| module.
     characters should be considered to separate words.
 
 
-*view.expand_by_class*(region, classes, <separators>)
+*_none:view.expand_by_class*(region, classes, <separators>)
   Returns: |Region|
 
     Expands `region` to the left and right, until each side lands on a location
@@ -677,7 +677,7 @@ This class is contained in the |sublime| module.
     Folds the given `regions`, returning `False` if they were already folded
 
 
-*view.fold*(region)
+*_none:view.fold*(region)
   Returns: bool
 
     Folds the given `region`, returning `False` if it was already folded
@@ -689,7 +689,7 @@ This class is contained in the |sublime| module.
     Unfolds all text in the `region`, returning the unfolded regions
 
 
-*view.unfold*([regions])
+*_none:view.unfold*([regions])
   Returns: [|Region|]
 
     Unfolds all text in the `regions`, returning the unfolded regions
