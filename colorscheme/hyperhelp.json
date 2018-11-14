@@ -275,7 +275,16 @@
             {
                 "topic": "Usage in Color Schemes"
             }
+        ],
+
+        "https://www.sublimetext.com/docs/3/dev/color_schemes.html": [
+            "Dev Build Color Schemes Documentation",
+
+            {
+                "topic": "devdocs"
+            }
         ]
+
 
     }
 }
