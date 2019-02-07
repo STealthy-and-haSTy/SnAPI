@@ -42,6 +42,11 @@ the syntax `var(example_var_name)`. Variable references are particularly useful
 when combined with CSS Color Module Level 4 |color-mod function| and the
 supported `blend()`, `blenda()` and `alpha()` adjusters.
 
+        `[DEV BUILDS ONLY]`
+        Along with the above, development builds also contain `saturation()` and
+        `lightness()` adjusters. Additionally variables can be referenced in
+        the |minihtml color() mod function| as well.
+
   * `blend() adjuster:` Blends a color into the base. To blend equal parts grey
     and a base color referenced via variable, in RGB space:
     `color(var(base_green) blend(#888 50%))`. If colors should be blended in
@@ -58,6 +63,20 @@ supported `blend()`, `blenda()` and `alpha()` adjusters.
     value specified, from `0.0` to `1.0`. Setting the alpha channel to 90%:
     `color(var(base_green) alpha(0.9))`. A shorthand name of `a()` is also
     available for this adjuster.
+
+    `[DEV BUILDS ONLY]`
+  * `saturation() adjuster:` Changes the saturation channel of the base color,
+     in the HSL color space, to the value specified, from `0%` to `100%`.
+     Setting the saturation to 90%: `color(var(base_green) saturation(0.9))`.
+     Increasing the saturation by 10%: `color(var(base_green) s(+ 10%))`. A
+     shorthand name of `s()` is also available for this adjuster.
+
+    `[DEV BUILDS ONLY]`
+    * `lightness() adjuster:` Changes the lightness channel of the base color,
+      in the HSL color space, to the value specified, from `0%` to `100%`.
+      Setting the lightness to 90%: `color(var(base_green) lightness(0.9))`.
+      Decreasing the lightness by 10%: `color(var(base_green) l(- 10%))`. A
+      shorthand name of `l()` is also available for this adjuster.
 
 
 --------------------------------------------------------------------------------

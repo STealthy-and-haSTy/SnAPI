@@ -284,6 +284,15 @@
             {
                 "topic": "devdocs"
             }
+        ],
+
+        "https://www.sublimetext.com/docs/3/dev/minihtml.html#color-mod_function": [
+            "minihtml color() mod function",
+
+            {
+                "topic": "minihtml color() mod function"
+            }
+
         ]
 
 

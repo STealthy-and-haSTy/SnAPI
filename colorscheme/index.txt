@@ -15,8 +15,13 @@ using the TextMate .tmTheme format.
     *|_none:Dev Build Version|*
     -----------------
 
-    The dev build of Sublime Text contains changes to color schemes. See
-    the |:devdocs:Dev Build Color Schemes Documentation| for changes.
+    The dev build of Sublime Text contains changes to color schemes. See the
+    |:devdocs:Dev Build Color Schemes Documentation| for changes.
+
+    The changes mentioned in that documentation are also referenced in this
+    help file and are marked as `[DEV BUILDS ONLY]`. Unless stated otherwise,
+    this indicates development builds in the most recent development build
+    series.
 
 
   * |Example|
