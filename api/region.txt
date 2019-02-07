@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.Region Class" date="2018-11-13"
+%hyperhelp title="sublime.Region Class" date="2019-02-06"
 
 
-*|region:Region Class|*
+*|region:Region Class|*
 ============
 
 Represents an area of the buffer. Empty regions, where a == b are valid.

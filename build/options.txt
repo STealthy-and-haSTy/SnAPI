@@ -1,4 +1,4 @@
-%hyperhelp title="Options" date="2018-06-18"
+%hyperhelp title="Options" date="2019-02-06"
 
 
 All build systems may use the following top-level keys in the `.sublime-build`
@@ -59,10 +59,10 @@ file.
 
         The command to run when the build system is invoked. The default value
         of `exec` allows use of the additional options specified in
-        |exec Target Options|. If a value other than exec is specified, none of
+        |exec Target Options|. If a value other than exec is specified, none of
         the options in `exec Target Options` will do anything.
 
-        See the |Advanced Example| for a complete example.
+        See the |Advanced Example| for a complete example.
 
         Example: `"my_build"`
 

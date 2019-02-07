@@ -1,7 +1,7 @@
-%hyperhelp title="General Information" date="2018-10-31"
+%hyperhelp title="General Information" date="2019-02-06"
 
 
-*|Example Plugins|*
+*|Example Plugins|*
 ===============
 
 Several pre-made plugins come with Sublime Text, you can find them in the
@@ -30,7 +30,7 @@ Default package:
 --------------------------------------------------------------------------------
 
 
-*|Plugin Lifecycle|*
+*|Plugin Lifecycle|*
 ================
 
 At importing time, plugins may not call any API functions, with the exception
@@ -56,7 +56,7 @@ changing while the code is running.
 --------------------------------------------------------------------------------
 
 
-*|Units and Coordinates|*
+*|Units and Coordinates|*
 =====================
 
 API functions that accept or return coordinates or dimensions do so using
@@ -76,8 +76,8 @@ names are classes documented herein, however there are also a few custom type
 names that refer to construct with specific semantics:
 
  * *location*: a tuple of `(str, str, (int, int))` that contains information
-   about a location of a symbol. The first string is the absolute file path,
-   the second is the file path relative to the project, the third element is a
+   about a location of a symbol. The first string is the absolute file path,
+   the second is the file path relative to the project, the third element is a
    two-element tuple of the row and column.
 
  * *point*: an `int` that represents the offset from the beginning of the editor
@@ -91,7 +91,7 @@ names that refer to construct with specific semantics:
 
  * *vector*: a tuple of `(dip, dip)` representing `x` and `y` coordinates.
 
- * *CommandInputHandler*: a subclass of either |TextInputHandler| or
+ * *CommandInputHandler*: a subclass of either |TextInputHandler| or
    |ListInputHandler|.
 
  * *symbolref*: a tuple of `((int, int), string)` that contains information on

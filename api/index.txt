@@ -1,12 +1,12 @@
-%hyperhelp title="Sublime Text 3 API Documentation" date="2018-10-31"
+%hyperhelp title="Sublime Text 3 API Documentation" date="2019-02-06"
 
 
-*|_none:General Information|*        *|_none:Core Components|*      *|_none:Plugin Extension Points|*
+*|_none:General Information|*        *|_none:Core Components|*      *|_none:Plugin Extension Points|*
 -------------------        ---------------      -----------------------
- |Example Plugins|         |sublime| module     |sublime_plugin| Module
- |Plugin Lifecycle|        |Sheet| Class        |EventListener| Class
+ |Example Plugins|         |sublime| module     |sublime_plugin| Module
+ |Plugin Lifecycle|        |Sheet| Class        |EventListener| Class
  |Threading|               |View| Class         |ViewEventListener| Class
- |Units and Coordinates|   |Selection| Class    |ApplicationCommand| Class
+ |Units and Coordinates|   |Selection| Class    |ApplicationCommand| Class
  |Types|                   |Region| Class       |WindowCommand| Class
                            |Phantom| Class      |TextCommand| Class
                            |PhantomSet| Class   |TextInputHandler| Class

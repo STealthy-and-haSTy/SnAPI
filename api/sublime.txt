@@ -1,7 +1,7 @@
-%hyperhelp title="sublime Module" date="2018-10-31"
+%hyperhelp title="sublime Module" date="2019-02-06"
 
 
-*|sublime:sublime Module|*
+*|sublime:sublime Module|*
 ==============
 
 In addition to the following module functions, the `sublime` module contains

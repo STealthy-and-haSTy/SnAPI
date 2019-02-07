@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2018-09-25"
+%hyperhelp title="Scope Rules" date="2019-02-06"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -27,13 +27,13 @@ Author of syntaxes can assign whatever scopes they want to a given token. This
 combined with the fact that there are hundreds of community-maintained syntaxes
 means that is can be hard to know what scopes to target.
 
-The |official Scope Naming guidelines| were established to help syntax and
+The |official Scope Naming guidelines| were established to help syntax and
 color scheme authors use a common set, for better interoperability. The
-|Usage in Color Schemes| section provides a baseline set of scopes that color
+|Usage in Color Schemes| section provides a baseline set of scopes that color
 scheme authors should strive to handle.
 
 
-*|Style Rules|*
+*|Style Rules|*
 -----------
 
 Each scope style rule consists of an object containing a `scope` key, along
@@ -46,7 +46,7 @@ with one or more of the following optional keys:
   * `font_style` – zero or more of `bold`, `italic`, separated by spaces
 
 
-*|Hashed Syntax Highlighting|*
+*|Hashed Syntax Highlighting|*
 --------------------------
 
 The `foreground` key supports a special mode called Hashed Syntax Highlighting,

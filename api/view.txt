@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.View Class" date="2018-11-13"
+%hyperhelp title="sublime.View Class" date="2019-02-06"
 
 
-*|view:View Class|*
+*|view:View Class|*
 ==========
 
 Represents a view into a text buffer. Note that multiple views may refer to the
@@ -713,7 +713,7 @@ This class is contained in the |sublime| module.
   Returns: |Region|
 
     Returns a `region` that encompasses all lines surrounding the line
-    containing the given `point` where the |:view.indentation_level:indentation level| is greater than
+    containing the given `point` where the |:view.indentation_level:indentation level| is greater than
     or equal to the indent at the `point`.
 
     If the level of indent at the given `point` is `0`, the returned region is

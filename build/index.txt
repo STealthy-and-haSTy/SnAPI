@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Build Systems" date="2018-06-20"
+%hyperhelp title="Sublime Text 3 Build Systems" date="2019-02-06"
 
 
 Sublime Text provides `build` systems to allow users to run external programs.
@@ -16,13 +16,13 @@ viable build systems to the user. The built-in `exec` target provides common
 options to get up and running quickly. For more complex requirements, build
 systems can target custom Sublime Text commands written in Python.
 
-  * |Basic Example|
+  * |Basic Example|
   * |Usage|
   * |Options|
-  * |exec Target Options|
-  * |Custom Options|
+  * |exec Target Options|
+  * |Custom Options|
   * |Variables|
-  * |Advanced Example|
+  * |Advanced Example|
 
 
 --------------------------------------------------------------------------------

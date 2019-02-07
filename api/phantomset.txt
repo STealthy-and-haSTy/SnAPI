@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2018-11-13"
+%hyperhelp title="sublime.PhantomSet Class" date="2019-02-06"
 
 
-*|phantomset:PhantomSet Class|*
+*|phantomset:PhantomSet Class|*
 ================
 
 A collection that manages |:phantom:Phantoms| and the process of adding them, updating

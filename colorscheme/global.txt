@@ -1,4 +1,4 @@
-%hyperhelp title="Global Settings" date="2018-09-25"
+%hyperhelp title="Global Settings" date="2019-02-06"
 
 The following global settings go in the object with the `globals` key.
 
@@ -10,6 +10,11 @@ The following global settings go in the object with the `globals` key.
     *foreground*
 
         The default color for text
+
+    *invisibles*
+
+        The color for whitespace, when rendered. When not specified, defaults to
+        `foreground` with an opacity of `0.35`.
 
     *caret*
 
@@ -52,7 +57,7 @@ The following global settings go in the object with the `globals` key.
 
 CSS is applied to |minihtml| content created via the popups and phantoms
 functionality that is exposed through the API. Supported CSS properties are
-discussed in the |minihtml CSS reference|.
+discussed in the |minihtml CSS reference|.
 
 Plugins that use minihtml are encouraged to set a unique `id` attribute on the
 `<body>` tag of generated HTML to allow color schemes to override default plugin

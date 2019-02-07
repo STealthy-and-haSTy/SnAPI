@@ -1,4 +1,4 @@
-%hyperhelp title="exec Target Options" date="2018-06-18"
+%hyperhelp title="exec Target Options" date="2019-02-06"
 
 
 The default `target` of `exec` is used by the majority of build systems. It
@@ -71,7 +71,7 @@ display the results.
     *encoding*
 
         A string specifying the encoding of the build system output. Uses
-        |Python codec names|. Defaults to `"utf-8"`.
+        |Python codec names|. Defaults to `"utf-8"`.
 
         Example: `"iso-8859-1"`
 

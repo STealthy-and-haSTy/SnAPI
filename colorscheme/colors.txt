@@ -1,4 +1,4 @@
-%hyperhelp title="Colors" date="2018-09-25"
+%hyperhelp title="Colors" date="2019-02-06"
 
 Colors in color schemes may be specified using one of seven formats:
 
@@ -33,13 +33,13 @@ Colors in color schemes may be specified using one of seven formats:
     accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with
     50% opacity is written as `hsla(0, 100%, 100%, 0.5)`.
 
-  * `Named:` |CSS color names|. Please note that while some share names with
+  * `Named:` |CSS color names|. Please note that while some share names with
      X11 named colors used in `.tmTheme` files, the actual colors tend to
      differ.
 
 Additionally, colors may be specified as a |variable|, and then referenced via
 the syntax `var(example_var_name)`. Variable references are particularly useful
-when combined with CSS Color Module Level 4 |color-mod function| and the
+when combined with CSS Color Module Level 4 |color-mod function| and the
 supported `blend()`, `blenda()` and `alpha()` adjusters.
 
   * `blend() adjuster:` Blends a color into the base. To blend equal parts grey

@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Color Schemes" date="2018-11-13"
+%hyperhelp title="Sublime Text 3 Color Schemes" date="2019-02-06"
 
 
 The highlighting of source code and prose in Sublime Text is controlled
@@ -12,17 +12,17 @@ files, containing JSON. Sublime Text also supports a subset of features
 using the TextMate .tmTheme format.
 
 
-    *|_none:Dev Build Version|*
+    *|_none:Dev Build Version|*
     -----------------
 
     The dev build of Sublime Text contains changes to color schemes. See
-    the |:devdocs:Dev Build Color Schemes Documentation| for changes.
+    the |:devdocs:Dev Build Color Schemes Documentation| for changes.
 
 
   * |Example|
   * |Colors|
   * |Variables|
-  * |Global Settings|
+  * |Global Settings|
     * |Accents|
     * |CSS|
     * |Gutters|
@@ -32,14 +32,14 @@ using the TextMate .tmTheme format.
     * |Brackets|
     * |Tags|
     * |Shadows|
-  * |Scope Rules|
+  * |Scope Rules|
     * |Matching|
     * |Naming|
-    * |Style Rules|
-    * |Hashed Syntax Highlighting|
+    * |Style Rules|
+    * |Hashed Syntax Highlighting|
     * |Examples|
   * |Customization|
-  * |:appendix:Appendix: CSS Colors|
+  * |:appendix:Appendix: CSS Colors|
 
 
 --------------------------------------------------------------------------------

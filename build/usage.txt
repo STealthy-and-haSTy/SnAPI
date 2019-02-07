@@ -1,4 +1,4 @@
-%hyperhelp title="Usage" date="2018-06-14"
+%hyperhelp title="Usage" date="2019-02-06"
 
 
 *|Usage|*
@@ -12,7 +12,7 @@ Build systems include the following functionality:
   * Ability to cancel a build
 
 
-*|Running a Build|*
+*|Running a Build|*
 ---------------
 
 A build can be run by one of the following methods:
@@ -28,7 +28,7 @@ Output will be shown in an output panel displayed at the bottom of the Sublime
 Text window.
 
 
-*|Selecting a Build System|*
+*|Selecting a Build System|*
 ------------------------
 
 By default, Sublime Text uses automatic selection of build systems. When a user
@@ -59,7 +59,7 @@ methods:
 +----------------+---------------+-----------------------+-----------------+
 
 
-*|Navigating Results|*
+*|Navigating Results|*
 ------------------
 
 Build systems allow navigation of files specified in the build output.
@@ -75,7 +75,7 @@ performed via:
 +-----------------+--------------+---------------------------------------------+
 
 
-*|Cancelling a Build|*
+*|Cancelling a Build|*
 ------------------
 
 An in-process build can be cancelled via:

@@ -1,7 +1,7 @@
-%hyperhelp title="sublime_plugin.ApplicationCommand Class" date="2018-10-31"
+%hyperhelp title="sublime_plugin.ApplicationCommand Class" date="2019-02-06"
 
 
-*|applicationcommand:ApplicationCommand Class|*
+*|applicationcommand:ApplicationCommand Class|*
 ========================
 
 ApplicationCommands are instantiated only once.

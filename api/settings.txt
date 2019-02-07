@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.Settings Class" date="2018-10-31"
+%hyperhelp title="sublime.Settings Class" date="2019-02-06"
 
 
-*|settings:Settings Class|*
+*|settings:Settings Class|*
 ==============
 
 Represents settings as set in a file |view| or stored in a `sublime-settings`

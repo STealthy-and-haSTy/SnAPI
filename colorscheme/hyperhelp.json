@@ -49,6 +49,7 @@
 
             { "topic": "background" },
             { "topic": "foreground" },
+            { "topic": "invisibles" },
             { "topic": "caret" },
             { "topic": "line_highlight" },
 
@@ -278,7 +279,7 @@
         ],
 
         "https://www.sublimetext.com/docs/3/dev/color_schemes.html": [
-            "Dev Build Color Schemes Documentation",
+            "Dev Build Color Schemes Documentation",
 
             {
                 "topic": "devdocs"

@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.Phantom Class" date="2018-11-13"
+%hyperhelp title="sublime.Phantom Class" date="2019-02-06"
 
 
-*|phantom:Phantom Class|*
+*|phantom:Phantom Class|*
 =============
 
 Represents an HTML-based decoration to display non-editable content

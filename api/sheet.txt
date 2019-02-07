@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.Sheet Class" date="2018-10-31"
+%hyperhelp title="sublime.Sheet Class" date="2019-02-06"
 
 
-*|sheet:Sheet Class|*
+*|sheet:Sheet Class|*
 ===========
 
 Represents a content container, i.e. a tab, within a window. Sheets may contain
