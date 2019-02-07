@@ -7,9 +7,9 @@
 Several pre-made plugins come with Sublime Text, you can find them in the
 Default package:
 
-  |Packages/Default/delete_word.py|
+  |Packages/Default/delete_word.py|               `[Removed in build 3189]`
       Deletes a word to the left or right of the cursor
-  |Packages/Default/duplicate_line.py|
+  |Packages/Default/duplicate_line.py|            `[Removed in build 3189]`
       Duplicates the current line
   |Packages/Default/exec.py|
       Uses phantoms to display errors inline
@@ -21,7 +21,7 @@ Default package:
       Uses `add_regions()` to add an icon to the gutter
   |Packages/Default/show_scope_name.py|
       Uses a popup to show the scope names at the caret
-  |Packages/Default/trim_trailing_white_space.py|
+  |Packages/Default/trim_trailing_white_space.py| `[Removed in build 3189]`
       Modifies a buffer just before its saved
   |Packages/Default/arithmetic.py|
       Accepts an input from the user when run via the Command Palette
