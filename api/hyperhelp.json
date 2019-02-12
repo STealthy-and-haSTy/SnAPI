@@ -136,6 +136,7 @@
             { "topic": "view.buffer_id", "aliases": ["buffer_id"] },
             { "topic": "view.is_primary", "aliases": ["is_primary"] },
             { "topic": "view.file_name", "aliases": ["file_name"] },
+            { "topic": "view.set_reference_document", "aliases": ["set_reference_document"] },
             { "topic": "view.retarget", "aliases": ["retarget"] },
             { "topic": "view.meta_info", "aliases": ["meta_info"] },
             { "topic": "view.name", "aliases": ["name"] },
