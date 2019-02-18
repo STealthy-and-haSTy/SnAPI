@@ -3,7 +3,8 @@ import sublime_plugin
 
 import os
 
-from hyperhelp.core import help_index_list, lookup_help_topic
+import hyperhelpcore
+from hyperhelpcore.core import help_index_list, lookup_help_topic
 
 
 ###----------------------------------------------------------------------------
@@ -25,6 +26,16 @@ _extension_map = {
     ".sublime-build": "SublimeBuild",
     ".sublime-color-scheme": "SublimeColorScheme"
 }
+
+
+###----------------------------------------------------------------------------
+
+
+def plugin_loaded():
+    """
+    Ensure that hyperhelp is initialized at startup.
+    """
+    hyperhelpcore.initialize()
 
 
 ###----------------------------------------------------------------------------
