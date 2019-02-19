@@ -51,6 +51,7 @@
             { "topic": "foreground" },
             { "topic": "invisibles" },
             { "topic": "caret" },
+            { "topic": "block_caret" },
             { "topic": "line_highlight" },
 
             {
@@ -75,6 +76,15 @@
             },
             { "topic": "gutter" },
             { "topic": "gutter_foreground" },
+
+            {
+                "topic": "diff",
+                "caption": "Global Settings: Diff"
+            },
+            { "topic": "line_diff_width" },
+            { "topic": "line_diff_added" },
+            { "topic": "line_diff_modified" },
+            { "topic": "line_diff_deleted" },
 
             {
                 "topic": "selections",

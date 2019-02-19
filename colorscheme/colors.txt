@@ -1,4 +1,5 @@
-%hyperhelp title="Colors" date="2019-02-06"
+%hyperhelp title="Colors" date="2019-02-19"
+
 
 Colors in color schemes may be specified using one of seven formats:
 
