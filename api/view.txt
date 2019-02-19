@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2019-02-12"
+%hyperhelp title="sublime.View Class" date="2019-02-18"
 
 
 *|view:View Class|*
@@ -63,13 +63,23 @@ This class is contained in the |sublime| module.
     doesn't exist on disk.
 
 
-*view.set_reference_document*(content)  `[UNDOCUMENTED]`  `[Dev >= 3186]`
+*view.set_reference_document*(content)  `[UNDOCUMENTED]`            `[>=3186]`
   Returns: None
 
     Alter the text the `mini_diff` functionality uses to determine the changes
     made to the contents of this view. This call is only valid on a `view` with
     a |:view.file_name:file name|, and saving the `view` to disk resets the target back to the
     current contents of the file.
+
+
+*view.reset_reference_document*(content)  `[UNDOCUMENTED]`          `[>=3190]`
+  Returns: None
+
+    Reset the reference document used by the `mini_diff` functionality back to
+    the current contents of the `view`.
+
+    This is a shortcut for calling |:view.set_reference_document:set_reference_document()| and providing
+    `content` that matches the current contents of the buffer.
 
 
 *view.retarget*(new_file_name)  `[UNDOCUMENTED]`
