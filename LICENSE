@@ -1,13 +1,12 @@
 The MIT License (MIT)
 
 Note that the license below *DOES NOT* include any of the help files, which are
-taken from the official API reference for Sublime Text at
-http://www.sublimetext.com/docs/3/api_reference.html and are Copyright ©
-Sublime HQ Pty Ltd.
+taken from the official Sublime Text documentation at
+http://www.sublimetext.com/docs/3/ and are Copyright © Sublime HQ Pty Ltd.
 
 All other content in this package are licensed under the MIT License:
 
-Copyright 2017 Terence Martin
+Copyright 2017-2019 Terence Martin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in
