@@ -1,4 +1,4 @@
-%hyperhelp title="Global Settings" date="2019-02-19"
+%hyperhelp title="Global Settings" date="2019-03-13"
 
 
 The following global settings go in the object with the `globals` key.
@@ -21,7 +21,6 @@ The following global settings go in the object with the `globals` key.
 
         The color of the caret
 
-    `[DEV BUILDS ONLY]`
     *block_caret*
 
         The color of the caret when the `block_caret` setting is enabled.
@@ -94,9 +93,8 @@ styles.
 *|Diff|*
 ----
 
-    `[DEV BUILDS ONLY]`
-    The settings in this section are currently only available in the latest
-    development builds of Sublime Text.
+    The diff functionality is displayed in the gutter as colored lines for
+    added and modified lines, and a triangle where lines were deleted.
 
     *line_diff_width*
 

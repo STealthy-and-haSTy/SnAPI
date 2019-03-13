@@ -1,4 +1,4 @@
-%hyperhelp title="Colors" date="2019-02-19"
+%hyperhelp title="Colors" date="2019-03-13"
 
 
 Colors in color schemes may be specified using one of seven formats:
@@ -40,13 +40,8 @@ Colors in color schemes may be specified using one of seven formats:
 
 Additionally, colors may be specified as a |variable|, and then referenced via
 the syntax `var(example_var_name)`. Variable references are particularly useful
-when combined with CSS Color Module Level 4 |color-mod function| and the
-supported `blend()`, `blenda()` and `alpha()` adjusters.
-
-        `[DEV BUILDS ONLY]`
-        Along with the above, development builds also contain `saturation()` and
-        `lightness()` adjusters. Additionally variables can be referenced in
-        the |minihtml color() mod function| as well.
+when combined with the |minihtml color() mod function| and the supported
+`blend()`, `blenda(), alpha()`, `saturation()` and `lightness()`  adjusters.
 
   * `blend() adjuster:` Blends a color into the base. To blend equal parts grey
     and a base color referenced via variable, in RGB space:
@@ -65,14 +60,12 @@ supported `blend()`, `blenda()` and `alpha()` adjusters.
     `color(var(base_green) alpha(0.9))`. A shorthand name of `a()` is also
     available for this adjuster.
 
-    `[DEV BUILDS ONLY]`
   * `saturation() adjuster:` Changes the saturation channel of the base color,
      in the HSL color space, to the value specified, from `0%` to `100%`.
      Setting the saturation to 90%: `color(var(base_green) saturation(0.9))`.
      Increasing the saturation by 10%: `color(var(base_green) s(+ 10%))`. A
      shorthand name of `s()` is also available for this adjuster.
 
-    `[DEV BUILDS ONLY]`
     * `lightness() adjuster:` Changes the lightness channel of the base color,
       in the HSL color space, to the value specified, from `0%` to `100%`.
       Setting the lightness to 90%: `color(var(base_green) lightness(0.9))`.

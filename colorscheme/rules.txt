@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2019-02-06"
+%hyperhelp title="Scope Rules" date="2019-03-13"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -42,20 +42,16 @@ with one or more of the following optional keys:
   * `name` – the (arbitrary) name for the scope rule
   * `foreground` – the text color
   * `background` – the background color
-
-    `[DEV BUILDS ONLY]`
   * `foreground_adjust` - adjustment to the `foreground` color, only valid with
     `background`
-
   * `selection_foreground` – the text color when selected
   * `font_style` – zero or more of `bold`, `italic`, separated by spaces
 
-        `[DEV BUILDS ONLY]`
-        The `foreground_adjust` key accepts a space-separated list of adjusters
-        that are supported by the |minihtml color() mod function|. It is only
-        supported when the `background` key is also specified, and thus allows
-        modifying all foregrounds used in combination with the background,
-        without having to create different rules for every permutation.
+The `foreground_adjust` key accepts a space-separated list of adjusters that
+are supported by the |minihtml color() mod function|. It is only supported when
+the `background` key is also specified, and thus allows modifying all
+foregrounds used in combination with the background, without having to create
+different rules for every permutation.
 
 
 *|Hashed Syntax Highlighting|*
