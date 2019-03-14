@@ -700,22 +700,6 @@
             }
         ],
 
-        "Packages/Default/delete_word.py": [
-            "Packages/Default/delete_word.py",
-
-            {
-                "topic": "delete_word.py"
-            }
-        ],
-
-        "Packages/Default/duplicate_line.py": [
-            "Packages/Default/duplicate_line.py",
-
-            {
-                "topic": "duplicate_line.py"
-            }
-        ],
-
         "Packages/Default/exec.py": [
             "Packages/Default/exec.py",
 
@@ -753,14 +737,6 @@
 
             {
                 "topic": "show_scope_name.py"
-            }
-        ],
-
-        "Packages/Default/trim_trailing_white_space.py": [
-            "Packages/Default/trim_trailing_white_space.py",
-
-            {
-                "topic": "trim_trailing_white_space.py"
             }
         ],
 
