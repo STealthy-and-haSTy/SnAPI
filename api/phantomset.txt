@@ -1,8 +1,8 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2019-02-06"
+%hyperhelp title="sublime.PhantomSet Class" date="2019-03-20"
 
 
-*|phantomset:PhantomSet Class|*
-================
+# phantomset:PhantomSet Class
+==================
 
 A collection that manages |:phantom:Phantoms| and the process of adding them, updating
 them and removing them from the View.
@@ -10,8 +10,8 @@ them and removing them from the View.
 This class is contained in the |sublime| module.
 
 
-*|_none:Constructors|*
-------------
+## _none:Constructors
+--------------
 
 *phantomset_constructor:PhantomSet*(view, <key>)
 
@@ -19,8 +19,8 @@ This class is contained in the |sublime| module.
   Phantoms together.
 
 
-*|_none:Methods|*
--------
+## _none:Methods
+---------
 
 *PhantomSet.update*(new_phantoms)
   Returns: None

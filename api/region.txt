@@ -1,16 +1,16 @@
-%hyperhelp title="sublime.Region Class" date="2019-02-06"
+%hyperhelp title="sublime.Region Class" date="2019-03-20"
 
 
-*|region:Region Class|*
-============
+# region:Region Class
+==============
 
 Represents an area of the buffer. Empty regions, where a == b are valid.
 
 This class is contained in the |sublime| module.
 
 
-*|_none:Constructors|*
-------------
+## _none:Constructors
+---------------
 
 *region_constructor:Region*(a, <b=a>, <xpos=-1>)
 
@@ -18,8 +18,8 @@ This class is contained in the |sublime| module.
     it defaults to `a`.
 
 
-*|_none:Properties|*
-----------
+## _none:Properties
+-------------
 
 *region.a*
   Type: int

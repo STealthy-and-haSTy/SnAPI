@@ -1,8 +1,8 @@
-%hyperhelp title="sublime.View Class" date="2019-03-13"
+%hyperhelp title="sublime.View Class" date="2019-03-20"
 
 
-*|view:View Class|*
-==========
+# view:View Class|*
+============
 
 Represents a view into a text buffer. Note that multiple views may refer to the
 same buffer, but they have their own unique selection and geometry.

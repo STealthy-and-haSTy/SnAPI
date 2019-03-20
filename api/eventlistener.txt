@@ -1,8 +1,8 @@
-%hyperhelp title="sublime_plugin.EventListener Class" date="2019-02-06"
+%hyperhelp title="sublime_plugin.EventListener Class" date="2019-03-20"
 
 
-*|eventlistener:EventListener Class|*
-===================
+# eventlistener:EventListener Class
+=====================
 
 Note that many of these events are triggered by the buffer underlying the view,
 and thus the method is only called once, with the first view as the parameter.

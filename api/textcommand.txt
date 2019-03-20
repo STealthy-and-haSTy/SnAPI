@@ -1,8 +1,8 @@
-%hyperhelp title="sublime_plugin.TextCommand Class" date="2019-02-06"
+%hyperhelp title="sublime_plugin.TextCommand Class" date="2019-03-20"
 
 
-*|textcommand:TextCommand Class|*
-=================
+# textcommand:TextCommand Class
+===================
 
 TextCommands are instantiated once per view. The View object may be retrieved
 via `self.view`

@@ -1,8 +1,8 @@
-%hyperhelp title="sublime.Edit Class" date="2019-02-06"
+%hyperhelp title="sublime.Edit Class" date="2019-03-20"
 
 
-*|edit:Edit Class|*
-==========
+# edit:Edit Class
+============
 
 Edit objects have no functions, they exist to group buffer modifications.
 

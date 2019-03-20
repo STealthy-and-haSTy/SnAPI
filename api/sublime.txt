@@ -1,8 +1,8 @@
-%hyperhelp title="sublime Module" date="2019-02-06"
+%hyperhelp title="sublime Module" date="2019-03-20"
 
 
-*|sublime:sublime Module|*
-==============
+# sublime:sublime Module
+================
 
 In addition to the following module functions, the `sublime` module contains
 the following classes:

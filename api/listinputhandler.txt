@@ -1,8 +1,8 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2019-02-06"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2019-03-20"
 
 
-*|listinputhandler:ListInputHandler Class|*
-======================
+# listinputhandler:ListInputHandler Class
+========================
 
 ListInputHandlers can be used to accept a choice input from a list items in the
 Command Palette. Return a subclass of this from the `input()` method of a

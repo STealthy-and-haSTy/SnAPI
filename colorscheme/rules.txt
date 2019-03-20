@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2019-03-13"
+%hyperhelp title="Scope Rules" date="2019-03-20"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -7,8 +7,8 @@ least-to-most specific. For example, the `if` keyword in PHP could be specified
 via the scope name `keyword.control.php`.
 
 
-*|Matching|*
---------
+# Matching
+----------
 
 Color schemes apply colors and font styles to the scopes by matching the dotted
 labels, starting with the first. Prefix matching is the standard way to have a
@@ -20,8 +20,8 @@ most common. Including the final label, the syntax name, is uncommon unless a
 syntax- specific override is desired.
 
 
-*|Naming|*
-------
+# Naming
+--------
 
 Author of syntaxes can assign whatever scopes they want to a given token. This
 combined with the fact that there are hundreds of community-maintained syntaxes
@@ -33,8 +33,8 @@ color scheme authors use a common set, for better interoperability. The
 scheme authors should strive to handle.
 
 
-*|Style Rules|*
------------
+# Style Rules
+-------------
 
 Each scope style rule consists of an object containing a `scope` key, along
 with one or more of the following optional keys:
@@ -54,8 +54,8 @@ foregrounds used in combination with the background, without having to create
 different rules for every permutation.
 
 
-*|Hashed Syntax Highlighting|*
---------------------------
+# Hashed Syntax Highlighting
+----------------------------
 
 The `foreground` key supports a special mode called Hashed Syntax Highlighting,
 where each token matching the scope specified will receive a unique color from
@@ -85,8 +85,8 @@ of using blues, purples and pinks for variable names:
 ```
 
 
-*|Examples|*
---------
+# Examples
+----------
 
 The following scope style rule will color all strings as green:
 

@@ -1,8 +1,8 @@
-%hyperhelp title="sublime.Window Class" date="2019-02-06"
+%hyperhelp title="sublime.Window Class" date="2019-03-20"
 
 
-*|window:Window Class|*
-============
+# window:Window Class
+==============
 
 Represents a Sublime Text window.
 

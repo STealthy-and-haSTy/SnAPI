@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Color Schemes" date="2019-02-19"
+%hyperhelp title="Sublime Text 3 Color Schemes" date="2019-03-20"
 
 
 The highlighting of source code and prose in Sublime Text is controlled
@@ -12,8 +12,8 @@ files, containing JSON. Sublime Text also supports a subset of features
 using the TextMate .tmTheme format.
 
 
-    *|_none:Dev Build Version|*
-    -----------------
+    ## _none:Dev Build Version
+    --------------------
 
     The dev build of Sublime Text contains changes to color schemes. See the
     |:devdocs:Dev Build Color Schemes Documentation| for changes.

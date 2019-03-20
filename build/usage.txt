@@ -1,7 +1,7 @@
-%hyperhelp title="Usage" date="2019-02-06"
+%hyperhelp title="Usage" date="2019-03-20"
 
 
-*|Usage|*
+# Usage
 =====
 
 Build systems include the following functionality:
@@ -12,15 +12,15 @@ Build systems include the following functionality:
   * Ability to cancel a build
 
 
-*|Running a Build|*
----------------
+# Running a Build
+-----------------
 
 A build can be run by one of the following methods:
 
 +-----------------------------------------------+-----------------+
 |                   Keyboard                    |      Menu       |
 +---------------+---------------+---------------+-----------------+
-| Windows/Linux |      Mac      |      All      | `Tools ▶ Build` |
+| Windows/Linux |      Mac      |      All      | `Tools > Build` |
 |    <Ctrl+B>   |    <Cmd+B>    |     <F7>      |                 |
 +---------------+---------------+---------------+-----------------+
 
@@ -28,8 +28,8 @@ Output will be shown in an output panel displayed at the bottom of the Sublime
 Text window.
 
 
-*|Selecting a Build System|*
-------------------------
+# Selecting a Build System
+--------------------------
 
 By default, Sublime Text uses automatic selection of build systems. When a user
 invokes a build, the current file's syntax and filename will be used to pick
@@ -45,7 +45,7 @@ To manually choose a build system, use:
 +------------------------+
 |          Menu          |
 +------------------------+
-| `Tools ▶ Build System` |
+| `Tools > Build System` |
 +------------------------+
 
 To change the build system, within the viable options, use one of the following
@@ -54,13 +54,13 @@ methods:
 +--------------------------------+-----------------------+-----------------+
 |            Keyboard            |         Menu          | Command Palette |
 +----------------+---------------+-----------------------+-----------------+
-| Windows/Linux  |      Mac      | `Tools ▶ Build With:` |  `Build With:`  |
+| Windows/Linux  |      Mac      | `Tools > Build With:` |  `Build With:`  |
 | <Ctrl+Shift+B> | <Shift+Cmd+B> |                       |                 |
 +----------------+---------------+-----------------------+-----------------+
 
 
-*|Navigating Results|*
-------------------
+# Navigating Results
+--------------------
 
 Build systems allow navigation of files specified in the build output.
 Typically this is used to jump to the location of errors. Navigation can be
@@ -69,21 +69,21 @@ performed via:
 +-----------------+--------------+---------------------------------------------+
 |     Command     |   Keyboard   |                    Menu                     |
 +-----------------+--------------+---------------------------------------------+
-|   Next Result   |     <F4>     |   `Tools  ▶ Build Results  ▶ Next Result`   |
+|   Next Result   |     <F4>     |   `Tools  > Build Results  > Next Result`   |
 +-----------------+--------------+---------------------------------------------+
-| Previous Result |  <Shift+F4>  | `Tools  ▶ Build Results  ▶ Previous Result` |
+| Previous Result |  <Shift+F4>  | `Tools  > Build Results  > Previous Result` |
 +-----------------+--------------+---------------------------------------------+
 
 
-*|Cancelling a Build|*
-------------------
+# Cancelling a Build
+--------------------
 
 An in-process build can be cancelled via:
 
 +-------------------------------+--------------------------+-------------------+
 |           Keyboard            |           Menu           |  Command Palette  |
 +---------------+---------------+--------------------------+-------------------+
-| Windows/Linux |      Mac      |  `Tools ▶ Cancel Build`  |  `Build: Cancel`  |
+| Windows/Linux |      Mac      |  `Tools > Cancel Build`  |  `Build: Cancel`  |
 | <Ctrl+Break>  |   <Ctrl+C>    |                          |                   |
 +---------------+---------------+--------------------------+-------------------+
 

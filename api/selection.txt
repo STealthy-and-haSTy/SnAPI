@@ -1,8 +1,8 @@
-%hyperhelp title="sublime.Selection Class" date="2019-02-06"
+%hyperhelp title="sublime.Selection Class" date="2019-03-20"
 
 
-*|selection:Selection Class|*
-===============
+# selection:Selection Class
+=================
 
 Maintains a set of Regions, ensuring that none overlap. The regions are kept in
 sorted order.

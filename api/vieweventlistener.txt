@@ -1,8 +1,8 @@
-%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2019-02-06"
+%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2019-03-20"
 
 
-*|vieweventlistener:ViewEventListener Class|*
-=======================
+# vieweventlistener:ViewEventListener Class
+=========================
 
 A class that provides similar event handling to |EventListener|, but bound to a
 specific view. Provides class method-based filtering to control what views
@@ -14,8 +14,8 @@ implementation makes the view available via `self.view`.
 This class is contained in the |sublime_plugin| module.
 
 
-*|_none:Class Methods|*
--------------
+## _none:Class Methods
+----------------
 *ViewEventListener.is_applicable*(settings)
   Returns: bool
 
@@ -31,8 +31,8 @@ This class is contained in the |sublime_plugin| module.
     if it is the only, or first, view into a file.
 
 
-*|_none:Methods|*
--------
+## _none:Methods
+----------
 
 *ViewEventListener.on_load*()
   Returns: None

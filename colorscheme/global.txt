@@ -1,4 +1,4 @@
-%hyperhelp title="Global Settings" date="2019-03-13"
+%hyperhelp title="Global Settings" date="2019-03-20"
 
 
 The following global settings go in the object with the `globals` key.
@@ -32,8 +32,8 @@ The following global settings go in the object with the `globals` key.
         the `highlight_line` setting is enabled.
 
 
-*|Accents|*
--------
+# Accents
+---------
 
     *misspelling*
 
@@ -58,8 +58,8 @@ The following global settings go in the object with the `globals` key.
         setting is enabled.
 
 
-*|CSS|*
-----
+# CSS
+-----
 
 CSS is applied to |minihtml| content created via the popups and phantoms
 functionality that is exposed through the API. Supported CSS properties are
@@ -78,8 +78,8 @@ styles.
         CSS passed to phantoms. If not specified, uses `popup_css`.
 
 
-*|Gutters|*
--------
+# Gutters
+---------
 
     *gutter*
 
@@ -90,8 +90,8 @@ styles.
         The color of line numbers in the gutter
 
 
-*|Diff|*
-----
+# Diff
+------
 
     The diff functionality is displayed in the gutter as colored lines for
     added and modified lines, and a triangle where lines were deleted.
@@ -113,8 +113,8 @@ styles.
         The color of diff markers for deleted lines
 
 
-*|Selections|*
-----------
+# Selections
+------------
 
     *selection*
 
@@ -153,8 +153,8 @@ styles.
         `cut`.
 
 
-*|Find|*
-----
+# Find
+------
 
     *highlight*
 
@@ -172,8 +172,8 @@ styles.
         by the Find panel
 
 
-*|Guides|*
-------
+# Guides
+--------
 
 Guides are controlled globally by the `draw_indent_guides` setting.
 
@@ -196,8 +196,8 @@ Guides are controlled globally by the `draw_indent_guides` setting.
         `indent_guide_options`.
 
 
-*|Brackets|*
---------
+# Brackets
+----------
 
 Bracket matching is controlled globally by the `match_brackets` setting.
 
@@ -233,8 +233,8 @@ Bracket matching is controlled globally by the `match_brackets` setting.
         `brackets_contents_options`.
 
 
-*|Tags|*
-----
+# Tags
+------
 
 Tag matching is controlled globally by the `match_tags` setting.
 
@@ -253,8 +253,8 @@ Tag matching is controlled globally by the `match_tags` setting.
         The color to use when drawing the style specified by `tags_options`.
 
 
-*|Shadows|*
--------
+# Shadows
+---------
 
     *shadow*
 
