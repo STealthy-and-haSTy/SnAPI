@@ -41,6 +41,39 @@ def plugin_loaded():
 ###----------------------------------------------------------------------------
 
 
+def _word_under_cursor(view):
+    """
+    Get the word under the cursor, if possible. The caret must be either in a
+    word or at the start of a word boundary for this to work; if the caret is
+    anywhere else, no word will be returned.
+
+    This uses the word separators from the view settings in the given view but
+    also adds in whitespace characters, since those also separate words but are
+    generally not included in the setting.
+    """
+    if len(view.sel()) == 1:
+        word_class = sublime.CLASS_WORD_START | sublime.CLASS_WORD_END
+        sep = view.settings().get("word_separators", "") + " \t\n"
+
+        pt = view.sel()[0].begin()
+        pt_class = view.classify(pt)
+
+        if view.substr(pt) in sep:
+            return None
+
+        if pt_class & sublime.CLASS_WORD_START == 0:
+            word = view.expand_by_class(pt, word_class, sep)
+        else:
+            if view.substr(pt+1) in sep:
+                word = sublime.Region(pt, pt + 1)
+            else:
+                word = view.expand_by_class(pt + 1, word_class, sep)
+
+        return view.substr(word)
+
+    return None
+
+
 class SnapiLookupCommand(sublime_plugin.TextCommand):
     """
     Open the SnAPI index to browse topics.
@@ -64,21 +97,23 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
         # Get an initial topic; the selected text or the word under the cursor.
         extract = self.view.sel()[0]
         if extract.empty():
-            extract = self.view.expand_by_class(extract,
-                sublime.CLASS_WORD_START | sublime.CLASS_WORD_END)
-        topic = self.view.substr(extract).strip()
+            topic = _word_under_cursor(self.view)
+        else:
+            topic = self.view.substr(extract)
 
-        # If the initial topic exists, open it directly.
-        if lookup_help_topic(pkg_info, topic):
+        # If the initial topic exists and is unique, open it directly.
+        if topic and lookup_help_topic(pkg_info, topic):
             return sublime.run_command("hyperhelp_topic", {
                 "package": pkg_info.package,
                 "topic": topic
             })
 
-        # Topic is unknown; open the help index for the package and insert the
-        # topic as an initial filter.
-        sublime.run_command("hyperhelp_index", {"package": pkg_info.package})
-        if topic is not None:
+        # Open the root of the help package if the topic is empty, or open the
+        # index popup if it has some text. In the latter case, also use it as
+        # the default filter so the user can self disambiguate.
+        sublime.run_command("hyperhelp_index" if topic else "hyperhelp_topic",
+                            {"package": pkg_info.package})
+        if topic:
             self.view.window().run_command("insert", {"characters": topic})
 
     def pkg_for_file(self):
