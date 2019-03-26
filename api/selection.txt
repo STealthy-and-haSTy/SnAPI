@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Selection Class" date="2019-03-20"
+%hyperhelp title="sublime.Selection Class" date="2019-03-25"
 
 
 # selection:Selection Class
@@ -79,7 +79,7 @@ This class is contained in the |sublime| module.
 *selection.contains*(region)
   Returns: bool
 
-    Returns True if the given `region` is a subset.
+    Returns True iff the given `region` is a subset.
 
 
 *selection.is_valid*()  `[UNDOCUMENTED]`

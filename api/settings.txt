@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Settings Class" date="2019-03-20"
+%hyperhelp title="sublime.Settings Class" date="2019-03-25"
 
 
 # settings:Settings Class
@@ -33,8 +33,8 @@ This class is contained in the |sublime| module.
 *settings.has*(name)
   Returns: bool
 
-    Returns `True` if the named option exists in this set of Settings or one of
-    its parents.
+    Returns `True` iff the named option exists in this set of Settings or one
+    of its parents.
 
 
 *settings.add_on_change*(key, on_change)

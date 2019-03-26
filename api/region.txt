@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2019-03-20"
+%hyperhelp title="sublime.Region Class" date="2019-03-25"
 
 
 # region:Region Class
@@ -97,7 +97,7 @@ This class is contained in the |sublime| module.
 *region.empty*()
   Returns: bool
 
-    Returns `True` if `begin()` == `end()`.
+    Returns `True` iff `begin()` == `end()`.
 
 
 *region.cover*(region)
@@ -115,20 +115,20 @@ This class is contained in the |sublime| module.
 *region.intersects*(region)
   Returns: bool
 
-    Returns `True` if self == `region` or both include one or more positions in
+    Returns `True` iff self == `region` or both include one or more positions in
     common.
 
 
 *region.contains*(region)
   Returns: bool
 
-    Returns `True` if the given `region` is a subset.
+    Returns `True` iff the given `region` is a subset.
 
 
 *_none:region.contains*(point)
   Returns: bool
 
-    Returns `True` if `begin()` <= `point` <= `end()`.
+    Returns `True` iff `begin()` <= `point` <= `end()`.
 
 
 --------------------------------------------------------------------------------
