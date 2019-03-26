@@ -1,4 +1,4 @@
-%hyperhelp title="Usage" date="2019-03-20"
+%hyperhelp title="Usage" date="2019-03-23"
 
 
 # Usage
@@ -18,10 +18,10 @@ Build systems include the following functionality:
 A build can be run by one of the following methods:
 
 +-----------------------------------------------+-----------------+
-|                   Keyboard                    |      Menu       |
+|                   Keyboard                    |      Menu       |
 +---------------+---------------+---------------+-----------------+
-| Windows/Linux |      Mac      |      All      | `Tools > Build` |
-|    <Ctrl+B>   |    <Cmd+B>    |     <F7>      |                 |
+| Windows/Linux |      Mac      |      All      | `Tools > Build` |
+|    <Ctrl+B>   |    <Cmd+B>    |     <F7>      |                 |
 +---------------+---------------+---------------+-----------------+
 
 Output will be shown in an output panel displayed at the bottom of the Sublime
@@ -43,19 +43,19 @@ selection.
 To manually choose a build system, use:
 
 +------------------------+
-|          Menu          |
+|          Menu          |
 +------------------------+
-| `Tools > Build System` |
+| `Tools > Build System` |
 +------------------------+
 
 To change the build system, within the viable options, use one of the following
 methods:
 
 +--------------------------------+-----------------------+-----------------+
-|            Keyboard            |         Menu          | Command Palette |
+|            Keyboard            |         Menu          | Command Palette |
 +----------------+---------------+-----------------------+-----------------+
-| Windows/Linux  |      Mac      | `Tools > Build With:` |  `Build With:`  |
-| <Ctrl+Shift+B> | <Shift+Cmd+B> |                       |                 |
+| Windows/Linux  |      Mac      | `Tools > Build With:` |  `Build With:`  |
+| <Ctrl+Shift+B> | <Shift+Cmd+B> |                       |                 |
 +----------------+---------------+-----------------------+-----------------+
 
 
@@ -67,11 +67,11 @@ Typically this is used to jump to the location of errors. Navigation can be
 performed via:
 
 +-----------------+--------------+---------------------------------------------+
-|     Command     |   Keyboard   |                    Menu                     |
+|     Command     |   Keyboard   |                    Menu                     |
 +-----------------+--------------+---------------------------------------------+
-|   Next Result   |     <F4>     |   `Tools  > Build Results  > Next Result`   |
+|   Next Result   |     <F4>     |   `Tools  > Build Results  > Next Result`   |
 +-----------------+--------------+---------------------------------------------+
-| Previous Result |  <Shift+F4>  | `Tools  > Build Results  > Previous Result` |
+| Previous Result |  <Shift+F4>  | `Tools  > Build Results  > Previous Result` |
 +-----------------+--------------+---------------------------------------------+
 
 
@@ -81,10 +81,10 @@ performed via:
 An in-process build can be cancelled via:
 
 +-------------------------------+--------------------------+-------------------+
-|           Keyboard            |           Menu           |  Command Palette  |
+|           Keyboard            |           Menu           |  Command Palette  |
 +---------------+---------------+--------------------------+-------------------+
-| Windows/Linux |      Mac      |  `Tools > Cancel Build`  |  `Build: Cancel`  |
-| <Ctrl+Break>  |   <Ctrl+C>    |                          |                   |
+| Windows/Linux |      Mac      |  `Tools > Cancel Build`  |  `Build: Cancel`  |
+| <Ctrl+Break>  |   <Ctrl+C>    |                          |                   |
 +---------------+---------------+--------------------------+-------------------+
 
 
