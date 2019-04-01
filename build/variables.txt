@@ -1,4 +1,4 @@
-%hyperhelp title="Variables" date="2018-06-18"
+%hyperhelp title="Variables" date="2019-03-31"
 
 
 The following variables will be expanded within any string specified in the
@@ -63,4 +63,4 @@ using `sublime.expand_variables()` with the result from
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |build_systems.html|

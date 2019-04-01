@@ -1,7 +1,7 @@
-%hyperhelp title="sublime.View Class" date="2019-03-20"
+%hyperhelp title="sublime.View Class" date="2019-03-31"
 
 
-# view:View Class|*
+# view:View Class
 ============
 
 Represents a view into a text buffer. Note that multiple views may refer to the
@@ -870,4 +870,4 @@ This class is contained in the |sublime| module.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="Customization" date="2018-09-25"
+%hyperhelp title="Customization" date="2019-03-31"
 
 
 Color schemes based on the `.sublime-color-scheme` format are specified by
@@ -42,4 +42,4 @@ user's rules are appended.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

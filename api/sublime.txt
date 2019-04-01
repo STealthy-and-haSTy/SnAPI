@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2019-03-20"
+%hyperhelp title="sublime Module" date="2019-03-31"
 
 
 # sublime:sublime Module
@@ -271,4 +271,4 @@ the following classes:
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="Advanced Example" date="2018-06-20"
+%hyperhelp title="Advanced Example" date="2019-03-31"
 
 
 The following example shows a custom `target` command, with the ability to cancel
@@ -163,4 +163,4 @@ the following JSON saved to a file named
 ```
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |build_systems.html|

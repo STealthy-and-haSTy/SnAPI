@@ -1,4 +1,4 @@
-%hyperhelp title="Custom Options" date="2018-06-18"
+%hyperhelp title="Custom Options" date="2019-03-31"
 
 
 When implementing a command to act as a build system target, the command's
@@ -24,4 +24,4 @@ applies to other situations, such as options specified in the `cancel`, `linux`,
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |build_systems.html|

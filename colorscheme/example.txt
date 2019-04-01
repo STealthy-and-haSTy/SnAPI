@@ -1,4 +1,4 @@
-%hyperhelp title="Example" date="2018-09-25"
+%hyperhelp title="Example" date="2019-03-31"
 
 
 The following is an example of the format of a `.sublime-color-scheme` file. A
@@ -37,4 +37,4 @@ names.
 ```
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

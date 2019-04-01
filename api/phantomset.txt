@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2019-03-20"
+%hyperhelp title="sublime.PhantomSet Class" date="2019-03-31"
 
 
 # phantomset:PhantomSet Class
@@ -33,4 +33,4 @@ This class is contained in the |sublime| module.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="exec Target Options" date="2019-02-06"
+%hyperhelp title="exec Target Options" date="2019-03-31"
 
 
 The default `target` of `exec` is used by the majority of build systems. It
@@ -113,4 +113,4 @@ display the results.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |build_systems.html|

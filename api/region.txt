@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2019-03-25"
+%hyperhelp title="sublime.Region Class" date="2019-03-31"
 
 
 # region:Region Class
@@ -132,4 +132,4 @@ This class is contained in the |sublime| module.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

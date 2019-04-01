@@ -1,4 +1,4 @@
-%hyperhelp title="General Information" date="2019-03-20"
+%hyperhelp title="General Information" date="2019-03-31"
 
 
 # Example Plugins
@@ -111,4 +111,4 @@ names that refer to construct with specific semantics:
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="Variables" date="2018-09-25"
+%hyperhelp title="Variables" date="2019-03-31"
 
 
 Reusable color definitions may be created in the `variables` key. The names may
@@ -47,4 +47,4 @@ Variables may be referenced in the global settings and rules, via the syntax
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

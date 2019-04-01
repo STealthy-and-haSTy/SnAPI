@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Build Systems" date="2019-02-06"
+%hyperhelp title="Sublime Text 3 Build Systems" date="2019-03-31"
 
 
 Sublime Text provides `build` systems to allow users to run external programs.
@@ -6,8 +6,8 @@ Examples of common uses for build systems include: compiling, transpiling,
 linting, and executing tests.
 
 Build systems are specified via JSON and saved in a file with the extension
-`.sublime-build`. A new build system can be created by the `Tools ▶ Build
-System ▶ New Build System…` menu item or the `Build: New Build System` command
+`.sublime-build`. A new build system can be created by the `Tools > Build
+System > New Build System…` menu item or the `Build: New Build System` command
 palette entry.
 
 Build systems have various ways they can associate themselves with files and
@@ -26,4 +26,4 @@ systems can target custom Sublime Text commands written in Python.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |build_systems.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |build_systems.html|

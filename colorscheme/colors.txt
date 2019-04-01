@@ -1,4 +1,4 @@
-%hyperhelp title="Colors" date="2019-03-13"
+%hyperhelp title="Colors" date="2019-03-31"
 
 
 Colors in color schemes may be specified using one of seven formats:
@@ -74,4 +74,4 @@ when combined with the |minihtml color() mod function| and the supported
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Window Class" date="2019-03-20"
+%hyperhelp title="sublime.Window Class" date="2019-03-31"
 
 
 # window:Window Class
@@ -426,4 +426,4 @@ This class is contained in the |sublime| module.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

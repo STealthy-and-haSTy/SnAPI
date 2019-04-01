@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 API Documentation" date="2019-02-06"
+%hyperhelp title="Sublime Text 3 API Documentation" date="2019-03-31"
 
 
 *|_none:General Information|*        *|_none:Core Components|*      *|_none:Plugin Extension Points|*
@@ -16,4 +16,4 @@
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

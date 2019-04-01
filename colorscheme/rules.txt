@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2019-03-20"
+%hyperhelp title="Scope Rules" date="2019-03-31"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -111,4 +111,4 @@ To style all numbers as bold, italic red, use:
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

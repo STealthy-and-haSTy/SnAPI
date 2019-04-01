@@ -1,4 +1,4 @@
-%hyperhelp title="Global Settings" date="2019-03-20"
+%hyperhelp title="Global Settings" date="2019-03-31"
 
 
 The following global settings go in the object with the `globals` key.
@@ -267,4 +267,4 @@ Tag matching is controlled globally by the `match_tags` setting.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |color_schemes.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|

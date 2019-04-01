@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2019-03-20"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2019-03-31"
 
 
 # listinputhandler:ListInputHandler Class
@@ -91,4 +91,4 @@ This class is contained in the |sublime_plugin| module.
 
 
 --------------------------------------------------------------------------------
-API Help Copyright © Sublime HQ Pty Ltd                     |api_reference.html|
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|
