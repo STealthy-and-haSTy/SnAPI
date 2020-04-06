@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2019-03-31"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2020-01-21"
 
 
 # listinputhandler:ListInputHandler Class
@@ -83,7 +83,7 @@ This class is contained in the |sublime_plugin| module.
     should be popped off the stack instead.
 
 
-*ListInputHandler.description*(text)
+*ListInputHandler.description*(value, text)
   Returns: str
 
     The text to show in the Command Palette when this input handler is not at

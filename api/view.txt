@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2019-03-31"
+%hyperhelp title="sublime.View Class" date="2020-04-03"
 
 
 # view:View Class
@@ -506,8 +506,8 @@ This class is contained in the |sublime| module.
 
     The optional `icon` name, if given, will draw the named icons in the gutter
     next to each region. The `icon` will be tinted using the color associated
-    with the scope. Valid icon names are `dot`, `circle`, `bookmark` and
-    `cross`. The icon name may also be a full package relative path, such as
+    with the scope. Valid icon names are `dot`, `circle` and `bookmark`. The
+    icon name may also be a full package relative path, such as
     `Packages/Theme - Default/dot.png`.
 
     The optional flags parameter is a bitwise combination of:
