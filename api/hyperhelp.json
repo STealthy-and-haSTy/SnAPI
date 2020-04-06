@@ -495,7 +495,7 @@
             { "topic": "ApplicationCommand.run" },
             { "topic": "ApplicationCommand.is_enabled" },
             { "topic": "ApplicationCommand.is_visible" },
-            { "topic": "ApplicationCommand.is_checked", "aliases": ["is_checked"] },
+            { "topic": "ApplicationCommand.is_checked" },
             { "topic": "ApplicationCommand.description" },
             { "topic": "ApplicationCommand.input" }
         ],
@@ -509,6 +509,7 @@
             { "topic": "WindowCommand.run" },
             { "topic": "WindowCommand.is_enabled" },
             { "topic": "WindowCommand.is_visible" },
+            { "topic": "WindowCommand.is_checked"  },
             { "topic": "WindowCommand.description" },
             { "topic": "WindowCommand.input" }
         ],
@@ -522,6 +523,7 @@
             { "topic": "TextCommand.run" },
             { "topic": "TextCommand.is_enabled" },
             { "topic": "TextCommand.is_visible" },
+            { "topic": "TextCommand.is_checked"  },
             { "topic": "TextCommand.description" },
             { "topic": "TextCommand.want_event", "aliases": ["want_event"] },
             { "topic": "TextCommand.input" }
