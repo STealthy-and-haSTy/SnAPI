@@ -1,76 +1,142 @@
-%hyperhelp title="Colors" date="2019-03-31"
+%hyperhelp title="Colors" date="2020-05-07"
 
 
 Colors in color schemes may be specified using one of seven formats:
 
-  * `Hex RGB:` A # followed by six hex characters, with the first two
-     specifying the red channel, second two the green channel and the final two
-     the blue channel. Red is written as `#FF0000`. An abbreviated form is
-     available when each of the three pairs use the same value for both
-     characters. Red is written as `#F00`.
+  * `Hex RGB`
 
-  * `Hex RGBA:` Same as `Hex RGBA`, but with an extra pair of hex characters
-     at the end to specify the alpha channel. Red with 67% opacity is written
-     as `#FF0000AA`. The abbreviated form would be `#F00A`.
+      A `#` followed by six hex characters, with the first two specifying the
+      red channel, second tow the green channel and the final two the blue
+      channel. Red is written as `#FF0000`. An abbreviated form is available
+      when each of the three pairs use the same value for both characters. Red
+      is written as `#F00`.
 
-  * `RGB functional notation:` A function named `rgb` that accepts three
-     integers in the range 0 to 255. The first integer specifies the red
-     channel, the second the green channel and the third the blue channel.
-     Red is written as `rgb(255, 0, 0)`.
 
-  * `RGBA functional notation:` Identical to the `RGB` function format, except
-     the name of the function is `rgba` and a fourth parameter is added
-     accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with
-     50% opacity is written as `rgba(255, 0, 0, 0.5)`.
+  * `Hex RGBA`
 
-  * `HSL functional notation:` A function named `hsl` that accepts three
-     values. The first is an integer in the range 0 to 360 specifying the hue.
-     The second is a percentage specifying the saturation. The third is a
-     percentage specifying the lightness. Red is written as
-     `hsl(0, 100%, 100%)`.
+      Same as Hex RGBA, but with an extra pair of hex characters at the end to
+      specify the alpha channel. Red with 67% opacity is written as
+      `#FF0000AA`. The abbreviated form would be `#F00A`.
 
-  * `HSLA functional notation:` Identical to the `HSL` function format, except
-    the name of the function is `hsla` and a fourth parameter is added
-    accepting a value from 0.0 to 1.0 specifying the alpha channel. Red with
-    50% opacity is written as `hsla(0, 100%, 100%, 0.5)`.
 
-  * `Named:` |CSS color names|. Please note that while some share names with
-     X11 named colors used in `.tmTheme` files, the actual colors tend to
-     differ.
+  * `RGB functional notation`
+
+      A function named `rgb` that accepts three integers in the range 0 to 255.
+      The first integer specifies the red channel, the second the green channel
+      and the third the blue channel. Red is written as `rgb(255, 0, 0)`.
+
+
+  * `RGBA functional notation`
+
+      Identical to the RGB function format, except the name of the function is
+      `rgba` and a fourth parameter is added accepting a value from `0.0` to
+      `1.0` specifying the alpha channel. Red with 50% opacity is written as
+      `rgba(255, 0, 0, 0.5)`.
+
+
+  * `HSL functional notation`
+
+      A function named `hsl` that accepts three values. The first is an integer
+      in the range `0` to `360` specifying the hue. The second is a percentage
+      specifying the saturation. The third is a percentage specifying the
+      lightness. Red is written as `hsl(0, 100%, 100%)`.
+
+
+  * `HSLA functional notation`
+
+      Identical to the HSL function format, except the name of the function is
+      `hsla` and a fourth parameter is added accepting a value from `0.0` to
+      `1.0` specifying the alpha channel. Red with 50% opacity is written as
+      `hsla(0, 100%, 100%, 0.5)`.
+
+
+  * `HWB functional notation`  `[>=3181]`
+
+      A function named `hwb` that accepts three or four values. The first is an
+      integer in the range `0` to `360` specifying the hue. The second is a
+      percentage specifying the percentage of white mixed in. The third is a
+      percentage specifying the black mixed in. The optional fourth parameter
+      is a value from `0.0` to `1.0` that controls the opacity. Examples
+      include: h`wb(0, 20%, 20%)` and `hwb(0, 20%, 20%, 0.5)`.
+
+
+  * `Named`
+
+      |CSS color names|. Please note that while some share names with X11
+      named colors used in `.tmTheme` files, the actual colors tend to differ.
+
 
 Additionally, colors may be specified as a |variable|, and then referenced via
 the syntax `var(example_var_name)`. Variable references are particularly useful
 when combined with the |minihtml color() mod function| and the supported
-`blend()`, `blenda(), alpha()`, `saturation()` and `lightness()`  adjusters.
+`blend()`, `blenda()`, `alpha()`, `saturation()`, `lightness()` and
+`min- contrast()` adjusters.
 
-  * `blend() adjuster:` Blends a color into the base. To blend equal parts grey
-    and a base color referenced via variable, in RGB space:
-    `color(var(base_green) blend(#888 50%))`. If colors should be blended in
-    HSL space, use the following form:
-    `color(var(base_green) blend(#888 50% hsl))`. The resulting alpha value is
-    always the alpha channel of the base color.
 
-  * `blenda() adjuster:` Functions the same way as the `blend()` adjuster, but
-    blends the alpha channel of the two colors instead of just using the alpha
-    channel from the base. An example of the blending a partially transparent
-    grey into a green: `color(var(base_green) blenda(#8888 50% hsl))`
+  * `blend() adjuster`
 
-  * `alpha() adjuster:` Changes the alpha channel of the base color to the
-    value specified, from `0.0` to `1.0`. Setting the alpha channel to 90%:
-    `color(var(base_green) alpha(0.9))`. A shorthand name of `a()` is also
-    available for this adjuster.
+      Blends a color into the base. To blend equal parts grey and a base color
+      referenced via variable, in RGB space:
+          `color(var(base_green) blend(#888 50%))`
 
-  * `saturation() adjuster:` Changes the saturation channel of the base color,
-     in the HSL color space, to the value specified, from `0%` to `100%`.
-     Setting the saturation to 90%: `color(var(base_green) saturation(0.9))`.
-     Increasing the saturation by 10%: `color(var(base_green) s(+ 10%))`. A
-     shorthand name of `s()` is also available for this adjuster.
+      If colors should be blended in HSL space, use the following form:
+          `color(var(base_green) blend(#888 50% hsl))`
 
-    * `lightness() adjuster:` Changes the lightness channel of the base color,
-      in the HSL color space, to the value specified, from `0%` to `100%`.
-      Setting the lightness to 90%: `color(var(base_green) lightness(0.9))`.
-      Decreasing the lightness by 10%: `color(var(base_green) l(- 10%))`. A
-      shorthand name of `l()` is also available for this adjuster.
+      The resulting alpha value is always the alpha channel of the base color.
+
+
+  * `blenda() adjuster`
+
+      Functions the same way as the `blend()` adjuster, but blends the alpha
+      channel of the two colors instead of just using the alpha channel from
+      the base. An example of the blending a partially transparent grey into a
+      green:
+          `color(var(base_green) blenda(#8888 50% hsl))`
+
+
+  * `alpha() adjuster`
+
+      Changes the alpha channel of the base color to the value specified, from
+      `0.0` to `1.0`. Setting the alpha channel to 90%:
+          `color(var(base_green) alpha(0.9))`.
+
+      A shorthand name of `a()` is also available for this adjuster.
+
+
+  * `saturation() adjuster`  `[>=3179]`
+
+      Changes the saturation channel of the base color, in the HSL color space,
+      to the value specified, from `0%` to `100%`. Setting the saturation to
+      90%:
+          `color(var(base_green) saturation(0.9))`
+
+      Increasing the saturation by 10%:
+          `color(var(base_green) s(+ 10%))`
+
+      A shorthand name of `s()` is also available for this adjuster.
+
+
+    * `lightness() adjuster`  `[>=3179]`
+
+        Changes the lightness channel of the base color, in the HSL color
+        space, to the value specified, from `0%` to `100%`. Setting the
+        lightness to 90%:
+            `color(var(base_green) lightness(0.9))`
+
+        Decreasing the lightness by 10%:
+            `color(var(base_green) l(- 10%))`
+
+        A shorthand name of `l()` is also available for this adjuster.
+
+    * `min-contrast() adjuster`  `[>=3181]`  `[PROPRIETARY]`
+
+        Modifies a color to ensure a minimum contrast ratio against a
+        "background" color. The first parameter is the color to calculate the
+        contrast again, the "background", and the second is a decimal number
+        specifying the minimum contrast ratio. Typical values for the contrast
+        ratio range from `2.0` to `4.5`. Ensure a contrast ratio of 2.5 against
+        the background:
+            `color(var(base_green) min-contrast(var(bg_color) 2.5))`
 
 
 --------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-%hyperhelp title="Customization" date="2019-03-31"
+%hyperhelp title="Customization" date="2020-05-07"
 
 
 Color schemes based on the `.sublime-color-scheme` format are specified by
@@ -36,8 +36,8 @@ the same as strings.
 }
 ```
 
-The contents of the `variables` and `globals` objects are merged, with the
-user's copy overwriting keys with the same name. For the `rules` list, the
+The contents of the `"variables"` and `"globals"` objects are merged, with the
+user's copy overwriting keys with the same name. For the `"rules"` list, the
 user's rules are appended.
 
 

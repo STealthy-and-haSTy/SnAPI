@@ -1,11 +1,11 @@
 {
     "package": "SublimeColorScheme",
-    "description": "Sublime Text 3 Color Schemes",
+    "description": "Sublime Text Color Schemes",
     "default_caption": "Global option: {topic}",
     "doc_root": "colorscheme/",
     "help_files": {
         "index.txt": [
-            "Sublime Text 3 Color Schemes",
+            "Sublime Text Color Schemes",
         ],
 
         "example.txt": [
@@ -61,6 +61,8 @@
             { "topic": "misspelling" },
             { "topic": "fold_marker" },
             { "topic": "minimap_border" },
+            { "topic": "scroll_highlight" },
+            { "topic": "scroll_selected_highlight" },
             { "topic": "accent" },
 
             {
@@ -69,6 +71,7 @@
             },
             { "topic": "popup_css" },
             { "topic": "phantom_css" },
+            { "topic": "sheet_css" },
 
             {
                 "topic": "gutters",
@@ -76,6 +79,7 @@
             },
             { "topic": "gutter" },
             { "topic": "gutter_foreground" },
+            { "topic": "gutter_foreground_highlight" },
 
             {
                 "topic": "diff",
@@ -186,7 +190,7 @@
     "help_contents": [
         {
             "topic": "index.txt",
-            "caption": "Sublime Text 3 Color Schemes"
+            "caption": "Sublime Text Color Schemes"
         },
         {
             "topic": "example.txt",
@@ -194,6 +198,7 @@
         },
 
         "colors",
+        "variables",
 
         {
             "topic": "global.txt",
@@ -231,7 +236,7 @@
 
     "externals":
     {
-        "https://www.sublimetext.com/docs/3/color_schemes.html": [
+        "https://www.sublimetext.com/docs/color_schemes.html": [
             "Sublime Text Color Schemes",
 
             {
@@ -239,7 +244,25 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/color_schemes.html#css_colors": [
+        "https://www.sublimetext.com/docs/color_schemes_tmtheme.html": [
+            "Sublime Text .thTheme Color Schemes",
+
+            {
+                "topic": "color_schemes_tmtheme.html",
+                "aliases": ["tmTheme"]
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/themes.html": [
+            "Sublime Text Themes",
+
+            {
+                "topic": "themes.html",
+                "aliases": ["theme"]
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/color_schemes.html#css_colors": [
             "Appendix: CSS Colors",
 
             {
@@ -256,7 +279,7 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/minihtml.html": [
+        "https://www.sublimetext.com/docs/minihtml.html": [
             "minihtml Reference",
 
             {
@@ -264,7 +287,7 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/minihtml.html#css": [
+        "https://www.sublimetext.com/docs/minihtml.html#css": [
             "minihtml CSS Reference",
 
             {
@@ -272,7 +295,7 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/scope_naming.html": [
+        "https://www.sublimetext.com/docs/scope_naming.html": [
             "official Scope Naming guidelines",
 
             {
@@ -280,7 +303,7 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/scope_naming.html#color_schemes": [
+        "https://www.sublimetext.com/docs/scope_naming.html#color_schemes": [
             "Usage in Color Schemes",
 
             {
@@ -288,7 +311,7 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/dev/color_schemes.html": [
+        "https://www.sublimetext.com/docs/dev/color_schemes.html": [
             "Dev Build Color Schemes Documentation",
 
             {
@@ -296,13 +319,12 @@
             }
         ],
 
-        "https://www.sublimetext.com/docs/3/minihtml.html#color-mod_function": [
+        "https://www.sublimetext.com/docs/minihtml.html#color-mod_function": [
             "minihtml color() mod function",
 
             {
                 "topic": "minihtml color() mod function"
             }
-
         ]
     }
 }

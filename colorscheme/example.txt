@@ -1,9 +1,11 @@
-%hyperhelp title="Example" date="2019-03-31"
+%hyperhelp title="Example" date="2020-05-07"
 
 
-The following is an example of the format of a `.sublime-color-scheme` file. A
+The following is an example of the format of a .sublime-color-scheme file. A
 complete color scheme will have many more rules to cover the standard scope
 names.
+
+
 
 ```json
 {
@@ -35,6 +37,7 @@ names.
     ]
 }
 ```
+
 
 --------------------------------------------------------------------------------
 Sublime Text Help Copyright © Sublime HQ Pty Ltd            |color_schemes.html|
