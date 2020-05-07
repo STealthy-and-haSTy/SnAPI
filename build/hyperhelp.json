@@ -1,11 +1,11 @@
 {
     "package": "SublimeBuild",
-    "description": "Sublime Text 3 Build Systems",
+    "description": "Sublime Text Build Systems",
     "default_caption": "Build option: {topic}",
     "doc_root": "build/",
     "help_files": {
         "index.txt": [
-            "Sublime Text 3 Build Systems",
+            "Sublime Text Build Systems",
         ],
 
         "basic.txt": [
@@ -186,6 +186,7 @@
         },
         "basic example",
         "usage",
+        "options",
         "exec target options",
         "custom options",
         "variables",
@@ -194,11 +195,20 @@
 
     "externals":
     {
-        "https://www.sublimetext.com/docs/3/build_systems.html": [
+        "https://www.sublimetext.com/docs/build_systems.html": [
             "Sublime Text Build System",
 
             {
                 "topic": "build_systems.html"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/file_patterns.html": [
+            "Sublime Text File Patterns",
+
+            {
+                "topic": "file_patterns.html",
+                "aliases": ["patterns"]
             }
         ],
 

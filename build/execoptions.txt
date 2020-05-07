@@ -1,4 +1,4 @@
-%hyperhelp title="exec Target Options" date="2019-03-31"
+%hyperhelp title="exec Target Options" date="2020-05-07"
 
 
 The default `target` of `exec` is used by the majority of build systems. It
@@ -6,36 +6,45 @@ provides the following options to control what program to execute, and how to
 display the results.
 
     *cmd*
+      Value: array of strings
 
-        A list of strings specifying the executable to run, plus any arguments
-        to pass to it. Shell constructs such as piping and redirection are not
-        supported – see |shell_cmd|. May use |variables|.
+        The executable to run, plus any arguments to pass to it. Shell
+        constructs such as piping and redirection are not supported – see
+        |shell_cmd|.
+
+        May use |variables|.
 
         Example: `["my_command", "-d", "$file"]`
 
 
     *shell_cmd*
+      Value: string
 
-        A string specifying a shell command to execute. Unlike the |cmd|
-        option, this does allow piping and redirection. Will use `bash` on Mac
-        and Linux machine, and `cmd.exe` on Windows. May use |variables|.
+        A shell command to execute. Unlike the |cmd| option, this does allow
+        piping and redirection. Will use `bash` on Mac and Linux machine, and
+        `cmd.exe` on Windows.
+
+        May use |variables|.
 
         Example: `"my_command \"$file\" | other_command"`
 
 
     *working_dir*
+      Value: string
 
-        A string specifying the directory to execute the |cmd| or |shell_cmd|
-        within. May use |variables|.
+        The directory to execute the |cmd| or |shell_cmd| within.
+
+        May use |variables|.
 
         Example: `"$file_path"`
 
 
     *file_regex*
+      Value: string
 
-        A string containing a regular expression to run on the build output to
-        match file information. The matched file information is used to enable
-        result navigation. The regex should capture 2, 3 or 4 groups.
+        A regular expression to run on the build output to match file
+        information. The matched file information is used to enable result
+        navigation. The regex should capture 2, 3 or 4 groups.
 
         The capture groups should be:
 
@@ -48,10 +57,11 @@ display the results.
 
 
     *line_regex*
+      Value: string
 
-        A string containing a regular expression to run on the build output to
-        match line information. The matched file information is used to enable
-        result navigation. The regex should capture 1, 2 or 3 groups.
+        A regular expression to run on the build output to match line
+        information. The matched file information is used to enable result
+        navigation. The regex should capture 1, 2 or 3 groups.
 
         The groups should capture:
 
@@ -69,17 +79,19 @@ display the results.
 
 
     *encoding*
+      Value: string
 
-        A string specifying the encoding of the build system output. Uses
-        |Python codec names|. Defaults to `"utf-8"`.
+        The encoding of the build system output. Uses |Python codec names|.
+        Defaults to `"utf-8"`.
 
         Example: `"iso-8859-1"`
 
 
     *env*
+      Value: object
 
-        An object containing environment variable values to use when running
-        the |cmd| or |shell_cmd|.
+        Environment variable values to use when running the |cmd| or
+        |shell_cmd|.
 
         Example:
         ```json
@@ -90,24 +102,25 @@ display the results.
 
 
     *quiet*
+      Value: boolean
 
-        A boolean that reduces the amount of output about the build system
-        invocation.
+        Reduces the amount of output about the build system invocation.
 
         Example: `true`
 
 
     *word_wrap*
+      Value: boolean
 
-        A boolean that turns on word wrapping in the build system output panel.
+        Turns on word wrapping in the build system output panel.
 
         Example: `true`
 
 
     *syntax*
+      Value: string
 
-        A string specifying the syntax file to use to highlight the build
-        system output panel.
+        The syntax file to use to highlight the build system output panel.
 
         Example: `"Packages/JavaScript/JSON.sublime-syntax"`
 

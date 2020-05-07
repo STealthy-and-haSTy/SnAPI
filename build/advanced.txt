@@ -1,16 +1,16 @@
-%hyperhelp title="Advanced Example" date="2019-03-31"
+%hyperhelp title="Advanced Example" date="2020-05-07"
 
 
 The following example shows a custom `target` command, with the ability to cancel
 a build and navigate results.
 
-A `target` for a build system should be a `sublime.WindowCommand`. This will
+A `target` for a build system should be a |SublimeAPI:WindowCommand:sublime.WindowCommand|. This will
 provide the instance variable of `self.window` to allow interaction with the
 current project, window and active view.
 
     +--------------------------------------------------------------------+
-    | `Please note that the following example is somewhat simplistic in` |
-    | `its implementation, and it won't handle many common edge cases. ` |
+    | `Please note that the following example is somewhat simplistic in` |
+    | `its implementation, and it won't handle many common edge cases. ` |
     +--------------------------------------------------------------------+
 
 The following Python can be saved to a file named

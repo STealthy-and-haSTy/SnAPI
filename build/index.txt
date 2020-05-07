@@ -1,4 +1,4 @@
-%hyperhelp title="Sublime Text 3 Build Systems" date="2019-03-31"
+%hyperhelp title="Sublime Text Build Systems" date="2020-05-07"
 
 
 Sublime Text provides `build` systems to allow users to run external programs.

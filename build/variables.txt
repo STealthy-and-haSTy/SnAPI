@@ -1,4 +1,4 @@
-%hyperhelp title="Variables" date="2019-03-31"
+%hyperhelp title="Variables" date="2020-05-07"
 
 
 The following variables will be expanded within any string specified in the
@@ -10,16 +10,16 @@ need to be written as `\\$`.
 
 Please note that this substitution will occur for any `target`. If a custom
 target is used, it may implement variable expansion for additional options by
-using `sublime.expand_variables()` with the result from
-`self.window.extract_variables()`.
+using |SublimeAPI:sublime.expand_variables:sublime.expand_variables()| with the result from
+|SublimeAPI:window.extract_variables:self.window.extract_variables()|.
 
     *$packages*
         The path to the `Packages/` folder
 
 
     *$platform*
-        A string containing the platform Sublime Text is running on: `windows`,
-        `osx` or `linux`.
+        A string containing the platform Sublime Text is running on:
+        `"windows"`, `"osx"` or `"linux"`.
 
 
     *$file*
@@ -44,7 +44,6 @@ using `sublime.expand_variables()` with the result from
 
     *$folder*
         The full path to the first folder open in the side bar.
-
 
     *$project*
         The full path to the current project file.

@@ -1,37 +1,41 @@
-%hyperhelp title="Options" date="2019-03-31"
+%hyperhelp title="Options" date="2020-05-07"
 
 
 All build systems may use the following top-level keys in the `.sublime-build`
 file.
 
     *selector*
+      Value: string
 
-        The base scope name of the syntax that this build system should be
+        A |selector| to match the syntax that this build system should be
         enabled for.
 
         Example: `"source.python"`.
 
 
     *file_patterns*
+      Value: array of strings
 
-        A list of file name patterns the build system should be enabled for.
+        |Patterns| of file names the build system should be enabled for.
 
         Example: `["*.py"]`.
 
 
     *keyfiles*
+      Value: array of strings
 
-        A list of file names, if present in one of the opened folders, that
-        will cause the build system to be enabled.
+        File names, if present in one of the opened folders, that will cause
+        the build system to be enabled.
 
         Example: `["Makefile"]`.
 
 
     *variants*
+      Value: array of objects
 
-        A list of subsidiary build systems that will inherit the options from
-        the top-level build system. Each variant needs to specify a `name` key,
-        and may override or add options to the top-level build system.
+        Subsidiary build systems that will inherit the options from the top-
+        level build system. Each variant needs to specify a `"name"` key, and
+        may override or add options to the top-level build system.
 
         Example:
         ```json
@@ -45,22 +49,29 @@ file.
 
 
     *cancel*
+      Value: string or object
 
-        A string command name, or an object of string options. If a string is
-        specified, the command specified will be used to cancel the build. If a
-        object of strings, the primary `target` will be called, with these
-        options added on. This only needs to be specified when using a custom
-        `target`.
+        A string command name, or an object
+
+        If a string is specified, the command specified will be used to cancel
+        the build.
+
+        If an object, the primary `"target"` will be called, with these options
+        added on. This only needs to be specified when using a custom
+        `"target"`.
 
         Example: `"cancel_my_build" or {"kill": true}`.
 
 
     *target*
+      Value: string
 
         The command to run when the build system is invoked. The default value
-        of `exec` allows use of the additional options specified in
-        |exec Target Options|. If a value other than exec is specified, none of
-        the options in `exec Target Options` will do anything.
+        of exec allows use of the additional options specified in
+        |exec Target Options|.
+
+        If a value other than exec is specified, none of
+        the options in |exec Target Options| will do anything.
 
         See the |Advanced Example| for a complete example.
 
@@ -68,9 +79,10 @@ file.
 
 
     *windows*
+      Value: object
 
-        An object of options to use when the build system is being executed on
-        a Windows machine.
+        Options to use when the build system is being executed on a Windows
+        machine.
 
         Example:
         ```json
@@ -81,9 +93,10 @@ file.
 
 
     *osx*
+      Value: object
 
-        An object of options to use when the build system is being executed on
-        a Mac machine.
+        Options to use when the build system is being executed on a Mac
+        machine.
 
         Example:
         ```json
@@ -93,11 +106,10 @@ file.
         ```
 
 
-
     *linux*
+      Value: object
 
-        An object of options to use when the build system is being executed on
-        a Linux machine.
+        Options to use when the build system is being executed on a Linux machine.
 
         Example:
         ```json
