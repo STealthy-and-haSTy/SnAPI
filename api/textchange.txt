@@ -1,0 +1,38 @@
+%hyperhelp title="sublime.TextChange Class" date="2020-05-06"
+
+
+# textchange:TextChange Class
+==============
+
+Represents a change that occurred to the text of a |View|. This is primarily
+useful for replaying changes to a document.
+
+This class is contained in the |sublime| module.
+
+    Availability: `[>=4050]`
+
+
+## _none:Properties
+-------------
+
+*textchange.a*
+  Type: |HistoricPosition|
+
+    The beginning point of the region that was modified
+
+
+*textchange.b*
+  Type: |HistoricPosition|
+
+    The ending point of the region that was modified
+
+
+*textchange.str*
+  Type: str
+
+    A unicode string of the new contents of the region specified by `.a` and
+    `.b`.
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

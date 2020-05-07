@@ -1,11 +1,11 @@
 {
     "package": "SublimeAPI",
-    "description": "Sublime Text 3 API Documentation",
+    "description": "Sublime Text API Documentation",
     "default_caption": "{topic}()",
     "doc_root": "api/",
     "help_files": {
         "index.txt": [
-            "Sublime Text 3 API Documentation",
+            "Sublime Text API Documentation",
         ],
         "general.txt": [
             "General Information",
@@ -81,6 +81,8 @@
             { "topic": "sublime.load_resource", "aliases": ["load_resource"] },
             { "topic": "sublime.load_binary_resource", "aliases": ["load_binary_resource"] },
             { "topic": "sublime.find_resources", "aliases": ["find_resources"] },
+            { "topic": "sublime.list_syntaxes", "aliases": ["list_syntaxes"] },
+            { "topic": "sublime.find_syntax", "aliases": ["find_syntax"] },
             { "topic": "sublime.encode_value", "aliases": ["encode_value"] },
             { "topic": "sublime.decode_value", "aliases": ["decode_value"] },
             { "topic": "sublime.expand_variables", "aliases": ["expand_variables"] },
@@ -102,6 +104,7 @@
             { "topic": "sublime.log_result_regex", "aliases": ["log_result_regex"] },
             { "topic": "sublime.log_indexing", "aliases": ["log_indexing"] },
             { "topic": "sublime.log_build_systems", "aliases": ["log_build_systems"] },
+            { "topic": "sublime.log_control_tree", "aliases": ["log_control_tree"] },
             { "topic": "sublime.version", "aliases": ["version"] },
             { "topic": "sublime.platform", "aliases": ["platform"] },
             { "topic": "sublime.arch", "aliases": ["arch"] },
@@ -116,7 +119,8 @@
             },
             { "topic": "sheet.id" },
             { "topic": "sheet.window" },
-            { "topic": "sheet.view" }
+            { "topic": "sheet.view" },
+            { "topic": "sheet.file_name" }
         ],
         "view.txt": [
             "sublime.View Class",
@@ -129,7 +133,6 @@
             { "topic": "view.__len__" },
             { "topic": "view.__eq__" },
             { "topic": "view.__bool__" },
-
 
             { "topic": "view.id" },
             { "topic": "view.is_valid" },
@@ -150,6 +153,7 @@
             { "topic": "view.is_scratch", "aliases": ["is_scratch"] },
             { "topic": "view.set_scratch", "aliases": ["set_scratch"] },
             { "topic": "view.settings" },
+            { "topic": "view.element" },
             { "topic": "view.window" },
             { "topic": "view.run_command" },
             { "topic": "view.size" },
@@ -170,7 +174,11 @@
             { "topic": "view.find", "aliases": ["find"] },
             { "topic": "view.find_all", "aliases": ["find_all"] },
             { "topic": "view.rowcol", "aliases": ["rowcol"] },
+            { "topic": "view.rowcol_utf8", "aliases": ["rowcol_utf8"] },
+            { "topic": "view.rowcol_utf16", "aliases": ["rowcol_utf16"] },
             { "topic": "view.text_point", "aliases": ["text_point"] },
+            { "topic": "view.text_point_utf8", "aliases": ["text_point_utf8"] },
+            { "topic": "view.text_point_utf16", "aliases": ["text_point_utf16"] },
             { "topic": "view.assign_syntax", "aliases": ["assign_syntax"] },
             { "topic": "view.set_syntax_file", "aliases": ["set_syntax_file"] },
             { "topic": "view.extract_scope", "aliases": ["extract_scope"] },
@@ -209,6 +217,8 @@
             { "topic": "view.find_all_results", "aliases": ["find_all_results"] },
             { "topic": "view.find_all_results_with_text", "aliases": ["find_all_results_with_text"] },
             { "topic": "view.change_count", "aliases": ["change_count"] },
+            { "topic": "view.change_id", "aliases": ["change_id"] },
+            { "topic": "view.transform_region_from", "aliases": ["transform_region_from"] },
             { "topic": "view.fold", "aliases": ["fold"] },
             { "topic": "view.unfold", "aliases": ["unfold"] },
             { "topic": "view.is_folded", "aliases": ["is_folded"] },
@@ -226,12 +236,14 @@
             { "topic": "view.show_popup", "aliases": ["show_popup"] },
             { "topic": "view.update_popup", "aliases": ["update_popup"] },
             { "topic": "view.is_popup_visible", "aliases": ["is_popup_visible"] },
+            { "topic": "view.preserve_auto_complete_on_focus_lost", "aliases": ["preserve_auto_complete_on_focus_lost"] },
             { "topic": "view.hide_popup", "aliases": ["hide_popup"] },
             { "topic": "view.is_auto_complete_visible", "aliases": ["is_auto_complete_visible"] },
             { "topic": "view.text_to_window", "aliases": ["text_to_window"] },
             { "topic": "view.layout_to_window", "aliases": ["layout_to_window"] },
             { "topic": "view.style", "aliases": ["style"] },
-            { "topic": "view.style_for_scope", "aliases": ["style_for_scope"] }
+            { "topic": "view.style_for_scope", "aliases": ["style_for_scope"] },
+            { "topic": "view.extract_tokens_with_scopes", "aliases": ["extract_tokens_with_scopes"] }
         ],
         "selection.txt": [
             "sublime.Selection Class",
@@ -270,12 +282,10 @@
             {
                 "topic": "region.a",
                 "caption": "region.a",
-                "aliases": ["a"]
             },
             {
                 "topic": "region.b",
                 "caption": "region.b",
-                "aliases": ["b"]
             },
             {
                 "topic": "region.xpos",
@@ -297,6 +307,158 @@
             { "topic": "region.intersection", "aliases": ["intersection"] },
             { "topic": "region.intersects", "aliases": ["intersects"] },
             { "topic": "region.contains" }
+        ],
+        "textchange.txt": [
+            "sublime.TextChange Class",
+
+            {
+                "topic": "textchange",
+                "caption": "sublime.TextChange Class"
+            },
+            {
+                "topic": "textchange.a",
+                "caption": "textchange.a",
+            },
+            {
+                "topic": "textchange.b",
+                "caption": "textchange.b",
+            },
+            {
+                "topic": "textchange.str",
+                "caption": "textchange.str",
+            }
+        ],
+        "historicposition.txt": [
+            "sublime.HistoricPosition Class",
+
+            {
+                "topic": "historicposition",
+                "caption": "sublime.HistoricPosition Class"
+            },
+            {
+                "topic": "historicposition.pt",
+                "caption": "historicposition.pt",
+            },
+            {
+                "topic": "historicposition.row",
+                "caption": "historicposition.row",
+            },
+            {
+                "topic": "historicposition.col",
+                "caption": "historicposition.col",
+            }
+        ],
+        "completion.txt": [
+            "completion Value",
+
+            {
+                "topic": "completion",
+                "caption": "completion Value"
+            }
+        ],
+        "completionitem.txt": [
+            "sublime.CompletionItem Class",
+
+            {
+                "topic": "completionitem_class",
+                "caption": "sublime.CompletionItem Class"
+            },
+            { "topic": "completionitem" },
+            { "topic": "completionitem.snippet_completion" },
+            { "topic": "completionitem.command_completion" }
+        ],
+        "completion_kind.txt": [
+            "completion_kind Tuple",
+
+            {
+                "topic": "completion_kind",
+                "caption": "completion_kind Tuple"
+            },
+            {
+                "topic": "sublime.KIND_AMBIGUOUS",
+                "caption": "sublime.KIND_AMBIGUOUS"
+            },
+            {
+                "topic": "sublime.KIND_KEYWORD",
+                "caption": "sublime.KIND_KEYWORD"
+            },
+            {
+                "topic": "sublime.KIND_TYPE",
+                "caption": "sublime.KIND_TYPE"
+            },
+            {
+                "topic": "sublime.KIND_FUNCTION",
+                "caption": "sublime.KIND_FUNCTION"
+            },
+            {
+                "topic": "sublime.KIND_NAMESPACE",
+                "caption": "sublime.KIND_NAMESPACE"
+            },
+            {
+                "topic": "sublime.KIND_NAVIGATION",
+                "caption": "sublime.KIND_NAVIGATION"
+            },
+            {
+                "topic": "sublime.KIND_MARKUP",
+                "caption": "sublime.KIND_MARKUP"
+            },
+            {
+                "topic": "sublime.KIND_VARIABLE",
+                "caption": "sublime.KIND_VARIABLE"
+            },
+            {
+                "topic": "sublime.KIND_SNIPPET",
+                "caption": "sublime.KIND_SNIPPET"
+            },
+            {
+                "topic": "sublime.KIND_ID_AMBIGUOUS",
+                "caption": "sublime.KIND_ID_AMBIGUOUS"
+            },
+            {
+                "topic": "sublime.KIND_ID_KEYWORD",
+                "caption": "sublime.KIND_ID_KEYWORD"
+            },
+            {
+                "topic": "sublime.KIND_ID_TYPE",
+                "caption": "sublime.KIND_ID_TYPE"
+            },
+            {
+                "topic": "sublime.KIND_ID_FUNCTION",
+                "caption": "sublime.KIND_ID_FUNCTION"
+            },
+            {
+                "topic": "sublime.KIND_ID_NAMESPACE",
+                "caption": "sublime.KIND_ID_NAMESPACE"
+            },
+            {
+                "topic": "sublime.KIND_ID_NAVIGATION",
+                "caption": "sublime.KIND_ID_NAVIGATION"
+            },
+            {
+                "topic": "sublime.KIND_ID_MARKUP",
+                "caption": "sublime.KIND_ID_MARKUP"
+            },
+            {
+                "topic": "sublime.KIND_ID_VARIABLE",
+                "caption": "sublime.KIND_ID_VARIABLE"
+            },
+            {
+                "topic": "sublime.KIND_ID_SNIPPET",
+                "caption": "sublime.KIND_ID_SNIPPET"
+            }
+        ],
+        "completionlist.txt": [
+            "sublime.CompletionList Class",
+
+            {
+                "topic": "CompletionList",
+                "caption": "sublime.CompletionList Class"
+            },
+            {
+                "topic": "completionlist_constructor",
+                "caption": "CompletionList Class Constructor"
+            },
+            {"topic": "completionlist.set_completions" }
         ],
         "phantom.txt": [
             "sublime.Phantom Class",
@@ -343,6 +505,7 @@
             { "topic": "window.new_file", "aliases": ["new_file"] },
             { "topic": "window.open_file", "aliases": ["open_file"] },
             { "topic": "window.find_open_file", "aliases": ["find_open_file"] },
+            { "topic": "window.new_html_sheet", "aliases": ["new_html_sheet"] },
             { "topic": "window.active_sheet", "aliases": ["active_sheet"] },
             { "topic": "window.active_view", "aliases": ["active_view"] },
             { "topic": "window.active_sheet_in_group", "aliases": ["active_sheet_in_group"] },
@@ -358,6 +521,7 @@
             { "topic": "window.focus_group", "aliases": ["focus_group"] },
             { "topic": "window.focus_sheet", "aliases": ["focus_sheet"] },
             { "topic": "window.focus_view", "aliases": ["focus_view"] },
+            { "topic": "window.focus_window", "aliases": ["focus_window"] },
             { "topic": "window.get_sheet_index", "aliases": ["get_sheet_index"] },
             { "topic": "window.set_sheet_index", "aliases": ["set_sheet_index"] },
             { "topic": "window.get_view_index", "aliases": ["get_view_index"] },
@@ -366,6 +530,7 @@
             { "topic": "window.get_layout", "aliases": ["get_layout"] },
             { "topic": "window.set_layout", "aliases": ["set_layout"] },
             { "topic": "window.status_message" },
+            { "topic": "window.bring_to_front", "aliases": ["bring_to_front"] },
             { "topic": "window.is_menu_visible", "aliases": ["is_menu_visible"] },
             { "topic": "window.set_menu_visible", "aliases": ["set_menu_visible"] },
             { "topic": "window.is_sidebar_visible", "aliases": ["is_sidebar_visible"] },
@@ -380,6 +545,7 @@
             { "topic": "window.template_settings", "aliases": ["template_settings"] },
             { "topic": "window.folders", "aliases": ["folders"] },
             { "topic": "window.project_file_name", "aliases": ["project_file_name"] },
+            { "topic": "window.workspace_file_name", "aliases": ["workspace_file_name"] },
             { "topic": "window.project_data", "aliases": ["project_data"] },
             { "topic": "window.set_project_data", "aliases": ["set_project_data"] },
             { "topic": "window.run_command" },
@@ -406,6 +572,7 @@
             },
             { "topic": "settings.get", "aliases": ["get"] },
             { "topic": "settings.set", "aliases": ["set"] },
+            { "topic": "settings.setdefault", "aliases": ["setdefault"] },
             { "topic": "settings.erase" },
             { "topic": "settings.has", "aliases": ["has"] },
             { "topic": "settings.add_on_change", "aliases": ["add_on_change"] },
@@ -426,12 +593,21 @@
                 "topic": "EventListener",
                 "caption": "sublime_plugin.EventListener Class"
             },
+            { "topic": "EventListener.on_init", "aliases": ["on_init"] },
+            { "topic": "EventListener.on_exit", "aliases": ["on_exit"] },
             { "topic": "EventListener.on_new", "aliases": ["on_new"] },
             { "topic": "EventListener.on_new_async", "aliases": ["on_new_async"] },
             { "topic": "EventListener.on_clone", "aliases": ["on_clone"] },
             { "topic": "EventListener.on_clone_async", "aliases": ["on_clone_async"] },
             { "topic": "EventListener.on_load" },
             { "topic": "EventListener.on_load_async" },
+            { "topic": "EventListener.on_reload" },
+            { "topic": "EventListener.on_reload_async" },
+            { "topic": "EventListener.on_revert" },
+            { "topic": "EventListener.on_revert_async" },
+            { "topic": "EventListener.on_pre_move" },
+            { "topic": "EventListener.on_post_move" },
+            { "topic": "EventListener.on_post_move_async" },
             { "topic": "EventListener.on_pre_close" },
             { "topic": "EventListener.on_close" },
             { "topic": "EventListener.on_pre_save" },
@@ -440,6 +616,8 @@
             { "topic": "EventListener.on_post_save_async" },
             { "topic": "EventListener.on_modified" },
             { "topic": "EventListener.on_modified_async" },
+            { "topic": "EventListener.on_text_changed" },
+            { "topic": "EventListener.on_text_changed_async" },
             { "topic": "EventListener.on_selection_modified" },
             { "topic": "EventListener.on_selection_modified_async" },
             { "topic": "EventListener.on_activated" },
@@ -452,7 +630,18 @@
             { "topic": "EventListener.on_text_command" },
             { "topic": "EventListener.on_window_command", "aliases": ["on_window_command"] },
             { "topic": "EventListener.on_post_text_command" },
-            { "topic": "EventListener.on_post_window_command", "aliases": ["on_post_window_command"] }
+            { "topic": "EventListener.on_post_window_command", "aliases": ["on_post_window_command"] },
+            { "topic": "EventListener.on_new_window", "aliases": ["on_new_window"] },
+            { "topic": "EventListener.on_new_window_async", "aliases": ["on_new_window_async"] },
+            { "topic": "EventListener.on_pre_close_window", "aliases": ["on_pre_close_window"] },
+            { "topic": "EventListener.on_new_project", "aliases": ["on_new_project"] },
+            { "topic": "EventListener.on_new_project_async", "aliases": ["on_new_project_async"] },
+            { "topic": "EventListener.on_load_project", "aliases": ["on_load_project"] },
+            { "topic": "EventListener.on_load_project_async", "aliases": ["on_load_project_async"] },
+            { "topic": "EventListener.on_pre_save_project", "aliases": ["on_pre_save_project"] },
+            { "topic": "EventListener.on_post_save_project", "aliases": ["on_post_save_project"] },
+            { "topic": "EventListener.on_post_save_project_async", "aliases": ["on_post_save_project_async"] },
+            { "topic": "EventListener.on_pre_close_project", "aliases": ["on_pre_close_project"] }
         ],
         "vieweventlistener.txt": [
             "sublime_plugin.ViewEventListener Class",
@@ -465,6 +654,8 @@
             { "topic": "ViewEventListener.applies_to_primary_view_only", "aliases": ["applies_to_primary_view_only"] },
             { "topic": "ViewEventListener.on_modified" },
             { "topic": "ViewEventListener.on_modified_async" },
+            { "topic": "ViewEventListener.on_text_changed" },
+            { "topic": "ViewEventListener.on_text_changed_async" },
             { "topic": "ViewEventListener.on_selection_modified" },
             { "topic": "ViewEventListener.on_selection_modified_async" },
             { "topic": "ViewEventListener.on_activated" },
@@ -476,6 +667,13 @@
             { "topic": "ViewEventListener.on_query_completions" },
             { "topic": "ViewEventListener.on_load" },
             { "topic": "ViewEventListener.on_load_async" },
+            { "topic": "ViewEventListener.on_reload" },
+            { "topic": "ViewEventListener.on_reload_async" },
+            { "topic": "ViewEventListener.on_revert" },
+            { "topic": "ViewEventListener.on_revert_async" },
+            { "topic": "ViewEventListener.on_pre_move" },
+            { "topic": "ViewEventListener.on_post_move" },
+            { "topic": "ViewEventListener.on_post_move_async" },
             { "topic": "ViewEventListener.on_pre_close" },
             { "topic": "ViewEventListener.on_close" },
             { "topic": "ViewEventListener.on_pre_save", },
@@ -497,7 +695,8 @@
             { "topic": "ApplicationCommand.is_visible" },
             { "topic": "ApplicationCommand.is_checked" },
             { "topic": "ApplicationCommand.description" },
-            { "topic": "ApplicationCommand.input" }
+            { "topic": "ApplicationCommand.input" },
+            { "topic": "ApplicationCommand.input_description" }
         ],
         "windowcommand.txt": [
             "sublime_plugin.WindowCommand Class",
@@ -511,7 +710,8 @@
             { "topic": "WindowCommand.is_visible" },
             { "topic": "WindowCommand.is_checked"  },
             { "topic": "WindowCommand.description" },
-            { "topic": "WindowCommand.input" }
+            { "topic": "WindowCommand.input" },
+            { "topic": "WindowCommand.input_description" }
         ],
         "textcommand.txt": [
             "sublime_plugin.TextCommand Class",
@@ -526,7 +726,8 @@
             { "topic": "TextCommand.is_checked"  },
             { "topic": "TextCommand.description" },
             { "topic": "TextCommand.want_event", "aliases": ["want_event"] },
-            { "topic": "TextCommand.input" }
+            { "topic": "TextCommand.input" },
+            { "topic": "TextCommand.input_description" }
         ],
         "textinputhandler.txt": [
             "sublime_plugin.TextInputHandler Class",
@@ -593,7 +794,7 @@
                 {
                     "topic": "types",
                     "caption": "Types"
-                },
+                }
             ]
         },
         {
@@ -632,6 +833,30 @@
                 {
                     "topic": "Edit",
                     "caption": "Edit Class"
+                },
+                {
+                    "topic": "TextChange",
+                    "caption": "TextChange Class"
+                },
+                {
+                    "topic": "HistoricPosition",
+                    "caption": "HistoricPosition Class"
+                },
+                {
+                    "topic": "completion",
+                    "caption": "completion value"
+                },
+                {
+                    "topic": "CompletionItem",
+                    "caption": "CompletionItem Class"
+                },
+                {
+                    "topic": "completion_kind",
+                    "caption": "completion_kind Tuple"
+                },
+                {
+                    "topic": "completionlist",
+                    "caption": "CompletionList Class"
                 },
                 {
                     "topic": "Window",
@@ -686,7 +911,7 @@
 
     "externals":
     {
-        "http://www.sublimetext.com/docs/3/api_reference.html": [
+        "http://www.sublimetext.com/docs/api_reference.html": [
             "Sublime Text API Reference",
 
             {
@@ -694,11 +919,35 @@
             }
         ],
 
-        "http://www.sublimetext.com/docs/3/minihtml.html": [
+        "http://www.sublimetext.com/docs/minihtml.html": [
             "minihtml Reference",
 
             {
                 "topic": "minihtml"
+            }
+        ],
+
+        "http://www.sublimetext.com/docs/minihtml.html#colors": [
+            "minihtml Reference: Colors",
+
+            {
+                "topic": "minihtml colors"
+            }
+        ],
+
+        "http://www.sublimetext.com/docs/minihtml.html#protocols": [
+            "minihtml Reference: Protocols",
+
+            {
+                "topic": "minihtml protocols"
+            }
+        ],
+
+        "https://www.sublimetext.com/docs/scope_naming.html#alphabetical_reference": [
+            "Scope Naming",
+
+            {
+                "topic": "Scope Naming"
             }
         ],
 

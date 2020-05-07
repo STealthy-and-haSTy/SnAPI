@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2020-04-03"
+%hyperhelp title="sublime.View Class" date="2020-05-06"
 
 
 # view:View Class
@@ -63,19 +63,6 @@ This class is contained in the |sublime| module.
     doesn't exist on disk.
 
 
-*view.set_reference_document*(content)
-  Returns: None
-
-    Uses the string `reference` to calculate the initial diff for the
-    `incremental diff`
-
-
-*view.reset_reference_document*(content)
-  Returns: None
-
-    Clears the state of the `incremental diff` for the view
-
-
 *view.retarget*(new_file_name)  `[UNDOCUMENTED]`
   Returns: None
 
@@ -113,9 +100,9 @@ This class is contained in the |sublime| module.
 *view.close*()  `[UNDOCUMENTED]`
   Returns: bool
 
-    Attempts to close the current view, possibly prompting the user if they wish
-    to throw away unsaved changes. A `bool` is returned that indicates if the
-    view was actually closed or not.
+    Attempts to close the current view, possibly prompting the user if they
+    wish to throw away unsaved changes. A `bool` is returned that indicates if
+    the view was actually closed or not.
 
 
 *view.is_dirty*()
@@ -156,6 +143,58 @@ This class is contained in the |sublime| module.
     settings object will be private to this view.
 
 
+*view.element*()  `[>=4050]`
+  Returns: str or None
+
+    Returns `None` for normal views, for views that comprise part of the UI, a
+    `str` is returned from the following list:
+
+    * `"console:input"`
+      The console input
+
+    * `"goto_anything:input"`
+      The input for the Goto Anything
+
+    * `"command_palette:input"`
+      The input for the Command Palette
+
+    * `"find:input"`
+      The input for the Find panel
+
+    * `"incremental_find:input"`
+      The input for the Incremental Find panel
+
+    * `"replace:input:find"`
+      The Find input for the Replace panel
+
+    * `"replace:input:replace"`
+      The Replace input for the Replace panel
+
+    * `"find_in_files:input:find"`
+      The Find input for the Find in Files panel
+
+    * `"find_in_files:input:location"`
+      The Where input for the Find in Files panel
+
+    * `"find_in_files:input:replace"`
+      The Replace input for the Find in Files panel
+
+    * `"find_in_files:output"`
+      The output panel for Find in Files (buffer or output panel)
+
+    * `"input:input"`
+      The input for the Input panel
+
+    * `"exec:output"`
+      The output for the exec command
+
+    * `"output:output"`
+      A general output panel
+
+    The console output, indexer status output and license input controls are
+    not accessible via the API.
+
+
 *view.window*()
   Returns: |Window|
 
@@ -165,7 +204,7 @@ This class is contained in the |sublime| module.
 *view.run_command*(cmd, <args>)
   Returns: None
 
-    Runs the named |TextCommand| with the (optional) given args.
+    Runs the named |TextCommand| with the (optional) given `args`.
 
 
 *view.size*()
@@ -337,15 +376,46 @@ This class is contained in the |sublime| module.
 *view.rowcol*(point)
   Returns: (int, int)
 
-    Calculates the 0-based line and column numbers of the `point`.
+    Calculates the 0-based line and column numbers of the `point`. Column
+    numbers are returned as number of Unicode characters.
+
+
+*view.rowcol_utf8*()  `[>=4050]`
+  Returns: (int, int)
+
+    Calculates the 0-based line and column numbers of the `point`. Column
+    numbers are returned as UTF-8 code units, i.e. bytes.
+
+
+*view.rowcol_utf16*()  `[>=4050]`
+  Returns: (int, int)
+
+    Calculates the 0-based line and column numbers of the `point`. Column
+    numbers are returned as UTF-16 code units, i.e. byte pairs.
 
 
 *view.text_point*(row, col)
   Returns: int
 
     Calculates the character offset of the given, 0-based, `row` and `col`.
-    Note that `col` is interpreted as the number of characters to advance past
+    `col` is interpreted as the number of Unicode characters to advance past
     the beginning of the row.
+
+
+*view.text_point_utf8*()  `[>=4050]`
+  Returns: (int, int)
+
+    Calculates the character offset of the given, 0-based, `row` and `col`.
+    `col` is interpreted as the number of UTF-8 code units, i.e. bytes, to
+    advance past the beginning of the row.
+
+
+*view.text_point_utf16*()  `[>=4050]`
+  Returns: (int, int)
+
+    Calculates the character offset of the given, 0-based, `row` and `col`.
+    `col` is interpreted as the number of UTF-16 code units, i.e. byte pairs,
+    to advance past the beginning of the row.
 
 
 *view.assign_syntax*(syntax_file)  `[UNDOCUMENTED]`
@@ -397,7 +467,7 @@ This class is contained in the |sublime| module.
 
 
 *view.find_by_selector*(selector)
-  Returns: [Region]
+  Returns: [|Region|]
 
     Finds all regions in the file matching the given `selector`, returning them
     as a list.
@@ -495,57 +565,117 @@ This class is contained in the |sublime| module.
     Returns the typical character width used in the layout
 
 
-*view.add_regions*(key, [regions], <scope>, <icon>, <flags>)
+*view.add_regions*(key, [regions], <scope>, <icon>, <flags>, <annotations>,
+                   <annotations_color>, <on_navigate>, <on_close>) []
   Returns: None
 
-    Add a set of `regions` to the view. If a set of `regions` already exists
-    with the given key, they will be overwritten. The `scope` is used to source
-    a color to draw the `regions` in, it should be the name of a scope, such as
-    `"comment"` or `"string"`. If the `scope` is empty, the `regions` won't be
-    drawn.
+    +--------------------------------------------------------------------------+
+    | Some capabilities and arguments of this API method depend on the version |
+    | of Sublime Text being used; see below for details.                       |
+    +--------------------------------------------------------------------------+
 
-    The optional `icon` name, if given, will draw the named icons in the gutter
-    next to each region. The `icon` will be tinted using the color associated
-    with the scope. Valid icon names are `dot`, `circle` and `bookmark`. The
-    icon name may also be a full package relative path, such as
-    `Packages/Theme - Default/dot.png`.
+    Adds visual indicators to regions of text in the view. Indicators include
+    icons in the gutter, underlines under the text, borders around the text and
+    annotations. Annotations are drawn aligned to the right-hand edge of the
+    view and may contain HTML markup.
 
-    The optional flags parameter is a bitwise combination of:
+      * `key`
+        A unicode string identifying the collection of regions. If a set of
+        regions already exists with the same key, they will be overwritten.
 
-    * `sublime.DRAW_EMPTY`: Draw empty regions with a vertical bar. By default,
-      they aren't drawn at all.
+      * `scope`
+        An optional unicode string used to source a color to draw the `regions`
+        in. The `scope` is matched against the color scheme. Examples include:
+        `"invalid"` and `"string"`. See |Scope Naming| for a list of common
+        scopes. If the `scope` is empty, the `regions` won't be drawn.
 
-    * `sublime.HIDE_ON_MINIMAP`: Don't show the regions on the minimap.
+        Also supports the following pseudo-scopes, to allow picking the closest
+        color from the user‘s color scheme:  `[>=3148]`
 
-    * `sublime.DRAW_EMPTY_AS_OVERWRITE`: Draw empty regions with a horizontal
-      bar instead of a vertical one.
+          * `"region.redish"`
+          * `"region.orangish"`
+          * `"region.yellowish"`
+          * `"region.greenish"`
+          * `"region.cyanish"`
+          * `"region.bluish"`
+          * `"region.purplish"`
+          * `"region.pinkish"`
 
-    * `sublime.DRAW_NO_FILL`: Disable filling the regions, leaving only the
-      outline.
+      * `icon`
+        An optional unicode string specifying an icon to draw in the gutter
+        next to each region. The `icon` will be tinted using the color
+        associated with the `scope`. Standard icon names are `"dot"`,
+        `"circle"` and `"bookmark"`. The `icon` may also be a full
+        package-relative path, such as `"Packages/Theme - Default/dot.png"`.
 
-    * `sublime.DRAW_NO_OUTLINE`: Disable drawing the outline of the regions.
+      * `flags`
+        An optional bitwise combination of zero or more of:
 
-    * `sublime.DRAW_SOLID_UNDERLINE`: Draw a solid underline below the regions.
+            * `sublime.DRAW_EMPTY`
+              Draw empty regions with a vertical bar. By default, they aren't
+              drawn at all.
 
-    * `sublime.DRAW_STIPPLED_UNDERLINE`: Draw a stippled underline below the
-      regions.
+            * `sublime.HIDE_ON_MINIMAP`
+              Don't show the regions on the minimap.
 
-    * `sublime.DRAW_SQUIGGLY_UNDERLINE`: Draw a squiggly underline below the
-      regions.
+            * `sublime.DRAW_EMPTY_AS_OVERWRITE`
+              Draw empty regions with a horizontal bar instead of a vertical
+              one.
 
-    * `sublime.PERSISTENT`: Save the regions in the session.
+            * `sublime.DRAW_NO_FILL`
+              Disable filling the regions, leaving only the outline.
 
-    * `sublime.HIDDEN`: Don't draw the regions.
+            * `sublime.DRAW_NO_OUTLINE`
+              Disable drawing the outline of the regions.
 
-    The underline styles are exclusive, either zero or one of them should be
-    given. If using an underline, `sublime.DRAW_NO_FILL` and
-    `sublime.DRAW_NO_OUTLINE` should generally be passed in.
+            * `sublime.DRAW_SOLID_UNDERLINE`
+              Draw a solid underline below the regions.
+
+            * `sublime.DRAW_STIPPLED_UNDERLINE`
+              Draw a stippled underline below the regions.
+
+            * `sublime.DRAW_SQUIGGLY_UNDERLINE`
+              Draw a squiggly underline below the regions.
+
+            * `sublime.PERSISTENT`
+              Save the regions in the session.
+
+            * `sublime.HIDDEN`
+              Don't draw the regions.
+
+            The underline styles are exclusive, either zero or one of them should be
+            given. If using an underline, `sublime.DRAW_NO_FILL` and
+            `sublime.DRAW_NO_OUTLINE` should generally be passed in.
+
+      * `annotations`  `[>=4050]`
+        An optional collection of unicode strings containing HTML documents to
+        display along the right-hand edge of the view. There should be the same
+        number of `annotations` as regions. See |:minihtml:minihtml Reference| for
+        supported HTML.
+
+      * `annotations_color`  `[>=4050]`
+        A optional unicode string of the CSS color to use when drawing the left
+        border of the annotation. See |:minihtml colors:minihtml Reference: Colors| for
+        supported color formats.
+
+      * `on_navigate`  `[>=4050]`
+        A callback that will be passed the `href` when a link in an annotation
+        is clicked.
+
+      * `on_close`  `[>=4050]`
+        A callback that will be called when the annotations are closed.
 
 
 *view.get_regions*(key)
   Returns: [|Region|]
 
     Return the regions associated with the given `key`, if any
+
+
+*view.erase_regions*(key)
+  Returns: None
+
+    Removed the named regions
 
 
 *view.add_phantom*(key)  `[UNDOCUMENTED]`
@@ -583,12 +713,6 @@ This class is contained in the |sublime| module.
     in the current view. You should use that class rather than this method.
 
 
-*view.erase_regions*(key)
-  Returns: None
-
-    Removed the named regions
-
-
 *view.set_status*(key, value)
   Returns: None
 
@@ -615,10 +739,10 @@ This class is contained in the |sublime| module.
     Returns the command name, command arguments, and repeat count for the given
     history entry, as stored in the undo / redo stack.
 
-    Index 0 corresponds to the most recent command, -1 the command before that,
-    and so on. Positive values for index indicate to look in the redo stack for
-    commands. If the undo / redo history doesn't extend far enough, then
-    `(None, None, 0)` will be returned.
+    Index `0` corresponds to the most recent command, `-1` the command before
+    that, and so on. Positive values for index indicate to look in the redo
+    stack for commands. If the undo / redo history doesn't extend far enough,
+    then `(None, None, 0)` will be returned.
 
     Setting `modifying_only` to `True` (the default is `False`) will only
     return entries that modified the buffer.
@@ -682,6 +806,24 @@ This class is contained in the |sublime| module.
     Returns the current change count. Each time the buffer is modified, the
     change count is incremented. The change count can be used to determine if
     the buffer has changed since the last it was inspected.
+
+
+*view.change_id*()  `[>=4069]`
+  Returns: (int, int, int)
+
+    Returns a 3-element tuple that can be passed to |:transform_region_from:transform_region_from()|
+    to obtain a region equivalent to a region of the `View` in the past. This
+    is primarily useful for plugins providing text modification that must
+    operate in an asynchronous fashion and must be able to handle the view
+    contents changing between the request and response.
+
+
+*view.transform_region_from*(region, change_id)  `[>=4069]`
+  Returns: |Region|
+
+    Transforms a region from a previous point in time to an equivalent region
+    in the current state of the `View`. The `change_id` must have been obtained
+    from |:change_id:change_id()| at the point in time the region is from.
 
 
 *view.fold*([regions])
@@ -805,14 +947,18 @@ This class is contained in the |sublime| module.
 
     `flags` is a bitwise combination of the following:
 
-    * `sublime.COOPERATE_WITH_AUTO_COMPLETE`. Causes the popup to display next
-      to the auto complete menu
+    * `sublime.COOPERATE_WITH_AUTO_COMPLETE`
+      causes the popup to display next to the auto complete menu
 
-    * `sublime.HIDE_ON_MOUSE_MOVE`. Causes the popup to hide when the mouse is
-      moved, clicked or scrolled
+    * `sublime.HIDE_ON_MOUSE_MOVE`
+      causes the popup to hide when the mouse is moved, clicked or scrolled
 
-    * `sublime.HIDE_ON_MOUSE_MOVE_AWAY`. Causes the popup to hide when the
-      mouse   is moved (unless towards the popup), or when clicked or scrolled
+    * `sublime.HIDE_ON_MOUSE_MOVE_AWAY`
+      causes the popup to hide when the mouse is moved (unless towards the
+      popup), or when clicked or scrolled
+
+    * `sublime.KEEP_ON_SELECTION_MODIFIED`  `[>=4057]`
+      prevent the popup from hiding when the selection is modified
 
     The default `location` of `-1` will display the popup at the cursor,
     otherwise a text point should be passed.
@@ -838,6 +984,14 @@ This class is contained in the |sublime| module.
     Returns if the popup is currently shown.
 
 
+*view.preserve_auto_complete_on_focus_lost*()  `[>=4073]`
+  Returns: None
+
+    Sets the auto complete popup state to be preserved the next time the View
+    loses focus. When the View regains focus, the auto complete window will be
+    re-shown, with the previously selected entry pre-selected.
+
+
 *view.hide_popup*()
   Returns: None
 
@@ -850,7 +1004,7 @@ This class is contained in the |sublime| module.
     Returns if the auto complete menu is currently visible.
 
 
-*view.style*()
+*view.style*()  `[>=3150]`
   Returns: dict
 
     Returns a `dict` of the global style settings for the view. All colors are
@@ -858,15 +1012,44 @@ This class is contained in the |sublime| module.
     `#ff0000`.
 
 
-*view.style_for_scope*(scope_name)
+*view.style_for_scope*(scope_name)  `[>=3149]`
   Returns: dict
 
-        Accepts a string scope name and returns a `dict` of style information,
-        include the keys `foreground`, `bold`, `italic`, `source_line`,
-        `source_column` and `source_file`. If the scope has a `background`
-        color set, the key background will be present. The foreground and
-        background colors are normalized to the six character hex form with a
-        leading hash, e.g. `#ff0000`.
+    Accepts a string scope name and returns a `dict` of style information,
+    includes the keys:
+
+      * `"foreground"`
+      * `"background"` (only if set)
+      * `"bold"`
+      * `"italic"`
+      * `"glow"`   `[>=4063]`
+      * `"source_line"`
+      * `"source_column"`
+      * `"source_file"`
+
+    The foreground and background colors are normalized to the six character
+    hex form with a leading hash, e.g. `#ff0000`.
+
+
+*view.extract_tokens_with_scopes*(region)  `[UNDOCUMENTED]`  `[>=3172]`
+  Returns: [(|Region|, str)]
+
+    Collect a list of all distinct tokens in the provided input region,
+    returning back regions that specify the location of each token and a string
+    that represents the scope of that token.
+
+
+*view.set_reference_document*(content)  `[>=3186]`
+  Returns: None
+
+    Uses the string `reference` to calculate the initial diff for the
+    `incremental diff`
+
+
+*view.reset_reference_document*(content)  `[>=3190]`
+  Returns: None
+
+    Clears the state of the `incremental diff` for the view
 
 
 --------------------------------------------------------------------------------

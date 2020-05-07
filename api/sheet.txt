@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Sheet Class" date="2019-03-31"
+%hyperhelp title="sublime.Sheet Class" date="2020-05-06"
 
 
 # sheet:Sheet Class
@@ -28,6 +28,13 @@ This class is contained in the |sublime| module.
 
     Returns the view contained within the sheet. May be `None` if the sheet is
     an image preview, or the view has been closed.
+
+
+*sheet.file_name*()  `[>=4050]`
+  Returns: str or None
+
+    The full name file the file associated with the buffer, or None if it
+    doesn't exist on disk.
 
 
 --------------------------------------------------------------------------------

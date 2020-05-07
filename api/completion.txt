@@ -1,0 +1,82 @@
+%hyperhelp title="completion Value" date="2020-05-06"
+
+
+# completion:completion Value
+==================
+
+Represents an available auto-completion item. `completion` values may be
+of several formats. The term trigger refers to the text matched against
+the user input, replacement is what is inserted into the view if the
+item is selected. An annotation is a unicode string hint displayed to
+the right-hand side of the trigger.
+
+  ## _none:str
+
+    A unicode string that is both the trigger and the replacement
+
+    ```python
+    return [
+        "method1()",
+        "method2()"
+    ]
+    ```
+
+
+  ## _none: 2-element `list`/`tuple`
+
+   A pair of unicode strings, the trigger and the replacement.
+
+    ```python
+    return [
+        ["me1", "method1()"],
+        ["me2", "method2()"]
+    ]
+    ```
+
+    If a `\t` is present in the trigger, all subsequent text is treated as an
+    annotation.
+
+    ```python
+    return [
+        ["me1\tmethod", "method1()"],
+        ["me2\tmethod", "method2()"]
+    ]
+    ```
+
+    The replacement text may contain dollar-numeric fields such as a snippet
+    does, e.g. `$0`, `$1`.
+
+    ```python
+    return [
+        ["fn", "def ${1:name}($2) { $0 }"],
+        ["for", "for ($1; $2; $3) { $0 }"]
+    ]
+    ```
+
+
+  ## _none: CompletionItem object  `[>=4050]`
+
+    A |CompletionItem| object containing trigger, replacement, annotation, and
+    kind metadata
+
+    ```python
+    return [
+        sublime.CompletionItem(
+            "fn",
+            annotation="def",
+            completion="def ${1:name}($2) { $0 }",
+            completion_format=sublime.COMPLETION_FORMAT_SNIPPET,
+            kind=sublime.KIND_SNIPPET
+        ),
+        sublime.CompletionItem(
+            "for",
+            completion="for ($1; $2; $3) { $0 }",
+            completion_format=sublime.COMPLETION_FORMAT_SNIPPET,
+            kind=sublime.KIND_SNIPPET
+        ),
+    ]
+    ```
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

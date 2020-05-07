@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.WindowCommand Class" date="2020-01-21"
+%hyperhelp title="sublime_plugin.WindowCommand Class" date="2020-05-06"
 
 
 # windowcommand:WindowCommand Class
@@ -46,11 +46,18 @@ This class is contained in the |sublime_plugin| module.
     description.
 
 
-*WindowCommand.input*(<args>)
+*WindowCommand.input*(<args>)  `[>=3154]`
   Returns: |CommandInputHandler| or None
 
     If this returns something other than None, the user will be prompted for an
     input before the command is run in the Command Palette.
+
+
+*WindowCommand.input_description*()  `[>=3154]`
+  Returns: |CommandInputHandler| or None
+
+    Allows a custom name to be show to the left of the cursor in the input box,
+    instead of the default one generated from the command name
 
 
 --------------------------------------------------------------------------------

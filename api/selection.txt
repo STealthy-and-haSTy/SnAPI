@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Selection Class" date="2019-03-31"
+%hyperhelp title="sublime.Selection Class" date="2020-05-06"
 
 
 # selection:Selection Class

@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2020-01-21"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2020-05-06"
 
 
 # listinputhandler:ListInputHandler Class
@@ -10,6 +10,8 @@ command.
 
 This class is contained in the |sublime_plugin| module.
 
+    Availability: `[>=3154]`
+
 
 *ListInputHandler.name*()
   Returns: str
@@ -19,7 +21,7 @@ This class is contained in the |sublime_plugin| module.
 
 
 *ListInputHandler.list_items*()
-  Returns: [str] or [(str, value)]
+  Returns: [str] or [(str, |value|)]
 
     The items to show in the list. If returning a list of (str, value) tuples,
     then the str will be shown to the user, while the value will be used as the
@@ -43,7 +45,7 @@ This class is contained in the |sublime_plugin| module.
 
 
 *ListInputHandler.preview*(text, <value>)
-  Returns: str or sublime.Html(str)
+  Returns: str or sublime.Html
 
     Called whenever the user changes the text in the entry box. The returned
     value (either plain text or HTML) will be shown in the preview area of the

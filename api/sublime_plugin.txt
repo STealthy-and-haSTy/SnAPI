@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin Module" date="2019-03-31"
+%hyperhelp title="sublime_plugin Module" date="2020-05-06"
 
 
 # sublime_plugin:sublime_plugin Module
@@ -11,8 +11,8 @@ This module has no direct methods; it contains the following classes:
    |ApplicationCommand|
    |WindowCommand|
    |TextCommand|
-   |TextInputHandler|
-   |ListInputHandler|
+   |TextInputHandler|  `[>=3154]`
+   |ListInputHandler|  `[>=3154]`
 
 
 --------------------------------------------------------------------------------

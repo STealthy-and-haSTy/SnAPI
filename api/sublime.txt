@@ -1,11 +1,11 @@
-%hyperhelp title="sublime Module" date="2019-03-31"
+%hyperhelp title="sublime Module" date="2020-05-06"
 
 
 # sublime:sublime Module
 ================
 
 In addition to the following module functions, the `sublime` module contains
-the following classes:
+the following classes and data types:
 
     |Sheet|
     |View|
@@ -14,6 +14,11 @@ the following classes:
     |Phantom|
     |PhantomSet|
     |Edit|
+    |TextChange|         `[>=4050]`
+    |HistoricPosition|   `[>=4050]`
+    |CompletionItem|     `[>=4050]`
+    |completion_kind|    `[>=4050]`
+    |CompletionList|     `[>=4050]`
     |Window|
     |Settings|
 
@@ -87,6 +92,21 @@ the following classes:
   Returns: [str]
 
     Finds resources whose file name matches the given `pattern`.
+
+
+*sublime.list_syntaxes*()  `[>=4050]`
+  Returns: [dict]
+
+    Returns a list of all available syntaxes. Each dict will have the keys
+    `"path"`, `"name"`, `"hidden"` and `"scope"`.
+
+
+*sublime.find_syntax*(fname, <first_line>)  `[>=4050]`
+  Returns: str or None
+
+    Returns the path to the syntax that will be used when opening a file with
+    the name `fname`. The `first_line` of file contents may also be provided if
+    available.
 
 
 *sublime.encode_value*(value, <pretty>)
@@ -243,6 +263,13 @@ the following classes:
     Controls logging of build system selection. If enabled, information on how
     Sublime is selecting the appropriate build system for the current situation
     is logged to the console.
+
+
+*sublime.log_control_tree*(flag)
+  Returns: None
+
+    When enabled, clicking with <Ctrl+Alt> will log the control tree under the
+    mouse to the console.
 
 
 *sublime.version*()

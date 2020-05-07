@@ -1,0 +1,64 @@
+%hyperhelp title="sublime.CompletionList Class" date="2020-05-06"
+
+
+# completionlist:CompletionList Class
+======================
+
+Represents a list of completions, some of which may be in the process of being
+asynchronously fetched.
+
+This class is contained in the |sublime| module.
+
+    Availability: `[>=4050]`
+
+
+## _none:Constructors
+---------------
+
+*completionlist_constructor:CompletionList*(<completions>, <flags>)
+
+  * `completions`
+    An optional list of |:completion:completion values|. If `None` is passed, the method
+    |:completionlist.set_completions:set_completions()| must be called before the completions will be displayed
+    to the user.
+
+  * `flags`
+    A bitwise OR of:
+
+        * `sublime.INHIBIT_WORD_COMPLETIONS`
+            prevent Sublime Text from showing completions based on the contents
+            of the view
+
+        * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`
+            prevent Sublime Text from showing completions based on
+            `.sublime-completions` files
+
+        * `sublime.DYNAMIC_COMPLETIONS`  `[>=4057]`
+            if completions should be re-queried as the user types
+
+
+## _none:Methods
+----------
+
+*completionlist.set_completions*(completions, <flags>)
+  Returns: None
+
+    Sets the list of completions, allowing the list to be displayed to the
+    user.
+
+    The parameter flags may be a bitwise OR of:
+
+        * `sublime.INHIBIT_WORD_COMPLETIONS`
+            prevent Sublime Text from showing completions based on the contents
+            of the view
+
+        * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`
+            prevent Sublime Text from showing completions based on
+            `.sublime-completions` files
+
+        * `sublime.DYNAMIC_COMPLETIONS`  `[>=4057]`
+            if completions should be re-queried as the user types
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

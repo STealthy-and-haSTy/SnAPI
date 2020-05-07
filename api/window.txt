@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Window Class" date="2019-03-31"
+%hyperhelp title="sublime.Window Class" date="2020-05-06"
 
 
 # window:Window Class
@@ -43,24 +43,54 @@ This class is contained in the |sublime| module.
 
     The optional `flags` parameter is a bitwise combination of:
 
-    * `sublime.ENCODED_POSITION`: Indicates the file_name should be searched
-      for   a `:row` or `:row:col` suffix
+    * `sublime.ENCODED_POSITION`
+        Indicates the file_name should be searched for a `:row` or `:row:col`
+        suffix
 
-    * `sublime.TRANSIENT`: Open the file as a preview only: it won't have a tab
-      assigned it until modified
+    * `sublime.TRANSIENT`
+        Open the file as a preview only: it won't have a tab assigned it until
+        modified
 
-    * `sublime.FORCE_GROUP`: Don't select the file if it's opened in a
-      different group.
+    * `sublime.FORCE_GROUP`
+        Don't select the file if it's opened in a different group.
 
-      NOTE: The `group` argument and the `FORCE_GROUP` value for `flags` are
-           `[UNDOCUMENTED]`.
+    * `sublime.ADD_TO_SELECTION`  `[>=4050]`
+        Add the file to the currently selected sheets in this group
+
+    The optional group parameter an a 0-based integer of the group to open the
+    file within. -1 specifies the active group.
 
 
 *window.find_open_file*(file_name)
-  Returns |View|
+  Returns: |View|
 
     Finds the named file in the list of open files, and returns the
     corresponding View, or `None` if no such file is open.
+
+
+*window.new_html_sheet*(name, contents, <flags>, <group>)  `[>=4065]`
+  Returns: |Sheet|
+
+    Constructs a sheet with HTML contents rendered using |minihtml|.
+
+    * `name`
+        A unicode string of the sheet name, shown in tab and Open Files
+
+    * `contents`
+        A unicode string of the HTML contents
+
+    * `flags`
+        A bitwise combination of:
+
+        * `sublime.TRANSIENT`
+            Open the file as a preview only: it won't have a tab assigned it until
+            modified
+
+        * `sublime.ADD_TO_SELECTION`  `[>=4050]`
+            Add the file to the currently selected sheets in this group
+
+    * `group`
+        An integer of the group to add the sheet to, `-1` for the active group
 
 
 *window.active_sheet*()
@@ -153,6 +183,12 @@ This class is contained in the |sublime| module.
     Switches to the given `view`.
 
 
+*window.focus_window*(window)
+  Returns: None
+
+    Switches to the `window`.
+
+
 *window.get_sheet_index*(sheet)
   Returns: (int, int)
 
@@ -203,6 +239,12 @@ This class is contained in the |sublime| module.
   Returns: None
 
     Show a message in the status bar.
+
+
+*window.bring_to_front*()  `[>=4067]`
+  Returns: None
+
+    Brings the window in front of any other windows
 
 
 *window.is_menu_visible*()
@@ -291,6 +333,12 @@ This class is contained in the |sublime| module.
     Returns name of the currently opened project file, if any.
 
 
+*window.workspace_file_name*()  `[>=4050]`
+  Returns: str
+
+    Returns name of the currently opened workspace file, if any.
+
+
 *window.project_data*()
   Returns: dict
 
@@ -356,7 +404,7 @@ This class is contained in the |sublime| module.
 *window.get_output_panel*(name)  `[UNDOCUMENTED]`  `[DEPRECATED]`
   Returns: |View|
 
-    Returns the view associaTed with the named output panel. This method is
+    Returns the view associated with the named output panel. This method is
     deprecated; use |:window.create_output_panel:create_output_panel()| instead.
 
 

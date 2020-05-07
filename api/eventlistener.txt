@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.EventListener Class" date="2019-03-31"
+%hyperhelp title="sublime_plugin.EventListener Class" date="2020-05-06"
 
 
 # eventlistener:EventListener Class
@@ -8,6 +8,20 @@ Note that many of these events are triggered by the buffer underlying the view,
 and thus the method is only called once, with the first view as the parameter.
 
 This class is contained in the |sublime_plugin| module.
+
+
+*EventListener.on_init*([views])  `[>=4050]`
+  Returns: None
+
+    Called once with a list of views that were loaded before the EventListener
+    was instantiated
+
+
+*EventListener.on_exit*()  `[>=4050]`
+  Returns: None
+
+    Called once after the API has shut down, immediately before the plugin_host
+    process exits
 
 
 *EventListener.on_new*(view)
@@ -47,6 +61,53 @@ This class is contained in the |sublime_plugin| module.
 
     Called when the file is finished loading. Runs in a separate thread, and
     does not block the application.
+
+
+*EventListener.on_reload*(view)  `[>=4050]`
+  Returns: None
+
+    Called when the |View| is reloaded.
+
+
+*EventListener.on_reload_async*(view)  `[>=4050]`
+  Returns: None
+
+    Called when the |View| is reloaded. Runs in a separate thread, and does not
+    block the application.
+
+
+*EventListener.on_revert*(view)  `[>=4050]`
+  Returns: None
+
+    Called when the |View| is reverted.
+
+
+*EventListener.on_revert_async*(view)  `[>=4050]`
+  Returns: None
+
+    Called when the |View| is reverted. Runs in a separate thread, and does not
+    block the application.
+
+
+*EventListener.on_pre_move*(view)  `[>=4050]`
+  Returns: None
+
+    Called right before a view is moved between two windows, passed the |View|
+    object.
+
+
+*EventListener.on_post_move*(view)  `[>=4050]`
+  Returns: None
+
+    Called right after a view is moved between two windows, passed the |View|
+    object.
+
+
+*EventListener.on_post_move_async*(view)  `[>=4050]`
+  Returns: None
+
+    Called right after a view is moved between two windows, passed the |View|
+    object. Runs in a separate thread, and does not block the application.
 
 
 *EventListener.on_pre_close*(view)
@@ -100,6 +161,25 @@ This class is contained in the |sublime_plugin| module.
 
     Called after changes have been made to a view. Runs in a separate thread,
     and does not block the application.
+
+
+*EventListener.on_text_changed*(view, [changes])  `[>=4050]`
+  Returns: None
+
+    Called once after changes has been made to a view, with detailed
+    information about what has changed.
+
+    `changes` is a list of |TextChange| objects.
+
+
+*EventListener.on_text_changed_async*(view, [changes])  `[>=4050]`
+  Returns: None
+
+    Called once after changes has been made to a view, with detailed
+    information about what has changed. Runs in a separate thread, and does not
+    block the application.
+
+    `changes` is a list of |TextChange| objects.
 
 
 *EventListener.on_selection_modified*(view)
@@ -190,7 +270,7 @@ This class is contained in the |sublime_plugin| module.
 
 
 *EventListener.on_query_completions*(view, prefix, locations)
-  Returns: list, tuple or None
+  Returns: None, list, tuple or |CompletionList|
 
     Called whenever completions are to be presented to the user. The `prefix`
     is a unicode string of the text to complete.
@@ -207,35 +287,17 @@ This class is contained in the |sublime_plugin| module.
         return None
         ```
 
-    * A list of 2-element lists/tuples. The first element is a unicode string
-      of the completion trigger, the second is the unicode replacement text.
-
-        ```python
-        return [["me1", "method1()"], ["me2", "method2()"]]
-        ```
-
-      The trigger may contain a tab character (`\t`) followed by a hint to
-      display in the right-hand side of the completion box.
+    * A list of |completion| values
 
         ```python
         return [
-            ["me1\tmethod", "method1()"],
-            ["me2\tmethod", "method2()"]
+            ["me1", "method1()"],
+            ["me2", "method2()"]
         ]
         ```
 
-      The replacement text may contain dollar-numeric fields such as a snippet
-      does, e.g. `$0`, `$1`.
-
-        ```python
-        return [
-            ["fn", "def ${1:name}($2) { $0 }"],
-            ["for", "for ($1; $2; $3) { $0 }"]
-        ]
-        ```
-
-    * A 2-element tuple with the first element being the list format documented
-      above, and the second element being bit flags from the following list:
+    * A 2-element tuple with the first element being a list of |completion|
+      values, and the second element being flags composed via bitwise OR of:
 
         * `sublime.INHIBIT_WORD_COMPLETIONS`: prevent Sublime Text from showing
           completions based on the contents of the view
@@ -243,15 +305,26 @@ This class is contained in the |sublime_plugin| module.
         * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`: prevent Sublime Text from
           showing completions based on `.sublime-completions` files
 
+        * `sublime.DYNAMIC_COMPLETIONS`:  `[>=4057]`
+          if completions should be re-queried as the user types
+
+          ```python
+          return (
+              [
+                  ["me1", "method1()"],
+                  ["me2", "method2()"]
+              ],
+              sublime.INHIBIT_WORD_COMPLETIONS |
+              sublime.INHIBIT_EXPLICIT_COMPLETIONS
+          )
+          ```
+
+    * A |CompletionList| object  `[>=4050]`
+
         ```python
-        return (
-            [
-                ["me1", "method1()"],
-                ["me2", "method2()"]
-            ],
-            sublime.INHIBIT_WORD_COMPLETIONS |
-            sublime.INHIBIT_EXPLICIT_COMPLETIONS
-        )
+        cl = sublime.CompletionList(flags=sublime.INHIBIT_WORD_COMPLETIONS)
+        start_background_fetch(cl)
+        return cl
         ```
 
 
@@ -281,6 +354,76 @@ This class is contained in the |sublime_plugin| module.
   Returns: None
 
     Called after a window command has been executed.
+
+
+*EventListener.on_new_window*(window)  `[>=4050]`
+  Returns: None
+
+    Called when a window is created, passed the |Window| object.
+
+
+*EventListener.on_new_window_async*(window)  `[>=4050]`
+  Returns: None
+
+    Called when a window is created, passed the |Window| object. Runs in a
+    separate thread, and does not block the application.
+
+
+*EventListener.on_pre_close_window*(window)  `[>=4050]`
+  Returns: None
+
+    Called right before a window is closed, passed the |Window| object.
+
+
+*EventListener.on_new_project*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a new project is created, passed the |Window| object.
+
+
+*EventListener.on_new_project_async*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a new project is created, passed the |Window| object.
+    Runs in a separate thread, and does not block the application.
+
+
+*EventListener.on_load_project*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a new project is loaded, passed the |Window| object.
+
+
+*EventListener.on_load_project_async*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a new project is loaded, passed the |Window| object.
+    Runs in a separate thread, and does not block the application.
+
+
+*EventListener.on_pre_save_project*(window)  `[>=4050]`
+  Returns: None
+
+    Called right before a project is saved, passed the |Window| object.
+
+
+*EventListener.on_post_save_project*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a project is saved, passed the |Window| object.
+
+
+*EventListener.on_post_save_project_async*(window)  `[>=4050]`
+  Returns: None
+
+    Called right after a project is saved, passed the |Window| object. Runs in
+    a separate thread, and does not block the application.
+
+
+*EventListener.on_pre_close_project*(window)  `[>=4050]`
+  Returns: None
+
+    Called right before a project is closed, passed the |Window| object.
 
 
 --------------------------------------------------------------------------------

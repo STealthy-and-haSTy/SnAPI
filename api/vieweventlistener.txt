@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2019-03-31"
+%hyperhelp title="sublime_plugin.ViewEventListener Class" date="2020-05-06"
 
 
 # vieweventlistener:ViewEventListener Class
@@ -34,53 +34,98 @@ This class is contained in the |sublime_plugin| module.
 ## _none:Methods
 ----------
 
-*ViewEventListener.on_load*()
+*ViewEventListener.on_load*()  `[>=3155]`
   Returns: None
 
     Called when the file is finished loading.
 
 
-*ViewEventListener.on_load_async*()
+*ViewEventListener.on_load_async*()  `[>=3155]`
   Returns: None
 
     Called when the file is finished loading. Runs in a separate thread, and
     does not block the application.
 
 
-*ViewEventListener.on_pre_close*()
+*ViewEventListener.on_reload*()  `[>=4050]`
+  Returns: None
+
+    Called when the file is reloaded.
+
+
+*ViewEventListener.on_reload_async*()  `[>=4050]`
+  Returns: None
+
+    Called when the file is reloaded. Runs in a separate thread, and does not
+    block the application.
+
+
+*ViewEventListener.on_revert*()  `[>=4050]`
+  Returns: None
+
+    Called when the file is reverted.
+
+
+*ViewEventListener.on_revert_async*()  `[>=4050]`
+  Returns: None
+
+    Called when the file is reverted. Runs in a separate thread, and does not
+    block the application.
+
+
+*ViewEventListener.on_pre_move*()  `[>=4050]`
+  Returns: None
+
+    Called right before a view is moved between two windows.
+
+
+*ViewEventListener.on_post_move*()  `[>=4050]`
+  Returns: None
+
+    Called right after a view is moved between two windows.
+
+
+*ViewEventListener.on_post_move_async*()  `[>=4050]`
+  Returns: None
+
+    Called right after a view is moved between two windows. Runs in a separate
+    thread, and does not block the application.
+
+
+*ViewEventListener.on_pre_close*()  `[>=3155]`
   Returns: None
 
     Called when a view is about to be closed. The view will still be in the
     window at this point.
 
 
-*ViewEventListener.on_close*()
+*ViewEventListener.on_close*()  `[>=3155]`
   Returns: None
 
     Called when a view is closed (note, there may still be other views into the
     same buffer).
 
 
-*ViewEventListener.on_pre_save*()
+*ViewEventListener.on_pre_save*()  `[>=3155]`
   Returns: None
 
     Called just before a view is saved.
 
 
-*ViewEventListener.on_pre_save_async*()
+*ViewEventListener.on_pre_save_async*()  `[>=3155]`
   Returns: None
 
     Called just before a view is saved. Runs in a separate thread, and does not
     block the application.
 
 
-*ViewEventListener.on_post_save*()
+*ViewEventListener.on_post_save*()  `[>=3155]`
   Returns: None
 
     Called after a view has been saved.
 
 
-*ViewEventListener.on_post_save_async*()
+*ViewEventListener.on_post_save_async*()  `[>=3155]`
   Returns: None
 
     Called after a view has been saved. Runs in a separate thread, and does not
@@ -98,6 +143,25 @@ This class is contained in the |sublime_plugin| module.
 
     Called after changes have been made to the view. Runs in a separate thread,
     and does not block the application.
+
+
+*ViewEventListener.on_text_changed*([changes])  `[>=4050]`
+  Returns: None
+
+    Called once after changes has been made to a view, with detailed
+    information about what has changed.
+
+    `changes` is a list of `TextChange` objects.
+
+
+*ViewEventListener.on_text_changed_async*([changes])  `[>=4050]`
+  Returns: None
+
+    Called once after changes has been made to a view, with detailed
+    information about what has changed. Runs in a separate thread, and does not
+    block the application.
+
+    `changes` is a list of `TextChange` objects.
 
 
 *ViewEventListener.on_selection_modified*()
@@ -147,12 +211,14 @@ This class is contained in the |sublime_plugin| module.
     point is the closest point in the view to the mouse location. The mouse may
     not actually be located adjacent based on the value of `hover_zone`:
 
-    * `sublime.HOVER_TEXT`: When the mouse is hovered over text.
+    * `sublime.HOVER_TEXT`
+      When the mouse is hovered over text.
 
-    * `sublime.HOVER_GUTTER`: When the mouse is hovered over the gutter.
+    * `sublime.HOVER_GUTTER`
+      When the mouse is hovered over the gutter.
 
-    * `sublime.HOVER_MARGIN`: When the mouse is hovered in whitespace to the
-      right of a line.
+    * `sublime.HOVER_MARGIN`
+      When the mouse is hovered in whitespace to the right of a line.
 
 
 *ViewEventListener.on_query_context*(key, operator, operand, match_all)
@@ -165,22 +231,25 @@ This class is contained in the |sublime_plugin| module.
 
     operator is one of:
 
-    * `sublime.OP_EQUAL`: Is the value of the context equal to the operand?
+    * `sublime.OP_EQUAL`
+       Is the value of the context equal to the operand?
 
-    * `sublime.OP_NOT_EQUAL`: Is the value of the context not equal to the
-      operand?
+    * `sublime.OP_NOT_EQUAL`
+      Is the value of the context not equal to the operand?
 
-    * `sublime.OP_REGEX_MATCH`: Does the value of the context match the regex
+    * `sublime.OP_REGEX_MATCH`
+      Does the value of the context match the regex given in operand?
+
+    * `sublime.OP_NOT_REGEX_MATCH`
+      Does the value of the context not match the regex given in operand?
+
+    * `sublime.OP_REGEX_CONTAINS`
+      Does the value of the context contain a substring matching the regex
       given in operand?
 
-    * `sublime.OP_NOT_REGEX_MATCH`: Does the value of the context not match the
-      regex given in operand?
-
-    * `sublime.OP_REGEX_CONTAINS`: Does the value of the context contain a
-      substring matching the regex given in operand?
-
-    * `sublime.OP_NOT_REGEX_CONTAINS`: Does the value of the context not
-      contain a substring matching the regex given in operand?
+    * `sublime.OP_NOT_REGEX_CONTAINS`
+      Does the value of the context not contain a substring matching the regex
+      given in operand?
 
     `match_all` should be used if the context relates to the selections: does
     every selection have to match (`match_all == True`), or is at least one
@@ -188,69 +257,63 @@ This class is contained in the |sublime_plugin| module.
 
 
 *ViewEventListener.on_query_completions*(prefix, locations)
-  Returns: list, tuple or None
+  Returns: None, list, tuple or |CompletionList|
 
-    Called whenever completions are to be presented to the user. The `prefix` is
-    a unicode string of the text to complete.
+    Called whenever completions are to be presented to the user. The `prefix`
+    is a unicode string of the text to complete.
 
     `locations` is a list of |:point:points|. Since this method is called for all
-    completions no matter the syntax,
-    `self.view.match_selector(point, relevant_scope)` should be called to
-    determine if the point is relevant.
+    completions no matter the syntax, `view.match_selector(point,
+    relevant_scope)` should be called to determine if the point is relevant.
 
     The return value must be one of the following formats:
 
     * `None`: no completions are provided
 
-      ```python
-      return None
-      ```
+        ```python
+        return None
+        ```
 
-    * A list of 2-element lists/tuples. The first element is a unicode string of
-      the completion trigger, the second is the unicode replacement text.
-
-      ```python
-      return [["me1", "method1()"], ["me2", "method2()"]]
-      ```
-
-      The trigger may contain a tab character (`\t`) followed by a hint to display
-      in the right-hand side of the completion box.
-
-      ```python
-      return [
-          ["me1\tmethod", "method1()"],
-          ["me2\tmethod", "method2()"]
-      ]
-      ```
-
-      The replacement text may contain dollar-numeric fields such as a snippet
-      does, e.g. `$0`, `$1`.
-
-      ```python
-      return [
-          ["fn", "def ${1:name}($2) { $0 }"],
-          ["for", "for ($1; $2; $3) { $0 }"]
-      ]
-      ```
-
-    * A 2-element tuple with the first element being the list format documented
-      above, and the second element being bit flags from the following list:
-
-      * `sublime.INHIBIT_WORD_COMPLETIONS`: prevent Sublime Text from showing
-        completions based on the contents of the view
-
-      * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`: prevent Sublime Text from
-        showing completions based on `.sublime-completions` files
+    * A list of |completion| values
 
         ```python
-        return (
-            [
-                ["me1", "method1()"],
-                ["me2", "method2()"]
-            ],
-            sublime.INHIBIT_WORD_COMPLETIONS |
-            sublime.INHIBIT_EXPLICIT_COMPLETIONS
-        )
+        return [
+            ["me1", "method1()"],
+            ["me2", "method2()"]
+        ]
+        ```
+
+    * A 2-element tuple with the first element being a list of |completion|
+      values, and the second element being flags composed via bitwise OR of:
+
+        * `sublime.INHIBIT_WORD_COMPLETIONS`
+          prevent Sublime Text from showing completions based on the contents
+          of the view
+
+        * `sublime.INHIBIT_EXPLICIT_COMPLETIONS`
+          prevent Sublime Text from showing completions based on
+          `.sublime-completions` files
+
+        * `sublime.DYNAMIC_COMPLETIONS`:  `[>=4057]`
+          if completions should be re-queried as the user types
+
+          ```python
+          return (
+              [
+                  ["me1", "method1()"],
+                  ["me2", "method2()"]
+              ],
+              sublime.INHIBIT_WORD_COMPLETIONS |
+              sublime.INHIBIT_EXPLICIT_COMPLETIONS
+          )
+          ```
+
+    * A |CompletionList| object  `[>=4050]`
+
+        ```python
+        cl = sublime.CompletionList(flags=sublime.INHIBIT_WORD_COMPLETIONS)
+        start_background_fetch(cl)
+        return cl
         ```
 
 

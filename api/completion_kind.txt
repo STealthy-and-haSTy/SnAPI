@@ -1,0 +1,133 @@
+%hyperhelp title="completion_kind Tuple" date="2020-05-06"
+
+
+# completion_kind:completion_kind Tuple
+=======================
+
+Metadata about the kind of a |CompletionItem|. Controls the color and letter
+shown in the "icon" presented to the left of the trigger.
+
+Options include pre-constructed combinations, or completely custom values.
+
+    Availability: `[>=4050]`
+
+
+## _none:Pre-constructed options
+--------------------------
+
+*sublime.KIND_AMBIGUOUS*
+  Letter: none, theme class: `kind_ambiguous`
+
+    When there source of the completion is unknown – the default.
+
+
+*sublime.KIND_KEYWORD*
+  Letter: `k`, theme class: `kind_keyword`
+
+    When the completion represents a keyword.
+
+
+*sublime.KIND_TYPE*
+  Letter: `t`, theme class: `kind_type`
+
+    When the completion represents a data type, class, struct, interface, enum,
+    trait, etc.
+
+*sublime.KIND_FUNCTION*
+  Letter: `f`, theme class: `kind_function`
+
+    When the completion represents a function, method, constructor or
+    subroutine.
+
+
+*sublime.KIND_NAMESPACE*
+  Letter: `a`, theme class: `kind_namespace`
+
+    When the completion represents a namespace or module.
+
+
+*sublime.KIND_NAVIGATION*
+  Letter: `n`, theme class: `kind_navigation`
+
+    When the completion represents a definition, label or section.
+
+
+*sublime.KIND_MARKUP*
+  Letter: `m`, theme class: `kind_markup`
+
+    When the completion represents a markup component, including HTML tags and
+    CSS selectors.
+
+
+*sublime.KIND_VARIABLE*
+  Letter: `v`, theme class: `kind_variable`
+
+    When the completion represents a variable, member, attribute, constant or
+    parameter.
+
+
+*sublime.KIND_SNIPPET*
+  Letter: `s`, theme class: `kind_snippet`
+
+    When the completion contains a snippet.
+
+
+## _none:Custom Kinds
+---------------
+
+Custom kind information may also be passed, via a 3-element tuple, in the
+following format:
+
+
+    ## _none:kind id
+    ----------
+
+    A kind id, which controls the theme class used to contain the letter:
+
+      *sublime.KIND_ID_AMBIGUOUS*
+        When there source of the completion is unknown
+
+      *sublime.KIND_ID_KEYWORD*
+        When the completion represents a keyword
+
+      *sublime.KIND_ID_TYPE*
+        When the completion represents a data type
+
+      *sublime.KIND_ID_FUNCTION*
+        When the completion represents a function, method, constructor or
+        subroutine
+
+      *sublime.KIND_ID_NAMESPACE*
+        When the completion represents a namespace or module
+
+      *sublime.KIND_ID_NAVIGATION*
+        When the completion represents a definition, label or section
+
+      *sublime.KIND_ID_MARKUP*
+        When the completion represents a markup component, including HTML tags
+        and CSS selectors
+
+      *sublime.KIND_ID_VARIABLE*
+        When the completion represents a variable, member, attribute, constant
+        or parameter
+
+      *sublime.KIND_ID_SNIPPET*
+        When the completion contains a snippet
+
+
+    ## _none:letter
+    ---------
+
+    A unicode string containing a single unicode character. This is shown as an
+    "icon" to the left of the `trigger`.
+
+
+    ## _none:description
+    --------------
+
+    An optional unicode string to describe the kind, shown in the detail pane
+    at the bottom of the auto-complete window.
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

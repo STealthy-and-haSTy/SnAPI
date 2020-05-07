@@ -1,4 +1,4 @@
-%hyperhelp title="General Information" date="2019-03-31"
+%hyperhelp title="General Information" date="2020-05-06"
 
 
 # Example Plugins
@@ -69,45 +69,47 @@ This documentation generally refers to simply Python data types. Some type
 names are classes documented herein, however there are also a few custom type
 names that refer to construct with specific semantics:
 
- * *location*: a tuple of `(str, str, (int, int))` that contains information
-   about a location of a symbol. The first string is the absolute file path,
-   the second is the file path relative to the project, the third element is a
-   two-element tuple of the row and column.
+ * *location*
+    a tuple of `(str, str, (int, int))` that contains information about a
+    location of a symbol. The first string is the absolute file path, the
+    second is the file path relative to the project, the third element is a
+    two-element tuple of the row and column.
 
- * *point*: an `int` that represents the offset from the beginning of the editor
-   buffer. The `View` methods `text_point()` and `rowcol()` allow converting to
-   and from this format.
+ * *point*
+    an `int` that represents the offset from the beginning of the editor
+    buffer. The `View` methods `text_point()` and `rowcol()` allow converting
+    to and from this format.
 
- * *value*: any of the Python data types `bool`, `int`, `float`, `str`, `list`
-   or `dict`.
+ * *value*
+    any of the Python data types `bool`, `int`, `float`, `str`, `list` or
+    `dict`.
 
- * *dip*: a `float` that represents a device-independent pixel.
+ * *dip*
+    a `float` that represents a device-independent pixel.
 
- * *vector*: a tuple of `(dip, dip)` representing `x` and `y` coordinates.
+ * *vector*
+    a tuple of `(dip, dip)` representing `x` and `y` coordinates.
 
- * *CommandInputHandler*: a subclass of either |TextInputHandler| or
-   |ListInputHandler|.
+ * *CommandInputHandler*
+    a subclass of either |TextInputHandler| or |ListInputHandler|.
 
- * *symbolref*: a tuple of `((int, int), string)` that contains information on
-   indexed symbols in a |view|. The string contains the text of the indexed
-   symbol and the tuple provides the location of that symbol in the file.
+ * *symbolref*  `[UNDOCUMENTED]`
+    a tuple of `((int, int), string)` that contains information on indexed
+    symbols in a |view|. The string contains the text of the indexed symbol and
+    the tuple provides the location of that symbol in the file.
 
-   This type is `[UNDOCUMENTED]`.
+* *resultref*  `[UNDOCUMENTED]`
+    a tuple of `(string, int, int, <string>)` that contains information about
+    the result of a regular expression match as a result of using the
+    `result_file_regex` and `result_line_regex` settings in a |view|.
 
+    The first string is the absolute file path of the file containing the match
+    and the integers represent the row and column of the match in that file.
 
-* *resultref*: a tuple of `(string, int, int, <string>)` that contains
-  information about the result of a regular expression match as a result of
-  using the `result_file_regex` and `result_line_regex` settings in a |view|.
-
-  The first string is the absolute file path of the file containing the match
-  and the integers represent the row and column of the match in that file.
-
-  The second string is optional and provides the text that matched the regex
-  capture for the fourth capture in `result_file_regex` or the third capture in
-  `result_line_regex`. This value is only a part of the result when you use
-  |:view.find_all_results_with_text:view.find_all_results_with_text()|.
-
-  This type is `[UNDOCUMENTED]`.
+    The second string is optional and provides the text that matched the regex
+    capture for the fourth capture in `result_file_regex` or the third capture
+    in `result_line_regex`. This value is only a part of the result when you
+    use |:view.find_all_results_with_text:view.find_all_results_with_text()|.
 
 
 --------------------------------------------------------------------------------

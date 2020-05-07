@@ -1,0 +1,38 @@
+%hyperhelp title="sublime.HistoricPosition Class" date="2020-05-06"
+
+
+# historicposition:HistoricPosition Class
+==============
+
+Provides a snapshot of the row and column info for a point, before
+changes were made to a |View|. This is primarily useful for replaying
+changes to a document.
+
+This class is contained in the |sublime| module.
+
+    Availability: `[>=4050]`
+
+
+## _none:Properties
+-------------
+
+*historicposition.pt*
+  Type: |point|
+
+    The unicode character offset from the beginning of the |View|
+
+
+*historicposition.row*
+  Type: int
+
+    TThe row the `.pt` was in when the `HistoricPosition` was recorded
+
+
+*historicposition.col*
+  Type: int
+
+    The column the `.pt` was in when the `HistoricPosition` was recorded
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

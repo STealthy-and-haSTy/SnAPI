@@ -1,0 +1,135 @@
+%hyperhelp title="sublime.CompletionItem Class" date="2020-05-06"
+
+
+# completionitem_class:CompletionItem Class
+======================
+
+Represents an available auto-completion item.
+
+This class is contained in the |sublime| module.
+
+    Availability: `[>=4050]`
+
+
+## _none:Constructors
+---------------
+
+*CompletionItem*(trigger, <annotation>, <completion>, <completion_format>,
+                 <kind>, <details>)
+
+  * `trigger`
+    A unicode string of the text to match against the user's input.
+
+  * `annotation`
+    An optional unicode string of a hint to draw to the right-hand side of the
+    trigger.
+
+  * `completion`
+    An optional unicode string of the text to insert if the completion is
+    specified. If empty, the `trigger` will be inserted.
+
+  * `completion_format`
+    The format of the `completion`:
+
+      * `sublime.COMPLETION_FORMAT_TEXT`
+        Plain text – the default
+
+      * `sublime.COMPLETION_FORMAT_SNIPPET`
+        A snippet, with `$` variables. See also the
+        |:completionitem.snippet_completion:CompletionItem.snippet_completion()| class method.
+
+      * `sublime.COMPLETION_FORMAT_COMMAND`
+        A command name, optionally followed by space and args encoded via
+        |:encode_value:encode_value()|. E.g.
+        `my_command {"repeat": 2, "value": "ABC"}`.
+
+        See also the |:completionitem.command_completion:CompletionItem.command_completion()| class method.
+
+  * `kind`
+    An optional |completion_kind| tuple that controls the presentation in the
+    auto-complete window – defaults to `sublime.KIND_AMBIGUOUS`.
+
+  * `details`  `[>=4073]`
+    An optional HTML description of the completion, shown in the detail pane at
+    the bottom of the auto complete window. Only supports limited inline HTML,
+    including the tags:
+
+    * `<a href="">` - |:minihtml protocols:protocols|
+    * `<b>`
+    * `<strong>`
+    * `<i>`
+    * `<em>`
+    * `<u>`
+    * `<tt>`
+    * `<code>`
+
+
+*CompletionItem.snippet_completion*(trigger, snippet, <annotation>, <kind>,
+                                    <details>)
+
+  * `trigger`
+    A unicode string of the text to match against the user's input.
+
+  * `snippet`
+    The snippet text to insert if the item is selected.
+
+  * `annotation`
+    An optional unicode string of a hint to draw to the right-hand side of the
+    trigger.
+
+  * `kind`
+    An optional |completion_kind| tuple that controls the presentation in the
+    auto-complete window – defaults to `sublime.KIND_SNIPPET`.
+
+  * `details`  `[>=4073]`
+    An optional HTML description of the completion, shown in the detail pane at
+    the bottom of the auto complete window. Only supports limited inline HTML,
+    including the tags:
+
+    * `<a href="">` - |:minihtml protocols:protocols|
+    * `<b>`
+    * `<strong>`
+    * `<i>`
+    * `<em>`
+    * `<u>`
+    * `<tt>`
+    * `<code>`
+
+
+*CompletionItem.command_completion*(trigger, command, <args>, <annotation>,
+                                   <kind>, <details>)
+
+  * `trigger`
+    A unicode string of the text to match against the user's input.
+
+  * `command`
+    A unicode string of the command to execute
+
+  * `args`
+    An optional `dict` of args to pass to the `command`
+
+  * `annotation`
+    An optional unicode string of a hint to draw to the right-hand side of the
+    trigger.
+
+  * `kind`
+    An optional |completion_kind| tuple that controls the presentation in the
+    auto-complete window – defaults to `sublime.KIND_AMBIGUOUS`.
+
+  * `details`  `[>=4073]`
+    An optional HTML description of the completion, shown in the detail pane at
+    the bottom of the auto complete window. Only supports limited inline HTML,
+    including the tags:
+
+    * `<a href="">` - |:minihtml protocols:protocols|
+    * `<b>`
+    * `<strong>`
+    * `<i>`
+    * `<em>`
+    * `<u>`
+    * `<tt>`
+    * `<code>`
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

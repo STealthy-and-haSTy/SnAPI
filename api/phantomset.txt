@@ -1,11 +1,11 @@
-%hyperhelp title="sublime.PhantomSet Class" date="2019-03-31"
+%hyperhelp title="sublime.PhantomSet Class" date="2020-05-06"
 
 
 # phantomset:PhantomSet Class
 ==================
 
 A collection that manages |:phantom:Phantoms| and the process of adding them, updating
-them and removing them from the View.
+them and removing them from the |View|.
 
 This class is contained in the |sublime| module.
 

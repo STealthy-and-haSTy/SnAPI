@@ -1,8 +1,8 @@
 SnAPI
 =====
 
-SnAPI is a simple package that provides a local copy of the Sublime Text 3
-[documentation](http://www.sublimetext.com/docs/3/) directly
+SnAPI is a simple package that provides a local copy of the Sublime Text
+[documentation](http://www.sublimetext.com/docs/) directly
 from within Sublime, using the [hyperhelp](https://github.com/STealthy-and-haSTy/hyperhelpcore)
 help system for navigation.
 
@@ -32,11 +32,11 @@ in active development and as such everything is subject to change.
 
 Note that the license below *DOES NOT* include any of the help files, which are
 taken from the official Sublime Text documentation at
-http://www.sublimetext.com/docs/3/ and are Copyright © Sublime HQ Pty Ltd.
+http://www.sublimetext.com/docs/ and are Copyright © Sublime HQ Pty Ltd.
 
 All other content in this package are licensed under the MIT License:
 
-Copyright 2017-2019 Terence Martin
+Copyright 2017-2020 Terence Martin
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of
 this software and associated documentation files (the "Software"), to deal in

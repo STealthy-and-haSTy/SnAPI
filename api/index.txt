@@ -1,18 +1,27 @@
-%hyperhelp title="Sublime Text 3 API Documentation" date="2019-03-31"
+%hyperhelp title="Sublime Text API Documentation" date="2020-05-06"
 
 
-*|_none:General Information|*        *|_none:Core Components|*      *|_none:Plugin Extension Points|*
--------------------        ---------------      -----------------------
- |Example Plugins|         |sublime| module     |sublime_plugin| Module
- |Plugin Lifecycle|        |Sheet| Class        |EventListener| Class
- |Threading|               |View| Class         |ViewEventListener| Class
- |Units and Coordinates|   |Selection| Class    |ApplicationCommand| Class
- |Types|                   |Region| Class       |WindowCommand| Class
-                           |Phantom| Class      |TextCommand| Class
-                           |PhantomSet| Class   |TextInputHandler| Class
-                           |Edit| Class         |ListInputHandler| Class
-                           |Window| Class
-                           |Settings| Class
+*|_none:General Information|*       *|_none:Core Components|*          *|_none:Plugin Extension Points|*
+-------------------       ---------------          -----------------------
+|Example Plugins|         |sublime| module         |sublime_plugin| Module
+|Plugin Lifecycle|        |Sheet| Class            |EventListener| Class
+|Threading|               |View| Class             |ViewEventListener| Class
+|Units and Coordinates|   |Selection| Class        |ApplicationCommand| Class
+|Types|                   |Region| Class           |WindowCommand| Class
+                          |Phantom| Class          |TextCommand| Class
+                          |PhantomSet| Class       |TextInputHandler| Class **
+                          |Edit| Class             |ListInputHandler| Class **
+                          |TextChange| Class *
+                          |HistoricPosition| Class *
+                          |completion| Value
+                          |CompletionItem| Class *
+                          |completion_kind| tuple *
+                          |CompletionList| Class *
+                          |Window| Class
+                          |Settings| Class
+
+  *  - Available since build 4050
+  ** - Available since build 3154
 
 
 --------------------------------------------------------------------------------
