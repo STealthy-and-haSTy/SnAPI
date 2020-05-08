@@ -1,7 +1,7 @@
-%hyperhelp title="Variables" date="2019-03-31"
+%hyperhelp title="Variables" date="2020-05-07"
 
 
-Reusable color definitions may be created in the `variables` key. The names may
+Reusable color definitions may be created in the variables key. The names may
 be any string utilizing the characters `a-z`, `A-Z`, `0-9`, `_` and `-`. The
 values may be any valid color format.
 

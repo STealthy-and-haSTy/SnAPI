@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2019-03-31"
+%hyperhelp title="Scope Rules" date="2020-05-07"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -17,7 +17,7 @@ color scheme apply to multiple syntaxes.
 Instead of matching `keyword.control.php`, most color schemes will instead
 assign a color to `keyword`. Matching the first one or two labels in a scope is
 most common. Including the final label, the syntax name, is uncommon unless a
-syntax- specific override is desired.
+syntax-specific override is desired.
 
 
 # Naming
@@ -36,16 +36,37 @@ scheme authors should strive to handle.
 # Style Rules
 -------------
 
-Each scope style rule consists of an object containing a `scope` key, along
+Each scope style rule consists of an object containing a `"scope"` key, along
 with one or more of the following optional keys:
 
-  * `name` – the (arbitrary) name for the scope rule
-  * `foreground` – the text color
-  * `background` – the background color
-  * `foreground_adjust` - adjustment to the `foreground` color, only valid with
-    `background`
-  * `selection_foreground` – the text color when selected
-  * `font_style` – zero or more of `bold`, `italic`, separated by spaces
+  * `name`
+      the (arbitrary) name for the scope rule
+
+
+  * `foreground`
+      the text color
+
+
+  * `background`
+      the background color
+
+
+  * `foreground_adjust`  `[>=3179]`
+        adjustment to the `foreground` color, only valid with `background`
+
+
+  * `selection_foreground`
+        the text color when selected
+
+
+  * `font_style`
+      zero or more of the following, separated by spaces:
+
+        * `bold`
+        *`italic`
+        *`glow`       `[>=4050]`
+        *`underline`  `[>=4074]`
+
 
 The `foreground_adjust` key accepts a space-separated list of adjusters that
 are supported by the |minihtml color() mod function|. It is only supported when
@@ -57,10 +78,10 @@ different rules for every permutation.
 # Hashed Syntax Highlighting
 ----------------------------
 
-The `foreground` key supports a special mode called Hashed Syntax Highlighting,
-where each token matching the scope specified will receive a unique color from
-one, or more, gradients. Some editors refer to this style of highlighting as
-"Semantic Highlighting".
+The `foreground` key supports a special mode called `Hashed Syntax
+Highlighting`, where each token matching the scope specified will receive a
+unique color from one, or more, gradients. Some editors refer to this style of
+highlighting as `Semantic Highlighting`.
 
 To use Hashed Syntax Highlighting, the `foreground` key must have a value that
 is a list of two or more colors. Sublime Text will create 256 different colors

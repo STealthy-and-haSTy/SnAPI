@@ -1,27 +1,17 @@
-%hyperhelp title="Sublime Text 3 Color Schemes" date="2019-03-31"
+%hyperhelp title="Sublime Text Color Schemes" date="2020-05-07"
 
 
-The highlighting of source code and prose in Sublime Text is controlled
-by a color scheme. A color scheme assigns colors and font styles to
-scopes, which are assigned to the text by the syntax. The rest of the
-look of the user interface is controlled by the theme. The theme
-controls such elements as buttons select lists, the sidebar and tabs.
+The highlighting of source code and prose in Sublime Text is controlled by a
+color scheme. A color scheme assigns colors and font styles to scopes, which
+are assigned to the text by the syntax. The rest of the look of the user
+interface is controlled by the theme. The |theme| controls such elements as
+buttons select lists, the sidebar and tabs.
 
-Sublime Text color schemes are implemented using .sublime-color-scheme
-files, containing JSON. Sublime Text also supports a subset of features
-using the TextMate .tmTheme format.
+Sublime Text color schemes are implemented using `.sublime-color-scheme` files,
+containing JSON. Sublime Text also supports a subset of features using the
+TextMate |:tmTheme:tmTheme| format.
 
-
-    ## _none:Dev Build Version
-    --------------------
-
-    The dev build of Sublime Text contains changes to color schemes. See the
-    |:devdocs:Dev Build Color Schemes Documentation| for changes.
-
-    The changes mentioned in that documentation are also referenced in this
-    help file and are marked as `[DEV BUILDS ONLY]`. Unless stated otherwise,
-    this indicates development builds in the most recent development build
-    series.
+Before Sublime Text 3.1, only the .tmTheme format was supported.
 
 
   * |Example|
@@ -32,7 +22,7 @@ using the TextMate .tmTheme format.
     * |CSS|
     * |Gutters|
     * |Diff|
-    * |Selections|
+    * |Selection|
     * |Find|
     * |Guides|
     * |Brackets|
