@@ -1,4 +1,4 @@
-%hyperhelp title="Global Settings" date="2020-05-07"
+%hyperhelp title="Global Settings" date="2020-05-19"
 
 
 The following global settings go in the object with the `"globals"` key.
@@ -174,6 +174,12 @@ plugin styles.
 
         The background color of a selection in a view that is not currently
         focused
+
+
+    *inactive_selection_border*  `[>=4074]`
+
+        The color for the border of the selection in a view that is not
+        currently focused
 
 
     *inactive_selection_foreground*

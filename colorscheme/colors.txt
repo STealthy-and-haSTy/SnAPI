@@ -1,4 +1,4 @@
-%hyperhelp title="Colors" date="2020-05-07"
+%hyperhelp title="Colors" date="2020-05-19"
 
 
 Colors in color schemes may be specified using one of seven formats:
@@ -39,7 +39,7 @@ Colors in color schemes may be specified using one of seven formats:
       A function named `hsl` that accepts three values. The first is an integer
       in the range `0` to `360` specifying the hue. The second is a percentage
       specifying the saturation. The third is a percentage specifying the
-      lightness. Red is written as `hsl(0, 100%, 100%)`.
+      lightness. Red is written as `hsl(0, 100%, 50%)`.
 
 
   * `HSLA functional notation`
@@ -47,7 +47,7 @@ Colors in color schemes may be specified using one of seven formats:
       Identical to the HSL function format, except the name of the function is
       `hsla` and a fourth parameter is added accepting a value from `0.0` to
       `1.0` specifying the alpha channel. Red with 50% opacity is written as
-      `hsla(0, 100%, 100%, 0.5)`.
+      `hsla(0, 100%, 50%, 0.5)`.
 
 
   * `HWB functional notation`  `[>=3181]`

@@ -99,6 +99,7 @@
             { "topic": "selection_border" },
             { "topic": "selection_border_width" },
             { "topic": "inactive_selection" },
+            { "topic": "inactive_selection_border" },
             { "topic": "inactive_selection_foreground" },
             { "topic": "selection_corner_style" },
             { "topic": "selection_corner_radius" },

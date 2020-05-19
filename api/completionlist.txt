@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.CompletionList Class" date="2020-05-06"
+%hyperhelp title="sublime.CompletionList Class" date="2020-05-19"
 
 
 # completionlist:CompletionList Class
@@ -36,6 +36,9 @@ This class is contained in the |sublime| module.
         * `sublime.DYNAMIC_COMPLETIONS`  `[>=4057]`
             if completions should be re-queried as the user types
 
+        * `sublime.INHIBIT_REORDER`  `[>=4074]`
+            prevent Sublime Text from changing the completion order
+
 
 ## _none:Methods
 ----------
@@ -58,6 +61,9 @@ This class is contained in the |sublime| module.
 
         * `sublime.DYNAMIC_COMPLETIONS`  `[>=4057]`
             if completions should be re-queried as the user types
+
+        * `sublime.INHIBIT_REORDER`  `[>=4074]`
+            prevent Sublime Text from changing the completion order
 
 
 --------------------------------------------------------------------------------
