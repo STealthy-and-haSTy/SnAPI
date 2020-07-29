@@ -1,4 +1,4 @@
-%hyperhelp title="Scope Rules" date="2020-05-07"
+%hyperhelp title="Scope Rules" date="2020-07-28"
 
 
 Color schemes interact with the text in a file via scopes. Scopes are set to
@@ -64,8 +64,10 @@ with one or more of the following optional keys:
 
         * `bold`
         *`italic`
-        *`glow`       `[>=4050]`
-        *`underline`  `[>=4074]`
+        *`glow`                `[>=4050]`
+        *`underline`           `[>=4074]`
+        *`stippled_underline`  `[>=4075]`
+        *`squiggly_underline`  `[>=4075]`
 
 
 The `foreground_adjust` key accepts a space-separated list of adjusters that

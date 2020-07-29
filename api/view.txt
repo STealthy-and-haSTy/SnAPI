@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2020-05-06"
+%hyperhelp title="sublime.View Class" date="2020-07-28"
 
 
 # view:View Class
@@ -748,7 +748,7 @@ This class is contained in the |sublime| module.
     return entries that modified the buffer.
 
 
-*view.indexed_symbol*()  `[UNDOCUMENTED]`
+*view.indexed_symbols*()  `[UNDOCUMENTED]`
   Returns: [|symbolref|]
 
     Returns a list of all of the indexed symbols in the current view, along

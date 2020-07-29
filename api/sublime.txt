@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2020-05-06"
+%hyperhelp title="sublime Module" date="2020-07-28"
 
 
 # sublime:sublime Module
@@ -65,6 +65,108 @@ the following classes and data types:
     and/or `no_title` are provided, they will be used as the text on the
     corresponding buttons on some platforms. Returns `sublime.DIALOG_YES`,
     `sublime.DIALOG_NO` or `sublime.DIALOG_CANCEL`.
+
+
+*sublime.open_dialog*(callback, <file_types>, <directory>,   `[>=4075]`
+                      <multi_select>, <allow_folders>)
+    Returns: None
+
+      Presents the user with a file dialog for the purpose of opening a file,
+      and passes the resulting file path to `callback`.
+
+      * `callback`
+        A callback to accept the result of the user’s choice. If the user
+        cancels the dialog, `None` will be passed. If a file is selected, a
+        `str` containing the path will be passed. If the parameter
+        `multi_select` is `True`, a `list` of `str` file paths will be passed.
+
+      * `file_types`
+        A specification of allowable file types. This parameter should be a
+        `list` containing 2-element `tuples`:
+
+          * A `str` containing a description
+          * A `list` of `str` with valid file extensions
+
+          Example:
+
+          ```python
+          [
+            ('Python source files', ['py', 'py3', 'pyw']),
+            ('C source files', ['c', 'h'])
+          ]
+          ```
+
+      * `directory`
+        A `str` of the directory to open the file dialog to. If not specified,
+        will use the directory of the current view.
+
+      * `multi_select*`
+        A `bool` to indicate that the user should be allowed to select multiple
+        files
+
+      * `allow_folders`
+        A `bool` to indicate that the user should be allowed to select folders
+
+
+*sublime.save_dialog*(callback, <file_types>, <directory>,   `[>=4075]`
+                      <name>, <extension>)
+    Returns: None
+
+      Presents the user with a file dialog for the purpose of saving a file,
+      and passes the result to `callback`.
+
+      * `callback`
+        A callback to accept the result of the user’s choice. If the user
+        cancels the dialog, `None` will be passed. If a file is selected, a
+        `str` containing the path will be passed.
+
+      * `file_types`
+        A specification of allowable file types. This parameter should be a
+        `list` containing 2-element `tuples`:
+
+          * A `str` containing a description
+          * A `list` of `str` with valid file extensions
+
+          Example:
+
+          ```python
+          [
+            ('Python source files', ['py', 'py3', 'pyw']),
+            ('C source files', ['c', 'h'])
+          ]
+          ```
+
+      * `directory`
+        A `str` with the default file name
+
+      * `name*`
+        A `bool` to indicate that the user should be allowed to select multiple
+        files
+
+      * `extension`
+        A `str` containing the default file extension
+
+
+*sublime.select_folder_dialog*(callback, <directory>, <multi_select>) `[>=4075]`
+    Returns: None
+
+      Presents the user with a file dialog for the purpose of selecting a
+      folder, and passes the resulting file path to `callback`.
+
+      * `callback`
+        A callback to accept the result of the user’s choice. If the user
+        cancels the dialog, `None` will be passed. If a folder is selected, a
+        `str` containing the path will be passed. If the parameter
+        `multi_select` is `True`, a `list` of `str` folder paths will be
+        passed.
+
+      * `directory`
+        A `str` of the directory to open the file dialog to. If not specified,
+        will use the directory of the current view.
+
+      * `multi_select*`
+        A `bool` to indicate that the user should be allowed to select multiple
+        files
 
 
 *sublime.status_message*()  `[UNDOCUMENTED]`  `[DEPRECATED]`
