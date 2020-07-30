@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2020-07-28"
+%hyperhelp title="sublime.View Class" date="2020-07-30"
 
 
 # view:View Class
@@ -433,7 +433,7 @@ This class is contained in the |sublime| module.
     the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
     syntax, use `view.settings().get('syntax')`.
 
-    This function is deprecated; you should use |:view.set_syntax_file:set_syntax_file| instead.
+    This function is deprecated; you should use |:view.assign_syntax:assign_syntax| instead.
 
 
 *view.extract_scope*(point)
