@@ -1,4 +1,4 @@
-%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2020-05-06"
+%hyperhelp title="sublime_plugin.ListInputHandler Class" date="2020-10-27"
 
 
 # listinputhandler:ListInputHandler Class
@@ -44,15 +44,12 @@ This class is contained in the |sublime_plugin| module.
     Initial text shown in the text entry box. Empty by default.
 
 
-*ListInputHandler.preview*(text, <value>)
+*ListInputHandler.preview*(value)
   Returns: str or sublime.Html
 
     Called whenever the user changes the text in the entry box. The returned
     value (either plain text or HTML) will be shown in the preview area of the
     Command Palette.
-
-    The `value` argument will be provided when |:listinputhandler.list_items:list_items()| returns a list of
-    tuples; otherwise it is not given.
 
 
 *ListInputHandler.validate*(text)

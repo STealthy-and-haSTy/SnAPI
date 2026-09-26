@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.HistoricPosition Class" date="2020-05-06"
+%hyperhelp title="sublime.HistoricPosition Class" date="2021-09-09"
 
 
 # historicposition:HistoricPosition Class
@@ -32,6 +32,18 @@ This class is contained in the |sublime| module.
   Type: int
 
     The column the `.pt` was in when the `HistoricPosition` was recorded
+
+
+*historicposition.col_utf16*  `[>=4075]`
+  Type: int
+
+    The value of .col, but in UTF-16 code units
+
+
+*historicposition.col_utf8*  `[>=4075]`
+  Type: int
+
+    The value of .col, but in UTF-8 code units (i.e. bytes)
 
 
 --------------------------------------------------------------------------------

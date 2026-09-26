@@ -108,6 +108,7 @@
             { "topic": "sublime.log_indexing", "aliases": ["log_indexing"] },
             { "topic": "sublime.log_build_systems", "aliases": ["log_build_systems"] },
             { "topic": "sublime.log_control_tree", "aliases": ["log_control_tree"] },
+            { "topic": "sublime.log_fps", "aliases": ["log_fps"] },
             { "topic": "sublime.version", "aliases": ["version"] },
             { "topic": "sublime.platform", "aliases": ["platform"] },
             { "topic": "sublime.arch", "aliases": ["arch"] },
@@ -140,6 +141,8 @@
             { "topic": "view.id" },
             { "topic": "view.is_valid" },
             { "topic": "view.buffer_id", "aliases": ["buffer_id"] },
+            { "topic": "view.buffer", "aliases": ["buffer"] },
+            { "topic": "view.clones", "aliases": ["clones"] },
             { "topic": "view.is_primary", "aliases": ["is_primary"] },
             { "topic": "view.file_name", "aliases": ["file_name"] },
             { "topic": "view.set_reference_document", "aliases": ["set_reference_document"] },
@@ -186,6 +189,7 @@
             { "topic": "view.set_syntax_file", "aliases": ["set_syntax_file"] },
             { "topic": "view.extract_scope", "aliases": ["extract_scope"] },
             { "topic": "view.scope_name", "aliases": ["scope_name"] },
+            { "topic": "view.context_backtrace", "aliases": ["context_backtrace"] },
             { "topic": "view.match_selector", "aliases": ["match_selector"] },
             { "topic": "view.score_selector" },
             { "topic": "view.find_by_selector", "aliases": ["find_by_selector"] },
@@ -309,7 +313,8 @@
             { "topic": "region.cover", "aliases": ["cover"] },
             { "topic": "region.intersection", "aliases": ["intersection"] },
             { "topic": "region.intersects", "aliases": ["intersects"] },
-            { "topic": "region.contains" }
+            { "topic": "region.contains" },
+            { "topic": "region.to_tuple" }
         ],
         "textchange.txt": [
             "sublime.TextChange Class",

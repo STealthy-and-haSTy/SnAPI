@@ -1,0 +1,42 @@
+%hyperhelp title="sublime.Syntax Class" date="2021-09-09"
+
+
+# syntax:Syntax Class
+==============
+
+Contains information about a syntax.
+
+This class is contained in the |sublime| module.
+
+    Availability: `[>=4081]`
+
+
+## _none:Properties
+-------------
+
+*syntax.path*
+  Type: str
+
+   The packages path to the syntax file.
+
+
+*syntax.name*
+  Type: str
+
+    The name of the syntax.
+
+
+*syntax.hidden*
+  Type: bool
+
+    If the syntax is hidden from the user.
+
+
+*syntax.scope*
+  Type: str
+
+    The base scope name of the syntax.
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

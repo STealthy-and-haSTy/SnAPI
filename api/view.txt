@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.View Class" date="2020-07-30"
+%hyperhelp title="sublime.View Class" date="2021-09-07"
 
 
 # view:View Class
@@ -42,11 +42,24 @@ This class is contained in the |sublime| module.
     Returns a number that uniquely identifies the buffer underlying this view.
 
 
+*view.buffer*()  `[UNDOCUMENTED]``[>=4080]`
+  Returns: |:Buffer_class:Buffer|
+
+    Returns a`Buffer` object associated with this `view`.
+
+
 *view.is_valid*()  `[UNDOCUMENTED]`
   Returns: bool
 
     Returns a boolean indicating if this view object is valid or not. A view
     becomes invalid if it is no longer attached to a buffer.
+
+
+*view.clones*()  `[UNDOCUMENTED]``[>=4080]`
+  Returns: [|View|]
+
+    Retrieve a list of all the other `view`s that share the same buffer as this
+    view.
 
 
 *view.is_primary*()
@@ -57,7 +70,7 @@ This class is contained in the |sublime| module.
 
 
 *view.file_name*()
-  Returns: str
+  Returns: str or None
 
     The full name file the file associated with the buffer, or `None` if it
     doesn't exist on disk.
@@ -70,12 +83,26 @@ This class is contained in the |sublime| module.
     future save operations will be done using this file name.
 
 
-*view.meta_info*(key, point)  `[UNDOCUMENTED]`
+*view.meta_info*(key, point)
   Returns: value
 
-    Obtain the metadata information (i.e. information stored in `tmPreferences`
-    files) for the provided `key`. For metadata that is scoped, the scope at the
-    `point` provided is used to determine which meta information to return.
+    Returns data from .tmPreferences files. Looks up the preference named `key`
+    for the scope of the token at the |point| pt. Preference names may be any
+    string defined in a .tmPreferences file. Some examples include:
+    `TM_COMMENT_START`, `TM_COMMENT_END`, `showInSymbolList` and
+    `showInIndexedSymbolList`.
+
+
+*view.sheet*()  `[>=4083]`
+  Returns: |Sheet| or None
+
+    Returns the Sheet for this View, if displayed in a sheet
+
+
+*view.sheet_id*()  `[>=4083]`
+  Returns: int
+
+    Returns the ID of the Sheet for this View, or `0` if not part of a sheet
 
 
 *view.name*()
@@ -97,7 +124,7 @@ This class is contained in the |sublime| module.
     use.
 
 
-*view.close*()  `[UNDOCUMENTED]`
+*view.close*()
   Returns: bool
 
     Attempts to close the current view, possibly prompting the user if they
@@ -380,14 +407,14 @@ This class is contained in the |sublime| module.
     numbers are returned as number of Unicode characters.
 
 
-*view.rowcol_utf8*()  `[>=4050]`
+*view.rowcol_utf8*()  `[>=4069]`
   Returns: (int, int)
 
     Calculates the 0-based line and column numbers of the `point`. Column
     numbers are returned as UTF-8 code units, i.e. bytes.
 
 
-*view.rowcol_utf16*()  `[>=4050]`
+*view.rowcol_utf16*()  `[>=4069]`
   Returns: (int, int)
 
     Calculates the 0-based line and column numbers of the `point`. Column
@@ -402,7 +429,7 @@ This class is contained in the |sublime| module.
     the beginning of the row.
 
 
-*view.text_point_utf8*()  `[>=4050]`
+*view.text_point_utf8*()  `[>=4069]`
   Returns: (int, int)
 
     Calculates the character offset of the given, 0-based, `row` and `col`.
@@ -410,7 +437,7 @@ This class is contained in the |sublime| module.
     advance past the beginning of the row.
 
 
-*view.text_point_utf16*()  `[>=4050]`
+*view.text_point_utf16*()  `[>=4069]`
   Returns: (int, int)
 
     Calculates the character offset of the given, 0-based, `row` and `col`.
@@ -418,22 +445,21 @@ This class is contained in the |sublime| module.
     to advance past the beginning of the row.
 
 
-*view.assign_syntax*(syntax_file)  `[UNDOCUMENTED]`
+*view.assign_syntax*(syntax_file)
   Returns: None
 
-    Changes the syntax used by the view. `syntax_file` should be a name along
-    the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
-    syntax, use `view.settings().get('syntax')`.
+    Changes the syntax used by the view. `syntax` may be a |Syntax| object,
+    packages path to a syntax file, or `scope:` specifier string.
 
 
 *view.set_syntax_file*(syntax_file)  `[DEPRECATED]`
   Returns: None
 
+    DEPRECATED - use |:view.assign_sybntax:assign_syntax()| when possible.
+
     Changes the syntax used by the view. `syntax_file` should be a name along
     the lines of `Packages/Python/Python.tmLanguage`. To retrieve the current
     syntax, use `view.settings().get('syntax')`.
-
-    This function is deprecated; you should use |:view.assign_syntax:assign_syntax| instead.
 
 
 *view.extract_scope*(point)
@@ -448,6 +474,14 @@ This class is contained in the |sublime| module.
 
     Returns the syntax scope name assigned to the character at the given
     `point`.
+
+
+*view.context_backtrace*(point)  `[UNDOCUMENTED]``[>=4087]`
+  Returns: str
+
+    Returns a list of the contexts on the stack at the specified `point`.
+
+    Very slow but useful for debugging a syntax definition.
 
 
 *view.match_selector*(point, selector)
@@ -473,11 +507,29 @@ This class is contained in the |sublime| module.
     as a list.
 
 
-*view.show*(location, <show_surrounds>)
+*view.show*(location, <show_surrounds>, <keep_to_left>, <animate>)
   Returns: None
 
-    Scroll the view to show the given `location`, which may be a |point|,
-    |Region| or |Selection|.
+    +--------------------------------------------------------------------------+
+    | Some capabilities and arguments of this API method depend on the version |
+    | of Sublime Text being used; see below for details.                       |
+    +--------------------------------------------------------------------------+
+
+    Scroll the view to show the given `location`.
+
+      * `location`
+        A |point|, |Region| or |Selection| to scroll the view to
+
+      * `show_surrounds`
+        A `bool`, scroll the view far enough that surrounding content is
+        visible also
+
+      * `keep_to_left`  `[>=4075]`
+        A `bool`, if the view should be kept to the left, if horizontal
+        scrolling is possible
+
+      * `animate`  `[>=4075]`
+        A `bool`, if the scroll should be animated
 
 
 *view.show_at_center*(location)
@@ -924,7 +976,21 @@ This class is contained in the |sublime| module.
 *view.symbols*()
   Returns: [(|Region|, str)]
 
+    DEPRECATED - use |:view.symbol_regions:symbol_regions()| when possible.
+
     Extract all the symbols defined in the buffer.
+
+
+*view.symbol_regions*()  `[>=4085]`
+  Returns: [|SymbolRegion|]
+
+    Returns info about symbols that are part of the local symbol list.
+
+
+*view.indexed_symbol_regions*()  `[>=4085]`
+  Returns: [|SymbolRegion|]
+
+    Returns info about symbols that are indexed.
 
 
 *view.show_popup_menu*(items, on_select, <flags>)
@@ -959,6 +1025,9 @@ This class is contained in the |sublime| module.
 
     * `sublime.KEEP_ON_SELECTION_MODIFIED`  `[>=4057]`
       prevent the popup from hiding when the selection is modified
+
+    * `sublime.HIDE_ON_CHARACTER_EVENT`  `[>=4075]`
+      hide the popup when a character is typed
 
     The default `location` of `-1` will display the popup at the cursor,
     otherwise a text point should be passed.
@@ -1023,6 +1092,9 @@ This class is contained in the |sublime| module.
       * `"bold"`
       * `"italic"`
       * `"glow"`   `[>=4063]`
+      * `"underline:` `[>=4075]`
+      * `"stippled_underline:` `[>=4075]`
+      * `"squiggly_underline:` `[>=4075]`
       * `"source_line"`
       * `"source_column"`
       * `"source_file"`
@@ -1050,6 +1122,30 @@ This class is contained in the |sublime| module.
   Returns: None
 
     Clears the state of the `incremental diff` for the view
+
+
+*view.export_to_html*(<regions>, <minihtml>, <enclosing_tags>,   `[>=4092]`
+                      <font_size>,<font_family>)
+  Returns: str
+
+    Generates an HTML string of the current view contents
+
+    * `regions`
+      restrict the generated HTML to a Region or `list` of regions.
+
+    * `minihtml`
+      a boolean that causes the exported HTML to be compatible with |minihtml|.
+
+    * `enclosing_tags`
+      a boolean that adds a <div> tag with base styles around the markup.
+
+    * `font_size`
+      a boolean that controls adding `font-size` to the markup generated when
+      `enclosing_tags` is `True`.
+
+    * `font_family`
+      a boolean that controls adding `font-family` to the markup generated when
+      `enclosing_tags` is `True`.
 
 
 --------------------------------------------------------------------------------

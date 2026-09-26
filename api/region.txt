@@ -1,4 +1,4 @@
-%hyperhelp title="sublime.Region Class" date="2020-05-05"
+%hyperhelp title="sublime.Region Class" date="2021-09-09"
 
 
 # region:Region Class
@@ -129,6 +129,15 @@ This class is contained in the |sublime| module.
   Returns: bool
 
     Returns `True` iff `begin()` <= `point` <= `end()`.
+
+
+*region.to_tuple*()  `[>=4075]`
+  Returns: tuple
+
+    Returns a 2-element `tuple` of:
+
+     0) `.a`, an `int`
+     2) `.b`, an `int`
 
 
 --------------------------------------------------------------------------------

@@ -1,0 +1,73 @@
+%hyperhelp title="sublime.TextChangeListener Class" date="2021-09-09"
+
+
+# textchangelistener:TextChangeListener Class
+==============
+
+A class that provides event handling about text changes made to a specific
+|Buffer|. Is separate from |ViewEventListener| since multiple views can share a
+single buffer.
+
+This class is contained in the |sublime| module.
+
+
+## _none:Properties
+-------------
+
+*textchangelistener.buffer*
+  Type: |Buffer|
+
+    The buffer this `TextChangeListener` is listening to
+
+
+*|_none:Methods|*
+-------
+
+
+*textchangelistener.on_text_changed*([changes])  `[>=4081]`
+  Returns: None
+
+    Called once after changes has been made to a buffer, with detailed
+    information about what has changed.
+
+    `changes` is a list of |TextChange| objects.
+
+
+*textchangelistener.on_text_changed_async*([changes])  `[>=4081]`
+  Returns: None
+
+    Called once after changes has been made to a buffer, with detailed
+    information about what has changed. Runs in a separate thread, and does not
+    block the application.
+
+    `changes` is a list of |TextChange| objects.
+
+
+*textchangelistener.on_revert*()  `[>=4081]`
+  Returns: None
+
+    Called when the buffer is reverted.
+
+
+*textchangelistener.on_revert_async*()  `[>=4081]`
+  Returns: None
+
+    Called when the buffer is reverted. Runs in a separate thread, and does not
+    block the application.
+
+
+*textchangelistener.on_reload*()  `[>=4081]`
+  Returns: None
+
+    Called when the buffer is reloaded.
+
+
+*textchangelistener.on_reload_async*()  `[>=4081]`
+  Returns: None
+
+    Called when the buffer is reloaded. Runs in a separate thread, and does not
+    block the application.
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

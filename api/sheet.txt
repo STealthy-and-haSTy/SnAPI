@@ -1,11 +1,11 @@
-%hyperhelp title="sublime.Sheet Class" date="2020-05-06"
+%hyperhelp title="sublime.Sheet Class" date="2021-09-07"
 
 
 # sheet:Sheet Class
 =============
 
 Represents a content container, i.e. a tab, within a window. Sheets may contain
-a |View|, or an image preview.
+a |View|, |HTML|, or an image preview.
 
 This class is contained in the |sublime| module.
 
@@ -23,6 +23,12 @@ This class is contained in the |sublime| module.
     been closed.
 
 
+*sheet.group*()  `[>=4100]`
+  Returns: int
+
+    The (layout) group that the sheet is contained within
+
+
 *sheet.view*()
   Returns: |View| or None
 
@@ -35,6 +41,12 @@ This class is contained in the |sublime| module.
 
     The full name file the file associated with the buffer, or None if it
     doesn't exist on disk.
+
+
+*sheet.close*()  `[>=4088]`
+  Returns: None
+
+    Closes the sheet.
 
 
 --------------------------------------------------------------------------------

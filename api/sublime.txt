@@ -1,4 +1,4 @@
-%hyperhelp title="sublime Module" date="2020-07-28"
+%hyperhelp title="sublime Module" date="2021-09-07"
 
 
 # sublime:sublime Module
@@ -8,7 +8,11 @@ In addition to the following module functions, the `sublime` module contains
 the following classes and data types:
 
     |Sheet|
+    |TextSheet|
+    |ImageSheet|
+    |HtmlSheet|          `[>=4050]`
     |View|
+    |Buffer|
     |Selection|
     |Region|
     |Phantom|
@@ -21,6 +25,11 @@ the following classes and data types:
     |CompletionList|     `[>=4050]`
     |Window|
     |Settings|
+    |Syntax|             `[>=????]`
+    |QuickPanelItem|     `[>=????]`
+    |ListInputItem|      `[>=????]`
+    |SymbolRegion|       `[>=????]`
+    |SymbolLocation|     `[>=????]`
 
 
 *sublime.set_timeout*(callback, delay=0)
@@ -196,14 +205,40 @@ the following classes and data types:
     Finds resources whose file name matches the given `pattern`.
 
 
-*sublime.list_syntaxes*()  `[>=4050]`
-  Returns: [dict]
+*sublime.ui_info*()  `[>=4096]`
+  Returns: dict
 
-    Returns a list of all available syntaxes. Each dict will have the keys
-    `"path"`, `"name"`, `"hidden"` and `"scope"`.
+    Returns information about the user interface, including top-level keys
+    `system`, `theme` and `color_scheme`.
 
 
-*sublime.find_syntax*(fname, <first_line>)  `[>=4050]`
+*sublime.list_syntaxes*()  `[>=4081]`
+  Returns: [|Syntax|]
+
+    Returns a list of all available syntaxes.
+
+
+*sublime.syntax_from_path*(path)  `[>=4081]`
+  Returns: |Syntax| or None
+
+    Returns the the `Syntax`, if any, at the unicode string `path` specified.
+
+
+*sublime.find_syntax_by_name*(name)  `[>=4081]`
+  Returns: [|Syntax|]
+
+        Returns the the `Syntax`, if any, with the unicode string `name`
+        specified.
+
+
+*sublime.find_syntax_by_scope*(scope)  `[>=4081]`
+  Returns: [|Syntax|]
+
+        Returns the the `Syntax`, if any, with the unicode string base `scope`
+        specified.
+
+
+*sublime.find_syntax_for_file*(fname, <first_line>)  `[>=4081]`
   Returns: str or None
 
     Returns the path to the syntax that will be used when opening a file with
@@ -233,6 +268,20 @@ the following classes and data types:
     which case the structure will be recursively expanded. Strings should use
     snippet syntax, for example:
         `expand_variables("Hello, ${name}", {"name": "Foo"})`
+
+
+*sublime.format_command*(cmd, <args>)  `[>=4075]`
+  Returns: str
+
+    Create a "command string" from a str `cmd` name, and an optional dict of
+    `args`. This is used when constructing a command-based |CompletionItem|.
+
+
+*sublime.command_url*(cmd, <args>)  `[>=4075]`
+  Returns: str
+
+    Creates a |:subl_protocol:subl:-protocol| URL for executing a command in a |minihtml|
+    link.
 
 
 *sublime.load_settings*(base_name)
@@ -299,11 +348,21 @@ the following classes and data types:
     Returns the path where Sublime Text stores cache files.
 
 
-*sublime.get_clipboard*(<size_limit>)
+*sublime.get_clipboard*(<size_limit>)  `[DEPRECATED]`
   Returns: str
+
+    DEPRECATED - use |:get_clipboard_async:get_clipboard_async()| when possible.
 
     Returns the contents of the clipboard. `size_limit` is there to protect
     against unnecessarily large data, defaults to 16,777,216 characters
+
+
+*sublime.get_clipboard_async*(callback, <size_limit>)  `[>=4075]`
+  Returns: None
+
+    Calls `callback` with the contents of the clipboard. `size_limit` protects
+    against unnecessarily large data, and defaults to 16,777,216 bytes. If the
+    clipboard is larger than size_limit, an empty string will be passed.
 
 
 *sublime.set_clipboard*(text)
@@ -325,6 +384,13 @@ the following classes and data types:
   Returns: None
 
     Runs the named |ApplicationCommand| with the (optional) given `args`.
+
+
+*sublime.get_macro*()  `[>=????]`
+  returns: [dict]
+
+    Returns a list of the commands and args that compromise the currently
+    recorded macro. Each `dict` will contain the keys `"command"` and `"args"`.
 
 
 *sublime.log_commands*(flag)
@@ -367,11 +433,19 @@ the following classes and data types:
     is logged to the console.
 
 
-*sublime.log_control_tree*(flag)
+*sublime.log_control_tree*(flag)    `[>=4064]`
   Returns: None
 
     When enabled, clicking with <Ctrl+Alt> will log the control tree under the
     mouse to the console.
+
+
+*sublime.log_fps*(flag)  `[>=4075]`
+  Returns: None
+
+    When enabled, the frame rate of display updates is logged to the console.
+    Note that the display is not continuous, and only occurs while updates are
+    happening.
 
 
 *sublime.version*()
@@ -392,7 +466,7 @@ the following classes and data types:
     Returns the CPU architecture, which may be `"x32"` or `"x64"`
 
 
-*sublime.channel*()  `[UNDOCUMENTED]`
+*sublime.channel*()
   Returns: str
 
     Returns the channel that the current version of Sublime is from, which may

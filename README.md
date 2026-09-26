@@ -3,7 +3,7 @@ SnAPI
 
 SnAPI is a simple package that provides a local copy of the Sublime Text
 [documentation](http://www.sublimetext.com/docs/) directly
-from within Sublime, using the [hyperhelp](https://github.com/STealthy-and-haSTy/hyperhelpcore)
+from within Sublime, using the [hyperhelp](https://github.com/STealthy-and-haSTy/HyperHelp)
 help system for navigation.
 
  > ***Note:*** Currently only the Sublime Text API, build system  and color

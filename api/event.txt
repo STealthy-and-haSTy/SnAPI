@@ -1,0 +1,37 @@
+%hyperhelp title="sublime.event Dict" date="2022-12-14"
+
+
+# event_dict:event Dict
+==============
+
+Contains information about a user’s interaction with a menu, command
+palette selection, quick panel selection or HTML document. The follow
+methods are used to signal that an event `dict` is desired:
+
+  * Commands may opt-in to receive an arg named event by implementing
+    the method |:TextCommand.want_event:want_event()| and returning `True`.
+
+  * A call to show_quick_panel() may opt-in to receive a second arg to the on_done callback by specifying the flag sublime.WANT_EVENT. 4096
+
+  * |ListInputHandler| classes may opt-in to receive a second arg to the
+    |validate()| and |confirm()| methods by by implementing the method
+    |want_event()| and returning `True`.  `[>=4096]`
+
+The `dict` may contain zero or more of the following keys, based on the
+user interaction:
+
+
+*event_x:x*
+
+    A float of the X mouse position when a user clicks on a menu, or in a minihtml document.
+
+
+*event_y:y*
+
+    A float of the Y mouse position when a user clicks on a menu, or in a minihtml document.
+
+
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|

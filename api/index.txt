@@ -1,27 +1,37 @@
-%hyperhelp title="Sublime Text API Documentation" date="2020-05-06"
+%hyperhelp title="Sublime Text API Documentation" date="2021-09-07"
 
 
-*|_none:General Information|*       *|_none:Core Components|*          *|_none:Plugin Extension Points|*
--------------------       ---------------          -----------------------
-|Example Plugins|         |sublime| module         |sublime_plugin| Module
-|Plugin Lifecycle|        |Sheet| Class            |EventListener| Class
-|Threading|               |View| Class             |ViewEventListener| Class
-|Units and Coordinates|   |Selection| Class        |ApplicationCommand| Class
-|Types|                   |Region| Class           |WindowCommand| Class
-                          |Phantom| Class          |TextCommand| Class
-                          |PhantomSet| Class       |TextInputHandler| Class **
-                          |Edit| Class             |ListInputHandler| Class **
-                          |TextChange| Class *
-                          |HistoricPosition| Class *
+*|_none:General Information|*       *|_none:Core Components|*         *|_none:Plugin Extension Points|*
+-------------------       ---------------         -----------------------
+|Example Plugins|         |sublime| module        |sublime_plugin| Module
+|Plugin Lifecycle|        |Sheet| Class           |EventListener| Class
+|Threading|               |Buffer| Class [3]      |ViewEventListener| Class
+|Units and Coordinates|   |View| Class            |TextChangeListener| Class [3]
+|Types|                   |Selection| Class       |ApplicationCommand| Class
+                          |Region| Class          |WindowCommand| Class
+                          |Phantom| Class         |TextCommand| Class
+                          |PhantomSet| Class      |TextInputHandler| Class [1]
+                          |Syntax| Class [3]      |ListInputHandler| Class [1]
+                          |TextChange| Class [2]
+                          |HistoricPosition| Class [2]
                           |completion| Value
-                          |CompletionItem| Class *
-                          |completion_kind| tuple *
-                          |CompletionList| Class *
+                          |CompletionItem| Class [2]
+                          |event| dict
+                          |kind| Tuple [2]
+                          |CompletionList| Class [2]
+                          |QuickPanelItem| Class [4]
+                          |SymbolRegion| Class [5]
                           |Window| Class
+                          |SymbolLocation| Class [5]
                           |Settings| Class
+                          |ListInputItem| Class [6]
 
-  *  - Available since build 4050
-  ** - Available since build 3154
+  [1] - Build 3154
+  [2] - Build 4050
+  [3] - Build 4081
+  [4] - Build 4083
+  [5] - Build 4085
+  [6] - Build 4095
 
 
 --------------------------------------------------------------------------------

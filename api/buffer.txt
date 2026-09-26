@@ -1,0 +1,38 @@
+%hyperhelp title="sublime.Buffer Class" date="2021-09-07"
+
+
+# buffer:Buffer Class
+=============
+
+Represents a text buffer. Multiple |View| objects may share the same buffer.
+
+This class is contained in the |sublime| module and was added in `[4081]`
+
+
+*buffer.id*()  `[>=4083]`
+  Returns: int
+
+    Returns a number that uniquely identifies this buffer.
+
+
+*buffer.file_name*()  `[>=4083]`
+  Returns: str or None
+
+    The full name file the file associated with the buffer, or None if it
+    doesn't exist on disk.
+
+
+*buffer.views*()
+  Returns: [|View|]
+
+    Returns a list of all views that are associated with this buffer.
+
+
+*buffer.primary_view*()
+  Returns: |View|
+
+        The primary view associated with this buffer.
+
+
+--------------------------------------------------------------------------------
+Sublime Text Help Copyright © Sublime HQ Pty Ltd            |api_reference.html|
