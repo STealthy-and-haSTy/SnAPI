@@ -1,9 +1,8 @@
 import sublime
 import sublime_plugin
 
+import textwrap
 import os
-
-from HyperHelp.helpcore.core import help_index_list, lookup_help_topic
 
 
 ###----------------------------------------------------------------------------
@@ -26,6 +25,48 @@ _extension_map = {
     ".sublime-color-scheme": "SublimeColorScheme"
 }
 
+
+
+###----------------------------------------------------------------------------
+
+
+def _is_hh_enabled():
+    """
+    A simple function which determines if HyperHelp is currently an available
+    package in the system. This is done by checking to see if its Help index is
+    available or not.
+
+    The return value is True if HyperHelp is installed and available, and False
+    otherwise.
+
+    Note that if HyperHelp is installed but in ignored_packages, this will
+    return False even though imports of functionality from within it will still
+    function as expected.
+    """
+    return bool([res for res in sublime.find_resources('hyperhelp.json')
+                 if "/HyperHelp/" in res])
+
+
+###----------------------------------------------------------------------------
+
+
+def plugin_loaded():
+    """
+    SnAPI is a simplistic package; however in order for its commands to work
+    as expected, HyperHelp needs to be installed.
+
+    Here we check to see if it is, and if it is not, display a message.
+
+    We don't stop the package from loading, since we are only going to invoke
+    commands, and those will just be missing.
+    """
+    if not _is_hh_enabled():
+        sublime.message_dialog(textwrap.dedent("""
+            SnAPI requires the HyperHelp package to be installed in order to
+            display its help content.
+
+            Please install HyperHelp from Package Control.
+        """))
 
 
 ###----------------------------------------------------------------------------
@@ -72,6 +113,9 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
     file being edited and the current selection or text under the cursor.
     """
     def run(self, edit):
+        # Lazy import the functions that we need
+        from HyperHelp.helpcore.core import help_index_list, lookup_help_topic
+
         pkg_name = self.pkg_for_file()
 
         # For unknown files, open the default topic for a default package.
@@ -124,6 +168,13 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
         return None
 
     def is_enabled(self):
+        if not _is_hh_enabled():
+            return False
+
+        # Lazy import the lookup function, then find the package that we should
+        # be displaying help for and, if we have help for it, we are good.
+        from HyperHelp.helpcore.core import help_index_list
+
         pkg = self.pkg_for_file() or "SublimeAPI"
         return pkg in help_index_list()
 
