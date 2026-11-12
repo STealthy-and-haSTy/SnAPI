@@ -1,3 +1,7 @@
+from __future__ import annotations
+
+from typing import Dict, Optional, cast
+
 import sublime
 import sublime_plugin
 
@@ -8,7 +12,7 @@ import os
 ###----------------------------------------------------------------------------
 
 
-_scope_map = {
+_scope_map: Dict[str, str] = {
     # Default scope.
     "source.python": "SublimeAPI",
 
@@ -18,7 +22,7 @@ _scope_map = {
     "source.json.sublime.color-scheme": "SublimeColorScheme"
 }
 
-_extension_map = {
+_extension_map: Dict[str, str] = {
     ".py": "SublimeAPI",
 
     ".sublime-build": "SublimeBuild",
@@ -30,7 +34,7 @@ _extension_map = {
 ###----------------------------------------------------------------------------
 
 
-def _is_hh_enabled():
+def _is_hh_enabled() -> bool:
     """
     A simple function which determines if HyperHelp is currently an available
     package in the system. This is done by checking to see if its Help index is
@@ -50,7 +54,7 @@ def _is_hh_enabled():
 ###----------------------------------------------------------------------------
 
 
-def plugin_loaded():
+def plugin_loaded() -> None:
     """
     SnAPI is a simplistic package; however in order for its commands to work
     as expected, HyperHelp needs to be installed.
@@ -72,7 +76,7 @@ def plugin_loaded():
 ###----------------------------------------------------------------------------
 
 
-def _word_under_cursor(view):
+def _word_under_cursor(view: sublime.View) -> Optional[str]:
     """
     Get the word under the cursor, if possible. The caret must be either in a
     word or at the start of a word boundary for this to work; if the caret is
@@ -84,7 +88,7 @@ def _word_under_cursor(view):
     """
     if len(view.sel()) == 1:
         word_class = sublime.CLASS_WORD_START | sublime.CLASS_WORD_END
-        sep = view.settings().get("word_separators", "") + " \t\n"
+        sep = cast(str, view.settings().get("word_separators", "")) + " \t\n"
 
         pt = view.sel()[0].begin()
         pt_class = view.classify(pt)
@@ -112,7 +116,7 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
     Attempts to open the appropriate help topic or package based on the type of
     file being edited and the current selection or text under the cursor.
     """
-    def run(self, edit):
+    def run(self, edit: sublime.Edit) -> None:
         # Lazy import the functions that we need
         from HyperHelp.helpcore.core import help_index_list, lookup_help_topic
 
@@ -127,6 +131,8 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
 
         # Get the help index for the type of file currently focused.
         pkg_info = help_index_list().get(pkg_name)
+        if pkg_info is None:
+            return
 
         # Get an initial topic; the selected text or the word under the cursor.
         extract = self.view.sel()[0]
@@ -148,9 +154,11 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
         sublime.run_command("hyperhelp_index" if topic else "hyperhelp_topic",
                             {"package": pkg_info.package})
         if topic:
-            self.view.window().run_command("insert", {"characters": topic})
+            window = self.view.window()
+            if window is not None:
+                window.run_command("insert", {"characters": topic})
 
-    def pkg_for_file(self):
+    def pkg_for_file(self) -> Optional[str]:
         # Use scope if possible to try and catch unsaved files.
         for scope, pkg in _scope_map.items():
             if self.view.match_selector(0, scope):
@@ -167,7 +175,7 @@ class SnapiLookupCommand(sublime_plugin.TextCommand):
         # Unrecognized file type
         return None
 
-    def is_enabled(self):
+    def is_enabled(self) -> bool:
         if not _is_hh_enabled():
             return False
 

@@ -3,22 +3,21 @@ target-version = "py38"
 line-length = 80
 
 [tool.ruff.lint]
-select = ["E4", "E7", "E9", "F", "B"]
-ignore = ["E731"]
+select = ["E4", "E7", "E9", "F", "B", "ANN"]
+ignore = ["ANN401", "E731"]
 
 [tool.pyright]
 pythonVersion = "3.8"
 typeCheckingMode = "standard"
 
-reportUnusedImport = "none"
-reportUnusedVariable = "none"
-reportUnusedClass = "none"
-reportUnusedFunction = "none"
-reportUnusedExpression = "none"
-reportUnusedCoroutine = "none"
-reportDuplicateImport = "none"
-reportWildcardImportFromLibrary = "none"
-#reportShadowedImports = "none"
+venvPath = "."
+venv = ".venv"
+useLibraryCodeForTypes = true
 
 reportMissingTypeStubs = "none"
+reportPrivateImportUsage = "none"
+reportUnusedImport = "none"
 reportMissingModuleSource = "none"
+reportUnsupportedDunderAll = "none"
+
+extraPaths = [".."]
