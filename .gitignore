@@ -1,0 +1,6 @@
+*.sublime-project
+*.sublime-workspace
+*.todo
+.venv/
+.ruff_cache/
+__pycache__/
